@@ -1,0 +1,34 @@
+free(): invalid pointer
+[8c5919991b82:40068] *** Process received signal ***
+[8c5919991b82:40068] *** Process received signal ***
+[8c5919991b82:40068] Signal: Segmentation fault (11)
+[8c5919991b82:40068] Signal code: Address not mapped (1)
+[8c5919991b82:40068] Failing at address: 0x10
+[8c5919991b82:40068] Signal: Aborted (6)
+[8c5919991b82:40068] Signal code:  (-6)
+[8c5919991b82:40068] [ 0] /lib/x86_64-linux-gnu/libc.so.6(+0x3c050)[0x7fd59f24c050]
+[8c5919991b82:40068] [ 1] /lib/x86_64-linux-gnu/libc.so.6(+0x8ae2c)[0x7fd59f29ae2c]
+[8c5919991b82:40068] [ 2] /lib/x86_64-linux-gnu/libc.so.6(gsignal+0x12)[0x7fd59f24bfb2]
+[8c5919991b82:40068] [ 3] /lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7fd59f236472]
+[8c5919991b82:40068] [ 4] /lib/x86_64-linux-gnu/libc.so.6(+0x7f430)[0x7fd59f28f430]
+[8c5919991b82:40068] [ 5] /lib/x86_64-linux-gnu/libc.so.6(+0x947aa)[0x7fd59f2a47aa]
+[8c5919991b82:40068] [ 6] /lib/x86_64-linux-gnu/libc.so.6(+0x96534)[0x7fd59f2a6534]
+[8c5919991b82:40068] [ 7] /lib/x86_64-linux-gnu/libc.so.6(__libc_free+0x6f)[0x7fd59f2a8e8f]
+[8c5919991b82:40068] [ 8] /usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_pml_ob1.so(mca_pml_ob1_recv+0x261)[0x7fd59e2c4951]
+[8c5919991b82:40068] [ 9] /lib/x86_64-linux-gnu/libmpi.so.40(ompi_coll_base_reduce_intra_basic_linear+0x205)[0x7fd59f5d0695]
+[8c5919991b82:40068] [10] /usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_coll_tuned.so(ompi_coll_tuned_reduce_intra_dec_fixed+0x4f)[0x7fd59e2ad37f]
+[8c5919991b82:40068] [11] /lib/x86_64-linux-gnu/libmpi.so.40(MPI_Reduce+0x12a)[0x7fd59f5a142a]
+[8c5919991b82:40068] [12] /opt/parcoach/lib/libParcoachInstrumentation.so(rma_analyzer_clear_comm_check_thread+0x10b)[0x7fd59f662f1b]
+[8c5919991b82:40068] [13] /opt/parcoach/lib/libParcoachInstrumentation.so(parcoach_rma_MPI_Win_fence+0x2b)[0x7fd59f6644bb]
+[8c5919991b82:40068] [14] results-20240305-201640/PARCOACH-dynamic/conflict/003-MPI-conflict-put-put-local-no.c-instrumented.exe(+0x14a3)[0x5652fe5e24a3]
+[8c5919991b82:40068] [15] /lib/x86_64-linux-gnu/libc.so.6(+0x2724a)[0x7fd59f23724a]
+[8c5919991b82:40068] [16] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x85)[0x7fd59f237305]
+[8c5919991b82:40068] [17] results-20240305-201640/PARCOACH-dynamic/conflict/003-MPI-conflict-put-put-local-no.c-instrumented.exe(+0x1131)[0x5652fe5e2131]
+[8c5919991b82:40068] *** End of error message ***
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 1 with PID 0 on node 8c5919991b82 exited on signal 6 (Aborted).
+--------------------------------------------------------------------------

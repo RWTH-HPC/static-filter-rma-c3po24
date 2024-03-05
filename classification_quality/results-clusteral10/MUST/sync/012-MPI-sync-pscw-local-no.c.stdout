@@ -1,0 +1,30 @@
+Using prebuild /home/user/.cache/must/prebuilds/c68e094d2eb7a367fa3fd65ca3555a22
+Using prebuild /home/user/.cache/must/prebuilds/c68e094d2eb7a367fa3fd65ca3555a22
+[MUST] MUST configuration ... distributed checks without application crash handling
+[MUST] Information: overwritting old intermediate data in directory "/rmaracebench/must_temp"!
+[MUST] Using prebuilt infrastructure at /home/user/.cache/must/prebuilds/c68e094d2eb7a367fa3fd65ca3555a22
+[MUST] Infrastructure in "/home/user/.cache/must/prebuilds/c68e094d2eb7a367fa3fd65ca3555a22" is present and used.
+[MUST] Search for linked P^nMPI ... not found ... using LD_PRELOAD to load P^nMPI ... success
+[MUST] Note: Full ThreadSanitizer support requires the application to be built with either a GNU-based compiler in version 9 to 11 or an LLVM-based compiler in version 6 to 13.
+[MUST] Note: MPI RMA support requires the application to be built with Clang >= 15.Executing application:
+value is 0
+Process 1: Execution finished, variable contents: value = 1, value2 = 2, win_base[0] = 0
+Process 0: Execution finished, variable contents: value = 0, value2 = 2, win_base[0] = 0
+/usr/bin/addr2line: '-f': No such file
+/usr/bin/addr2line: '-f': No such file
+[MUST-REPORT] Error: from: call MPI_Comm_group@0-1: There are 2 groups that are not freed when MPI_Finalize was issued, a quality application should free all MPI resources before calling MPI_Finalize. Listing information for these groups:
+[MUST-REPORT] 
+[MUST-REPORT]  -Group 1: Group created at reference  1 size=2
+[MUST-REPORT] 
+[MUST-REPORT]  -Group 2: Group created at reference  2 size=1
+[MUST-REPORT]  Representative location:
+[MUST-REPORT] #0  main@/rmaracebench/results-20240305-210746/MUST/sync/012-MPI-sync-pscw-local-no.c:52
+[MUST-REPORT]  References of a representative process:
+[MUST-REPORT] Reference 1: call MPI_Comm_group@rank 0, threadid 1;
+[MUST-REPORT] Stacktrace:
+[MUST-REPORT] #0  main@/rmaracebench/results-20240305-210746/MUST/sync/012-MPI-sync-pscw-local-no.c:52
+[MUST-REPORT] Reference 2: call MPI_Group_incl@rank 0, threadid 1;
+[MUST-REPORT] Stacktrace:
+[MUST-REPORT] #0  main@/rmaracebench/results-20240305-210746/MUST/sync/012-MPI-sync-pscw-local-no.c:59
+[MUST-REPORT] 
+[MUST] Execution finished.

@@ -1,0 +1,4 @@
+---
+BasedOnStyle: InheritParentConfig
+# Reflowing of comments breaks lit/FileCheck directives
+ReflowComments: false

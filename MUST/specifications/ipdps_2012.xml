@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+
+<!--
+  Part of the MUST Project, under BSD-3-Clause License
+ See https://hpc.rwth-aachen.de/must/LICENSE for license information.
+  SPDX-License-Identifier: BSD-3-Clause
+-->
+
+<!DOCTYPE analysis-specification SYSTEM "@MUST_SPECIFICATION_DTD_PATH@/analysis-specification.dtd">
+<analysis-specification path-to-libs="@CMAKE_INSTALL_PREFIX@/modules" include-path="" group-name="IPDPS2012">
+    <analyses>
+        <analysis name="TransferStatistics">
+            <registered-name>TransferStatistics</registered-name>
+            <module-name>libtransferStatistics</module-name>
+            <header-name>I_TransferStatistics.h</header-name>
+            <interface-type>I_TransferStatistics</interface-type>
+            <is-global>0</is-global>
+            <is-process-global>0</is-process-global>
+            <dependencies>
+                <analysis-depend group="MUST_Base">ParallelIdAnalysis</analysis-depend>
+                <analysis-depend group="MUST_Resource">CommTrack</analysis-depend>
+                <analysis-depend group="MUST_Resource">DatatypeTrack</analysis-depend>
+                <!--<analysis-depend group="MUST_CollectiveCondition">CollectiveCondition</analysis-depend>-->
+            </dependencies>
+            <analysis-function name="init">
+                <analysis-argument order="0" type="uint64_t" name="pId">
+                </analysis-argument>
+            </analysis-function>
+            <analysis-function name="sendP2P">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="@DATATYPE_F_TYPE@" name="type" />
+                <analysis-argument order="2" type="int" name="count" />
+            </analysis-function>
+            <analysis-function name="collNoTransfer">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="@COMM_F_TYPE@" name="comm" />
+            </analysis-function>
+            <analysis-function name="collRecvBalance">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="@COMM_F_TYPE@" name="comm" />
+                <analysis-argument order="2" type="int" name="coll" />
+                <analysis-argument order="3" type="int" name="root" />
+            </analysis-function>
+            <analysis-function name="collSend">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="@COMM_F_TYPE@" name="comm">
+                </analysis-argument>
+                <analysis-argument order="2" type="@DATATYPE_F_TYPE@" name="type" />
+                <analysis-argument order="3" type="int" name="count" />
+            </analysis-function>
+            <analysis-function name="collSendN">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="@COMM_F_TYPE@" name="comm">
+                </analysis-argument>
+                <analysis-argument order="2" type="@DATATYPE_F_TYPE@" name="type" />
+                <analysis-argument order="3" type="int" name="count" />
+            </analysis-function>
+            <analysis-function name="collSendCounts">
+                <analysis-argument order="0" type="uint64_t" name="pId" />
+                <analysis-argument order="1" type="@COMM_F_TYPE@" name="comm">
+                </analysis-argument>
+                <analysis-argument order="2" type="@DATATYPE_F_TYPE@" name="type" />
+                <analysis-argument order="3" type="int*" name="counts" />
+            </analysis-function>
+            <analysis-function name="collSendTypes">
+                <analysis-argument order="0" type="uint64_t" name="pId" >
+                </analysis-argument>
+                <analysis-argument order="1" type="@COMM_F_TYPE@" name="comm">
+                </analysis-argument>
+                <analysis-argument order="2" type="@DATATYPE_F_TYPE@*" name="types" />
+                <analysis-argument order="3" type="int*" name="counts" />
+            </analysis-function>
+        </analysis>
+        <analysis name="TransferReduction" reduction="yes">
+            <registered-name>TransferReduction</registered-name>
+            <module-name>libtransferReduction</module-name>
+            <header-name>I_TransferReduction.h</header-name>
+            <interface-type>I_TransferReduction</interface-type>
+            <is-global>0</is-global>
+            <is-process-global>0</is-process-global>
+            <dependencies>
+            </dependencies>
+            <analysis-function name="reduce">
+                <analysis-argument order="0" type="uint64_t" name="sentP2P">
+                </analysis-argument>
+                <analysis-argument order="1" type="uint64_t" name="numP2P">
+                </analysis-argument>
+                <analysis-argument order="2" type="uint64_t" name="sentColl">
+                </analysis-argument>
+                <analysis-argument order="3" type="uint64_t" name="numColl">
+                </analysis-argument>
+                <analysis-argument order="4" type="uint64_t" name="duration">
+                </analysis-argument>
+            </analysis-function>
+        </analysis>
+        <analysis name="TransferTracer">
+            <registered-name>TransferTracer</registered-name>
+            <module-name>libtransferTracer</module-name>
+            <header-name>I_TransferTracer.h</header-name>
+            <interface-type>I_TransferTracer</interface-type>
+            <is-global>1</is-global>
+            <is-process-global>0</is-process-global>
+            <dependencies>
+            </dependencies>
+            <reductions>
+                <analysis-depend>TransferReduction</analysis-depend>
+            </reductions>
+            <analysis-function name="interval" needs-channel-id="yes">
+                <analysis-argument order="0" type="uint64_t" name="sentP2P">
+                </analysis-argument>
+                <analysis-argument order="1" type="uint64_t" name="numP2P">
+                </analysis-argument>
+                <analysis-argument order="2" type="uint64_t" name="sentColl">
+                </analysis-argument>
+                <analysis-argument order="3" type="uint64_t" name="numColl">
+                </analysis-argument>
+                <analysis-argument order="4" type="uint64_t" name="duration">
+                </analysis-argument>
+            </analysis-function>
+        </analysis>
+    </analyses>
+    <operations>
+    </operations>
+</analysis-specification>

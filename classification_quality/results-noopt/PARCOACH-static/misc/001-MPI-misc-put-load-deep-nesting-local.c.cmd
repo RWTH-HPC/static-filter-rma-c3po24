@@ -1,0 +1,2 @@
+mpicc -fopenmp -O0 -g -S -emit-llvm results-20240305-201640/PARCOACH-static/misc/001-MPI-misc-put-load-deep-nesting-local.c -o results-20240305-201640/PARCOACH-static/misc/001-MPI-misc-put-load-deep-nesting-local.c.ll
+parcoach -S --check=rma results-20240305-201640/PARCOACH-static/misc/001-MPI-misc-put-load-deep-nesting-local.c.ll -o results-20240305-201640/PARCOACH-static/misc/001-MPI-misc-put-load-deep-nesting-local.c-instrumented.ll

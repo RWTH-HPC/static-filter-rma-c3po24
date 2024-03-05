@@ -1,0 +1,51 @@
+Using prebuild /home/user/.cache/must/prebuilds/c68e094d2eb7a367fa3fd65ca3555a22
+Using prebuild /home/user/.cache/must/prebuilds/c68e094d2eb7a367fa3fd65ca3555a22
+[MUST] MUST configuration ... distributed checks without application crash handling
+[MUST] Information: overwritting old intermediate data in directory "/rmaracebench/must_temp"!
+[MUST] Using prebuilt infrastructure at /home/user/.cache/must/prebuilds/c68e094d2eb7a367fa3fd65ca3555a22
+[MUST] Infrastructure in "/home/user/.cache/must/prebuilds/c68e094d2eb7a367fa3fd65ca3555a22" is present and used.
+[MUST] Search for linked P^nMPI ... not found ... using LD_PRELOAD to load P^nMPI ... success
+[MUST] Note: Full ThreadSanitizer support requires the application to be built with either a GNU-based compiler in version 9 to 11 or an LLVM-based compiler in version 6 to 13.
+[MUST] Note: MPI RMA support requires the application to be built with Clang >= 15.Executing application:
+win_base[0] is 1
+==================
+[1m[31mWARNING: ThreadSanitizer: data race (pid=21738)
+[1m[0m[1m[34m  Write of size 4 at 0x7f665262f008 by thread T14 (mutexes: write M0):
+[1m[0m    #0 MPI_Put ??:? (libpnmpi.so+0x90a50) (BuildId: 05175fe2db8438a60158cd2bbcb989ce0843156e)
+    #1 <null> <null> (0xfffffffffffffff)
+    #2 <null> <null> (0x000100000000)
+    #3 <null> <null> (0x000100000006)
+    #4 <null> <null> (0x56144e66ccc6)
+
+[1m[34m  Previous read of size 4 at 0x7f665262f008 by main thread:
+[1m[0m    #0 main /rmaracebench/results-20240305-201640/MUST/sync/033-MPI-sync-lock-sendrecv-3procs-remote-yes.c:68 (033-MPI-sync-lock-sendrecv-3procs-remote-yes.c.exe-must+0xd9d54) (BuildId: df6a205853972e920ce6049705c56d0fc41981a8)
+
+[1m[32m  Location is global '<null>' at 0x000000000000 (osc_rdma.8c5919991b82.15e40001.10 (deleted)+0x2008)
+
+[1m[0m[1m[35m  Mutex M0 (0x7b1000024db8) created at:
+[1m[0m    [failed to restore the stack]
+
+[1m[36m  Thread T14 'rank 0' (tid=0, running) created by thread T3 at:
+[1m[0m    #0 must::TargetChecks::targetOpComplete(unsigned long, unsigned long, unsigned long*, int) ??:? (libtargetChecks.so+0xebba) (BuildId: e7a510da0f1579816df6a8be5c038af936cb5847)
+
+SUMMARY: ThreadSanitizer: data race ??:? in MPI_Put
+==================
+Process 2: Execution finished, variable contents: value = 1, value2 = 2, win_base[0] = 0
+Process 1: Execution finished, variable contents: value = 1, value2 = 2, win_base[0] = 1
+Process 0: Execution finished, variable contents: value = 1, value2 = 2, win_base[0] = 0
+/usr/bin/addr2line: '-f': No such file
+[MUST-REPORT] Error: from: call main@1: Remote data race at rank 1 between a write of size 4 at MPI_Put@1 from rank 0 and a previous read of size 4 at main@2 from rank 1.
+[MUST-REPORT]  Representative location:
+[MUST-REPORT] #0  main@/rmaracebench/results-20240305-201640/MUST/sync/033-MPI-sync-lock-sendrecv-3procs-remote-yes.c:68
+[MUST-REPORT]  References of a representative process:
+[MUST-REPORT] Reference 1: call MPI_Put@rank 0, threadid 1;
+[MUST-REPORT] Stacktrace:
+[MUST-REPORT] #0  main@/rmaracebench/results-20240305-201640/MUST/sync/033-MPI-sync-lock-sendrecv-3procs-remote-yes.c:60
+[MUST-REPORT] Reference 2: call mainmain
+[MUST-REPORT] /rmaracebench/results-20240305-201640/MUST/sync/033-MPI-sync-lock-sendrecv-3procs-remote-yes.c:68
+[MUST-REPORT] @rank 1, threadid 0;
+[MUST-REPORT] Stacktrace:
+[MUST-REPORT] #0  main@/rmaracebench/results-20240305-201640/MUST/sync/033-MPI-sync-lock-sendrecv-3procs-remote-yes.c:68
+[MUST-REPORT] 
+ThreadSanitizer: reported 1 warnings
+[MUST] Execution finished.

@@ -1,0 +1,143 @@
+name: TypeART-CI
+
+on:
+  push:
+    branches: [ master, devel ]
+  pull_request:
+
+env:
+  CXX: clang++
+  CC: clang
+  OMP_NUM_THREAD: 2
+
+jobs:
+  format-check:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Format source code
+        run: |
+          find demo lib test \
+            -type f \
+            -a \( -name "*.c" -o -name "*.cpp" -o -name "*.h" \) \
+            -not -path "*/lulesh/*" -not -path "*/CallSite.h" \
+            -print0 \
+            | xargs -0 clang-format-12 -i
+
+      - name: Format check
+        run: |
+          git status --porcelain --untracked-files=no
+          git status --porcelain --untracked-files=no | xargs -o -I {} test -z \"{}\"
+
+  codespell:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: codespell-project/actions-codespell@master
+
+  lit-suite:
+    runs-on: ubuntu-20.04
+
+    strategy:
+      fail-fast: false
+      matrix:
+        llvm-version: [ 10, 11, 12 ]
+        preset:
+          - name: ci-thread-safe-safeptr
+          - name: ci-thread-safe
+          - name: ci-thread-unsafe
+          - name: ci-cov-thread-safe-safeptr
+            coverage: true
+          - name: ci-cov-thread-safe
+            coverage: true
+          - name: ci-cov-thread-unsafe
+            coverage: true
+          - name: ci-libcxx
+            libcxx: true
+            skip_test: true
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Update apt
+        run: sudo apt-get update
+
+      - name: Install LLVM
+        run: sudo apt-get install libllvm${{ matrix.llvm-version }} llvm-${{ matrix.llvm-version }} llvm-${{ matrix.llvm-version }}-dev
+
+      - name: Install LLVM OpenMP runtime
+        run: sudo apt-get install libomp-${{ matrix.llvm-version }}-dev libomp5-${{ matrix.llvm-version }}
+
+      - name: Install Clang
+        run: sudo apt-get install clang-${{ matrix.llvm-version }} clang-tidy-${{ matrix.llvm-version }}
+
+      - name: Install libc++
+        if: matrix.preset.libcxx
+        run: sudo apt-get install --no-install-recommends libc++-${{ matrix.llvm-version }}-dev libc++abi-${{ matrix.llvm-version }}-dev
+
+      - name: Install OpenMPI
+        run: sudo apt-get install libopenmpi-dev openmpi-bin
+
+      - name: Install lcov
+        if: matrix.preset.coverage
+        run: sudo apt-get install lcov
+
+      - name: Setup env
+        run: |
+          sudo ln -f -s /usr/bin/clang-${{ matrix.llvm-version }} /usr/bin/clang
+          sudo ln -f -s /usr/bin/clang++-${{ matrix.llvm-version }} /usr/bin/clang++
+          echo "LLVM_CMAKE_DIR=/usr/lib/llvm-${{ matrix.llvm-version }}/cmake" >> $GITHUB_ENV
+          echo "EXTERNAL_LIT=/usr/lib/llvm-${{ matrix.llvm-version }}/build/utils/lit/lit.py" >> $GITHUB_ENV
+
+      - name: Configure TypeART
+        run: cmake -B build --preset ${{ matrix.preset.name }} -DLLVM_DIR=${LLVM_CMAKE_DIR} -DLLVM_EXTERNAL_LIT=${EXTERNAL_LIT}
+
+      - name: Build TypeART
+        run: cmake --build build --parallel 2
+
+      - name: Prepare TypeART coverage
+        if: matrix.preset.coverage
+        run: cmake --build build --target typeart-lcov-clean
+
+      - name: Test TypeART lit-suite
+        if: matrix.preset.skip_test == false
+        run: cmake --build build --target check-typeart
+
+      - name: Build coverage report
+        if: matrix.preset.coverage
+        run: cmake --build build --target typeart-lcov-html
+
+      - name: Prepare coverage artifact
+        if: matrix.preset.coverage
+        run: |
+          mkdir -p artifact/${{ matrix.preset.name }}-${{ matrix.llvm-version }}
+          mv build/profiles/ artifact/${{ matrix.preset.name }}-${{ matrix.llvm-version }}
+
+      - name: Upload test coverage artifact
+        if: matrix.preset.coverage
+        uses: actions/upload-artifact@v2
+        with:
+          name: typeart-ci-coverage
+          path: artifact
+
+      - name: Coveralls (parallel)
+        if: matrix.preset.coverage
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: build/typeart.coverage
+          flag-name: ${{ matrix.preset.name }}-${{ matrix.llvm-version }}
+          parallel: true
+
+  finish-coverage:
+    needs: lit-suite
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Coveralls Finished
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          parallel-finished: true

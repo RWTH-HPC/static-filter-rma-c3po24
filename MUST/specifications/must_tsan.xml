@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE analysis-specification PUBLIC "must_base" "@MUST_SPECIFICATION_DTD_PATH@/analysis-specification.dtd">
+<analysis-specification group-name="MUST_TSan_Annotations" include-path="" path-to-libs="@CMAKE_INSTALL_PREFIX@/modules">
+    <analyses>
+        <analysis name="TSan">
+            <registered-name>TSan</registered-name>
+            <module-name>libtSan</module-name>
+            <header-name>I_TSan.h</header-name>
+            <interface-type>I_TSan</interface-type>
+            <is-global>0</is-global>
+            <is-process-global>0</is-process-global>
+            <dependencies>
+                <analysis-depend group="MUST_Base">CreateMessage</analysis-depend>
+                <analysis-depend group="MUST_Base">LocationAnalysis</analysis-depend>
+                <analysis-depend group="MUST_Base">ParallelIdAnalysis</analysis-depend>
+            </dependencies>
+            <analysis-function name="registerBaseAddress">
+            	<analysis-argument order="0" type="const char*" name="fName" />
+                <analysis-argument order="1" type="const void*" name="fBase" />
+            </analysis-function>
+        </analysis>
+        <analysis name="InitTSanSyncClock" local-integrity="yes">
+            <registered-name>InitTSanSyncClock</registered-name>
+            <module-name>libinitTSanSyncClock</module-name>
+            <header-name>I_InitTSanSyncClock.h</header-name>
+            <interface-type>I_InitTSanSyncClock</interface-type>
+            <is-global>0</is-global>
+            <is-process-global>0</is-process-global>
+            <dependencies>
+                <analysis-depend group="MUST_TSan_Annotations">TSan</analysis-depend>
+            </dependencies>
+            <analysis-function name="init">
+            	<analysis-argument order="0" type="void**" name="pStorage" />
+            </analysis-function>
+        </analysis>
+    </analyses>
+    <operations>
+        <!--
+            Operation that provides storage for a TSan sync clock address.
+            
+            IMPORTANT: the operation does not set the address, instead it lets an analysis (InitTSanSyncClock, which has more abilities) do this job.
+            
+            This little fellow provides storage for an void* and both access to a pointer to the storage and to the value itself.
+            It is intended to let an analysis (integrity) write a parallel Id into the storage and to be able to provide both
+            the access to the value and the pointer to the parallelId.
+            We achieve this with faking ourselves as being an array operation. The array access is the pointer to the storage and 
+            the length access directly provides the value.
+         -->
+        <operation return-type="void**" name="provideTSanSyncClockStorage">
+            <extra-headers>
+                <header>BaseIds.h</header>
+            </extra-headers>
+            <operation-arguments>
+            </operation-arguments>
+            <source-template>
+              void* RETURN_LEN = nullptr;
+              void** RETURN = &amp;RETURN_LEN;
+            </source-template>
+            <return-is-array>void*</return-is-array>
+        </operation>
+    </operations>
+</analysis-specification>

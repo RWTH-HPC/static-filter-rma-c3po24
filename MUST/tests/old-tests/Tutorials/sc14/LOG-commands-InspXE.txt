@@ -1,0 +1,3 @@
+icc -g -O0 -openmp heatC-omp-InspXE-1.c
+export OMP_NUM_THREADS=4
+inspxe-gui

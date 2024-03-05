@@ -1,0 +1,5 @@
+---
+BasedOnStyle: InheritParentConfig
+---
+Language: Json
+DisableFormat: true

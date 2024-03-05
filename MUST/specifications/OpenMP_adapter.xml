@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Part of the MUST Project, under BSD-3-Clause License
+ See https://hpc.rwth-aachen.de/must/LICENSE for license information.
+  SPDX-License-Identifier: BSD-3-Clause
+-->
+
+<!DOCTYPE analysis-specification PUBLIC "must_base" "@MUST_SPECIFICATION_DTD_PATH@/analysis-specification.dtd">
+<analysis-specification
+    group-name="OpenMP"
+    include-path=""
+    path-to-libs="@CMAKE_INSTALL_PREFIX@/modules"
+    enabled="@SPEC_OMPT_FOUND@">
+    <analyses>
+        <analysis name="OpenMPadapter">
+            <registered-name>OpenMPadapter</registered-name>
+            <module-name>libOpenMPadapter</module-name>
+            <header-name>I_OpenMPadapter.h</header-name>
+            <interface-type>must::I_OpenMPadapter</interface-type>
+            <is-global>0</is-global>
+            <is-process-global>0</is-process-global>
+            <dependencies>
+                <analysis-depend group="MUST_Base">InitParallelId</analysis-depend>
+                <analysis-depend group="MUST_Base">InitLocationId</analysis-depend>
+            </dependencies>
+
+            <analysis-function name="finish" />
+        </analysis>
+    </analyses>
+    <operations/>
+</analysis-specification>

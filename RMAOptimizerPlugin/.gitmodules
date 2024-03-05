@@ -1,0 +1,3 @@
+[submodule "external/compiler-rt"]
+	path = external/compiler-rt
+	url = ../compiler-rt.git

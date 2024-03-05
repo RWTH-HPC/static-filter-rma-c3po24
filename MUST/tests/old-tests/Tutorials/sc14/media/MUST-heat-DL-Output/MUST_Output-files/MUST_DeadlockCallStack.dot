@@ -1,0 +1,18 @@
+digraph DeadlockCallStack {
+graph [bgcolor=transparent]
+compound=true;
+Node3 [label="main@heatC-MPI-multi.c:471", shape=box];
+Node0 [label="main@heatC-MPI-multi.c:472", shape=box];
+Node2 [label="MPI_Recv", shape=box];
+Node6 [label="heatBoundary@heatC-MPI-multi.c:287", shape=box];
+Node4 [label="heatBoundary@heatC-MPI-multi.c:294", shape=box];
+Node1 [label="heatTimestep@heatC-MPI-multi.c:185", shape=box];
+Node5 [label="MPI_Waitall", shape=box];
+Node7 [label="MPI_Isend", shape=box];
+Node0->Node1 [label="Ranks: 0"];
+Node1->Node2 [label="Ranks: 0"];
+Node3->Node4 [label="Ranks: 1"];
+Node3->Node6 [label="Ranks: 1"];
+Node4->Node5 [label="Ranks: 1"];
+Node6->Node7 [label="Ranks: 1"];
+}

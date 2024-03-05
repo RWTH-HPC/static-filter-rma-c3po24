@@ -1,0 +1,18 @@
+{
+    "messages": [
+        {
+            "type": "Warning",
+            "error_id": "MUST_WARNING_INTEGER_NOT_ONE_OR_ZERO",
+            "text": "The logical argument 5 (reorder) is neither 1 or 0, you specified reorder=-1, which is valid but you might have intended something else here.",
+            "from": {
+                "call": "MPI_Cart_create",
+                "stacktrace": [],
+                "ranks": [
+                    0
+                ],
+                "ranks_strided": false
+            },
+            "references": []
+        }
+    ]
+}

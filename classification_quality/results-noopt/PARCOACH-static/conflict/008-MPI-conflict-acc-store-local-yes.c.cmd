@@ -1,0 +1,2 @@
+mpicc -fopenmp -O0 -g -S -emit-llvm results-20240305-201640/PARCOACH-static/conflict/008-MPI-conflict-acc-store-local-yes.c -o results-20240305-201640/PARCOACH-static/conflict/008-MPI-conflict-acc-store-local-yes.c.ll
+parcoach -S --check=rma results-20240305-201640/PARCOACH-static/conflict/008-MPI-conflict-acc-store-local-yes.c.ll -o results-20240305-201640/PARCOACH-static/conflict/008-MPI-conflict-acc-store-local-yes.c-instrumented.ll

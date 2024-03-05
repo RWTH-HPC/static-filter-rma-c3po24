@@ -1,0 +1,2 @@
+mpicc -fopenmp -O0 -g -S -emit-llvm results-20240305-201640/PARCOACH-static/misc/006-MPI-misc-put-store-aliasing-local.c -o results-20240305-201640/PARCOACH-static/misc/006-MPI-misc-put-store-aliasing-local.c.ll
+parcoach -S --check=rma results-20240305-201640/PARCOACH-static/misc/006-MPI-misc-put-store-aliasing-local.c.ll -o results-20240305-201640/PARCOACH-static/misc/006-MPI-misc-put-store-aliasing-local.c-instrumented.ll

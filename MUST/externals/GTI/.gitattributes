@@ -1,0 +1,10 @@
+/.gitattributes  export-ignore
+/.gitmodules     export-ignore
+/.gitlab-ci.yml  export-ignore
+/.gitlab         export-ignore
+
+# Exclude guis from archives.
+#
+# As guis are not ready for production yet, these will be excluded from release
+# packages.
+/guis export-ignore

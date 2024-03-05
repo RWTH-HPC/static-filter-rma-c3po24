@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+
+<!--
+  Part of the MUST Project, under BSD-3-Clause License
+ See https://hpc.rwth-aachen.de/must/LICENSE for license information.
+  SPDX-License-Identifier: BSD-3-Clause
+-->
+
+<!DOCTYPE analysis-specification SYSTEM "@MUST_SPECIFICATION_DTD_PATH@/analysis-specification.dtd">
+<analysis-specification path-to-libs="@CMAKE_INSTALL_PREFIX@/modules" include-path="" group-name="CollReductionPrototype">
+    <analyses>
+        <analysis name="GatherReduction" reduction="yes">
+            <registered-name>GatherReduction</registered-name>
+            <module-name>libgatherReduction</module-name>
+            <header-name>I_GatherReduction.h</header-name>
+            <interface-type>I_GatherReduction</interface-type>
+            <is-global>0</is-global>
+            <is-process-global>0</is-process-global>
+            <dependencies>
+                <analysis-depend group="MUST_Base">ParallelIdAnalysis</analysis-depend>
+                <analysis-depend group="MUST_Resource">CommTrack</analysis-depend>
+                <analysis-depend group="MUST_Resource">DatatypeTrack</analysis-depend>
+                <analysis-depend group="MUST_Base">CreateMessage</analysis-depend>
+            </dependencies>
+            <analysis-function name="newGatherSend">
+                <analysis-argument order="0" type="uint64_t" name="pId">
+                </analysis-argument>
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="int" name="coll" />
+                <analysis-argument order="3" type="@AINT_TYPE@" name="buffer" />
+                <analysis-argument order="4" type="int" name="count" />
+                <analysis-argument order="5" type="@DATATYPE_F_TYPE@" name="type" />
+                <analysis-argument order="6" type="int" name="dest" />
+                <analysis-argument order="7" type="@COMM_F_TYPE@" name="comm" />
+                <analysis-argument order="8" type="int" name="numTasks" />
+            </analysis-function>
+        </analysis>
+        <analysis name="GatherMatch">
+            <registered-name>GatherMatch</registered-name>
+            <module-name>libgatherMatch</module-name>
+            <header-name>I_GatherMatch.h</header-name>
+            <interface-type>I_GatherMatch</interface-type>
+            <is-global>1</is-global>
+            <is-process-global>0</is-process-global>
+            <dependencies>
+                <analysis-depend group="MUST_Base">ParallelIdAnalysis</analysis-depend>
+                <analysis-depend group="MUST_Resource">CommTrack</analysis-depend>
+                <analysis-depend group="MUST_Resource">DatatypeTrack</analysis-depend>
+                <analysis-depend group="MUST_Base">CreateMessage</analysis-depend>
+            </dependencies>
+            <reductions>
+                <analysis-depend>GatherReduction</analysis-depend>
+            </reductions>
+            <analysis-function name="newGatherSend" needs-channel-id="yes">
+                <analysis-argument order="0" type="uint64_t" name="pId">
+                </analysis-argument>
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="int" name="coll" />
+                <analysis-argument order="3" type="@AINT_TYPE@" name="buffer" />
+                <analysis-argument order="4" type="int" name="count" />
+                <analysis-argument order="5" type="@DATATYPE_F_TYPE@" name="type" />
+                <analysis-argument order="6" type="int" name="dest" />
+                <analysis-argument order="7" type="@COMM_F_TYPE@" name="comm" />
+                <analysis-argument order="8" type="int" name="numTasks" />
+            </analysis-function>
+            <analysis-function name="newGatherReceive" needs-channel-id="yes">
+                <analysis-argument order="0" type="uint64_t" name="pId">
+                </analysis-argument>
+                <analysis-argument order="1" type="uint64_t" name="lId" />
+                <analysis-argument order="2" type="int" name="coll" />
+                <analysis-argument order="3" type="@AINT_TYPE@" name="buffer" />
+                <analysis-argument order="4" type="int" name="count" />
+                <analysis-argument order="5" type="@DATATYPE_F_TYPE@" name="type" />
+                <analysis-argument order="6" type="int" name="commsize" />
+                <analysis-argument order="7" type="@COMM_F_TYPE@" name="comm" />
+                <analysis-argument order="8" type="int" name="numTasks" />
+            </analysis-function>
+        </analysis>
+    </analyses>
+    <operations>
+    </operations>
+</analysis-specification>

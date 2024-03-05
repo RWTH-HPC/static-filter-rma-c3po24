@@ -1,0 +1,79 @@
+stages:
+- build
+- test-minimal
+- test
+
+include:
+  - '/utility/.gitlab/cluster/cluster-template.yml'
+
+
+build-batch:
+  extends:
+    - .batch-tests-template
+  stage: build
+  variables:
+    FAST_TESTS_ONLY: "OFF"
+    SLURM_TIMELIMIT: "00:35:00"
+    EXTENSIVE_SLURM_TIME: "00:90:00"
+    ALL_FEATURE_TESTS: "OFF"
+  script:
+    - !reference [.cluster-tests-template, before_script]
+    - UBSAN_LIBRARIES=${GCCcore_ROOT}/lib64/libubsan.so
+    - ASAN_LIBRARIES=${GCCcore_ROOT}/lib64/libasan.so
+    - |
+      if [[ "${COMPILER}" == *"Clang"* ]]
+      then
+        UBSAN_LIBRARIES=${Clang_ROOT}/lib/clang/15.0.5/lib/x86_64-unknown-linux-gnu/libclang_rt.ubsan_standalone.so
+        ASAN_LIBRARIES=${Clang_ROOT}/lib/clang/15.0.5/lib/x86_64-unknown-linux-gnu/libclang_rt.asan.so
+      fi
+    - CMAKE_EXTRA_FLAGS="${CMAKE_EXTRA_FLAGS} -DMUST_SANITIZE=ON -DMUST_SANITIZE_UBSAN=${SANITIZE_UBSAN} -DMUST_SANITIZE_ASAN=${SANITIZE_ASAN} -DUBSAN_LIBRARIES=${UBSAN_LIBRARIES} -DASAN_LIBRARIES=${ASAN_LIBRARIES}"
+    - export UBSAN_OPTIONS="print_stacktrace=1:log_path=${CI_PROJECT_DIR}/san_reports/ubsan/%basename_t-ubsan.out"
+    - export ABSAN_OPTIONS="detect_leaks=0:log_path=${CI_PROJECT_DIR}/san_reports/asan/%basename_t-asan.out"
+    - !reference [.cluster-tests-build, script]
+
+.run-minimal-batch:
+  extends:
+    - .batch-tests-template
+    - .cluster-tests-run
+  stage: test-minimal
+  variables:
+    MAKE_CHECK_TARGET: "check-minimal"
+    SLURM_TIMELIMIT: "00:05:00"
+    END_SINGLE_SLURM_JOB: "0"
+    REPORT_COLL_DIR: $REPORT_COLL_DIR
+    CI_SUBMOD_COMMIT: $CI_SUBMOD_COMMIT
+    CI_SUBMOD_TRIGGER: $CI_SUBMOD_TRIGGER
+
+
+run-batch:
+  extends:
+    - .batch-tests-template
+    - .cluster-run-base
+  stage: test
+  variables:
+    END_SINGLE_SLURM_JOB: "1"
+    SLURM_TIMELIMIT: "00:70:00"
+    MAKE_CHECK_TARGET: "check"
+    REPORT_COLL_DIR: $REPORT_COLL_DIR
+    CI_SUBMOD_COMMIT: $CI_SUBMOD_COMMIT
+    CI_SUBMOD_TRIGGER: $CI_SUBMOD_TRIGGER
+    ENABLE_UBSAN: "1"
+  script:
+    - !reference [.cluster-tests-template, before_script]
+    - export UBSAN_OPTIONS="print_stacktrace=1:log_path=${CI_PROJECT_DIR}/san_reports/ubsan/%basename_t-ubsan.out"
+    - export ABSAN_OPTIONS="detect_leaks=0:log_path=${CI_PROJECT_DIR}/san_reports/asan/%basename_t-asan.out"
+    - !reference [.cluster-run-base, script]
+    - set -x
+    - |
+      for f in ${CI_PROJECT_DIR}/san_reports/*/*; do
+        mv $f ${f}.txt
+      done
+    - ls ${CI_PROJECT_DIR}/san_reports/ubsan
+    - set +x
+    - exit $EXIT_CODE
+  artifacts:
+    when: always
+    paths:
+      - ${CI_PROJECT_DIR}/san_reports
+
+

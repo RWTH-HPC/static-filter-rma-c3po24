@@ -1,0 +1,6 @@
+# Part of the MUST Project, under BSD-3-Clause License
+# See https://hpc.rwth-aachen.de/must/LICENSE for license information.
+# SPDX-License-Identifier: BSD-3-Clause
+
+addTestExecutable(test_mustrun_user_cache user_cache.cpp)
+configure_file(layout.xml layout.xml @ONLY)

@@ -1,0 +1,98 @@
+#!/usr/bin/python3
+
+# Part of the MUST Project, under BSD-3-Clause License
+# See https://hpc.rwth-aachen.de/must/LICENSE for license information.
+# SPDX-License-Identifier: BSD-3-Clause
+
+"""
+This hook rejects changes of git submodule references.
+
+It is too easy to accidentally update a git submodule ref.
+This hook checks that the change you are about to commit leaves git submodules unchanged.
+If you really want to change the submodule you have to put `/update-submodule` in the commit message.
+"""
+__version__ = '0.1.0'
+
+import re
+import sys
+import subprocess
+import traceback
+from pathlib import Path
+from typing import List
+
+""" Matches the git-diff --raw format for a changed submodule.
+See `man 1 git-diff` for a description of the format.
+"""
+submod_diff_raw = re.compile(r"^:160000 160000 (?P<src>[0-9a-fA-F]{40}) (?P<dst>[0-9a-fA-F]{40}) M\d{0,2}\t(?P<path>.+)$")  # noqa: E501
+
+
+def get_commit_msg() -> str:
+    """Read in the commit message passed by git."""
+    lines = Path(sys.argv[1]).read_text().splitlines()
+    # Filter out comment lines
+    return "\n".join([line for line in lines if not line.startswith("#")])
+
+
+def commit_msg_is_tagged() -> bool:
+    """True if the commit message is tagged."""
+    return "/update-submodule" in get_commit_msg()
+
+
+class Change:
+    def __init__(self, path, src, dst):
+        self.path = path
+        self.src = src
+        self.dst = dst
+
+
+def get_raw_diff() -> str:
+    """Retrieve the staged git diff in raw format."""
+    completed_proc = subprocess.run(
+        ["git", "diff-index", "--cached", "HEAD"],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        universal_newlines=True
+    )
+    completed_proc.check_returncode()
+    return completed_proc.stdout
+
+
+def get_submodule_changes() -> List[Change]:
+    """Build a list of changed submodules. Empty if none are changed."""
+    return [
+        Change(**match.groupdict())
+        for match in (submod_diff_raw.match(line)
+                      for line
+                      in get_raw_diff().splitlines())
+        if match is not None
+    ]
+
+
+def print_error_message(changes: List[Change]):
+    print("\"I'm sorry Dave. I'm afraid I can't do that.\"")
+    print("### commit-msg hook has stopped the commit ###\nYou are "
+          "about to commit changes to following git submodule(s):")
+    for change in changes:
+        print(f" - {change.path} ({change.src} -> {change.dst})")
+    print('Please put "/update-submodule" into your commit message if you '
+          'actually wanted to change a git submodule.')
+
+
+def main():
+    changes = get_submodule_changes()
+    if changes and not commit_msg_is_tagged():
+        print_error_message(changes)
+        sys.exit(1)
+    sys.exit(0)
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except SystemExit:
+        raise
+    except Exception:
+        print("commit-msg hook failed:", file=sys.stderr)
+        traceback.print_exc()
+        # Better not stand in the way of the commit while I am erroneous.
+        sys.exit(0)

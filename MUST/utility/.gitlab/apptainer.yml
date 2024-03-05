@@ -1,0 +1,113 @@
+include:
+  - local: '/utility/.gitlab/common.yml'
+
+stages:
+- trigger
+
+variables:
+  CONTAINER_TEST_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+  CONTAINER_RELEASE_IMAGE: $CI_REGISTRY_IMAGE:testing
+  DOCKER_TLS_CERTDIR: "/certs"
+  CONTAINER_BASE_PATH: "/home/serv0001/apptainer"
+
+.docker-base-script:
+  variables:
+    FAST_TESTS_ONLY:
+      value: "OFF"
+      description: "Selects whether only fast tests (usually <20s) are to be executed. Must be a valid CMake boolean."
+      NPROC: 8
+  script:
+    - git submodule sync --recursive externals
+    - git submodule update --recursive --init
+    - git tag -f v0.0-ci_dummy
+    - |
+      if [[ ! -z "${CI_SUBMOD_TRIGGER}" ]]
+      then
+        for d in $(find . -not -path '*/.*' -name "${CI_SUBMOD_TRIGGER}" -type d); do
+          pushd $d
+          git fetch
+          git checkout ${CI_SUBMOD_COMMIT}
+          git submodule update --recursive --init
+          popd
+        done
+      fi
+    - echo $NPROC
+    - source ${CI_PROJECT_DIR}/utility/.gitlab/envs/common.env
+    - source ${CI_PROJECT_DIR}/utility/.gitlab/envs/${_CONTAINER}.env
+    - mkdir BUILD
+    - cd BUILD
+    - >-
+      cmake ..
+      -Wdev
+      -DENABLE_WARNINGS=ON
+      -DCMAKE_INSTALL_PREFIX=BUILD/INSTALL
+      -DCMAKE_BUILD_TYPE=Debug
+      -DBUILD_TESTING=ON
+      -DENABLE_TESTS=ON
+      -DENABLE_PREBUILD=ON
+      -DTEST_PREBUILDS=ON
+      -DTESTS_WORKERS=$((NPROC))
+      -DMUST_MPI_HAS_ASSERTIONS=TRUE
+      -DMUST_FAST_TESTS_ONLY=$FAST_TESTS_ONLY
+      -DALL_FEATURE_TESTS=ON
+      -DUSE_BACKWARD=OFF
+      ${CMAKE_EXTRA_FLAGS}
+    - EXIT_CODE=0
+
+.docker-tests-template:
+  needs: []
+  tags:
+    - "unstable"
+  variables:
+    FAST_TESTS_ONLY: "OFF"
+    SLURM_ACCOUNT: "rwth1282"
+    SLURM_CONSTRAINT: "Rocky8"
+    CI_MODE: "Singularity"
+    SLURM_TIMELIMIT: "00:45:00"
+    SRUN_CPUS_PER_TASK: 12
+    NPROC: ${SRUN_CPUS_PER_TASK}
+    CONTAINER: "${CONTAINER_BASE_PATH}/${_CONTAINER}"
+    CI_SUBMOD_COMMIT: $_CI_SUBMOD_COMMIT
+    CI_SUBMOD_TRIGGER: $_CI_SUBMOD_TRIGGER
+    CHECK_TARGET: check-OneSidedChecks
+
+
+tests-singularity:
+  stage: trigger
+  extends: .docker-tests-template
+  variables:
+    EXTRA_ENV: ""
+  script:
+    - !reference [.docker-base-script, script]
+    - export $EXTRA_ENV
+    - time make -j${NPROC} install || EXIT_CODE=$?
+    - time make -j${NPROC} install-prebuilds || EXIT_CODE=$?
+    - echo ${CHECK_TARGET}
+    - time make -j${NPROC} ${CHECK_TARGET} || EXIT_CODE=$?
+    - sed -e "s/name=\"MUST/name=\"CON-${_CONTAINER}/" tests/${CHECK_TARGET}.xunit.xml > ${REPORT_COLL_DIR}/unit/${CI_PIPELINE_ID}-${_CONTAINER}.xunit.xml
+    - set -x
+    - exit $EXIT_CODE
+  artifacts:
+    reports:
+      junit: BUILD/tests/${CHECK_TARGET}.xunit.xml
+    paths:
+      - BUILD/tests/check.out.json
+  parallel:
+    matrix:
+      - _CONTAINER: ["mpich"]
+        EXTRA_ENV: "MUST_INSTANT_LOGGING=warning"
+      - _CONTAINER: ["ompi"]
+
+
+warnings-singularity:
+  stage: trigger
+  extends: .docker-tests-template
+  allow_failure: true
+  variables:
+    _CONTAINER: "ompi"
+    CMAKE_EXTRA_FLAGS: "-DENABLE_WARNINGS_ARE_ERRORS=ON -DENABLE_PREBUILDS=OFF -DTEST_PREBUILDS=OFF"
+  script:
+    - !reference [.docker-base-script, script]
+    - time make -j${NPROC} install || EXIT_CODE=$?
+    - time make -j${NPROC} build-test || EXIT_CODE=$?
+    - exit $EXIT_CODE

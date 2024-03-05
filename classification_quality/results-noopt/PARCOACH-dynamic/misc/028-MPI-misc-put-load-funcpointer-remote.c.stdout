@@ -1,0 +1,26 @@
+win_base[0] is 0
+[8c5919991b82:45628] *** Process received signal ***
+[8c5919991b82:45628] Signal: Segmentation fault (11)
+[8c5919991b82:45628] Signal code: Address not mapped (1)
+[8c5919991b82:45628] Failing at address: 0x1
+Error when inserting memory access of type RMA_WRITE from file results-20240305-201640/PARCOACH-dynamic/misc/028-MPI-misc-put-load-funcpointer-remote.c:29 with already inserted interval of type LOCAL_READ from file results-20240305-201640/PARCOACH-dynamic/misc/028-MPI-misc-put-load-funcpointer-remote.c:73.
+The program will be exiting now with MPI_Abort.
+[8c5919991b82:45628] [ 0] /lib/x86_64-linux-gnu/libc.so.6(+0x3c050)[0x7f2b78510050]
+[8c5919991b82:45628] [ 1] /usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_pml_ob1.so(mca_pml_ob1_recv_frag_callback_match+0x587)[0x7f2b77e16a27]
+[8c5919991b82:45628] [ 2] /usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_btl_vader.so(+0x4f6a)[0x7f2b77e4ef6a]
+[8c5919991b82:45628] [ 3] /lib/x86_64-linux-gnu/libopen-pal.so.40(opal_progress+0x2c)[0x7f2b77fdde1c]
+[8c5919991b82:45628] [ 4] /lib/x86_64-linux-gnu/libmpi.so.40(ompi_request_default_test+0x30)[0x7f2b7882c560]
+[8c5919991b82:45628] [ 5] /lib/x86_64-linux-gnu/libmpi.so.40(PMPI_Test+0x4e)[0x7f2b7886c64e]
+[8c5919991b82:45628] [ 6] /opt/parcoach/lib/libParcoachInstrumentation.so(+0x59af)[0x7f2b789269af]
+[8c5919991b82:45628] [ 7] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xd44a3)[0x7f2b782d44a3]
+[8c5919991b82:45628] [ 8] /lib/x86_64-linux-gnu/libc.so.6(+0x89134)[0x7f2b7855d134]
+[8c5919991b82:45628] [ 9] /lib/x86_64-linux-gnu/libc.so.6(+0x1097dc)[0x7f2b785dd7dc]
+[8c5919991b82:45628] *** End of error message ***
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 1 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------

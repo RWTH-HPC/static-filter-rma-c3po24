@@ -1,0 +1,13 @@
+
+build-batch:
+  extends:
+    - .batch-tests-template
+    - .cluster-tests-build
+  variables:
+    FAST_TESTS_ONLY: "OFF"
+    SLURM_TIMELIMIT: "00:35:00"
+    EXTENSIVE_SLURM_TIME: "00:90:00"
+    ALL_FEATURE_TESTS: "OFF"
+    CMAKE_EXTRA_FLAGS: "-DUSE_BACKWARD=OFF -DENABLE_TYPEART=OFF"
+
+

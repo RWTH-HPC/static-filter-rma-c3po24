@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+
+<!--
+  Part of the MUST Project, under BSD-3-Clause License
+ See https://hpc.rwth-aachen.de/must/LICENSE for license information.
+  SPDX-License-Identifier: BSD-3-Clause
+-->
+
+<!DOCTYPE api-specification SYSTEM "@MUST_SPECIFICATION_DTD_PATH@/api-specification.dtd">
+<api-specification unique-name="IPDPS2012Api">
+    <api-headers>
+        <header>TransferReductionApi.h</header>
+    </api-headers>
+    <functions>
+        <function return-type="int" name="statisticsInterval" wrapp-everywhere="yes">
+            <function-arguments>
+                <function-argument order="0" name="sentP2P" type="uint64_t" intent="in">
+                </function-argument>
+                <function-argument order="1" name="numP2P" type="uint64_t" intent="in">
+                </function-argument>
+                <function-argument order="2" name="sentColl" type="uint64_t" intent="in">
+                </function-argument>
+                <function-argument order="3" name="numColl" type="uint64_t" intent="in">
+                </function-argument>
+                <function-argument order="4" name="duration" type="uint64_t" intent="in">
+                </function-argument>
+            </function-arguments>
+            <analyses>
+                <analysis order="pre" name="TransferReduction:reduce" group="IPDPS2012">
+                    <analysis-arguments>
+                        <analysis-argument type="mapped" analysis-arg-order="0">
+                            <call-arg-name>sentP2P</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="1">
+                            <call-arg-name>numP2P</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="2">
+                            <call-arg-name>sentColl</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="3">
+                            <call-arg-name>numColl</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="4">
+                            <call-arg-name>duration</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+                <analysis order="pre" name="TransferTracer:interval" group="IPDPS2012">
+                    <analysis-arguments>
+                        <analysis-argument type="mapped" analysis-arg-order="0">
+                            <call-arg-name>sentP2P</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="1">
+                            <call-arg-name>numP2P</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="2">
+                            <call-arg-name>sentColl</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="3">
+                            <call-arg-name>numColl</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="4">
+                            <call-arg-name>duration</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+            </analyses>
+            <operations>
+            </operations>
+        </function>
+    </functions>
+</api-specification>

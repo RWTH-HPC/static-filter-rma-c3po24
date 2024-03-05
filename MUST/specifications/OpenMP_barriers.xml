@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Part of the MUST Project, under BSD-3-Clause License
+ See https://hpc.rwth-aachen.de/must/LICENSE for license information.
+  SPDX-License-Identifier: BSD-3-Clause
+-->
+
+<!DOCTYPE analysis-specification PUBLIC "must_base" "@MUST_SPECIFICATION_DTD_PATH@/analysis-specification.dtd">
+<analysis-specification
+    group-name="OpenMPbarriers"
+    include-path=""
+    path-to-libs="@CMAKE_INSTALL_PREFIX@/modules"
+    enabled="@SPEC_OMPT_FOUND@">
+    <analyses>
+        <analysis name="OpenMPbarriers">
+            <registered-name>OpenMPbarriers</registered-name>
+            <module-name>libOpenMPbarriers</module-name>
+            <header-name>I_OpenMPbarriers.h</header-name>
+            <interface-type>must::I_OpenMPbarriers</interface-type>
+            <is-global>0</is-global>
+            <is-process-global>0</is-process-global>
+            <dependencies>
+                <analysis-depend group="MUST_Base">CreateMessage</analysis-depend>
+            </dependencies>
+
+            <analysis-function name="notifyBarrierBegin">
+                <analysis-argument order="0" name="pId"           type="MustParallelId"/>
+                <analysis-argument order="1" name="lId"           type="MustLocationId"/>
+                <analysis-argument order="2" name="parallel_data" type="uint64_t"/>
+                <analysis-argument order="3" name="codeptr_ra"    type="const void*" />
+            </analysis-function>
+
+            <analysis-function name="notifyBarrierEnd">
+                <analysis-argument order="0" name="pId"           type="MustParallelId"/>
+                <analysis-argument order="1" name="lId"           type="MustLocationId"/>
+                <analysis-argument order="2" name="parallel_data" type="uint64_t"/>
+                <analysis-argument order="3" name="codeptr_ra"    type="const void*" />
+            </analysis-function>
+        </analysis>
+    </analyses>
+    <operations/>
+</analysis-specification>

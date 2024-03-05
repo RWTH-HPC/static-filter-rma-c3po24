@@ -1,0 +1,23 @@
+include:
+  - local: '/utility/.gitlab/common.yml'
+
+stages:
+- trigger
+
+minimal:
+  stage: trigger
+  variables:
+    REPORT_COLL_DIR: $REPORT_COLL_DIR
+    CI_SUBMOD_COMMIT: $_CI_SUBMOD_COMMIT
+    CI_SUBMOD_TRIGGER: $_CI_SUBMOD_TRIGGER
+  trigger:
+    include: '/utility/.gitlab/cluster/minimal-template.yml'
+    strategy: depend
+  parallel:
+    matrix:
+      - PARVAR_TOOLCHAIN: ["iimpi/2020a", "iimpi/2021a", "iimpi/2021b"]
+        PARVAR_COMPILER: ["None"]
+      - PARVAR_TOOLCHAIN: ["gompi/2020a", "gompi/2020b", "gompi/2021b"]
+        PARVAR_COMPILER: ["None"]
+      - PARVAR_TOOLCHAIN: ["iompi/2020a"]
+        PARVAR_COMPILER: ["None"]

@@ -1,0 +1,36 @@
+[submodule "externals/CMake-gitinfo"]
+	path = externals/CMake-gitinfo
+	url = https://github.com/RWTH-HPC/CMake-gitinfo.git
+[submodule "externals/CMake-MPIhelper"]
+	path = externals/CMake-MPIhelper
+	url = https://github.com/RWTH-HPC/CMake-MPIhelper.git
+[submodule "externals/GTI"]
+	path = externals/GTI
+	url = git@git-ce.rwth-aachen.de:hpc-research/correctness/GTI.git
+    branch = feature/onesided
+	url = ../GTI.git
+[submodule "externals/wrap"]
+	path = externals/wrap
+	url = ../external/wrap.git
+[submodule "externals/CMake-gitpack"]
+	path = externals/CMake-gitpack
+	url = https://github.com/RWTH-HPC/CMake-gitpack.git
+[submodule "externals/backward-cpp"]
+        path = externals/backward-cpp
+        url = ../external/backward-cpp.git
+[submodule "externals/typeart"]
+	path = externals/typeart
+	url = https://github.com/tudasc/TypeART.git
+	branch = master
+[submodule "externals/llvm-lit"]
+	path = externals/llvm-lit
+	url = https://github.com/RWTH-HPC/llvm-lit.git
+[submodule "externals/FileCheck"]
+	path = externals/FileCheck
+	url = https://github.com/RWTH-HPC/FileCheck.git
+[submodule "externals/CMake-codecov"]
+	path = externals/CMake-codecov
+	url = https://github.com/RWTH-HPC/CMake-codecov.git
+[submodule "externals/RMAOptimizerPlugin"]
+	path = externals/RMAOptimizerPlugin
+	url = ../RMAOptimizerPlugin.git

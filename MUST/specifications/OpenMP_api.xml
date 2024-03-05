@@ -1,0 +1,1117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Part of the MUST Project, under BSD-3-Clause License
+ See https://hpc.rwth-aachen.de/must/LICENSE for license information.
+  SPDX-License-Identifier: BSD-3-Clause
+-->
+
+<!DOCTYPE api-specification SYSTEM "@MUST_SPECIFICATION_DTD_PATH@/api-specification.dtd">
+<api-specification
+    unique-name="OpenMP_Tools_Interface"
+    enabled="@SPEC_OMPT_FOUND@">
+    <api-headers>
+        <header>omp-tools.h</header>
+    </api-headers>
+    <functions>
+        <function name="MUST_ompt_callback_wait_lock" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"        type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"        type="uint64_t"/>
+                <function-argument order="2" intent="in" name="hint"       type="unsigned int"/>
+                <function-argument order="3" intent="in" name="impl"       type="unsigned int"/>
+                <function-argument order="4" intent="in" name="wait_id"    type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra" type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses>
+                <analysis order="pre" name="OpenMPlocks:checkInitialized" group="OpenMPlocks">
+                    <analysis-arguments>
+                        <analysis-argument analysis-arg-order="0" type="mapped">
+                            <call-arg-name>pId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="1" type="mapped">
+                            <call-arg-name>lId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="2" type="mapped">
+                            <call-arg-name>wait_id</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+            </analyses>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_wait_nest_lock" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"        type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"        type="uint64_t"/>
+                <function-argument order="2" intent="in" name="hint"       type="unsigned int"/>
+                <function-argument order="3" intent="in" name="impl"       type="unsigned int"/>
+                <function-argument order="4" intent="in" name="wait_id"    type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra" type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses>
+                <analysis order="pre" name="OpenMPnestlocks:checkInitialized" group="OpenMPlocks">
+                    <analysis-arguments>
+                        <analysis-argument analysis-arg-order="0" type="mapped">
+                            <call-arg-name>pId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="1" type="mapped">
+                            <call-arg-name>lId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="2" type="mapped">
+                            <call-arg-name>wait_id</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+            </analyses>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_wait_critical" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"        type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"        type="uint64_t"/>
+                <function-argument order="2" intent="in" name="hint"       type="unsigned int"/>
+                <function-argument order="3" intent="in" name="impl"       type="unsigned int"/>
+                <function-argument order="4" intent="in" name="wait_id"    type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra" type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_wait_atomic" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"        type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"        type="uint64_t"/>
+                <function-argument order="2" intent="in" name="hint"       type="unsigned int"/>
+                <function-argument order="3" intent="in" name="impl"       type="unsigned int"/>
+                <function-argument order="4" intent="in" name="wait_id"    type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra" type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_wait_ordered" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"        type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"        type="uint64_t"/>
+                <function-argument order="2" intent="in" name="hint"       type="unsigned int"/>
+                <function-argument order="3" intent="in" name="impl"       type="unsigned int"/>
+                <function-argument order="4" intent="in" name="wait_id"    type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra" type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_acquired_lock" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"        type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"        type="uint64_t"/>
+                <function-argument order="2" intent="in" name="wait_id"    type="uint64_t"/>
+                <function-argument order="3" intent="in" name="codeptr_ra" type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses>
+                <analysis order="pre" name="OpenMPlocks:checkInitialized" group="OpenMPlocks">
+                    <analysis-arguments>
+                        <analysis-argument analysis-arg-order="0" type="mapped">
+                            <call-arg-name>pId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="1" type="mapped">
+                            <call-arg-name>lId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="2" type="mapped">
+                            <call-arg-name>wait_id</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+                <analysis order="pre" name="OpenMPlocks:notifyAcquired" group="OpenMPlocks">
+                    <analysis-arguments>
+                        <analysis-argument analysis-arg-order="0" type="mapped">
+                            <call-arg-name>pId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="1" type="mapped">
+                            <call-arg-name>lId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="2" type="mapped">
+                            <call-arg-name>wait_id</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+            </analyses>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_acquired_nest_lock" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"        type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"        type="uint64_t"/>
+                <function-argument order="2" intent="in" name="wait_id"    type="uint64_t"/>
+                <function-argument order="3" intent="in" name="codeptr_ra" type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses>
+                <analysis order="pre" name="OpenMPnestlocks:checkInitialized" group="OpenMPlocks">
+                    <analysis-arguments>
+                        <analysis-argument analysis-arg-order="0" type="mapped">
+                            <call-arg-name>pId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="1" type="mapped">
+                            <call-arg-name>lId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="2" type="mapped">
+                            <call-arg-name>wait_id</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+                <analysis order="pre" name="OpenMPnestlocks:notifyAcquired" group="OpenMPlocks">
+                    <analysis-arguments>
+                        <analysis-argument analysis-arg-order="0" type="mapped">
+                            <call-arg-name>pId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="1" type="mapped">
+                            <call-arg-name>lId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="2" type="mapped">
+                            <call-arg-name>wait_id</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+            </analyses>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_acquired_critical" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"        type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"        type="uint64_t"/>
+                <function-argument order="2" intent="in" name="wait_id"    type="uint64_t"/>
+                <function-argument order="3" intent="in" name="codeptr_ra" type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_acquired_atomic" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"        type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"        type="uint64_t"/>
+                <function-argument order="2" intent="in" name="wait_id"    type="uint64_t"/>
+                <function-argument order="3" intent="in" name="codeptr_ra" type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_acquired_ordered" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"        type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"        type="uint64_t"/>
+                <function-argument order="2" intent="in" name="wait_id"    type="uint64_t"/>
+                <function-argument order="3" intent="in" name="codeptr_ra" type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_release_lock" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"        type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"        type="uint64_t"/>
+                <function-argument order="2" intent="in" name="wait_id"    type="uint64_t"/>
+                <function-argument order="3" intent="in" name="codeptr_ra" type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses>
+                <analysis order="pre" name="OpenMPlocks:checkInitialized" group="OpenMPlocks">
+                    <analysis-arguments>
+                        <analysis-argument analysis-arg-order="0" type="mapped">
+                            <call-arg-name>pId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="1" type="mapped">
+                            <call-arg-name>lId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="2" type="mapped">
+                            <call-arg-name>wait_id</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+                <analysis order="pre" name="OpenMPlocks:notifyRelease" group="OpenMPlocks">
+                    <analysis-arguments>
+                        <analysis-argument analysis-arg-order="0" type="mapped">
+                            <call-arg-name>pId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="1" type="mapped">
+                            <call-arg-name>lId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="2" type="mapped">
+                            <call-arg-name>wait_id</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+            </analyses>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_release_nest_lock" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"        type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"        type="uint64_t"/>
+                <function-argument order="2" intent="in" name="wait_id"    type="uint64_t"/>
+                <function-argument order="3" intent="in" name="codeptr_ra" type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses>
+                <analysis order="pre" name="OpenMPnestlocks:checkInitialized" group="OpenMPlocks">
+                    <analysis-arguments>
+                        <analysis-argument analysis-arg-order="0" type="mapped">
+                            <call-arg-name>pId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="1" type="mapped">
+                            <call-arg-name>lId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="2" type="mapped">
+                            <call-arg-name>wait_id</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+                <analysis order="pre" name="OpenMPnestlocks:notifyRelease" group="OpenMPlocks">
+                    <analysis-arguments>
+                        <analysis-argument analysis-arg-order="0" type="mapped">
+                            <call-arg-name>pId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="1" type="mapped">
+                            <call-arg-name>lId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="2" type="mapped">
+                            <call-arg-name>wait_id</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+            </analyses>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_release_critical" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"        type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"        type="uint64_t"/>
+                <function-argument order="2" intent="in" name="wait_id"    type="uint64_t"/>
+                <function-argument order="3" intent="in" name="codeptr_ra" type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_release_atomic" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"        type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"        type="uint64_t"/>
+                <function-argument order="2" intent="in" name="wait_id"    type="uint64_t"/>
+                <function-argument order="3" intent="in" name="codeptr_ra" type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_release_ordered" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"        type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"        type="uint64_t"/>
+                <function-argument order="2" intent="in" name="wait_id"    type="uint64_t"/>
+                <function-argument order="3" intent="in" name="codeptr_ra" type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_acquired_nest_lock_next" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"        type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"        type="uint64_t"/>
+                <function-argument order="2" intent="in" name="wait_id"    type="uint64_t"/>
+                <function-argument order="3" intent="in" name="codeptr_ra" type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses>
+                <analysis order="pre" name="OpenMPnestlocks:checkInitialized" group="OpenMPlocks">
+                    <analysis-arguments>
+                        <analysis-argument analysis-arg-order="0" type="mapped">
+                            <call-arg-name>pId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="1" type="mapped">
+                            <call-arg-name>lId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="2" type="mapped">
+                            <call-arg-name>wait_id</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+            </analyses>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_release_nest_lock_prev" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"        type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"        type="uint64_t"/>
+                <function-argument order="2" intent="in" name="wait_id"    type="uint64_t"/>
+                <function-argument order="3" intent="in" name="codeptr_ra" type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses>
+                <analysis order="pre" name="OpenMPnestlocks:checkInitialized" group="OpenMPlocks">
+                    <analysis-arguments>
+                        <analysis-argument analysis-arg-order="0" type="mapped">
+                            <call-arg-name>pId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="1" type="mapped">
+                            <call-arg-name>lId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="2" type="mapped">
+                            <call-arg-name>wait_id</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+            </analyses>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_barrier_begin" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="kind"          type="ompt_sync_region_t"/>
+                <function-argument order="3" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="4" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses>
+                <analysis order="pre" name="OpenMPbarriers:notifyBarrierBegin" group="OpenMPbarriers">
+                    <analysis-arguments>
+                        <analysis-argument analysis-arg-order="0" type="mapped">
+                            <call-arg-name>pId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="1" type="mapped">
+                            <call-arg-name>lId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="2" type="mapped">
+                            <call-arg-name>parallel_data</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="3" type="mapped">
+                            <call-arg-name>codeptr_ra</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+            </analyses>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_barrier_end" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="kind"          type="ompt_sync_region_t"/>
+                <function-argument order="3" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="4" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses>
+                <analysis order="pre" name="OpenMPbarriers:notifyBarrierEnd" group="OpenMPbarriers">
+                    <analysis-arguments>
+                        <analysis-argument analysis-arg-order="0" type="mapped">
+                            <call-arg-name>pId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="1" type="mapped">
+                            <call-arg-name>lId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="2" type="mapped">
+                            <call-arg-name>parallel_data</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="3" type="mapped">
+                            <call-arg-name>codeptr_ra</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+            </analyses>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_taskwait_begin" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="kind"          type="ompt_sync_region_t"/>
+                <function-argument order="3" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="4" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_taskwait_end" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="kind"          type="ompt_sync_region_t"/>
+                <function-argument order="3" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="4" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_taskgroup_begin" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="kind"          type="ompt_sync_region_t"/>
+                <function-argument order="3" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="4" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_taskgroup_end" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="kind"          type="ompt_sync_region_t"/>
+                <function-argument order="3" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="4" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_wait_barrier_begin" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="kind"          type="ompt_sync_region_t"/>
+                <function-argument order="3" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="4" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_wait_barrier_end" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="kind"          type="ompt_sync_region_t"/>
+                <function-argument order="3" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="4" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_wait_taskwait_begin" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="kind"          type="ompt_sync_region_t"/>
+                <function-argument order="3" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="4" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_wait_taskwait_end" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="kind"          type="ompt_sync_region_t"/>
+                <function-argument order="3" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="4" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_wait_taskgroup_begin" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="kind"          type="ompt_sync_region_t"/>
+                <function-argument order="3" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="4" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_wait_taskgroup_end" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="kind"          type="ompt_sync_region_t"/>
+                <function-argument order="3" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="4" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_flush" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"         type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"         type="uint64_t"/>
+                <function-argument order="2" intent="in" name="thread_data" type="uint64_t"/>
+                <function-argument order="3" intent="in" name="codeptr_ra"  type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_cancel" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"         type="uint64_t"/>
+                <function-argument order="1" intent="in" name="thread_data" type="uint64_t"/>
+                <function-argument order="2" intent="in" name="flags"       type="int"/>
+                <function-argument order="3" intent="in" name="codeptr_ra"  type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_initial_task_begin" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="2" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="3" intent="in" name="team_size"     type="unsigned int"/>
+                <function-argument order="4" intent="in" name="thread_num"    type="unsigned int"/>
+                <function-argument order="5" intent="in" name="flags"         type="int"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_initial_task_end" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="2" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="3" intent="in" name="team_size"     type="unsigned int"/>
+                <function-argument order="4" intent="in" name="thread_num"    type="unsigned int"/>
+                <function-argument order="5" intent="in" name="flags"         type="int"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_implicit_task_begin" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="2" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="3" intent="in" name="team_size"     type="unsigned int"/>
+                <function-argument order="4" intent="in" name="thread_num"    type="unsigned int"/>
+                <function-argument order="5" intent="in" name="flags"         type="int"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_implicit_task_end" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="2" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="3" intent="in" name="team_size"     type="unsigned int"/>
+                <function-argument order="4" intent="in" name="thread_num"    type="unsigned int"/>
+                <function-argument order="5" intent="in" name="flags"         type="int"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_init_lock" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"        type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"        type="uint64_t"/>
+                <function-argument order="2" intent="in" name="hint"       type="unsigned int"/>
+                <function-argument order="3" intent="in" name="impl"       type="unsigned int"/>
+                <function-argument order="4" intent="in" name="wait_id"    type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra" type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses>
+                <analysis order="pre" name="OpenMPlocks:notifyInit" group="OpenMPlocks">
+                    <analysis-arguments>
+                        <analysis-argument analysis-arg-order="0" type="mapped">
+                            <call-arg-name>pId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="1" type="mapped">
+                            <call-arg-name>lId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="2" type="mapped">
+                            <call-arg-name>wait_id</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+            </analyses>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_init_nest_lock" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"        type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"        type="uint64_t"/>
+                <function-argument order="2" intent="in" name="hint"       type="unsigned int"/>
+                <function-argument order="3" intent="in" name="impl"       type="unsigned int"/>
+                <function-argument order="4" intent="in" name="wait_id"    type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra" type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses>
+                <analysis order="pre" name="OpenMPnestlocks:notifyInit" group="OpenMPlocks">
+                    <analysis-arguments>
+                        <analysis-argument analysis-arg-order="0" type="mapped">
+                            <call-arg-name>pId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="1" type="mapped">
+                            <call-arg-name>lId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="2" type="mapped">
+                            <call-arg-name>wait_id</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+            </analyses>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_destroy_lock" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"        type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"        type="uint64_t"/>
+                <function-argument order="2" intent="in" name="wait_id"    type="uint64_t"/>
+                <function-argument order="3" intent="in" name="codeptr_ra" type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses>
+                <analysis order="pre" name="OpenMPlocks:checkInitialized" group="OpenMPlocks">
+                    <analysis-arguments>
+                        <analysis-argument analysis-arg-order="0" type="mapped">
+                            <call-arg-name>pId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="1" type="mapped">
+                            <call-arg-name>lId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="2" type="mapped">
+                            <call-arg-name>wait_id</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+                <analysis order="pre" name="OpenMPlocks:notifyDestroy" group="OpenMPlocks">
+                    <analysis-arguments>
+                        <analysis-argument analysis-arg-order="0" type="mapped">
+                            <call-arg-name>wait_id</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+            </analyses>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_destroy_nest_lock" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"        type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"        type="uint64_t"/>
+                <function-argument order="2" intent="in" name="wait_id"    type="uint64_t"/>
+                <function-argument order="3" intent="in" name="codeptr_ra" type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses>
+                <analysis order="pre" name="OpenMPnestlocks:checkInitialized" group="OpenMPlocks">
+                    <analysis-arguments>
+                        <analysis-argument analysis-arg-order="0" type="mapped">
+                            <call-arg-name>pId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="1" type="mapped">
+                            <call-arg-name>lId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="2" type="mapped">
+                            <call-arg-name>wait_id</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+                <analysis order="pre" name="OpenMPnestlocks:notifyDestroy" group="OpenMPlocks">
+                    <analysis-arguments>
+                        <analysis-argument analysis-arg-order="0" type="mapped">
+                            <call-arg-name>wait_id</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+            </analyses>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_loop_begin" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="3" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="4" intent="in" name="count"         type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_loop_end" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="3" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="4" intent="in" name="count"         type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_sections_begin" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="3" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="4" intent="in" name="count"         type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_sections_end" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="3" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="4" intent="in" name="count"         type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_single_in_block_begin" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="3" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="4" intent="in" name="count"         type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_single_in_block_end" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="3" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="4" intent="in" name="count"         type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_single_others_begin" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="3" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="4" intent="in" name="count"         type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_single_others_end" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="3" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="4" intent="in" name="count"         type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_distribute_begin" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="3" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="4" intent="in" name="count"         type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_distribute_end" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="3" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="4" intent="in" name="count"         type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_taskloop_begin" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="3" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="4" intent="in" name="count"         type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_taskloop_end" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="3" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="4" intent="in" name="count"         type="uint64_t"/>
+                <function-argument order="5" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_masked_begin" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="3" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="4" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_masked_end" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="3" intent="in" name="task_data"     type="uint64_t"/>
+                <function-argument order="4" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_parallel_begin" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"                    type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"                    type="uint64_t"/>
+                <function-argument order="2" intent="in" name="encountering_task_data" type="uint64_t"/>
+                <function-argument order="3" intent="in" name="parallel_data"          type="uint64_t"/>
+                <function-argument order="4" intent="in" name="requested_team_size"    type="uint32_t"/>
+                <function-argument order="5" intent="in" name="flag"                   type="int"/>
+                <function-argument order="6" intent="in" name="codeptr_ra"             type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses>
+                <analysis order="pre" name="OpenMPsanity:notifyParallelBegin" group="OpenMPsanity">
+                    <analysis-arguments>
+                        <analysis-argument analysis-arg-order="0" type="mapped">
+                            <call-arg-name>pId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument analysis-arg-order="1" type="mapped">
+                            <call-arg-name>lId</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+            </analyses>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_parallel_end" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"           type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"           type="uint64_t"/>
+                <function-argument order="2" intent="in" name="parallel_data" type="uint64_t"/>
+                <function-argument order="3" intent="in" name="flag"          type="int"/>
+                <function-argument order="4" intent="in" name="codeptr_ra"    type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_task_create" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"                    type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"                    type="uint64_t"/>
+                <function-argument order="2" intent="in" name="encountering_task_data" type="uint64_t"/>
+                <function-argument order="3" intent="in" name="new_task_data"          type="uint64_t"/>
+                <function-argument order="4" intent="in" name="type"                   type="int"/>
+                <function-argument order="5" intent="in" name="has_dependences"        type="int"/>
+                <function-argument order="6" intent="in" name="codeptr_ra"             type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_task_schedule" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"               type="uint64_t"/>
+                <function-argument order="1" intent="in" name="first_task_data"   type="uint64_t"/>
+                <function-argument order="2" intent="in" name="prior_task_status" type="int"/>
+                <function-argument order="3" intent="in" name="second_task_data"  type="uint64_t"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_task_end" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"              type="uint64_t"/>
+                <function-argument order="1" intent="in" name="first_task_data"  type="uint64_t"/>
+                <function-argument order="2" intent="in" name="second_task_data" type="uint64_t"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_task_dependences" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument       order="0" intent="in" name="pId"       type="uint64_t"/>
+                <function-argument       order="1" intent="in" name="task_data" type="uint64_t"/>
+                <function-array-argument order="2" intent="in" name="deps"      type="const ompt_dependence_t*">
+                    <length-argument type="argument">
+                        <call-arg-name>ndeps</call-arg-name>
+                    </length-argument>
+                </function-array-argument>
+                <function-argument       order="3" intent="in" name="ndeps"     type="int"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_task_dependence_pair" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"              type="uint64_t"/>
+                <function-argument order="1" intent="in" name="first_task_data"  type="uint64_t"/>
+                <function-argument order="2" intent="in" name="second_task_data" type="uint64_t"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_thread_begin" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"         type="uint64_t"/>
+                <function-argument order="1" intent="in" name="thread_type" type="int"/>
+                <function-argument order="2" intent="in" name="thread_data" type="uint64_t"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_thread_end" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"         type="uint64_t"/>
+                <function-argument order="1" intent="in" name="thread_data" type="uint64_t"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_control_tool" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="pId"        type="uint64_t"/>
+                <function-argument order="1" intent="in" name="lId"        type="uint64_t"/>
+                <function-argument order="2" intent="in" name="command"    type="uint64_t"/>
+                <function-argument order="3" intent="in" name="modifier"   type="uint64_t"/>
+                <function-argument order="4" intent="in" name="arg"        type="@AINT_TYPE@"/>
+                <function-argument order="5" intent="in" name="codeptr_ra" type="@AINT_TYPE@"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+
+        <function name="MUST_ompt_callback_initialize" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="lookup" type="ompt_function_lookup_t"/>
+                <function-argument order="1" intent="in" name="initial_device_num" type="int"/>
+                <function-argument order="2" intent="in" name="tool_data" type="ompt_data_t*"/>
+            </function-arguments>
+            <analyses>
+                <analysis order="pre" name="BasicIntegrities:warningForLowThreadlevelNoArgs" group="MUST_BasicChecks">
+                    <analysis-arguments>
+                        <analysis-argument type="operation-len" analysis-arg-order="0">
+                            <op-name group="MUST_Base" id="1">provideParallelIdStorage</op-name>
+                        </analysis-argument>
+                        <analysis-argument type="operation-len" analysis-arg-order="1">
+                            <op-name group="MUST_Base" id="1">provideLocationIdStorage</op-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis> 
+            </analyses>
+            <operations>
+                <operation group="MUST_Base" name="provideLocationIdStorage" order="pre" id="1">
+                    <operation-arguments>
+                        <operation-argument op-arg-order="0">
+                            <call-arg-name>USE_CALLNAME</call-arg-name>
+                        </operation-argument>
+                        <operation-argument op-arg-order="1">
+                            <call-arg-name>USE_CALLID</call-arg-name>
+                        </operation-argument>
+                    </operation-arguments>
+                </operation>
+                <operation group="MUST_Base" name="provideParallelIdStorage" order="pre" id="1">
+                    <operation-arguments />
+                </operation>
+                <operation order="pre" name="return0" group="MUST_Resource" id="1">
+                    <operation-arguments />
+                </operation>
+                <operation order="pre" name="return1" group="MUST_Resource" id="1">
+                    <operation-arguments />
+                </operation>
+            </operations>
+        </function>
+        <function name="MUST_ompt_callback_finalize" return-type="void" callback="yes">
+            <function-arguments>
+                <function-argument order="0" intent="in" name="tool_data" type="ompt_data_t*"/>
+            </function-arguments>
+            <analyses/>
+            <operations/>
+        </function>
+    </functions>
+</api-specification>

@@ -1,0 +1,8 @@
+# Format description: https://github.com/google/sanitizers/wiki/AddressSanitizerLeakSanitizer#suppressions
+
+leak:libmpi.so
+leak:libopen-pal.so
+leak:libopen-rte.so
+leak:libhwloc.so
+leak:libc.so
+leak:libpnmpi.so.1.8.0

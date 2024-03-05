@@ -1,0 +1,29 @@
+#workflow:
+#  rules:
+#    - if: '$CI_PIPELINE_SOURCE == "web"'
+#    - if: '$CI_PIPELINE_SOURCE == "pipeline"'
+#    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+#    - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
+#      when: never
+#    - when: always
+
+
+variables:
+  GIT_STRATEGY: clone
+  GIT_DEPTH: 1
+  #  CI_SUBMOD_COMMIT: $_CI_SUBMOD_COMMIT
+  #  CI_SUBMOD_TRIGGER: $_CI_SUBMOD_TRIGGER
+
+
+
+#
+#default:
+#  before_script:
+#  - git --version
+#  - git submodule sync --recursive externals
+#  - git submodule update --recursive --init
+#  # CMake-gitinfo requires a latest tag. Gitlab ci uses shallow cloning by
+#  # default. This might lead to the situation that the latest tag is further
+#  # away from the current commit than the cloning depth. Let's tag this commit
+#  # to always make CMake-gitinfo happy.
+#  - git tag -f v0.0-ci_dummy

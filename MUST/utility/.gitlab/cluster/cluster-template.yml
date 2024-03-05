@@ -1,0 +1,154 @@
+.cluster-tests-template:
+  before_script:
+    - module purge
+    - module use /home/pj416018/.modules
+    - module use /home/ja664344/.modules/rl8
+    - module load $PRELOAD_MODULES $TOOLCHAIN Python CMake/${CMAKE_VERSION}
+    # Workaround to not specify this module only for toolchains where it's available
+    - module load googletest || true
+    - pwd
+    - ls -alt
+    - echo $TMP
+    - ls -alt $TMP
+    - git --version
+    - git submodule sync --recursive externals
+    - git submodule update --recursive --init
+    - export PATH=$PATH:$HOME/.local/usr/bin:$HOME/.local/bin
+    # CMake-gitinfo requires a latest tag. Gitlab ci uses shallow cloning by
+    # default. This might lead to the situation that the latest tag is further
+    # away from the current commit than the cloning depth. Let's tag this commit
+    # to always make CMake-gitinfo happy.
+    - git tag -f v0.0-ci_dummy
+    - set -x
+    - |
+      if [[ ! -z "${CI_SUBMOD_TRIGGER}" ]]
+      then
+        for d in $(find . -not -path '*/.*' -name "${CI_SUBMOD_TRIGGER}" -type d); do
+          pushd $d
+          git fetch
+          git checkout ${CI_SUBMOD_COMMIT}
+          git submodule update --recursive --init
+          popd
+        done
+      fi
+    - |
+      if [[ ! "${COMPILER}" == "None" ]]
+      then
+        module load $COMPILER
+      fi
+    - CMAKE_EXTRA_FLAGS="${CMAKE_EXTRA_FLAGS}"
+    - |
+      if [[ "${COMPILER}" == *"Clang"* ]]
+      then
+        source ${CI_PROJECT_DIR}/utility/.gitlab/envs/clang.env
+      fi
+    - |
+      if [[ "${LMOD_FAMILY_MPI}" == *"OpenMPI"* ]]
+      then
+        source ${CI_PROJECT_DIR}/utility/.gitlab/envs/ompi.env
+      fi
+    - |
+      if [[ "${LMOD_FAMILY_MPI}" == *"impi"* ]]
+      then
+        source ${CI_PROJECT_DIR}/utility/.gitlab/envs/impi.env
+      fi
+    - |
+      if [[ "${LMOD_FAMILY_MPI}" == *"MPICH"* || "${LMOD_FAMILY_MPI}" == *"impi"* ]]
+      then
+        source ${CI_PROJECT_DIR}/utility/.gitlab/envs/mpich.env
+      fi
+    - set +x
+    - MUST_PREFIX=${TMP}
+    - MUST_BUILD_DIR=${MUST_PREFIX}/build
+    - MUST_INSTALL_DIR=${MUST_PREFIX}/install
+    - MUST_SOURCE_DIR=$PWD
+
+
+.cluster-tests-build:
+  extends: .cluster-tests-template
+  stage: build
+  script:
+    - set -x
+    - echo $COLLECTION_PIPELINE_ID
+    - mkdir -p $REPORT_COLL_DIR/unit
+    - mkdir -p $REPORT_COLL_DIR/coverage
+    - echo $SRUN_CPUS_PER_TASK
+    - mkdir -p $MUST_BUILD_DIR
+    - >-
+      cmake
+      -Wdev
+      -DENABLE_WARNINGS=ON
+      -DCMAKE_INSTALL_PREFIX=${MUST_INSTALL_DIR}
+      -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+      -DMPIEXEC_EXECUTABLE=$(which $MPIEXEC_WRAPPER)
+      -DENABLE_TESTS=ON
+      -DENABLE_PREBUILD=ON
+      -DTEST_PREBUILDS=ON
+      -DTESTS_WORKERS=$((SRUN_CPUS_PER_TASK*2))
+      -DMUST_MPI_HAS_ASSERTIONS=TRUE
+      -DMUST_FAST_TESTS_ONLY=$FAST_TESTS_ONLY
+      -DALL_FEATURE_TESTS=$ALL_FEATURE_TESTS
+      ${CMAKE_EXTRA_FLAGS}
+      -S .
+      -B ${MUST_BUILD_DIR}
+    - cd ${MUST_BUILD_DIR}
+    - set +x
+    - time make -j${SRUN_CPUS_PER_TASK} install
+    - time make -j${SRUN_CPUS_PER_TASK} install-prebuilds
+    - echo $?
+
+
+# Only run the tests
+.cluster-run-only:
+  script:
+    - mkdir -p $REPORT_DIR
+    - TEST_DIR=${MUST_BUILD_DIR}/tests
+    - EXIT_CODE=0
+    - cd ${MUST_BUILD_DIR}
+    # Fix for ThreadSanitizer crash in OpenMPI stack
+    - |
+      if [[ "${LMOD_FAMILY_MPI}" == *"OpenMPI"* ]]
+      then
+        export MUST_MPIEXEC="orterun"
+      fi
+    - time make -j${SRUN_CPUS_PER_TASK} ${MAKE_CHECK_TARGET} || EXIT_CODE=$?
+
+# Test results will be uploaded and are visible in the pipeline test overview
+.cluster-run-collect:
+  script:
+    - !reference [.cluster-run-only, script]
+    - cp -r $TEST_DIR/${MAKE_CHECK_TARGET}{.xunit.xml,.out.json} ${REPORT_DIR}
+    - set -x
+    - sed -e "s/name=\"MUST/name=\"${COMPILER//\//-}-${TOOLCHAIN//\//-}/" ${TEST_DIR}/${MAKE_CHECK_TARGET}.xunit.xml > ${REPORT_COLL_DIR}/unit/${CI_PIPELINE_ID}-${MAKE_CHECK_TARGET}.xunit.xml
+    - set +x
+
+.cluster-tests-run:
+  extends: .cluster-tests-template
+  stage: test
+  script:
+    - !reference [.cluster-run-collect, script]
+    - exit $EXIT_CODE
+  artifacts:
+    when: always
+    reports:
+      junit: ${REPORT_DIR}/${MAKE_CHECK_TARGET}.xunit.xml
+    paths:
+      - ${REPORT_DIR}/${MAKE_CHECK_TARGET}.out.json
+
+
+.batch-tests-template:
+  variables:
+    SLURM_CPUS_PER_TASK: "12"
+    SLURM_OVERCOMMIT: "1"
+    SLURM_ACCOUNT: "rwth1282"
+    SLURM_CONSTRAINT: "Rocky8"
+    SRUN_CPUS_PER_TASK: "12"
+    SLURM_TIME: "00:90:00"
+    NPROC: ${SRUN_CPUS_PER_TASK}
+    CI_MODE: "SingleSlurmJobAcrossStages"
+    GIT_STRATEGY: none
+    REPORT_DIR: ${CI_PROJECT_DIR}/reports
+    CMAKE_BUILD_TYPE: RelWithDebInfo
+  tags:
+   - "unstable"
+

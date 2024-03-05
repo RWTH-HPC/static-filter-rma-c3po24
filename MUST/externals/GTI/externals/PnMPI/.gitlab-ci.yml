@@ -1,0 +1,191 @@
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
+      when: never
+    - if: '$CI_COMMIT_BRANCH'
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+  MUST_BRANCH: develop
+
+stages:
+  - test
+  - docs
+  - compliance
+
+
+formatting:
+  stage: compliance
+  needs: []
+  image: ubuntu:22.04
+  before_script:
+    - export DEBIAN_FRONTEND=noninteractive
+    - apt-get update
+    - apt-get install -y --no-install-recommends git clang-format
+  script:
+    - git clang-format --verbose --diff ${CI_MERGE_REQUEST_DIFF_BASE_SHA}
+
+
+docker:
+  stage: test
+  image: ubuntu:22.04
+  parallel:
+    matrix:
+      - MPI: [ mpich, openmpi ]
+  before_script:
+    - export DEBIAN_FRONTEND=noninteractive
+    - apt-get update
+    - >-
+      apt-get install -y --no-install-recommends
+      gcc
+      g++
+      gfortran 
+      cmake 
+      make
+      lib${MPI}-dev 
+      git
+      python2-minimal
+      gcovr
+  variables:
+    CMAKE_BUILD_TYPE: Debug
+    OMPI_ALLOW_RUN_AS_ROOT: "1"
+    OMPI_ALLOW_RUN_AS_ROOT_CONFIRM: "1"
+    CTEST_OUTPUT_ON_FAILURE: "1"
+  script:
+    - cmake -S ./ -B build -DENABLE_TESTS=ON -DENABLE_COVERAGE=ON
+    - cmake --build build
+    - ctest --output-on-failure --test-dir build --output-junit junit.xml
+  after_script:
+    - mkdir -p build/coverage
+    - gcovr -r ./ --print-summary --xml=build/cobertura.xml --html-details=build/coverage/index.html --filter=src/
+  coverage: '/^lines: (.*\%)/'
+  artifacts:
+    reports:
+      junit: build/junit.xml
+      coverage_report:
+        coverage_format: cobertura
+        path: build/cobertura.xml
+    paths:
+      - build/coverage/
+
+must:
+  stage: test
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "web"
+  inherit:
+    variables: false
+  variables:
+    CI_SUBMOD_COMMIT: $CI_COMMIT_SHA
+    CI_SUBMOD_TRIGGER: $CI_PROJECT_NAME
+  trigger:
+    project: 'hpc-research/correctness/MUST'
+    branch: $MUST_BRANCH
+    strategy: depend
+
+.batch-tests-template:
+  variables:
+    SLURM_CPUS_PER_TASK: "12"
+    SLURM_OVERCOMMIT: "1"
+    SLURM_ACCOUNT: "rwth1282"
+    SLURM_CONSTRAINT: "Rocky8"
+    SRUN_CPUS_PER_TASK: "12"
+    SLURM_TIME: "00:20:00"
+    CI_MODE: "Slurm"
+  tags:
+   - "unstable"
+  before_script:
+    - module purge
+    - module use /home/pj416018/.modules
+    - module use /home/ja664344/.modules/rl8
+    - module load $PRELOAD_MODULES $PARVAR_TOOLCHAIN Python CMake/3.13.4
+    - source .gitlab/envs/common.env
+    - |
+      if [[ "${LMOD_FAMILY_MPI}" == *"OpenMPI"* ]]
+      then
+        source .gitlab/envs/ompi.env
+        export MPIEXEC_PREFLAGS="--map-by :OVERSUBSCRIBE"
+      fi
+    - |
+      if [[ "${LMOD_FAMILY_MPI}" == *"impi"* ]]
+      then
+        source .gitlab/envs/impi.env
+      fi
+    - |
+      if [[ "${LMOD_FAMILY_MPI}" == *"MPICH"* ]]
+      then
+        source .gitlab/envs/mpich.env
+        export MPIEXEC_PREFLAGS="--launcher=ssh"
+      fi
+
+cluster:
+  stage: test
+  extends:
+    - .batch-tests-template
+  parallel:
+    matrix:
+      - PARVAR_TOOLCHAIN: ["mpich/dev", "OpenMPI/dev"]
+  variables:
+    PRELOAD_MODULES: "GCC/11"
+    CMAKE_BUILD_TYPE: Debug
+    CTEST_OUTPUT_ON_FAILURE: "1"
+  script:
+    - !reference [.batch-tests-template, before_script]
+    - set -x
+    - cmake -S ./ -B build -DENABLE_TESTS=ON -DENABLE_COVERAGE=ON -DMPIEXEC_PREFLAGS="${MPIEXEC_PREFLAGS}"
+    - set +x
+    - cmake --build build -- -j ${SRUN_CPUS_PER_TASK}
+    - ctest --output-on-failure --test-dir build --output-junit junit.xml
+  after_script:
+    - !reference [.batch-tests-template, before_script]
+    - mkdir -p build/coverage
+    - pip install --user gcovr
+    - gcovr -r ./ --print-summary --xml=build/cobertura.xml --html-details=build/coverage/index.html --filter=src/ --gcov-ignore-parse-errors
+  artifacts:
+    reports:
+      junit: build/junit.xml
+      coverage_report:
+        coverage_format: cobertura
+        path: build/cobertura.xml
+    paths:
+      - build/coverage/
+
+
+doxygen:
+  stage: docs
+  needs: [ ]
+  image: ubuntu:22.04
+  variables:
+    CMAKE_BUILD_TYPE: Debug
+    BUILD_DOC: "ON"
+    BUILD_DOC_INTERNAL: "OFF"
+  before_script:
+    - export DEBIAN_FRONTEND=noninteractive
+    - apt-get update
+    - >-
+      apt-get install -y --no-install-recommends
+      gcc
+      g++
+      gfortran 
+      cmake 
+      make
+      libmpich-dev 
+      git
+      python3-minimal
+      doxygen
+      graphviz
+  script:
+    - cmake -S ./ -B build -DBUILD_DOC=${BUILD_DOC} -DBUILD_DOC_INTERNAL=${BUILD_DOC_INTERNAL}
+    - cmake --build build --target doc
+  after_script:
+    - echo "The documentation can be viewed at ${CI_JOB_URL}/artifacts/file/build/doc/html/index.html"
+  artifacts:
+    paths:
+      - build/doc/html/
+
+
+doxygen-internal:
+  extends: doxygen
+  variables:
+    BUILD_DOC_INTERNAL: "ON"

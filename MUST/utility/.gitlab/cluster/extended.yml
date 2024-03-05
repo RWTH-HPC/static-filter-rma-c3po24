@@ -1,0 +1,21 @@
+include:
+  - local: '/utility/.gitlab/common.yml'
+
+stages:
+- trigger
+
+extended:
+  stage: trigger
+  variables:
+    REPORT_COLL_DIR: $REPORT_COLL_DIR
+    CI_SUBMOD_COMMIT: $_CI_SUBMOD_COMMIT
+    CI_SUBMOD_TRIGGER: $_CI_SUBMOD_TRIGGER
+  trigger:
+    include: '/utility/.gitlab/cluster/extended-template.yml'
+    strategy: depend
+  parallel:
+    matrix:
+      - PARVAR_TOOLCHAIN: ["iimpi"]
+        COMPILER: ["Clang/13.0.1", "Clang/15.0.5"]
+      - PARVAR_TOOLCHAIN: ["gompi"]
+        COMPILER: ["Clang/13.0.1", "Clang/15.0.5"]

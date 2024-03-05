@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+
+<!--
+  Part of the MUST Project, under BSD-3-Clause License
+ See https://hpc.rwth-aachen.de/must/LICENSE for license information.
+  SPDX-License-Identifier: BSD-3-Clause
+-->
+
+<!DOCTYPE api-specification SYSTEM "@MUST_SPECIFICATION_DTD_PATH@/api-specification.dtd">
+<api-specification unique-name="MUST_TSanInterceptor_API">
+    <api-headers>
+        <header>TSanInterceptorApi.h</header>
+    </api-headers>
+    <functions>
+        <function return-type="int" name="propagateTSanAccess" wrapp-everywhere="yes">
+            <function-arguments>
+                <function-argument order="0" name="pId" type="uint64_t" intent="in" />
+                <function-argument order="1" name="pc" type="void*" intent="in" />
+                <function-argument order="2" name="isRead" type="int8_t" intent="in" />
+                <function-argument order="3" name="addr" type="void*" intent="in" />
+                <function-argument order="4" name="count" type="int64_t" intent="in" />
+            </function-arguments>
+            <analyses>
+                <analysis order="pre" name="RaceChecksList:tsanAccess" group="MUST_OneSidedChecks">
+                    <analysis-arguments>
+                        <analysis-argument type="mapped" analysis-arg-order="0">
+                            <call-arg-name>pId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="1">
+                            <call-arg-name>pc</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="2">
+                            <call-arg-name>isRead</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="3">
+                            <call-arg-name>addr</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="4">
+                            <call-arg-name>count</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+            </analyses>
+            <operations>
+            </operations>
+        </function>
+        <function return-type="int" name="propagateTSanAccessBulk" wrapp-everywhere="yes">
+            <function-arguments>
+                <function-argument order="0" name="pId" type="uint64_t" intent="in" />
+                <function-array-argument order="1" name="readPc" type="void**" intent="in">
+                    <length-argument type="argument">
+                        <call-arg-name>readPcLen</call-arg-name>
+                    </length-argument>
+                </function-array-argument>
+                <function-array-argument order="2" name="readPcNum" type="size_t*" intent="in">
+                    <length-argument type="argument">
+                        <call-arg-name>readLen</call-arg-name>
+                    </length-argument>
+                </function-array-argument>
+                <function-array-argument order="3" name="readStartAddr" type="void**" intent="in">
+                    <length-argument type="argument">
+                        <call-arg-name>readLen</call-arg-name>
+                    </length-argument>
+                </function-array-argument>
+                <function-array-argument order="4" name="readEndAddr" type="void**" intent="in">
+                    <length-argument type="argument">
+                        <call-arg-name>readLen</call-arg-name>
+                    </length-argument>
+                </function-array-argument>
+                <function-argument order="5" name="readLen" type="size_t" intent="in" />
+                <function-argument order="6" name="readPcLen" type="size_t" intent="in" />
+                <function-array-argument order="7" name="writePc" type="void**" intent="in">
+                    <length-argument type="argument">
+                        <call-arg-name>writePcLen</call-arg-name>
+                    </length-argument>
+                </function-array-argument>
+                <function-array-argument order="8" name="writePcNum" type="size_t*" intent="in">
+                    <length-argument type="argument">
+                        <call-arg-name>writeLen</call-arg-name>
+                    </length-argument>
+                </function-array-argument>
+                <function-array-argument order="9" name="writeStartAddr" type="void**" intent="in">
+                    <length-argument type="argument">
+                        <call-arg-name>writeLen</call-arg-name>
+                    </length-argument>
+                </function-array-argument>
+                <function-array-argument order="10" name="writeEndAddr" type="void**" intent="in">
+                    <length-argument type="argument">
+                        <call-arg-name>writeLen</call-arg-name>
+                    </length-argument>
+                </function-array-argument>
+                <function-argument order="11" name="writeLen" type="size_t" intent="in" />
+                <function-argument order="12" name="writePcLen" type="size_t" intent="in" />
+            </function-arguments>
+            <analyses>
+                <analysis order="pre" name="RaceChecksList:tsanAccessBulk" group="MUST_OneSidedChecks">
+                    <analysis-arguments>
+                        <analysis-argument type="mapped" analysis-arg-order="0">
+                            <call-arg-name>pId</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="1">
+                            <call-arg-name>readPc</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="2">
+                            <call-arg-name>readPcNum</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="3">
+                            <call-arg-name>readStartAddr</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="4">
+                            <call-arg-name>readEndAddr</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="5">
+                            <call-arg-name>readLen</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="6">
+                            <call-arg-name>readPcLen</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="7">
+                            <call-arg-name>writePc</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="8">
+                            <call-arg-name>writePcNum</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="9">
+                            <call-arg-name>writeStartAddr</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="10">
+                            <call-arg-name>writeEndAddr</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="11">
+                            <call-arg-name>writeLen</call-arg-name>
+                        </analysis-argument>
+                        <analysis-argument type="mapped" analysis-arg-order="12">
+                            <call-arg-name>writePcLen</call-arg-name>
+                        </analysis-argument>
+                    </analysis-arguments>
+                </analysis>
+            </analyses>
+            <operations>
+            </operations>
+        </function>
+    </functions>
+</api-specification>
+

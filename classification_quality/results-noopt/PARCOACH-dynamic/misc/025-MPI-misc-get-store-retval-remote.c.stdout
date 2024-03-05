@@ -1,0 +1,27 @@
+[8c5919991b82:45565] *** Process received signal ***
+[8c5919991b82:45565] Signal: Segmentation fault (11)
+[8c5919991b82:45565] Signal code: Address not mapped (1)
+[8c5919991b82:45565] Failing at address: 0x1
+[8c5919991b82:45565] [ 0] /lib/x86_64-linux-gnu/libc.so.6(+0x3c050)[0x7f843cb0d050]
+[8c5919991b82:45565] [ 1] /usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_pml_ob1.so(mca_pml_ob1_recv_frag_callback_match+0x587)[0x7f843ba6ba27]
+[8c5919991b82:45565] [ 2] /usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_btl_vader.so(+0x4f6a)[0x7f843c449f6a]
+[8c5919991b82:45565] [ 3] /lib/x86_64-linux-gnu/libopen-pal.so.40(opal_progress+0x2c)[0x7f843c5dde1c]
+[8c5919991b82:45565] [ 4] /usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_pml_ob1.so(mca_pml_ob1_recv+0x30d)[0x7f843ba639fd]
+[8c5919991b82:45565] [ 5] /lib/x86_64-linux-gnu/libmpi.so.40(ompi_coll_base_reduce_intra_basic_linear+0x153)[0x7f843ce915e3]
+[8c5919991b82:45565] [ 6] /usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_coll_tuned.so(ompi_coll_tuned_reduce_intra_dec_fixed+0x4f)[0x7f843c42137f]
+[8c5919991b82:45565] [ 7] /lib/x86_64-linux-gnu/libmpi.so.40(MPI_Reduce+0x12a)[0x7f843ce6242a]
+[8c5919991b82:45565] [ 8] /opt/parcoach/lib/libParcoachInstrumentation.so(rma_analyzer_clear_comm_check_thread+0x10b)[0x7f843cf23f1b]
+[8c5919991b82:45565] [ 9] /opt/parcoach/lib/libParcoachInstrumentation.so(rma_analyzer_clear_comm_check_thread_all_wins+0xec)[0x7f843cf241bc]
+[8c5919991b82:45565] [10] /opt/parcoach/lib/libParcoachInstrumentation.so(parcoach_rma_MPI_Barrier+0xe)[0x7f843cf2698e]
+[8c5919991b82:45565] [11] results-20240305-201640/PARCOACH-dynamic/misc/025-MPI-misc-get-store-retval-remote.c-instrumented.exe(+0x14fe)[0x560f2860d4fe]
+[8c5919991b82:45565] [12] /lib/x86_64-linux-gnu/libc.so.6(+0x2724a)[0x7f843caf824a]
+[8c5919991b82:45565] [13] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x85)[0x7f843caf8305]
+[8c5919991b82:45565] [14] results-20240305-201640/PARCOACH-dynamic/misc/025-MPI-misc-get-store-retval-remote.c-instrumented.exe(+0x1131)[0x560f2860d131]
+[8c5919991b82:45565] *** End of error message ***
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 0 on node 8c5919991b82 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------

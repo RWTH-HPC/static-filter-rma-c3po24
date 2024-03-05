@@ -1,0 +1,32 @@
+Process 0: Execution finished, variable contents: value = 0, value2 = 2, win_base[0] = 0
+PARCOACH: stopping RMA analyzer, no issues found.
+Process 1: Execution finished, variable contents: value = 1, value2 = 2, win_base[0] = 0
+PARCOACH: stopping RMA analyzer, no issues found.
+Process 2: Execution finished, variable contents: value = 0, value2 = 2, win_base[0] = 0
+PARCOACH: stopping RMA analyzer, no issues found.
+[8c5919991b82:40471] *** Process received signal ***
+[8c5919991b82:40471] Signal: Segmentation fault (11)
+[8c5919991b82:40471] Signal code: Address not mapped (1)
+[8c5919991b82:40471] Failing at address: 0x555606bb9910
+[8c5919991b82:40471] [ 0] /lib/x86_64-linux-gnu/libc.so.6(+0x3c050)[0x7f4397671050]
+[8c5919991b82:40471] [ 1] /usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_pml_ob1.so(mca_pml_ob1_recv_frag_callback_ack+0x24)[0x7f43963ee594]
+[8c5919991b82:40471] [ 2] /usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_btl_vader.so(mca_btl_vader_poll_handle_frag+0x91)[0x7f43967aab41]
+[8c5919991b82:40471] [ 3] /usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_btl_vader.so(+0x4e18)[0x7f43967aae18]
+[8c5919991b82:40471] [ 4] /lib/x86_64-linux-gnu/libopen-pal.so.40(opal_progress+0x2c)[0x7f43971bde1c]
+[8c5919991b82:40471] [ 5] /lib/x86_64-linux-gnu/libmpi.so.40(ompi_request_default_wait+0x55)[0x7f439798dbc5]
+[8c5919991b82:40471] [ 6] /lib/x86_64-linux-gnu/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x2d3)[0x7f43979f78a3]
+[8c5919991b82:40471] [ 7] /usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_osc_rdma.so(ompi_osc_rdma_free+0xa5)[0x7f43963256c5]
+[8c5919991b82:40471] [ 8] /lib/x86_64-linux-gnu/libmpi.so.40(ompi_win_free+0x17)[0x7f4397997457]
+[8c5919991b82:40471] [ 9] /lib/x86_64-linux-gnu/libmpi.so.40(MPI_Win_free+0x88)[0x7f43979d5158]
+[8c5919991b82:40471] [10] results-20240305-201640/PARCOACH-dynamic/conflict/020-MPI-conflict-get-gaccread-remote-no.c-instrumented.exe(+0x15ec)[0x55a78e7365ec]
+[8c5919991b82:40471] [11] /lib/x86_64-linux-gnu/libc.so.6(+0x2724a)[0x7f439765c24a]
+[8c5919991b82:40471] [12] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x85)[0x7f439765c305]
+[8c5919991b82:40471] [13] results-20240305-201640/PARCOACH-dynamic/conflict/020-MPI-conflict-get-gaccread-remote-no.c-instrumented.exe(+0x1141)[0x55a78e736141]
+[8c5919991b82:40471] *** End of error message ***
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 2 with PID 0 on node 8c5919991b82 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------

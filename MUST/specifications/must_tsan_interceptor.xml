@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE analysis-specification PUBLIC "must_base" "@MUST_SPECIFICATION_DTD_PATH@/analysis-specification.dtd">
+<analysis-specification group-name="MUST_TSanInterceptor" include-path="" path-to-libs="@CMAKE_INSTALL_PREFIX@/modules">
+    <analyses>
+        <analysis name="TSanInterceptor">
+            <registered-name>TSanInterceptor</registered-name>
+            <module-name>libTSanInterceptor</module-name>
+            <header-name>I_TSanInterceptor.h</header-name>
+            <interface-type>I_TSanInterceptor</interface-type>
+            <is-global>0</is-global>
+            <is-process-global>0</is-process-global>
+            <dependencies>
+                <analysis-depend group="MUST_Base">CreateMessage</analysis-depend>
+                <analysis-depend group="MUST_Base">GenerateLocationId</analysis-depend>
+                <analysis-depend group="MUST_Base">ParallelIdAnalysis</analysis-depend>
+                <analysis-depend group="MUST_Base">InitParallelId</analysis-depend>
+                <analysis-depend group="MUST_Base">InitLocationId</analysis-depend>
+			</dependencies>
+			<analysis-function name="init">
+			</analysis-function>
+			<analysis-function name="fini">
+			</analysis-function>
+            <analysis-function name="tick">
+			</analysis-function>
+        </analysis>
+    </analyses>
+    <operations>
+    </operations>
+</analysis-specification>
+

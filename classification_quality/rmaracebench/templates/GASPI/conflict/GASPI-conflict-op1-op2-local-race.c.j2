@@ -1,0 +1,27 @@
+{% extends "templates/GASPI/GASPI-boilerplate.c.j2" %}
+
+{% block preamble %}
+{% endblock preamble %}
+
+
+{% block main %}
+
+  if (rank == 0) {
+{%- if op1.name in ['write', 'write2'] or op2.name in ['write', 'write2']%}
+     localbuf[0] = 1;
+{%- endif %}
+{%- if race %}
+        // CONFLICT
+        {{ op1.code }}
+        // CONFLICT
+        {{ op2.code }}
+{%- else %}
+        {{ op1.code }}
+        {{ op2.code }}
+{%- endif %}
+{%- if op1.name in ['write', 'write2', 'read'] or op2.name in ['write', 'write2', 'read'] %}
+     gaspi_wait(queue_id, GASPI_BLOCK);
+{%- endif %}
+  }
+
+{% endblock main %}

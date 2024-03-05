@@ -1,0 +1,10 @@
+Error when inserting memory access of type RMA_WRITE from file results-20240305-201640/PARCOACH-dynamic/atomic/007-MPI-atomic-float-int-sameorigin-remote-yes.c:59 with already inserted interval of type LOCAL_READ from file results-20240305-201640/PARCOACH-dynamic/atomic/007-MPI-atomic-float-int-sameorigin-remote-yes.c:64.
+The program will be exiting now with MPI_Abort.
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 1 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------

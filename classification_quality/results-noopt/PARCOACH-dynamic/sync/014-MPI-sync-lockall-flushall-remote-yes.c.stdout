@@ -1,0 +1,52 @@
+win_base[0] is 0
+Process 0: Execution finished, variable contents: value = 1, value2 = 2, win_base[0] = 0
+PARCOACH: stopping RMA analyzer, no issues found.
+Process 1: Execution finished, variable contents: value = 1, value2 = 2, win_base[0] = 1
+PARCOACH: stopping RMA analyzer, no issues found.
+terminate called without an active exception
+terminate called without an active exception
+[8c5919991b82:41749] *** Process received signal ***
+[8c5919991b82:41749] Signal: Aborted (6)
+[8c5919991b82:41749] Signal code:  (-6)
+[8c5919991b82:41750] *** Process received signal ***
+[8c5919991b82:41750] Signal: Aborted (6)
+[8c5919991b82:41750] Signal code:  (-6)
+[8c5919991b82:41749] [ 0] [8c5919991b82:41750] [ 0] /lib/x86_64-linux-gnu/libc.so.6(+0x3c050)[0x7f74b3a1b050]
+[8c5919991b82:41749] [ 1] /lib/x86_64-linux-gnu/libc.so.6(+0x8ae2c)[0x7f74b3a69e2c]
+[8c5919991b82:41749] [ 2] /lib/x86_64-linux-gnu/libc.so.6(+0x3c050)[0x7fc88635f050]
+[8c5919991b82:41750] [ 1] /lib/x86_64-linux-gnu/libc.so.6(gsignal+0x12)[0x7f74b3a1afb2]
+[8c5919991b82:41749] [ 3] /lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7f74b3a05472]
+[8c5919991b82:41749] [ 4] /lib/x86_64-linux-gnu/libc.so.6(+0x8ae2c)[0x7fc8863ade2c]
+[8c5919991b82:41750] [ 2] /lib/x86_64-linux-gnu/libstdc++.so.6(+0x9d919)[0x7f74b369d919]
+[8c5919991b82:41749] [ 5] /lib/x86_64-linux-gnu/libc.so.6(gsignal+0x12)[0x7fc88635efb2]
+[8c5919991b82:41750] [ 3] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xa8e1a)[0x7f74b36a8e1a]
+[8c5919991b82:41749] [ 6] /lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7fc886349472]
+[8c5919991b82:41750] [ 4] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xa8e85)[0x7f74b36a8e85]
+[8c5919991b82:41749] [ 7] /opt/parcoach/lib/libParcoachInstrumentation.so(_ZNSt8_Rb_treeIP10ompi_win_tSt4pairIKS1_St10unique_ptrI18rma_analyzer_stateSt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E+0x86)[0x7f74b3e32b66]
+[8c5919991b82:41749] [ 8] /opt/parcoach/lib/libParcoachInstrumentation.so(_ZNSt8_Rb_treeIP10ompi_win_tSt4pairIKS1_St10unique_ptrI18rma_analyzer_stateSt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE5eraseERS3_+0xb2)[0x7f74b3e33262]
+[8c5919991b82:41749] [ 9] /opt/parcoach/lib/libParcoachInstrumentation.so(rma_analyzer_stop+0xe9)[0x7f74b3e32a09]
+[8c5919991b82:41749] [10] /opt/parcoach/lib/libParcoachInstrumentation.so(parcoach_rma_MPI_Win_free+0x2c)[0x7f74b3e3495c]
+[8c5919991b82:41749] [11] results-20240305-201640/PARCOACH-dynamic/sync/014-MPI-sync-lockall-flushall-remote-yes.c-instrumented.exe(+0x141e)[0x557d95a1341e]
+[8c5919991b82:41749] [12] /lib/x86_64-linux-gnu/libc.so.6(+0x2724a)[0x7f74b3a0624a]
+[8c5919991b82:41749] [13] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x85)[0x7f74b3a06305]
+[8c5919991b82:41749] [14] results-20240305-201640/PARCOACH-dynamic/sync/014-MPI-sync-lockall-flushall-remote-yes.c-instrumented.exe(+0x1131)[0x557d95a13131]
+[8c5919991b82:41749] *** End of error message ***
+/lib/x86_64-linux-gnu/libstdc++.so.6(+0x9d919)[0x7fc88609d919]
+[8c5919991b82:41750] [ 5] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xa8e1a)[0x7fc8860a8e1a]
+[8c5919991b82:41750] [ 6] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xa8e85)[0x7fc8860a8e85]
+[8c5919991b82:41750] [ 7] /opt/parcoach/lib/libParcoachInstrumentation.so(_ZNSt8_Rb_treeIP10ompi_win_tSt4pairIKS1_St10unique_ptrI18rma_analyzer_stateSt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E+0x86)[0x7fc886776b66]
+[8c5919991b82:41750] [ 8] /opt/parcoach/lib/libParcoachInstrumentation.so(_ZNSt8_Rb_treeIP10ompi_win_tSt4pairIKS1_St10unique_ptrI18rma_analyzer_stateSt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE5eraseERS3_+0xb2)[0x7fc886777262]
+[8c5919991b82:41750] [ 9] /opt/parcoach/lib/libParcoachInstrumentation.so(rma_analyzer_stop+0xe9)[0x7fc886776a09]
+[8c5919991b82:41750] [10] /opt/parcoach/lib/libParcoachInstrumentation.so(parcoach_rma_MPI_Win_free+0x2c)[0x7fc88677895c]
+[8c5919991b82:41750] [11] results-20240305-201640/PARCOACH-dynamic/sync/014-MPI-sync-lockall-flushall-remote-yes.c-instrumented.exe(+0x141e)[0x55d1ff92f41e]
+[8c5919991b82:41750] [12] /lib/x86_64-linux-gnu/libc.so.6(+0x2724a)[0x7fc88634a24a]
+[8c5919991b82:41750] [13] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x85)[0x7fc88634a305]
+[8c5919991b82:41750] [14] results-20240305-201640/PARCOACH-dynamic/sync/014-MPI-sync-lockall-flushall-remote-yes.c-instrumented.exe(+0x1131)[0x55d1ff92f131]
+[8c5919991b82:41750] *** End of error message ***
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 1 with PID 0 on node 8c5919991b82 exited on signal 6 (Aborted).
+--------------------------------------------------------------------------

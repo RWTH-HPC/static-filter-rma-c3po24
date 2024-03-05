@@ -1,0 +1,15 @@
+[submodule "externals/CMake-gitinfo"]
+	path = externals/CMake-gitinfo
+	url = https://github.com/RWTH-HPC/CMake-gitinfo.git
+[submodule "externals/PnMPI"]
+	path = externals/PnMPI
+	url = ../external/PnMPI.git
+[submodule "externals/wrap"]
+	path = externals/wrap
+	url = ../external/wrap.git
+[submodule "externals/CMake-gitpack"]
+	path = externals/CMake-gitpack
+	url = https://github.com/RWTH-HPC/CMake-gitpack.git
+[submodule "externals/CMake-codecov"]
+	path = externals/CMake-codecov
+	url = https://github.com/RWTH-HPC/CMake-codecov.git

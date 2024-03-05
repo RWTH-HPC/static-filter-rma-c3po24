@@ -1,0 +1,68 @@
+Using prebuild /home/user/.cache/must/prebuilds/c68e094d2eb7a367fa3fd65ca3555a22
+Using prebuild /home/user/.cache/must/prebuilds/c68e094d2eb7a367fa3fd65ca3555a22
+[MUST] MUST configuration ... distributed checks without application crash handling
+[MUST] Information: overwritting old intermediate data in directory "/rmaracebench/must_temp"!
+[MUST] Using prebuilt infrastructure at /home/user/.cache/must/prebuilds/c68e094d2eb7a367fa3fd65ca3555a22
+[MUST] Infrastructure in "/home/user/.cache/must/prebuilds/c68e094d2eb7a367fa3fd65ca3555a22" is present and used.
+[MUST] Search for linked P^nMPI ... not found ... using LD_PRELOAD to load P^nMPI ... success
+[MUST] Note: Full ThreadSanitizer support requires the application to be built with either a GNU-based compiler in version 9 to 11 or an LLVM-based compiler in version 6 to 13.
+[MUST] Note: MPI RMA support requires the application to be built with Clang >= 15.Executing application:
+win_base[0] is 0
+==================
+[1m[31mWARNING: ThreadSanitizer: data race (pid=71275)
+[1m[0m[1m[34m  Write of size 4 at 0x7fa7bf40b008 by thread T4:
+[1m[0m    #0 MPI_Get ??:? (libpnmpi.so+0x874c0) (BuildId: 05175fe2db8438a60158cd2bbcb989ce0843156e)
+    #1 <null> <null> (0xfffffffffffffff)
+    #2 <null> <null> (0x000100000000)
+    #3 <null> <null> (0x000100000006)
+    #4 .omp_outlined._debug__ /rmaracebench/results-20240305-205614/MUST/hybrid/001-MPI-hybrid-master-local-yes.c:68 (001-MPI-hybrid-master-local-yes.c.exe-must+0xd9e5b) (BuildId: e274d471cf8b3191b3517f70c83661edd5d28745)
+
+[1m[34m  Previous read of size 4 at 0x7fa7bf40b008 by thread T14:
+[1m[0m    #0 .omp_outlined._debug__ /rmaracebench/results-20240305-205614/MUST/hybrid/001-MPI-hybrid-master-local-yes.c:73 (001-MPI-hybrid-master-local-yes.c.exe-must+0xd9e8e) (BuildId: e274d471cf8b3191b3517f70c83661edd5d28745)
+    #1 .omp_outlined. /rmaracebench/results-20240305-205614/MUST/hybrid/001-MPI-hybrid-master-local-yes.c:62 (001-MPI-hybrid-master-local-yes.c.exe-must+0xd9d90) (BuildId: e274d471cf8b3191b3517f70c83661edd5d28745)
+    #2 __kmp_invoke_microtask ??:? (libomp.so.5+0xd8022) (BuildId: 861597ad0fca1891cd9974a9c37a8e5088206e6e)
+    #3 main /rmaracebench/results-20240305-205614/MUST/hybrid/001-MPI-hybrid-master-local-yes.c:62 (001-MPI-hybrid-master-local-yes.c.exe-must+0xd9d18) (BuildId: e274d471cf8b3191b3517f70c83661edd5d28745)
+
+[1m[32m  Location is global '<null>' at 0x000000000000 (osc_rdma.8c5919991b82.57670001.10 (deleted)+0x1008)
+
+[1m[0m[1m[36m  Thread T4 (tid=0, running) created by thread T3 at:
+[1m[0m    #0 must::OriginChecks::OriginChecks(char const*) ??:? (liboriginChecks.so+0xe525) (BuildId: 7cb51d224fa59c8f5f338ec410e8d8b734bdaf70)
+
+[1m[36m  Thread T14 (tid=71289, running) created by main thread at:
+[1m[0m    #0 pthread_create /externals/MUST/externals/RMAOptimizerPlugin/external/compiler-rt/compiler-rt/lib/tsan/rtl/tsan_interceptors_posix.cpp:1048 (001-MPI-hybrid-master-local-yes.c.exe-must+0x2bb5d) (BuildId: e274d471cf8b3191b3517f70c83661edd5d28745)
+    #1 __kmpc_team_static_init_8u ??:? (libomp.so.5+0xb1197) (BuildId: 861597ad0fca1891cd9974a9c37a8e5088206e6e)
+
+SUMMARY: ThreadSanitizer: data race ??:? in MPI_Get
+==================
+win_base[0] is 0
+win_base[0] is 0
+Process 0: Execution finished, variable contents: value = 1, value2 = 2, win_base[0] = 0
+Process 1: Execution finished, variable contents: value = 1, value2 = 2, win_base[0] = 0
+/usr/bin/addr2line: '-f': No such file
+[MUST-REPORT] Error: from: call .omp_outlined._debug__@0: Local buffer data race at rank 0 between a write of size 4 at MPI_Get@1 and a previous read of size 4 at .omp_outlined._debug__@2.
+[MUST-REPORT]  Representative location:
+[MUST-REPORT] #0  .omp_outlined._debug__@/rmaracebench/results-20240305-205614/MUST/hybrid/001-MPI-hybrid-master-local-yes.c:73
+[MUST-REPORT] #1  .omp_outlined.@/rmaracebench/results-20240305-205614/MUST/hybrid/001-MPI-hybrid-master-local-yes.c:62
+[MUST-REPORT] #2  __kmp_invoke_microtask@??:?:0xd8022
+[MUST-REPORT] #3  main@/rmaracebench/results-20240305-205614/MUST/hybrid/001-MPI-hybrid-master-local-yes.c:62
+[MUST-REPORT]  References of a representative process:
+[MUST-REPORT] Reference 1: call MPI_Get@rank 0, threadid 1;
+[MUST-REPORT] Stacktrace:
+[MUST-REPORT] #0  .omp_outlined._debug__@/rmaracebench/results-20240305-205614/MUST/hybrid/001-MPI-hybrid-master-local-yes.c:68
+[MUST-REPORT] #1  .omp_outlined.@/rmaracebench/results-20240305-205614/MUST/hybrid/001-MPI-hybrid-master-local-yes.c:62
+[MUST-REPORT] #2  __kmp_invoke_microtask@:0
+[MUST-REPORT] #3  __kmp_fork_call@:0
+[MUST-REPORT] #4  __kmp_fork_call@:0
+[MUST-REPORT] #5  __kmpc_fork_call@:0
+[MUST-REPORT] #6  main@/rmaracebench/results-20240305-205614/MUST/hybrid/001-MPI-hybrid-master-local-yes.c:62
+[MUST-REPORT] Reference 2: call .omp_outlined._debug__.omp_outlined._debug__
+[MUST-REPORT] /rmaracebench/results-20240305-205614/MUST/hybrid/001-MPI-hybrid-master-local-yes.c:73
+[MUST-REPORT] @rank 0, threadid 0;
+[MUST-REPORT] Stacktrace:
+[MUST-REPORT] #0  .omp_outlined._debug__@/rmaracebench/results-20240305-205614/MUST/hybrid/001-MPI-hybrid-master-local-yes.c:73
+[MUST-REPORT] #1  .omp_outlined.@/rmaracebench/results-20240305-205614/MUST/hybrid/001-MPI-hybrid-master-local-yes.c:62
+[MUST-REPORT] #2  __kmp_invoke_microtask@??:?:0xd8022
+[MUST-REPORT] #3  main@/rmaracebench/results-20240305-205614/MUST/hybrid/001-MPI-hybrid-master-local-yes.c:62
+[MUST-REPORT] 
+ThreadSanitizer: reported 1 warnings
+[MUST] Execution finished.

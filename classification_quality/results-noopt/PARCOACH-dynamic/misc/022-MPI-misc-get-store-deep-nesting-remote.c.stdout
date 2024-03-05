@@ -1,0 +1,28 @@
+[8c5919991b82:45483] *** Process received signal ***
+[8c5919991b82:45483] Signal: Segmentation fault (11)
+[8c5919991b82:45483] Signal code: Address not mapped (1)
+[8c5919991b82:45483] Failing at address: 0x1
+[8c5919991b82:45483] [ 0] /lib/x86_64-linux-gnu/libc.so.6(+0x3c050)[0x7feea9e0b050]
+[8c5919991b82:45483] [ 1] /usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_pml_ob1.so(mca_pml_ob1_recv_frag_callback_match+0x587)[0x7feea8e8ca27]
+[8c5919991b82:45483] [ 2] /usr/lib/x86_64-linux-gnu/openmpi/lib/openmpi3/mca_btl_vader.so(+0x4f6a)[0x7feea8f45f6a]
+[8c5919991b82:45483] [ 3] /lib/x86_64-linux-gnu/libopen-pal.so.40(opal_progress+0x2c)[0x7feea98bce1c]
+[8c5919991b82:45483] [ 4] /lib/x86_64-linux-gnu/libmpi.so.40(ompi_request_default_test+0x30)[0x7feeaa127560]
+[8c5919991b82:45483] [ 5] /lib/x86_64-linux-gnu/libmpi.so.40(PMPI_Test+0x4e)[0x7feeaa16764e]
+[8c5919991b82:45483] [ 6] /opt/parcoach/lib/libParcoachInstrumentation.so(+0x59af)[0x7feeaa2219af]
+[8c5919991b82:45483] [ 7] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xd44a3)[0x7feea9ad44a3]
+[8c5919991b82:45483] [ 8] /lib/x86_64-linux-gnu/libc.so.6(+0x89134)[0x7feea9e58134]
+[8c5919991b82:45483] [ 9] /lib/x86_64-linux-gnu/libc.so.6(+0x1097dc)[0x7feea9ed87dc]
+[8c5919991b82:45483] *** End of error message ***
+[warn] event_base_loop: reentrant invocation.  Only one event_base_loop can run on each event_base at once.
+[warn] event_base_loop: reentrant invocation.  Only one event_base_loop can run on each event_base at once.
+[warn] event_base_loop: reentrant invocation.  Only one event_base_loop can run on each event_base at once.
+[warn] event_base_loop: reentrant invocation.  Only one event_base_loop can run on each event_base at once.
+[warn] event_base_loop: reentrant invocation.  Only one event_base_loop can run on each event_base at once.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+[warn] event_base_loop: reentrant invocation.  Only one event_base_loop can run on each event_base at once.
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 0 on node 8c5919991b82 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------

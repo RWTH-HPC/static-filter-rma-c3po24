@@ -1,0 +1,29 @@
+      PROGRAM typeextent
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C  @file
+C
+C  This program contains no MPI usage errors, hopefully ;)
+C
+C  @author Tobias Hilbrich
+C
+C  $ID$
+C
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+      IMPLICIT NONE
+
+      INCLUDE "mpif.h"
+
+      INTEGER ierror
+      INTEGER newtype
+      INTEGER lb
+      INTEGER extent
+
+      CALL MPI_INIT(ierror)
+
+      CALL MPI_TYPE_GET_EXTENT (MPI_INTEGER, lb, extent, ierror)
+
+      CALL MPI_FINALIZE(ierror)
+
+      END

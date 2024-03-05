@@ -1,0 +1,48 @@
+config.test_filecheck = "@MUST_FILECHECK_EXECUTABLE@"
+config.project_obj_root = "@EXECUTABLE_OUTPUT_PATH@"
+config.operating_system = "@CMAKE_SYSTEM_NAME@"
+config.compiler_id = "@CMAKE_CXX_COMPILER_ID@"
+config.test_mustrun = "@MUSTRUN@"
+config.mustrun_execution_flags = "@MUST_MUSTRUN_EXECUTION_FLAGS@"
+config.must_bin_dir = "@EXECUTABLE_OUTPUT_PATH@"
+config.mpiexec = "@MPIEXEC_EXECUTABLE@"
+config.mpiexec_numproc_flag = "@MPIEXEC_NUMPROC_FLAG@"
+config.builddir = "@MUST_BINARY_DIR@"
+config.srcdir = "@MUST_SOURCE_DIR@"
+config.test_lib_path = "@LIBRARY_OUTPUT_PATH@/patched-libs:@LIBRARY_OUTPUT_PATH@:@CMAKE_LIBRARY_OUTPUT_DIRECTORY@"
+config.test_prebuild_path = "@MUST_PREBUILD_PATH@"
+config.typeart_mpicc = "@TYPEART_MPICC_CMD@"
+config.pass_prefixed_variables = "@MUST_LIT_PASS_PREFIXED_VARIABLES@"
+config.not_helper_script = "@NOT_HELPER_SCRIPT@"
+config.mpi_c_version = "@MPI_C_VERSION@"
+config.testdir = "@CMAKE_CURRENT_BINARY_DIR@"
+config.compiler_features = @MUST_TEST_COMPILER_FEATURES@
+config.mpi_features = @MUST_TEST_MPI_FEATURES@
+config.must_cc = "@MUST_COMPILER_WRAPPER_CC_PATH@"
+config.must_cxx = "@MUST_COMPILER_WRAPPER_CXX_PATH@"
+config.isl_interceptor = "@CMAKE_BINARY_DIR@/lib/libtsanInterceptorStatic.a"
+
+# Booleans must not have quotes! ("False" is true!)
+config.forward_full_env = @MUST_LIT_FORWARD_FULL_ENV@
+config.gti_is_thread_safe = @GTI_IS_THREAD_SAFE@
+config.gti_enable_fortran = @GTI_ENABLE_FORTRAN@
+config.openmp_found = @OpenMP_FOUND@
+config.ompt_found = @OMPT_FOUND@
+config.disable_must_clean = @TESTS_DISABLE_MUST_CLEAN@
+config.disable_umpire_tests = @DISABLE_UMPIRE_TESTS@
+config.disable_marmot_tests = @DISABLE_MARMOT_TESTS@
+config.enable_fortran_tests = @ENABLE_Fortran_TESTS@
+config.enable_old_tests = @ENABLE_OLD_TESTS@
+config.enable_fortran_mixed_tests = @ENABLE_Fortran_MIXED_TESTS@
+config.fast_tests_only = @MUST_FAST_TESTS_ONLY@
+config.mpi_has_assertions = @MUST_MPI_HAS_ASSERTIONS@
+config.have_typeart = @ENABLE_TYPEART@ and config.typeart_mpicc
+config.enable_tsan = @HAVE_TSAN@
+config.stacktrace = @ENABLE_STACKTRACE@
+config.sanitize_ubsan = @MUST_SANITIZE_UBSAN@
+config.sanitize_asan = @MUST_SANITIZE_ASAN@
+# Feature-tested MPI features
+config.lit_features = {@LIT_FEATURE_DICT@}
+
+# Let the main config do the real work.
+lit_config.load_config(config, "@CMAKE_CURRENT_SOURCE_DIR@/lit.cfg")

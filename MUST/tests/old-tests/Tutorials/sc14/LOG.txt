@@ -1,0 +1,48 @@
+
+- Copied 2014 Rabenseifner training examples from Matthias Lieber
+- C+Fortran: For MPI version adapted MPI_Bsend towards MPI_Isend (removes a weird warning in MUST and provides a bit more spiel for creating errors)
+- Fortran: For MPI version changed ".false." to 0 to avoid a MUST warning; Do not modify the ".true." however, since we get compiler warning otherwise
+- C: header for both MPI and OpenMP versions, now use stdlib.h instead of malloc.h (the latter is not Mac OSX compatible) 
+
+TODO Test Fortran versions!
+
+Error versions:
+- heatC-MPI-MUST-1.c or heatF-MPI-MUST-1.F90
+(MPI_Waitall: 4 -> 3 causes a leak of MPI_Requests)
+-- "Is known to exhaust MPI resources and let MPI implementations crash after long runs, are all these MPI implementations broken?"
+-- Let MUST analyze this application to investigate!
+
+mpicc -g heatC-MPI-MUST-1.c
+#Dry run
+mpirun -np 4 a.out
+#MUST
+mustrun -np 4 a.out
+
+
+- heatC-MPI-ISP-1.c or (heatF-MPI-ISP-1.F90)
+! No Fortran support in the current ISP version we have
+(MPI_Isend -> MPI_Send causes a send-send deadlock that is potential)
+-- "Is known to run just fine, why some people bother themselves with buffered or non-blocking communication is unclear to me."
+-- Well, maybe better let ISP have a look to find out whether truly everything is fine!
+
+- heatC-MPI-DDT-1.c or heatF-MPI-DDT-1.F90
+(C: malloc: x/ysize+2 -> x/ysize+1)
+(Fortran: allocate: 0:x/ysize+1 -> 0:x/ysize)
+! Not managed to make DDT work for that one yet
+-- "Runs through usually; During termination it crashes with lots of error output, but we have a result, so who cares?"
+-- Let DDT have a look, launch from the DDT user interface and enable memory debugging
+
+- heatC-omp-InspXE-1.c or heatF-omp-InspXE-1.F90
+(#pragma ... private (dthetha, x, y) -> #pragma ... private(x,y) => causes a data race on dtheta)
+! build with -O0
+! without -O0 the Inspector reports an issue, but that one is extremely unhelpful
+-- "Well this example shows the importance of optimization, with -O0 it loses some energy, but once you enable optimization it works like a charm!"
+-- Hopefully the Intel Inspector XE can track where we lose that energy (reproduce with -O0)
+
+- heatC-MPI-STAT-1.c or heatF-MPI-STAT-1.F90
+(rank 0 remains in the loop of heatTimestep, extra "if")
+(Fortran: rank 0 issues a "read" to block)
+-- "This one appears to hang, but probably the calculations are just taking their time."
+-- Let STAT take a stacktrace of the running application to see where things stand
+ 
+ 
