@@ -1,0 +1,157 @@
+[INFO] Module intel/2023a loaded.
+[INFO] Module Classic-Flang/16.0.4-c23 loaded.
+[INFO] Module CMake/3.26.3 loaded.
+[INFO] Module CMake/3.26.3 loaded.
+In file included from main.cpp:56:
+In file included from ./dspl.hpp:58:
+In file included from ./graph.hpp:56:
+./utils.hpp:266:56: warning: using floating point absolute value function 'fabs' when argument is of integer type [-Wabsolute-value]
+                drand_[i] = (GraphWeight)((GraphWeight)fabs(rnums_[i]) * mult); // 0-1
+                                                       ^
+./utils.hpp:266:56: note: use function 'std::abs' instead
+                drand_[i] = (GraphWeight)((GraphWeight)fabs(rnums_[i]) * mult); // 0-1
+                                                       ^~~~
+                                                       std::abs
+1 warning generated.
+Running on Module: /tmp/ss540294/n23m0025_223103/tmp.rJJfHLDTc5.ll
+
+Detected RMA Models used: 
+MPI_RMA: Y
+OpenSHMEM: N
+GASPI: N
+
+Phase 1: Factory Detection and Incidence relation up to depth 10
+Found Shared Resource Factory: 'MPI_Put' called in '_Z21fillRemoteCommunitiesRK5GraphiiRKmS3_RKSt6vectorIlSaIlEES8_S8_S8_S8_RKS4_I4CommSaIS9_EERSt3mapIlS9_St4lessIlESaISt4pairIKlS9_EEERSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISH_ISI_lEEESM_RKiS8_'
+Detected OpenMP outlined function: .omp_outlined..13
+Upward Func instr: .omp_outlined..13
+Identified 16 connected Value(s)
+Found Shared Resource Factory: 'MPI_Win_get_attr' called in '_Z21fillRemoteCommunitiesRK5GraphiiRKmS3_RKSt6vectorIlSaIlEES8_S8_S8_S8_RKS4_I4CommSaIS9_EERSt3mapIlS9_St4lessIlESaISt4pairIKlS9_EEERSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISH_ISI_lEEESM_RKiS8_'
+Detected OpenMP outlined function: .omp_outlined..37
+Detected OpenMP outlined function: .omp_outlined..35
+Detected OpenMP outlined function: .omp_outlined..30
+Detected OpenMP outlined function: .omp_outlined.
+Detected OpenMP outlined function: .omp_outlined.
+Upward Func instr: .omp_outlined..37
+Upward Func instr: .omp_outlined..35
+Detected OpenMP outlined function: .omp_outlined..35
+Detected OpenMP outlined function: .omp_outlined..35
+Upward Func instr: .omp_outlined..30
+Upward Func instr: _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE
+Upward Func instr: _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIlLb0EEEm
+Upward Func instr: _Z21fillRemoteCommunitiesRK5GraphiiRKmS3_RKSt6vectorIlSaIlEES8_S8_S8_S8_RKS4_I4CommSaIS9_EERSt3mapIlS9_St4lessIlESaISt4pairIKlS9_EEERSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISH_ISI_lEEESM_RKiS8_
+Upward Func instr: _Z21fillRemoteCommunitiesRK5GraphiiRKmS3_RKSt6vectorIlSaIlEES8_S8_S8_S8_RKS4_I4CommSaIS9_EERSt3mapIlS9_St4lessIlESaISt4pairIKlS9_EEERSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISH_ISI_lEEESM_RKiS8_
+Upward Func instr: _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE
+Upward Func instr: _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm
+Upward Func instr: .omp_outlined.
+Upward Func instr: .omp_outlined.
+Upward Func instr: _ZNSt3mapIl4CommSt4lessIlESaISt4pairIKlS0_EEED2Ev
+Upward Func instr: _ZNSt3mapIl4CommSt4lessIlESaISt4pairIKlS0_EEED2Ev
+Upward Func instr: _ZNSt8_Rb_treeIlSt4pairIKl4CommESt10_Select1stIS3_ESt4lessIlESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E
+Upward Func instr: _ZNSt8_Rb_treeIlSt4pairIKl4CommESt10_Select1stIS3_ESt4lessIlESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E
+Upward Func instr: _ZNSt8_Rb_treeIlSt4pairIKl4CommESt10_Select1stIS3_ESt4lessIlESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E
+Upward Func instr: _ZNSt8_Rb_treeIlSt4pairIKl4CommESt10_Select1stIS3_ESt4lessIlESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E
+Upward Func instr: _ZNSt8_Rb_treeIlSt4pairIKl4CommESt10_Select1stIS3_ESt4lessIlESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E
+Upward Func instr: _ZNSt8_Rb_treeIlSt4pairIKl4CommESt10_Select1stIS3_ESt4lessIlESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E
+Upward Func instr: _Z23updateRemoteCommunitiesRK5GraphRSt6vectorI4CommSaIS3_EERKSt3mapIlS3_St4lessIlESaISt4pairIKlS3_EEEii
+Upward Func instr: .omp_outlined..35
+Upward Func instr: _Z21fillRemoteCommunitiesRK5GraphiiRKmS3_RKSt6vectorIlSaIlEES8_S8_S8_S8_RKS4_I4CommSaIS9_EERSt3mapIlS9_St4lessIlESaISt4pairIKlS9_EEERSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISH_ISI_lEEESM_RKiS8_
+Upward Func instr: _ZNSt8_Rb_treeIlSt4pairIKl4CommESt10_Select1stIS3_ESt4lessIlESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E
+Upward Func instr: _ZNSt8_Rb_treeIlSt4pairIKl4CommESt10_Select1stIS3_ESt4lessIlESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E
+Upward Func instr: _ZNSt8_Rb_treeIlSt4pairIKl4CommESt10_Select1stIS3_ESt4lessIlESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E
+Upward Func instr: _ZNSt8_Rb_treeIlSt4pairIKl4CommESt10_Select1stIS3_ESt4lessIlESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E
+Upward Func instr: _ZNSt8_Rb_treeIlSt4pairIKl4CommESt10_Select1stIS3_ESt4lessIlESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E
+Upward Func instr: _ZNSt8_Rb_treeIlSt4pairIKl4CommESt10_Select1stIS3_ESt4lessIlESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E
+Upward Func instr: .omp_outlined..35
+Upward Func instr: _Z21fillRemoteCommunitiesRK5GraphiiRKmS3_RKSt6vectorIlSaIlEES8_S8_S8_S8_RKS4_I4CommSaIS9_EERSt3mapIlS9_St4lessIlESaISt4pairIKlS9_EEERSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISH_ISI_lEEESM_RKiS8_
+Upward Func instr: _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIlLb0EEEm
+Detected OpenMP outlined function: .omp_outlined..21
+Detected OpenMP outlined function: .omp_outlined..16
+Detected OpenMP outlined function: .omp_outlined..13
+Upward Func instr: _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm
+Upward Func instr: _ZNSt8_Rb_treeIlSt4pairIKl4CommESt10_Select1stIS3_ESt4lessIlESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E
+Upward Func instr: _ZNSt8_Rb_treeIlSt4pairIKl4CommESt10_Select1stIS3_ESt4lessIlESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E
+Upward Func instr: _ZNSt8_Rb_treeIlSt4pairIKl4CommESt10_Select1stIS3_ESt4lessIlESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E
+Upward Func instr: _ZNSt8_Rb_treeIlSt4pairIKl4CommESt10_Select1stIS3_ESt4lessIlESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E
+Upward Func instr: _ZNSt8_Rb_treeIlSt4pairIKl4CommESt10_Select1stIS3_ESt4lessIlESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E
+Upward Func instr: _ZNSt8_Rb_treeIlSt4pairIKl4CommESt10_Select1stIS3_ESt4lessIlESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E
+Upward Func instr: _Z27distExecuteLouvainIterationlRK5GraphRKSt6vectorIlSaIlEERS4_RKS2_IdSaIdEERS2_I4CommSaISC_EESF_RKSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEERKSt3mapIlSC_St4lessIlESaISL_ISM_SC_EEERSX_dRS9_i
+Upward Func instr: _Z27distExecuteLouvainIterationlRK5GraphRKSt6vectorIlSaIlEERS4_RKS2_IdSaIdEERS2_I4CommSaISC_EESF_RKSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEERKSt3mapIlSC_St4lessIlESaISL_ISM_SC_EEERSX_dRS9_i
+Upward Func instr: .omp_outlined..30
+Upward Func instr: _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKlSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeIlLb0EEEEEEEESt4pairINS1_14_Node_iteratorIlLb1ELb0EEEbEOT_OT0_RKT1_
+Upward Func instr: _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKlSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeIlLb0EEEEEEEESt4pairINS1_14_Node_iteratorIlLb1ELb0EEEbEOT_OT0_RKT1_
+Upward Func instr: .omp_outlined..21
+Upward Func instr: .omp_outlined..21
+Upward Func instr: .omp_outlined..16
+Upward Func instr: .omp_outlined..13
+Upward Func instr: _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJS2_EEES0_INS4_14_Node_iteratorIS2_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_
+Upward Func instr: _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJS2_EEES0_INS4_14_Node_iteratorIS2_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_
+Upward Func instr: _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJS2_EEES0_INS4_14_Node_iteratorIS2_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_
+Upward Func instr: _Z15distGetMaxIndexRKSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEERKSt6vectorIdSaIdEEdRKSB_I4CommSaISG_EERKSt3mapIlSG_St4lessIlESaIS4_IS5_SG_EEEdldllld
+Upward Func instr: _Z21fillRemoteCommunitiesRK5GraphiiRKmS3_RKSt6vectorIlSaIlEES8_S8_S8_S8_RKS4_I4CommSaIS9_EERSt3mapIlS9_St4lessIlESaISt4pairIKlS9_EEERSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISH_ISI_lEEESM_RKiS8_
+Upward Func instr: _Z24distBuildLocalMapCounterllRSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEERSt6vectorIdSaIdEERK5GraphRKSA_IlSaIlEERKS8_lll
+Detected OpenMP outlined function: .omp_outlined..35
+Upward Func instr: _ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEED2Ev
+Upward Func instr: _ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEED2Ev
+Upward Func instr: _Z15distGetMaxIndexRKSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEERKSt6vectorIdSaIdEEdRKSB_I4CommSaISG_EERKSt3mapIlSG_St4lessIlESaIS4_IS5_SG_EEEdldllld
+Upward Func instr: _Z24distBuildLocalMapCounterllRSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEERSt6vectorIdSaIdEERK5GraphRKSA_IlSaIlEERKS8_lll
+Detected OpenMP outlined function: .omp_outlined..16
+Upward Func instr: _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKlSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeIlLb0EEEEEEEESt4pairINS1_14_Node_iteratorIlLb1ELb0EEEbEOT_OT0_RKT1_
+Upward Func instr: _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKlSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeIlLb0EEEEEEEESt4pairINS1_14_Node_iteratorIlLb1ELb0EEEbEOT_OT0_RKT1_
+Upward Func instr: _ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEED2Ev
+Upward Func instr: _ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEED2Ev
+Upward Func instr: .omp_outlined..35
+Identified 683 connected Value(s)
+Found Shared Resource Factory: 'MPI_Win_allocate' called in '_Z18exchangeVertexReqsRK5GraphRmS2_RSt6vectorIlSaIlEES6_S6_S6_iiRi'
+Identified 1 connected Value(s)
+
+Phase 2-Default: Clipping unrelated global Variables
+Clipped 177 global variables
+
+Phase 3: Adding SanitizeThread attribute to affected functions, if not present
+Added Function '_Z21fillRemoteCommunitiesRK5GraphiiRKmS3_RKSt6vectorIlSaIlEES8_S8_S8_S8_RKS4_I4CommSaIS9_EERSt3mapIlS9_St4lessIlESaISt4pairIKlS9_EEERSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISH_ISI_lEEESM_RKiS8_' to be instrumented
+Added Function '.omp_outlined..13' to be instrumented
+Added Function '_Z17distLouvainMethodiiRK5GraphRmS2_RSt6vectorIlSaIlEES6_S6_S6_ddRiS7_' to be instrumented
+Added Function '.omp_outlined..30' to be instrumented
+Added Function '_Z18exchangeVertexReqsRK5GraphRmS2_RSt6vectorIlSaIlEES6_S6_S6_iiRi' to be instrumented
+Added Function '_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE' to be instrumented
+Added Function '_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKlSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeIlLb0EEEEEEEESt4pairINS1_14_Node_iteratorIlLb1ELb0EEEbEOT_OT0_RKT1_' to be instrumented
+Added Function '_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE' to be instrumented
+Added Function '_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJS2_EEES0_INS4_14_Node_iteratorIS2_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_' to be instrumented
+Added Function '_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIlLb0EEEm' to be instrumented
+Added Function '_ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm' to be instrumented
+Added Function '_ZNSt3mapIl4CommSt4lessIlESaISt4pairIKlS0_EEED2Ev' to be instrumented
+Added Function '_Z23updateRemoteCommunitiesRK5GraphRSt6vectorI4CommSaIS3_EERKSt3mapIlS3_St4lessIlESaISt4pairIKlS3_EEEii' to be instrumented
+Added Function '_ZNSt8_Rb_treeIlSt4pairIKl4CommESt10_Select1stIS3_ESt4lessIlESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E' to be instrumented
+Added Function '_Z27distExecuteLouvainIterationlRK5GraphRKSt6vectorIlSaIlEERS4_RKS2_IdSaIdEERS2_I4CommSaISC_EESF_RKSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEERKSt3mapIlSC_St4lessIlESaISL_ISM_SC_EEERSX_dRS9_i' to be instrumented
+Added Function '.omp_outlined..21' to be instrumented
+Added Function '.omp_outlined..16' to be instrumented
+Added Function '_Z15distGetMaxIndexRKSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEERKSt6vectorIdSaIdEEdRKSB_I4CommSaISG_EERKSt3mapIlSG_St4lessIlESaIS4_IS5_SG_EEEdldllld' to be instrumented
+Added Function '_Z24distBuildLocalMapCounterllRSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEERSt6vectorIdSaIdEERK5GraphRKSA_IlSaIlEERKS8_lll' to be instrumented
+Added Function '_ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEED2Ev' to be instrumented
+
+Found 603 shared resources in total.
+----------------------------------------
+587 | RemoteBuf
+0 | ReadBuf
+0 | WriteBuf
+16 | DirtyBuf
+----------------------------------------
+Remote access types: WO 
+
+Shared Resource detection finished, generating Result Struct
+TSanRMAOpt done!
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+  494 aa               - Number of MayAlias results
+    4 aa               - Number of MustAlias results
+12066 aa               - Number of NoAlias results
+   57 capture-tracking - Number of pointers maybe captured
+  183 tsanMOD          - Number of instrumented reads
+  113 tsanMOD          - Number of instrumented writes
+ 2528 tsanMOD          - Number of accesses ignored due to RMAOptimizerPlugin Whitelist
+   14 tsanMOD          - Number of reads ignored due to following writes
+    2 tsanMOD          - Number of reads from constant globals
+   92 tsanMOD          - Number of vtable reads
+

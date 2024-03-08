@@ -1,0 +1,14 @@
+jube_benchmark_id;jube_wp_id;compile;measurement;rma-mode;tasks;must_compile_opt;RMA_target;time_avg;time_std;verification
+8;18;base;base;shadow;27;;-DUSE_RMA=1;36.0;0.0;SUCCESS
+8;23;base;must;shadow;27;;-DUSE_RMA=1;49.8;1.30384048104046;SUCCESS
+8;32;tsan;must;shadow;27;;-DUSE_RMA=1;618.0;8.366600265340756;SUCCESS
+8;25;tsan-opt;must;shadow;27;AL6;-DUSE_RMA=1;77.6;0.8944271910000176;SUCCESS
+8;37;tsan-opt;must;shadow;27;ALX6;-DUSE_RMA=1;77.8;1.095445115010249;SUCCESS
+8;43;tsan-opt;must;shadow;27;AL10;-DUSE_RMA=1;108.0;4.47213595499958;SUCCESS
+8;48;tsan-opt;must;shadow;27;ALX10;-DUSE_RMA=1;106.0;5.477225575051661;SUCCESS
+8;53;tsan-opt;must;shadow;27;ALX1000;-DUSE_RMA=1;262.0;4.47213595499958;SUCCESS
+8;58;tsan-opt;must;shadow;27;AL1000;-DUSE_RMA=1;260.0;0.0;SUCCESS
+8;63;tsan-opt;must;shadow;27;CLUSTER;-DUSE_RMA=1;428.0;4.47213595499958;SUCCESS
+8;67;tsan-opt;must;shadow;27;ALX6,CLUSTER;-DUSE_RMA=1;78.6;1.5165750888103702;SUCCESS
+8;72;tsan-opt;must;shadow;27;ALX10,CLUSTER;-DUSE_RMA=1;98.4;1.8165902124582947;SUCCESS
+8;77;tsan-opt;must;shadow;27;ALX1000,CLUSTER;-DUSE_RMA=1;246.0;5.477225575051661;SUCCESS

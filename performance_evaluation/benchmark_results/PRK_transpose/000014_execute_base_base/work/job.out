@@ -1,0 +1,12 @@
+nodelist=n23m0026
+Parallel Research Kernels version 2.17
+MPIRMA matrix transpose: B = A^T
+Number of ranks      = 48
+Matrix order         = 16320
+Number of iterations = 400
+Untiled
+Synchronization      = MPI_Win_flush (bundle=1)
+Block_size           = 115600
+Solution validates
+Rate (MB/s): 63996.046798 Avg time (s): 0.066590  Total time (s): 26.635885
+EXECUTION VERIFICATION CHECK: SUCCESS

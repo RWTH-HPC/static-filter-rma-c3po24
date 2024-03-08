@@ -1,0 +1,16 @@
+[INFO] Module intel/2023a loaded.
+[INFO] Module Classic-Flang/16.0.4-c23 loaded.
+[INFO] Module CMake/3.26.3 loaded.
+[INFO] Module CMake/3.26.3 loaded.
+In file included from main.cpp:56:
+In file included from ./dspl.hpp:58:
+In file included from ./graph.hpp:56:
+./utils.hpp:266:56: warning: using floating point absolute value function 'fabs' when argument is of integer type [-Wabsolute-value]
+                drand_[i] = (GraphWeight)((GraphWeight)fabs(rnums_[i]) * mult); // 0-1
+                                                       ^
+./utils.hpp:266:56: note: use function 'std::abs' instead
+                drand_[i] = (GraphWeight)((GraphWeight)fabs(rnums_[i]) * mult); // 0-1
+                                                       ^~~~
+                                                       std::abs
+1 warning generated.
+mv: 'miniVite' and 'miniVite' are the same file

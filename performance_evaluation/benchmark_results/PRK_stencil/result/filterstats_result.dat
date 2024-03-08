@@ -1,0 +1,15 @@
+filterstats_result:
+| jube_benchmark_id | jube_wp_id | compile_mode |   optimizations | compile_time | instr_reads | instr_writes | ignore_read_write | AL_ignored | ALX_ignored | CLUSTER_ignored |
+|-------------------|------------|--------------|-----------------|--------------|-------------|--------------|-------------------|------------|-------------|-----------------|
+|                 6 |          2 |         base |                 |         2.45 |           0 |            0 |                 0 |          0 |           0 |               0 |
+|                 6 |          3 |         tsan |                 |         4.52 |         101 |           64 |                 6 |          0 |           0 |               0 |
+|                 6 |          4 |     tsan-opt |             AL6 |         1.22 |          24 |           12 |                 0 |        135 |           0 |               0 |
+|                 6 |          5 |     tsan-opt |            AL10 |         1.18 |          24 |           12 |                 0 |        135 |           0 |               0 |
+|                 6 |          6 |     tsan-opt |          AL1000 |         1.17 |          24 |           12 |                 0 |        135 |           0 |               0 |
+|                 6 |          7 |     tsan-opt |            ALX6 |         1.18 |          24 |           12 |                 0 |        135 |           0 |               0 |
+|                 6 |          8 |     tsan-opt |           ALX10 |         1.19 |          24 |           12 |                 0 |        135 |           0 |               0 |
+|                 6 |          9 |     tsan-opt |         ALX1000 |         1.19 |          24 |           12 |                 0 |        135 |           0 |               0 |
+|                 6 |         10 |     tsan-opt |         CLUSTER |         1.14 |         101 |           64 |                 6 |          0 |           0 |               7 |
+|                 6 |         11 |     tsan-opt |    ALX6,CLUSTER |         1.19 |          24 |           12 |                 0 |        135 |           0 |               0 |
+|                 6 |         12 |     tsan-opt |   ALX10,CLUSTER |         1.18 |          24 |           12 |                 0 |        135 |           0 |               0 |
+|                 6 |         13 |     tsan-opt | ALX1000,CLUSTER |         1.19 |          24 |           12 |                 0 |        135 |           0 |               0 |

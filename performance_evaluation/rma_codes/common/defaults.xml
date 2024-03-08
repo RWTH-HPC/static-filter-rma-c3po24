@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8" standalone = "no"?>
+<!-- 
+#   Settings that are relevant for all benchmarks
+-->
+<jube>
+    <parameterset name="source">
+      <parameter name="path_to_source" type="string"></parameter>
+      <parameter name="ERROR_path_to_source_Empty" mode="python">exit(
+        '\n[\033[91m\033[1m'+'ERROR'+'\033[0m'+'] in step \033[1m${jube_step_name}\033[0m:\n'+
+        '        path_to_source needs to be non-empty\n'+
+        '        make sure to set the path in the parameterset "source" in ${jube_benchmark_home}.xml\n'+
+        '        i.e. \n'+
+        '        &lt;parameterset name="source"  init_with="defaults.xml"&gt;\n'+
+        '          \033[93m&lt;parameter name="path_to_source" type="string"&gt; \033[1m&lt;PATH TO SOURCE&gt;\033[0m\033[93m &lt;/parameter&gt; &lt;--------------\033[0m\n'+
+        '        &lt;/parameterset&gt;'
+        ) if '${path_to_source}'=='' else 'OK'</parameter>
+    </parameterset> 
+    <!-- benchmark configuration -->
+    <parameterset name="config">
+      <parameter name="path_to_source" type="string"></parameter>
+      <parameter name="executable_name"></parameter>
+    </parameterset>     
+    
+    <parameterset name="execute_pset" init_with="platform.xml:executeset">
+      <!-- Set measurement mode to base (without MUST) and / or must (with MUST) -->
+      <parameter name="args_starter" mode="python">
+        { "base": "",
+          "must": "${must_arguments} --"}.get("${measurement_mode}", 0)
+      </parameter>
+      <!-- Use $launcher for #STARTER# instead of $starter variable to be able to use mustrun with must:mpiexec $starter -->
+      <parameter name="launcher" mode="python">
+        { "base": "srun",
+          "must": "mustrun"}.get("${measurement_mode}", 0)
+      </parameter>
+      <parameter name="LD_PRELOAD" export="true" mode="python" tag="memusage">
+        {"base": "${must_install_folder}/modules/libPrintMemUsage.so",
+         "must": ":"}.get("${measurement_mode}", ":")
+      </parameter>
+      <!-- <parameter name="collect_raw_data" type="string" mode="python"> True </parameter>  -->
+    </parameterset>
+
+    <parameterset name="measurement_mode_pset" duplicate="concat">      
+      <parameter name="measurement_mode" tag="no_must">base</parameter>
+      <parameter name="measurement_mode" tag="must">must</parameter>
+      <parameter name="measurement_mode" tag="!no_must+!must">base, must</parameter>
+    </parameterset>
+
+    <parameterset name="ignorelist_pset">
+      <parameter name="ignorelist" mode="python" tag="!ignorelist">0</parameter>
+      <parameter name="ignorelist" mode="python" tag="ignorelist">
+        ("${measurement_mode}" == "base" and "${compile_mode}" == "tsan-opt") or ("${measurement_mode}" == "base" and "${compile_mode}" == "tsan")
+      </parameter>
+    </parameterset>   
+
+    <parameterset name="compile_pset">
+      <parameter name="force_compilation">false</parameter>  
+      <parameter name="force_compilation" tag="rebuild_source|rebuild|filterstats">true</parameter>      
+      <parameter name="executable_full_name">${executable_name}${executable_extension}</parameter>
+      <parameter name="compile_preparation" type="string"></parameter> <!-- - - - - - - -  commands that have to be executed before compilation -->
+      <parameter name="compile_flags" mode="python" separator=";"> <!-- tsan handled by must-compile, only specify optimizations for tsan-opt though -->
+        {"base": "",
+         "tsan": "${must_stats_compile_flags} -g",
+         "tsan-opt": "${must_stats_compile_flags} ${must_isl_compile_flags} -g --optimizations ${must_compile_opt}",
+         "isl": "${must_stats_compile_flags} ${must_isl_compile_flags}"}.get("${compile_mode}", 0)
+      </parameter>
+      <parameter name="tsan_opt_extension" tag="!isl">.tsan-opt.${__tsan_opt_hash}</parameter>
+      <parameter name="tsan_opt_extension" tag="isl">.tsan-opt.${__tsan_opt_hash}.isl</parameter>
+      <parameter name="executable_extension" mode="python">
+        {"base": "",
+        "tsan": ".tsan",
+        "tsan-opt": "${tsan_opt_extension}",
+        "isl": ".isl"}.get("${compile_mode}", 0)
+      </parameter>
+      <parameter name="compile_target" type="string"></parameter>
+      <parameter name="benchmark_build_dir" mode="python">"${jube_benchmark_home}/executables/${__toolchain_module}/${__compiler_module}/${__mpi_module}/" + ("${RMA_target}" if "${RMA_target}".split() else "Default")</parameter>
+      <parameter name="do_compile" mode="shell">if ${force_compilation} || [ ! -f "${benchmark_build_dir}/${executable_full_name}" ]; then echo "1"; else echo "0"; fi</parameter>
+
+      <parameter name="compile_common_env_vars" separator="!NONE!" mode="python">
+        {"base":     "MPICC='mpicc ${compile_flags}' MPICXX='mpicxx ${compile_flags}' MPIFC='mpifc ${compile_flags}'",
+         "tsan":     "MPICC=\"${MUSTCC} --wrap-target mpicc ${compile_flags}\" MPICXX=\"${MUSTCXX} --wrap-target mpicxx ${compile_flags}\" MPIFC=\"${MUSTFC} --wrap-target mpif90-flang ${compile_flags}\"",
+         "tsan-opt": "MPICC=\"${MUSTCC} --wrap-target mpicc ${compile_flags}\" MPICXX=\"${MUSTCXX} --wrap-target mpicxx ${compile_flags}\" MPIFC=\"${MUSTFC} --wrap-target mpif90-flang ${compile_flags}\"",
+         "isl":      "MPICC=\"${MUSTCC} --wrap-target mpicc ${compile_flags}\" MPICXX=\"${MUSTCXX} --wrap-target mpicxx ${compile_flags}\" MPIFC=\"${MUSTFC} --wrap-target mpif90-flang ${compile_flags}\""}.get("${compile_mode}", '')
+      </parameter>
+
+      <parameter name="compile_env_vars" separator="!NONE!"></parameter> 
+      <parameter name="compile_export" separator="!NONE!" >
+         for item in ${compile_common_env_vars} ${compile_env_vars}; do export "$item"; done
+      </parameter>
+      <parameter name="time_output_file" export="true">${jube_wp_abspath}/time.out</parameter>
+      <parameter name="time_measure_command" tag="filterstats">/usr/bin/time -p -o ${time_output_file}</parameter>
+      <parameter name="time_measure_command" tag="!filterstats"></parameter>
+    </parameterset>
+    <parameterset name="compile_mode_pset" duplicate="concat">     
+      <parameter name="compile_mode" tag="no_tsan">base</parameter>
+      <parameter name="compile_mode" tag="tsan">tsan</parameter>
+      <parameter name="compile_mode" tag="tsan-opt">tsan-opt</parameter>
+      <parameter name="compile_mode" tag="isl">isl</parameter>
+      <parameter name="compile_mode" tag="!no_tsan+!tsan+!isl">base, tsan</parameter>
+    </parameterset>
+
+    <parameterset name="module_env_pset">  
+      <!-- default module names -->
+      <parameter name="modulenames_defaults" separator=";">
+        {
+            "gcc": "gcc",
+            "clang": "clang",
+            "intelmpi": "intelmpi",
+            "cmake": "cmake"
+        }
+      </parameter>
+       <!-- specify which module names should be updated. Should be set in system_settings.xml -->
+      <parameter name="modulenames_updated" separator=";">{}</parameter>
+      <!-- dictionary for the module names after there were updated -->
+      <parameter name="modulenames" separator=";" mode="python">{key:value for (key, value) in list(${modulenames_defaults}.items()) + list(${modulenames_updated}.items())}</parameter>
+      <parameter name="modules" separator=";" mode="python">
+          {
+              "gcc": "{0[gcc]}".format(${modulenames}),
+              "clang": "{0[clang]}".format(${modulenames})
+          }
+      </parameter>      
+      <parameter name="prerequisite_modules_dict" separator=";" mode="python">
+      {
+
+      }
+      </parameter> 
+      <parameter name="cmake_version"></parameter>
+      <parameter name="cmake_module"  separator=";" mode="python">$modules.get("cmake/${cmake_version}") if $modules.get("cmake/${cmake_version}") else $modules.get("cmake", "cmake/${cmake_version}")</parameter> 
+      <parameter name="prerequisite_modules"></parameter>
+      <parameter name="toolchain_module" separator=";" mode="python">
+        $modules.get("${toolchain_name}/${toolchain_version}", $modules.get("${toolchain_name}", "${toolchain_name}" + ("/${toolchain_version}" if "${toolchain_version}" else "")))
+      </parameter> 
+      <parameter name="compiler_module" separator=";" mode="python">
+        $modules.get("${compiler_name}/${compiler_version}", $modules.get("${compiler_name}", "${compiler_name}" + ("/${compiler_version}" if "${compiler_version}" else "")))
+      </parameter>
+      <parameter name="mpi_module" separator=";" mode="python">
+        $modules.get("${mpi_name}/${mpi_version}", $modules.get("${mpi_name}", "${mpi_name}" + ("/${mpi_version}" if "${mpi_version}" else "")))
+      </parameter>
+      <parameter name="required_modules">
+        ${prerequisite_modules} ${toolchain_module} ${mpi_module} ${compiler_module} ${cmake_module} ${must_prerequisite_modules}
+      </parameter> 
+      <parameter name="load_modules">
+        module use /home/rwth1269/modules/; module purge; for modulename in ${required_modules}; do module load $modulename; done
+      </parameter> 
+
+      <!-- lower case compiler and mpi module names, use these instead of the normal ones within Jube  -->
+      <parameter name="__toolchain_module" mode="python">"${toolchain_module}".lower()</parameter>
+      <parameter name="__compiler_module" mode="python">"${compiler_module}".lower()</parameter>
+      <parameter name="__mpi_module" mode="python">"${mpi_module}".lower()</parameter>
+
+    </parameterset>
+
+    <parameterset name="mpirun_env_pset"> 
+      <!-- Set mpirun commands for the mpi-vendors -->
+      <parameter name="mpirun_dict_default" separator=";">
+        {
+          <!-- "intelmpi": "mpiexec.hydra" -->
+        }
+      </parameter>      
+       <!-- update the mpirun command for the mpi-vendors. Should be set in system_settings.xml -->
+      <parameter name="mpirun_dict_updated" separator=";">{}</parameter>
+      <!-- dictionary for the mpirun commands after there were updated -->
+      <parameter name="mpirun_dict" separator=";">
+        {key:value for (key, value) in list(${mpirun_dict_default}.items()) + list(${mpirun_dict_updated}.items())}
+      </parameter>
+      <parameter name="mpirun" separator=";" mode="python">
+        $mpirun_dict.get("${mpi_name}", "${starter}")
+      </parameter>
+    </parameterset>
+
+    <parameterset name="export_env_pset"> 
+       <parameter name="export_dict" separator=";">
+          {
+              ("clang", "intelmpi"): ["MPICH_CC=clang", "MPICH_CXX=clang++"],
+              ("Classic-Flang", "intelmpi"): ["MPICH_CC=clang", "MPICH_CXX=clang++"],
+              ("clang", "openmpi"): ["OMPI_CC=clang", "OMPI_CXX=clang++"],
+              ("clang", "intel"): ["MPICH_CC=clang", "MPICH_CXX=clang++"],
+              ("Classic-Flang", "intel"): ["MPICH_CC=clang", "MPICH_CXX=clang++"],
+              ("clang", "gompi"): ["OMPI_CC=clang", "OMPI_CXX=clang++"]
+          }
+      </parameter>
+      <parameter name="compiler_mpi_export" separator=";" mode="python">
+        " ".join($export_dict.get(("${compiler_name}","${mpi_name}"), []))
+      </parameter>
+      <parameter name="compiler_toolchain_export" separator=";" mode="python">
+        " ".join($export_dict.get(("${compiler_name}","${toolchain_name}"), []))
+      </parameter>  
+      <parameter name="required_exports" separator="!NONE!">
+        ${compiler_mpi_export} ${compiler_toolchain_export}
+      </parameter> 
+      <parameter name="export" separator="!NONE!" >
+         for item in ${required_exports}; do export "$item"; done
+      </parameter> 
+    </parameterset>
+
+    <parameterset name="platform_specs_pset" init_with="platform.xml:systemParameter">
+        <parameter name="nodes" mode="python">__import__("math").ceil($tasks/$taskspernode)</parameter>
+        <parameter name="application_tasks" type="int">1</parameter>
+        <parameter name="tasks" type="int" mode="python">${application_tasks} + (${must_tool_processes} if "${measurement_mode}" == "must" else 0)</parameter>
+        <parameter name="taskspernode" type="int">1</parameter>  <!-- - - - - - - - - - - - - - - - -  Tasks per node              -->  
+        <parameter name="threads" type="int">1</parameter>       <!-- - - - - - - - - - - - - - - - -  Threads                --> 
+        <parameter name="threadspertask" type="int" mode="python">$threads + $must_threads_per_task</parameter>  
+        <parameter name="preprocess">
+          echo "nodelist=$SLURM_JOB_NODELIST"     
+          SOURCE_DIR=compile/copy_source;
+          LAYOUT_DIR=$PWD;
+          COMPILE_DIR=compile;
+          ${load_modules};
+          ${export};
+        </parameter>
+        <parameter name="notification">NONE</parameter>
+        <parameter name="executable">compile/${executable_full_name}</parameter>
+        <parameter name="OMP_NUM_THREADS" type="int" export="true">$threads</parameter>
+        <parameter name="TSAN_OPTIONS" export="true">$$TSAN_OPTIONS ignore_noninstrumented_modules=1 exitcode=0 log_path=stdout</parameter>
+    </parameterset>
+
+    <substituteset name="job_sub" init_with="platform.xml:executesub">
+      <sub source="#STARTER#" dest="${launcher}" />
+      <sub source="#BENCHNAME#" dest="&quot;${jube_benchmark_name}_${measurement_mode}_${compile_mode}_${jube_wp_id}&quot;" />
+    </substituteset>
+    <fileset name="job_files" init_with="platform.xml:jobfiles"></fileset>
+
+    <!-- 
+      #Source files
+    -->
+    <fileset name="source_files">
+      <copy>${path_to_source}/*</copy>
+    </fileset>
+    <!--
+      #Steps
+     -->
+    <step name="copy_source" depend="build_must">
+      <use>source</use>
+      <use>source_files</use>
+    </step>
+
+    <!--
+      # Compile parametersets to be used from all benchmarks
+    -->
+    <compile_psets>
+      <use>compile_pset</use>
+      <use from="defaults.xml">compile_mode_pset</use>
+      <use from="must.xml">must_config_pset</use>
+      <use from="must.xml">must_compile_pset</use>
+      <use>toolchain_env_pset</use>
+      <use>module_env_pset</use>
+      <use>export_env_pset</use>
+    </compile_psets>
+
+    <!--
+      # Execution parametersets to be used from all benchmarks
+    -->
+    <execute_psets>
+      <use from="defaults.xml">ignorelist_pset</use>
+      <use>config</use>
+      <use>execute_pset</use>
+      <use from="defaults.xml">measurement_mode_pset</use>
+      <use from="must.xml">must_config_pset</use>
+      <use from="must.xml">must_files</use>
+      <use from="must.xml">must_execute_sub</use>
+      <use from="must.xml">must_execute_pset</use>
+      <use>mpirun_env_pset</use>
+      <use>platform_specs_pset</use>
+      <use>job_files</use>
+      <use>job_sub</use>
+    </execute_psets>
+
+
+    <patternset name="pattern">
+      <pattern name="memory_total" type="float" tag="memusage">\(max_rss\): ${jube_pat_fp} MiB</pattern>
+      <pattern name="verification" default="FAILURE">EXECUTION VERIFICATION CHECK: ${jube_pat_wrd}</pattern>
+    </patternset>
+
+    <columns>
+        <column>jube_benchmark_id</column>
+        <column>jube_wp_id</column>
+        <column title="compile">compile_mode</column>
+        <column title="measurement">measurement_mode</column>
+        <column title="rma-mode" tag="!layout">must_rma_mode</column>
+        <column title="layout" tag="layout">must_layout_file</column>
+        <column title="tasks">application_tasks</column>
+        <column>must_compile_opt</column>
+    </columns>
+
+    <!-- 
+      #Analyser
+    -->
+    <analyser name="analyse" reduce="true">
+      <use>pattern</use>
+      <analyse step="execute">
+        <file use="pattern">job.out</file>
+      </analyse>
+    </analyser>
+    <!-- 
+      #Create result table 
+    -->
+    <result>
+      <use>analyse</use>
+      <table name="result_csv" style="csv" separator=";" sort="tasks,compile_mode,measurement_mode,jube_wp_id">
+        <include from="defaults.xml" path="columns/column"/>
+        <column>RMA_target</column>
+        <column>time_avg</column>
+        <column>time_std</column>
+        <column title="memory total (MiB)" tag="memusage">memory_total</column>
+        <column>verification</column>
+      </table>
+      <table name="result" style="pretty" sort="tasks,compile_mode,measurement_mode,jube_wp_id">
+        <include from="defaults.xml" path="columns/column"/>
+        <column>RMA_target</column>
+        <column format=".3f">time_avg</column>
+        <column format=".3f">time_std</column>
+        <column title="memory total (MiB)" tag="memusage">memory_total</column>
+        <column>verification</column>
+      </table>
+    </result>
+</jube>

@@ -1,0 +1,16 @@
+result:
+| jube_benchmark_id | jube_wp_id |  compile | measurement | rma-mode | tasks | must_compile_opt | RMA_target | time_avg | time_std | verification |
+|-------------------|------------|----------|-------------|----------|-------|------------------|------------|----------|----------|--------------|
+|                 7 |         18 |     base |        base |   shadow |    48 |                  |        RMA |    5.386 |    0.006 |      SUCCESS |
+|                 7 |         23 |     base |        must |   shadow |    48 |                  |        RMA |   10.963 |    1.649 |      SUCCESS |
+|                 7 |         28 |     tsan |        must |   shadow |    48 |                  |        RMA |   49.052 |    0.384 |      SUCCESS |
+|                 7 |         29 | tsan-opt |        must |   shadow |    48 |              AL6 |        RMA |   10.745 |    0.156 |      SUCCESS |
+|                 7 |         38 | tsan-opt |        must |   shadow |    48 |             AL10 |        RMA |   12.364 |    0.176 |      SUCCESS |
+|                 7 |         43 | tsan-opt |        must |   shadow |    48 |           AL1000 |        RMA |   18.995 |    0.187 |      SUCCESS |
+|                 7 |         47 | tsan-opt |        must |   shadow |    48 |             ALX6 |        RMA |   10.351 |    0.217 |      SUCCESS |
+|                 7 |         53 | tsan-opt |        must |   shadow |    48 |            ALX10 |        RMA |   13.732 |    2.050 |      SUCCESS |
+|                 7 |         58 | tsan-opt |        must |   shadow |    48 |          ALX1000 |        RMA |   19.846 |    1.633 |      SUCCESS |
+|                 7 |         63 | tsan-opt |        must |   shadow |    48 |          CLUSTER |        RMA |   48.778 |    0.331 |      SUCCESS |
+|                 7 |         68 | tsan-opt |        must |   shadow |    48 |     ALX6,CLUSTER |        RMA |   11.424 |    1.580 |      SUCCESS |
+|                 7 |         73 | tsan-opt |        must |   shadow |    48 |    ALX10,CLUSTER |        RMA |   12.462 |    0.369 |      SUCCESS |
+|                 7 |         78 | tsan-opt |        must |   shadow |    48 |  ALX1000,CLUSTER |        RMA |   18.865 |    0.263 |      SUCCESS |

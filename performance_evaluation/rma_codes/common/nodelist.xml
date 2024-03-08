@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone = "no"?>
+<!-- 
+#   Settings for nodelist
+#   Include '<include from="nodelist.xml" path="nodelist/include"/>' in the benchmark xml to additionally return the nodelist
+-->
+<jube>
+    <nodelist>
+      <include from="nodelist.xml" path="patternset"/>
+      <include from="nodelist.xml" path="analyser"/>
+      <include from="nodelist.xml" path="result"/>
+    </nodelist>
+
+    <!-- Regex patternsets -->
+    <patternset name="nodelist_pattern">    
+      <pattern name="nodelist">^nodelist=(.*)$</pattern>
+    </patternset>
+
+    <!-- 
+      #Analyser
+    -->
+    <analyser name="nodelist_analyse" reduce="true">
+      <use>pattern</use>
+      <analyse step="execute">
+        <file use="nodelist_pattern">job.out</file>
+      </analyse>
+    </analyser>
+    
+    <!-- 
+      #Create result table 
+    -->
+    <result>
+      <use>nodelist_analyse</use>
+      <table name="nodelist_result" style="pretty" sort="jube_wp_id">
+        <column>jube_benchmark_id</column>
+        <column>jube_wp_id</column>        
+        <column>nodelist</column>
+      </table>
+    </result>
+</jube>

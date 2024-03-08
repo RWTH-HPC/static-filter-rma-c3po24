@@ -1,0 +1,5 @@
+rm -f transpose.o MPI_bail_out.o wtime.o  transpose *.optrpt *~ charmrun stats.json transpose.decl.h transpose.def.h
+mpicc  -g -O3 -DMPI -DVERBOSE=0  -DRESTRICT_KEYWORD=0   -I../../include -c transpose.c
+mpicc  -g -O3 -DMPI -DVERBOSE=0  -DRESTRICT_KEYWORD=0   -I../../include -c ../../common/MPI_bail_out.c
+mpicc  -g -O3 -DMPI -DVERBOSE=0  -DRESTRICT_KEYWORD=0   -I../../include -c ../../common/wtime.c
+mpicc  -o transpose   -g -O3 -DMPI transpose.o MPI_bail_out.o wtime.o  

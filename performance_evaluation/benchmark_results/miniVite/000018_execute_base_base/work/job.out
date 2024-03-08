@@ -1,0 +1,25 @@
+nodelist=n23m0032
+
+-------------------------------------------------------
+Graph edge distribution characteristics
+-------------------------------------------------------
+Number of vertices: 27993600
+Number of edges: 774472352
+Maximum number of edges: 24494220
+Average number of edges: 2.42023e+07
+Expected value of X^2: 5.8593e+14
+Variance: 1.80395e+11
+Standard deviation: 424729
+-------------------------------------------------------
+Time to read input file and create distributed graph (in s): 5.22858
+-------------------------------------------------------
+File: /hpcwork/rwth1269/nlpkkt240.bin
+-------------------------------------------------------
+-------------------------------------------------------
+64-bit datatype
+-------------------------------------------------------
+Average total time (in s), #Processes: 15.4603, 32
+Modularity, #Iterations: 0.504666, 4
+MODS (final modularity * average time): 7.80228
+-------------------------------------------------------
+EXECUTION VERIFICATION CHECK: SUCCESS

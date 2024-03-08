@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    System specific settings
+    This file includes defaults.xml and must.xml
+-->
+<jube>
+    <!-- 
+        #System specific settings
+    -->    
+    <parameterset name="toolchain_env_pset">
+        <!-- Toolchains: https://help.itc.rwth-aachen.de/service/rhr4fjjutttf/article/450d33cc19fd4e50b1dd07027e9b55bd/#user-content-existing-toolchains -->
+        <parameter name="toolchain_name">intel</parameter>
+        <parameter name="toolchain_version">2023a</parameter>
+        <!-- Optional, if another compiler than provided by the toolchain is needed-->
+        <parameter name="compiler_name">Classic-Flang</parameter>      <!-- - - - - - - - - - - - - - - - -  Compiler               -->
+        <parameter name="compiler_version">16.0.4-c23</parameter>  <!-- - - - - - - - - - - - - - - - -  Compiler Version       -->
+        <!-- Optional, if another MPI than provided by the toolchain is needed-->
+        <parameter name="mpi_name"></parameter>        <!-- - - - - - - - - - - - - - - - -  MPI                    -->
+        <parameter name="mpi_version"></parameter>        <!-- - - - - - - - - - - - - - - - -  MPI Version            -->
+    </parameterset>
+
+    <parameterset name="platform_specs_pset" init_with="defaults.xml">
+        <parameter name="account" type="string">rwth1269</parameter> <!-- - - - - - - - - - - - - - - - -  Account              -->
+        <parameter name="basic_job_config">
+#SBATCH --ntasks-per-node=${taskspernode}
+        </parameter>
+        <parameter name="benchmark_job_config" separator="!NONE!" tag="!test">
+#SBATCH --exclusive
+#SBATCH --exclude="i23m[0001-0030]"
+#SBATCH --hwctr=likwid
+        </parameter>
+        <!-- i23m[0001-0030], n23m[0001-0412], r23m[0001-220] -->
+        <parameter name="additional_job_config" separator="!NONE!">
+${benchmark_job_config}
+${basic_job_config}
+${perftool_job_config}
+        </parameter>
+        <parameter name="queue" type="string">c23test</parameter>
+        <parameter name="platform_name" type="string">CLAIX-23</parameter>        
+        <parameter name="postprocess"> printf "EXECUTION VERIFICATION CHECK: ";if grep -q "\[MUST-REPORT\] Error.*race" job.out || grep -q "^srun: error:" job.err; then echo "FAILURE"; else echo "SUCCESS"; fi</parameter>
+
+        <parameter name="cores_per_node" type="int">96</parameter>
+        <parameter name="GB_per_node" type="int">256</parameter> <!-- Some nodes with 512 GB / 1024 GB -->
+        <parameter name="MB_LLC_size" type="int">210</parameter>
+        <parameter name="LLC_cache_line_size" type="int">64</parameter>
+        <parameter name="sockets_per_node" type="int">2</parameter>
+        <parameter name="NUMA_regions" type="int">4</parameter>
+    </parameterset>
+    
+    <substituteset name="job_sub" init_with="defaults.xml"></substituteset>
+    <fileset name="job_files" init_with="defaults.xml"></fileset>
+
+    <!-- 
+        #Fetching Default settings 
+        #Here you can add or change parameters to fit this specific system
+    -->
+    <parameterset name="execute_pset" init_with="defaults.xml">        
+      <!-- <parameter name="args_starter">-n $tasks</parameter> -->
+    </parameterset>
+    <parameterset name="compile_pset" init_with="defaults.xml"></parameterset>
+    <parameterset name="module_env_pset" init_with="defaults.xml">
+        <parameter name="modulenames_updated" separator=";">
+        {
+            "gcc": "GCC",
+            "clang": "Clang",
+            "Classic-Flang": "Classic-Flang",
+            "intel": "intel",
+            "intelmpi": "iimpi",
+            "gompi": "gompi",
+            "openmpi" : "OpenMPI",
+            "cmake" : "CMake"
+        }
+        </parameter>
+        <parameter name="modules" separator=";" mode="python">
+          {
+              "gcc":                "{0[gcc]}/11.3.0".format(${modulenames}),
+              "gcc/8.3.0":          "{0[gcc]}/8.3.0".format(${modulenames}),
+              "gcc/9.3.0":          "{0[gcc]}/9.3.0".format(${modulenames}),
+              "gcc/9.4.0":          "{0[gcc]}/9.4.0".format(${modulenames}),
+              "gcc/10.2.0":         "{0[gcc]}/10.2.0".format(${modulenames}),
+              "gcc/10.3.0":         "{0[gcc]}/10.3.0".format(${modulenames}),
+              "gcc/11.2.0":         "{0[gcc]}/11.2.0".format(${modulenames}),
+              "gcc/11.3.0":         "{0[gcc]}/11.3.0".format(${modulenames}),
+              "clang":              "{0[clang]}/13.0.1".format(${modulenames}),
+              "clang/13.0.1":       "{0[clang]}/13.0.1".format(${modulenames}),
+              "clang/15.0.5":       "{0[clang]}/15.0.5".format(${modulenames}),
+              "clang/16.0.6":       "{0[clang]}/16.0.6".format(${modulenames}),
+              "Classic-Flang":      "{0[Classic-Flang]}/16.0.4-c23".format(${modulenames}),
+              "Classic-Flang/16.0.4-c23":  "{0[Classic-Flang]}/16.0.4-c23".format(${modulenames}),
+              "intel"       :       "{0[intel]}/2022a".format(${modulenames}),
+              "intel/2019b" :       "{0[intel]}/2019b".format(${modulenames}),
+              "intel/2020a" :       "{0[intel]}/2020a".format(${modulenames}),
+              "intel/2020b" :       "{0[intel]}/2020b".format(${modulenames}),
+              "intel/2021a" :       "{0[intel]}/2021a".format(${modulenames}),
+              "intel/2021b" :       "{0[intel]}/2021b".format(${modulenames}),
+              "intel/2022a" :       "{0[intel]}/2022a".format(${modulenames}),
+              "intel/2022b" :       "{0[intel]}/2022b".format(${modulenames}),
+              "intel/2023a" :       "{0[intel]}/2023a".format(${modulenames}),
+              "gompi/2020a" :       "{0[gompi]}/2020a".format(${modulenames}),
+              "gompi/2020b" :       "{0[gompi]}/2020b".format(${modulenames}),
+              "gompi/2021a" :       "{0[gompi]}/2021a".format(${modulenames}),
+              "gompi/2021b" :       "{0[gompi]}/2021b".format(${modulenames}),
+              "gompi/2022a" :       "{0[gompi]}/2022a".format(${modulenames}),
+              "gompi/2022b" :       "{0[gompi]}/2022b".format(${modulenames}),
+              "gompi/2023a" :       "{0[gompi]}/2023a".format(${modulenames}),
+              "intelmpi":           "{0[intelmpi]}/2022a".format(${modulenames}),
+              "intelmpi":           "{0[intelmpi]}/2022b".format(${modulenames}),
+              "intelmpi":           "{0[intelmpi]}/2023a".format(${modulenames}),
+              "openmpi":            "{0[openmpi]}/4.1.4".format(${modulenames}),
+              "openmpi/4.0.3":      "{0[openmpi]}/4.0.3".format(${modulenames}),
+              "openmpi/4.0.5":      "{0[openmpi]}/4.0.5".format(${modulenames}),
+              "openmpi/4.1.1":      "{0[openmpi]}/4.1.1".format(${modulenames}),
+              "openmpi/4.1.4":      "{0[openmpi]}/4.1.4".format(${modulenames}),
+              "openmpi/4.1.5":      "{0[openmpi]}/4.1.5".format(${modulenames}),
+              "cmake":               "{0[cmake]}/3.23.1".format(${modulenames}),
+              "cmake/3.21.1":        "{0[cmake]}/3.21.1".format(${modulenames}),
+              "cmake/3.22.1":        "{0[cmake]}/3.22.1".format(${modulenames}),
+              "cmake/3.23.1":        "{0[cmake]}/3.23.1".format(${modulenames}),
+              "cmake/3.24.3":        "{0[cmake]}/3.24.3".format(${modulenames}),
+              "cmake/3.26.3":        "{0[cmake]}/3.26.3".format(${modulenames})    
+          }
+      </parameter>
+      <parameter name="prerequisite_modules_dict" separator=";" mode="python">
+        {
+            "clang/13.0.1":       ["GCCcore/.11.3.0", "GCC/11.3.0"],
+            "clang/15.0.5":       ["GCCcore/.11.3.0", "GCC/11.3.0"],
+            "clang/16.0.6":       ["GCCcore/.12.3.0", "GCC/12.3.0"],
+            "Classic-Flang/16.0.4-c23":  ["GCCcore/.12.3.0", "GCC/12.3.0"],
+            "intelmpi/2021.6.0":  ["intel-compilers/2022.1.0"],
+            "openmpi/4.0.3":      ["GCC/9.3.0"],
+            "openmpi/4.0.5":      ["GCC/10.2.0"],
+            "openmpi/4.1.1":      ["GCC/11.2.0"],
+            "openmpi/4.1.4":      ["GCC/11.3.0"],
+            "openmpi/4.1.5":      ["GCC/12.3.0"]
+        }
+    </parameter> 
+    <parameter name="cmake_version">3.26.3</parameter>
+    <parameter name="cmake_module"  separator=";" mode="python">$modules.get("cmake/${cmake_version}") if $modules.get("cmake/${cmake_version}") else $modules.get("cmake", "cmake/${cmake_version}")</parameter>
+    <parameter name="prerequisite_modules"></parameter> 
+    </parameterset>
+    <parameterset name="mpirun_env_pset" init_with="defaults.xml"></parameterset>
+    <parameterset name="export_env_pset" init_with="defaults.xml"> 
+    <parameter name="required_exports" separator="!NONE!">${compiler_mpi_export} ${compiler_toolchain_export} ${openmp_export} ${must_export}</parameter> 
+    </parameterset>
+
+    
+    <!-- 
+        #Fetching MUST settings 
+        #Here you can add or change parameters to fit this specific system
+    -->
+    <parameterset name="must_config_pset" init_with="must.xml">
+        <parameter name="must_module_name">must</parameter>
+    </parameterset>
+
+    <!-- benchmark configuration -->
+    <parameterset name="config"  init_with="defaults.xml"></parameterset>    
+    <fileset name="source_files" init_with="defaults.xml"></fileset>
+</jube>

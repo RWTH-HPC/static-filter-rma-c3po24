@@ -1,0 +1,16 @@
+result:
+| jube_benchmark_id | jube_wp_id |  compile | measurement | rma-mode | tasks | must_compile_opt | time_avg | time_std |   mods | verification |
+|-------------------|------------|----------|-------------|----------|-------|------------------|----------|----------|--------|--------------|
+|                25 |         18 |     base |        base |   shadow |    32 |                  |   15.508 |    0.124 |  7.841 |      SUCCESS |
+|                25 |         23 |     base |        must |   shadow |    32 |                  |   16.230 |    0.205 |  8.176 |      SUCCESS |
+|                25 |         24 |     tsan |        must |   shadow |    32 |                  |   78.705 |    0.872 | 40.090 |      SUCCESS |
+|                25 |         33 | tsan-opt |        must |   shadow |    32 |              AL6 |   39.629 |    0.558 | 20.320 |      SUCCESS |
+|                25 |         38 | tsan-opt |        must |   shadow |    32 |             AL10 |   48.109 |    0.694 | 23.861 |      SUCCESS |
+|                25 |         43 | tsan-opt |        must |   shadow |    32 |           AL1000 |   65.295 |    1.180 | 33.608 |      SUCCESS |
+|                25 |         48 | tsan-opt |        must |   shadow |    32 |             ALX6 |   39.237 |    0.197 | 19.896 |      SUCCESS |
+|                25 |         52 | tsan-opt |        must |   shadow |    32 |            ALX10 |   46.878 |    0.232 | 23.698 |      SUCCESS |
+|                25 |         54 | tsan-opt |        must |   shadow |    32 |          ALX1000 |   64.863 |    0.778 | 33.239 |      SUCCESS |
+|                25 |         63 | tsan-opt |        must |   shadow |    32 |          CLUSTER |   78.138 |    0.658 | 39.150 |      SUCCESS |
+|                25 |         68 | tsan-opt |        must |   shadow |    32 |     ALX6,CLUSTER |   39.198 |    0.617 | 19.591 |      SUCCESS |
+|                25 |         73 | tsan-opt |        must |   shadow |    32 |    ALX10,CLUSTER |   47.358 |    0.260 | 23.837 |      SUCCESS |
+|                25 |         78 | tsan-opt |        must |   shadow |    32 |  ALX1000,CLUSTER |   64.255 |    0.393 | 32.271 |      SUCCESS |

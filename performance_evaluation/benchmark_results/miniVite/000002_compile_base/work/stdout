@@ -1,0 +1,3 @@
+rm -rf *~ main.o miniVite
+mpicxx  -std=c++11 -g -O3 -fopenmp -DPRINT_DIST_STATS -DUSE_MPI_RMA -c -o main.o main.cpp
+mpicxx  main.o -O3 -fopenmp -DPRINT_DIST_STATS -DUSE_MPI_RMA -o miniVite

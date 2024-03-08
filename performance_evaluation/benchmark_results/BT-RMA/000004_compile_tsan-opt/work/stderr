@@ -1,0 +1,111 @@
+[INFO] Module intel/2023a loaded.
+[INFO] Module Classic-Flang/16.0.4-c23 loaded.
+[INFO] Module CMake/3.26.3 loaded.
+[INFO] Module CMake/3.26.3 loaded.
+Running on Module: /tmp/ss540294/n23m0025_223103/tmp.ynq4A632Oh.ll
+
+Detected RMA Models used: 
+MPI_RMA: Y
+OpenSHMEM: N
+GASPI: N
+
+Phase 1: Factory Detection and Incidence relation up to depth 6
+Found Shared Resource Factory: 'mpi_put_' called in 'copy_faces_'
+Identified 10429 connected Value(s)
+Found Shared Resource Factory: 'mpi_put_' called in 'copy_faces_'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'mpi_put_' called in 'copy_faces_'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'mpi_put_' called in 'copy_faces_'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'mpi_put_' called in 'copy_faces_'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'mpi_put_' called in 'copy_faces_'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'mpi_put_' called in 'x_send_solve_info_'
+Identified 22701 connected Value(s)
+Found Shared Resource Factory: 'mpi_put_' called in 'x_send_backsub_info_'
+Identified 2 connected Value(s)
+Found Shared Resource Factory: 'mpi_put_' called in 'y_send_solve_info_'
+Identified 2 connected Value(s)
+Found Shared Resource Factory: 'mpi_put_' called in 'y_send_backsub_info_'
+Identified 2 connected Value(s)
+Found Shared Resource Factory: 'mpi_put_' called in 'z_send_solve_info_'
+Identified 2 connected Value(s)
+Found Shared Resource Factory: 'mpi_put_' called in 'z_send_backsub_info_'
+Identified 2 connected Value(s)
+Found Shared Resource Factory: 'mpi_win_create_' called in 'setup_rma_'
+Identified 22719 connected Value(s)
+Found Shared Resource Factory: 'mpi_win_create_' called in 'setup_rma_'
+Identified 2 connected Value(s)
+
+Phase 2-Default: Clipping unrelated global Variables
+Clipped 265 global variables
+
+Phase 3: Adding SanitizeThread attribute to affected functions, if not present
+Added Function 'copy_faces_' to be instrumented
+Added Function 'setup_rma_' to be instrumented
+Added Function 'setup_mpi_' to be instrumented
+Added Function 'set_class_' to be instrumented
+Added Function 'rhs_norm_' to be instrumented
+Added Function 'error_norm_' to be instrumented
+Added Function 'add_' to be instrumented
+Added Function 'z_receive_solve_info_' to be instrumented
+Added Function 'z_receive_backsub_info_' to be instrumented
+Added Function 'z_send_backsub_info_' to be instrumented
+Added Function 'z_unpack_backsub_info_' to be instrumented
+Added Function 'z_backsubstitute_' to be instrumented
+Added Function 'z_send_solve_info_' to be instrumented
+Added Function 'z_unpack_solve_info_' to be instrumented
+Added Function 'z_solve_cell_' to be instrumented
+Added Function 'z_solve_' to be instrumented
+Added Function 'y_receive_solve_info_' to be instrumented
+Added Function 'y_receive_backsub_info_' to be instrumented
+Added Function 'y_send_backsub_info_' to be instrumented
+Added Function 'y_unpack_backsub_info_' to be instrumented
+Added Function 'y_backsubstitute_' to be instrumented
+Added Function 'y_send_solve_info_' to be instrumented
+Added Function 'y_unpack_solve_info_' to be instrumented
+Added Function 'y_solve_cell_' to be instrumented
+Added Function 'y_solve_' to be instrumented
+Added Function 'x_receive_solve_info_' to be instrumented
+Added Function 'x_receive_backsub_info_' to be instrumented
+Added Function 'x_send_backsub_info_' to be instrumented
+Added Function 'x_unpack_backsub_info_' to be instrumented
+Added Function 'x_backsubstitute_' to be instrumented
+Added Function 'x_send_solve_info_' to be instrumented
+Added Function 'x_unpack_solve_info_' to be instrumented
+Added Function 'x_solve_cell_' to be instrumented
+Added Function 'x_solve_' to be instrumented
+Added Function 'compute_rhs_' to be instrumented
+Added Function 'compute_buffer_size_' to be instrumented
+Added Function 'set_constants_' to be instrumented
+Added Function 'exact_rhs_' to be instrumented
+Added Function 'lhsinit_' to be instrumented
+Added Function 'initialize_' to be instrumented
+Added Function 'make_set_' to be instrumented
+Added Function 'alloc_space_' to be instrumented
+Added Function 'MAIN_' to be instrumented
+
+Found 22725 shared resources in total.
+----------------------------------------
+0 | RemoteBuf
+0 | ReadBuf
+6 | WriteBuf
+22719 | DirtyBuf
+----------------------------------------
+Remote access types: WO 
+
+Shared Resource detection finished, generating Result Struct
+TSanRMAOpt done!
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+35588 aa      - Number of MayAlias results
+    1 aa      - Number of MustAlias results
+10336 tsanMOD - Number of instrumented reads
+  309 tsanMOD - Number of instrumented writes
+13214 tsanMOD - Number of accesses ignored due to RMAOptimizerPlugin Whitelist
+   32 tsanMOD - Number of reads from constant globals
+

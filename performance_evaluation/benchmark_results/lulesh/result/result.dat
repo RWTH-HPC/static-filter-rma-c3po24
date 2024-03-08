@@ -1,0 +1,16 @@
+result:
+| jube_benchmark_id | jube_wp_id |  compile | measurement | rma-mode | tasks | must_compile_opt |  RMA_target | time_avg | time_std | verification |
+|-------------------|------------|----------|-------------|----------|-------|------------------|-------------|----------|----------|--------------|
+|                 8 |         18 |     base |        base |   shadow |    27 |                  | -DUSE_RMA=1 |   36.000 |    0.000 |      SUCCESS |
+|                 8 |         23 |     base |        must |   shadow |    27 |                  | -DUSE_RMA=1 |   49.800 |    1.304 |      SUCCESS |
+|                 8 |         32 |     tsan |        must |   shadow |    27 |                  | -DUSE_RMA=1 |  618.000 |    8.367 |      SUCCESS |
+|                 8 |         25 | tsan-opt |        must |   shadow |    27 |              AL6 | -DUSE_RMA=1 |   77.600 |    0.894 |      SUCCESS |
+|                 8 |         37 | tsan-opt |        must |   shadow |    27 |             ALX6 | -DUSE_RMA=1 |   77.800 |    1.095 |      SUCCESS |
+|                 8 |         43 | tsan-opt |        must |   shadow |    27 |             AL10 | -DUSE_RMA=1 |  108.000 |    4.472 |      SUCCESS |
+|                 8 |         48 | tsan-opt |        must |   shadow |    27 |            ALX10 | -DUSE_RMA=1 |  106.000 |    5.477 |      SUCCESS |
+|                 8 |         53 | tsan-opt |        must |   shadow |    27 |          ALX1000 | -DUSE_RMA=1 |  262.000 |    4.472 |      SUCCESS |
+|                 8 |         58 | tsan-opt |        must |   shadow |    27 |           AL1000 | -DUSE_RMA=1 |  260.000 |    0.000 |      SUCCESS |
+|                 8 |         63 | tsan-opt |        must |   shadow |    27 |          CLUSTER | -DUSE_RMA=1 |  428.000 |    4.472 |      SUCCESS |
+|                 8 |         67 | tsan-opt |        must |   shadow |    27 |     ALX6,CLUSTER | -DUSE_RMA=1 |   78.600 |    1.517 |      SUCCESS |
+|                 8 |         72 | tsan-opt |        must |   shadow |    27 |    ALX10,CLUSTER | -DUSE_RMA=1 |   98.400 |    1.817 |      SUCCESS |
+|                 8 |         77 | tsan-opt |        must |   shadow |    27 |  ALX1000,CLUSTER | -DUSE_RMA=1 |  246.000 |    5.477 |      SUCCESS |

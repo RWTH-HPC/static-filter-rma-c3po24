@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone = "no"?>
+<!-- 
+#   Settings for getting statistics of static filtering
+#   Include '<include from="nodelist.xml" path="nodelist/include"/>' in the benchmark xml to additionally return the nodelist
+-->
+<jube>
+    <filterstats>
+      <include from="filterstats.xml" path="patternset"/>
+      <include from="filterstats.xml" path="analyser"/>
+      <include from="filterstats.xml" path="result"/>
+    </filterstats>
+
+    <!-- Regex patternsets -->
+    <patternset name="filterstats_pattern">
+      <pattern name="instr_reads" type="int" default="0">\s*${jube_pat_int} tsanMOD\s*-\s*Number of instrumented reads</pattern>
+      <pattern name="instr_writes" type="int" default="0">\s*${jube_pat_int} tsanMOD\s*-\s*Number of instrumented writes</pattern>
+      <pattern name="ignore_read_write" type="int" default="0">\s*${jube_pat_int} tsanMOD\s*-\s*Number of reads ignored due to following writes</pattern>
+      <pattern name="AL_ignored" type="int" default="0">\s*${jube_pat_int} tsanMOD\s*- Number of accesses ignored due to RMAOptimizerPlugin Whitelist</pattern>
+      <pattern name="CLUSTER_ignored" type="int" default="0">\s*${jube_pat_int} tsanMOD-clustering\s*- Number of removed ThreadSanitizer Calls by Clustering</pattern>
+      <pattern name="ALX_ignored" type="int" default="0">\s*${jube_pat_int} tsanMOD\s*- Number of accesses ignored due to RMAOptimizerPlugin Access Type</pattern>
+    </patternset>
+
+    <patternset name="filterstats_time_pattern">
+      <!-- Extract compile time -->
+      <pattern name="compile_time" type="float">real ${jube_pat_fp}</pattern>
+    </patternset>
+
+    <!-- 
+      #Analyser
+    -->
+    <analyser name="filterstats_analyse">
+      <use>pattern</use>
+      <analyse step="compile">
+        <file use="filterstats_pattern">stderr</file>
+        <file use="filterstats_time_pattern">time.out</file>
+      </analyse>
+    </analyser>
+    
+    <!-- 
+      #Create result table 
+    -->
+    <result>
+      <use>filterstats_analyse</use>
+      <table name="filterstats_result_csv" style="csv" separator=";" sort="jube_wp_id">
+        <column>jube_benchmark_id</column>
+        <column>jube_wp_id</column>       
+        <column>compile_mode</column> 
+        <column title="optimizations">must_compile_opt</column>
+        <column>compile_time</column>
+        <column>instr_reads</column>
+        <column>instr_writes</column>
+        <column>ignore_read_write</column>
+        <column>AL_ignored</column>
+        <column>ALX_ignored</column>
+        <column>CLUSTER_ignored</column>
+      </table>
+      <table name="filterstats_result" style="pretty" sort="jube_wp_id">
+        <column>jube_benchmark_id</column>
+        <column>jube_wp_id</column>
+        <column>compile_mode</column>        
+        <column title="optimizations">must_compile_opt</column>
+        <column>compile_time</column>
+        <column>instr_reads</column>
+        <column>instr_writes</column>
+        <column>ignore_read_write</column>
+        <column>AL_ignored</column>
+        <column>ALX_ignored</column>
+        <column>CLUSTER_ignored</column>
+      </table>
+    </result>
+</jube>

@@ -1,0 +1,939 @@
+[INFO] Module intel/2023a loaded.
+[INFO] Module Classic-Flang/16.0.4-c23 loaded.
+[INFO] Module CMake/3.26.3 loaded.
+[INFO] Module CMake/3.26.3 loaded.
+force_eam.cpp:813:15: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    while(ptr = strtok(__null, " \t\n\r\f")) list[i++] = atof(ptr);
+          ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+force_eam.cpp:813:15: note: place parentheses around the assignment to silence this warning
+    while(ptr = strtok(__null, " \t\n\r\f")) list[i++] = atof(ptr);
+              ^
+          (                                )
+force_eam.cpp:813:15: note: use '==' to turn this assignment into an equality comparison
+    while(ptr = strtok(__null, " \t\n\r\f")) list[i++] = atof(ptr);
+              ^
+              ==
+1 warning generated.
+output.cpp:126:57: warning: format specifies type 'double' but the argument has type 'MMD_float *' (aka 'double *') [-Wformat]
+      fprintf(stdout, "  force_params: %2.2lf %2.2lf\n",force->epsilon,force->sigma);
+                                       ~~~~~~           ^~~~~~~~~~~~~~
+output.cpp:126:72: warning: format specifies type 'double' but the argument has type 'MMD_float *' (aka 'double *') [-Wformat]
+      fprintf(stdout, "  force_params: %2.2lf %2.2lf\n",force->epsilon,force->sigma);
+                                              ~~~~~~                   ^~~~~~~~~~~~
+output.cpp:154:51: warning: format specifies type 'double' but the argument has type 'MMD_float *' (aka 'double *') [-Wformat]
+    fprintf(fp, "  force_params: %2.2lf %2.2lf\n",force->epsilon,force->sigma);
+                                 ~~~~~~           ^~~~~~~~~~~~~~
+output.cpp:154:66: warning: format specifies type 'double' but the argument has type 'MMD_float *' (aka 'double *') [-Wformat]
+    fprintf(fp, "  force_params: %2.2lf %2.2lf\n",force->epsilon,force->sigma);
+                                        ~~~~~~                   ^~~~~~~~~~~~
+4 warnings generated.
+setup.cpp:127:12: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if(ptr = strchr(line, '#')) * ptr = '\0';
+       ~~~~^~~~~~~~~~~~~~~~~~~
+setup.cpp:127:12: note: place parentheses around the assignment to silence this warning
+    if(ptr = strchr(line, '#')) * ptr = '\0';
+           ^
+       (                      )
+setup.cpp:127:12: note: use '==' to turn this assignment into an equality comparison
+    if(ptr = strchr(line, '#')) * ptr = '\0';
+           ^
+           ==
+1 warning generated.
+Running on Module: /tmp/ss540294/n23m0025_223103/tmp.dqkKtkDbRy.ll
+
+Detected RMA Models used: 
+MPI_RMA: Y
+OpenSHMEM: N
+GASPI: N
+
+Phase 1: Factory Detection and Incidence relation up to depth 1000
+Found Shared Resource Factory: 'MPI_Get' called in '_ZN8ForceEAM11communicateER4AtomR4Comm'
+Upward Func instr: _ZN8ForceEAM11communicateER4AtomR4Comm
+Upward Func instr: _ZN8ForceEAM11communicateER4AtomR4Comm
+Upward Func instr: _ZN8ForceEAM11communicateER4AtomR4Comm
+Upward Func instr: _ZN8ForceEAM17compute_halfneighER4AtomR8NeighborR4Commi
+Upward Func instr: _ZN8ForceEAM17compute_fullneighER4AtomR8NeighborR4Commi
+Upward Func instr: _ZN8ForceEAM7computeER4AtomR8NeighborR4Commi
+Identified 42 connected Value(s)
+Found Shared Resource Factory: 'MPI_Win_create' called in '_ZN4CommC2Ev'
+Upward Func instr: _ZN4CommC2Ev
+Identified 20 connected Value(s)
+Found Shared Resource Factory: 'MPI_Win_allocate' called in '_ZN4CommC2Ev'
+Identified 1 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_ZN4Comm11communicateER4Atom'
+Upward Func instr: _ZN4Comm11communicateER4Atom
+Upward Func instr: .omp_outlined..52
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Upward Func instr: _ZN4Comm8exchangeER4Atom
+Upward Func instr: _ZN4Comm8exchangeER4Atom
+Upward Func instr: _ZN4Atom11unpack_commEiiPd
+Detected OpenMP outlined function: .omp_outlined..107
+Detected OpenMP outlined function: .omp_outlined.
+Upward Func instr: .omp_outlined..107
+Upward Func instr: _ZN4Comm8growsendEi
+Upward Func instr: _ZN4Comm8growsendEi
+Upward Func instr: _ZN4Comm12exchange_allER4Atom
+Upward Func instr: _ZN4Atom9pack_commEiPiPdS0_
+Upward Func instr: _ZN4Comm12free_windowsEv
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined.
+Upward Func instr: _ZN4Comm5setupEdR4Atom
+Upward Func instr: _ZN4Comm5setupEdR4Atom
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _ZN4Atom12pack_reverseEiiPd
+Upward Func instr: _ZN4Atom9pack_commEiPiPdS0_
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: _ZN4Atom14unpack_reverseEiPiPd
+Upward Func instr: _ZN4Atom13unpack_borderEiPd
+Upward Func instr: _ZN4Atom11pack_borderEiPdPi
+Upward Func instr: _ZN4Atom15unpack_exchangeEiPd
+Upward Func instr: _ZN4Atom15unpack_exchangeEiPd
+Upward Func instr: _ZN4Atom13pack_exchangeEiPd
+Upward Func instr: _ZN4Atom13pack_exchangeEiPd
+Detected OpenMP outlined function: .omp_outlined..107
+Upward Func instr: .omp_outlined..52
+Detected OpenMP outlined function: .omp_outlined..107
+Detected OpenMP outlined function: .omp_outlined..107
+Detected OpenMP outlined function: .omp_outlined.
+Detected OpenMP outlined function: .omp_outlined..107
+Detected OpenMP outlined function: .omp_outlined.
+Upward Func instr: _ZN4Atom14unpack_reverseEiPiPd
+Upward Func instr: _ZN4Atom13skip_exchangeEPd
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN5Timer12barrier_stopEi
+Upward Func instr: _ZN5Timer12barrier_stopEi
+Upward Func instr: _ZN5Timer13barrier_startEi
+Upward Func instr: .omp_outlined..107
+Upward Func instr: _ZN5Timer5stampEi
+Upward Func instr: _ZN5Timer5stampEi
+Upward Func instr: _ZN5Timer5stampEi
+Upward Func instr: _ZN5Timer5stampEi
+Upward Func instr: _ZN5Timer5stampEi
+Upward Func instr: _ZN5Timer16stamp_extra_stopEi
+Upward Func instr: _ZN5Timer17stamp_extra_startEv
+Upward Func instr: _ZN5Timer5stampEv
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: .omp_outlined..107
+Upward Func instr: _Z15create_velocitydR4AtomR6Thermo
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined.
+Upward Func instr: _ZN4Atom4sortER8Neighbor
+Upward Func instr: _ZN4Atom4sortER8Neighbor
+Upward Func instr: _ZN8Neighbor5setupER4Atom
+Upward Func instr: _ZN8Neighbor5setupER4Atom
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _ZN9Integrate5setupEv
+Upward Func instr: _ZN9Integrate5setupEv
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined.
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Upward Func instr: _ZN4Atom4sortER8Neighbor
+Upward Func instr: _ZN4Atom4sortER8Neighbor
+Upward Func instr: _ZN4Comm8exchangeER4Atom
+Upward Func instr: _ZN4Comm8exchangeER4Atom
+Upward Func instr: _Z15create_velocitydR4AtomR6Thermo
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _Z12create_atomsR4Atomiiid
+Upward Func instr: _ZN8Neighbor5setupER4Atom
+Upward Func instr: _ZN8Neighbor5setupER4Atom
+Upward Func instr: _ZN4Comm5setupEdR4Atom
+Upward Func instr: _ZN4Comm5setupEdR4Atom
+Upward Func instr: _Z10create_boxR4Atomiiid
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: .omp_outlined..107
+Upward Func instr: _ZN5Timer12barrier_stopEi
+Upward Func instr: _ZN5Timer12barrier_stopEi
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined..52
+Upward Func instr: _ZN6Thermo11temperatureER4Atom
+Upward Func instr: _ZN6Thermo11temperatureER4Atom
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined..52
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: .omp_outlined..52
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _ZN4Atom3pbcEv
+Upward Func instr: _ZN4Atom3pbcEv
+Upward Func instr: _ZN4Atom3pbcEv
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined..52
+Upward Func instr: _ZN6Thermo11temperatureER4Atom
+Upward Func instr: _ZN6Thermo11temperatureER4Atom
+Upward Func instr: _ZN4Atom14unpack_reverseEiPiPd
+Upward Func instr: _ZN4Atom12pack_reverseEiiPd
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN4Atom13unpack_borderEiPd
+Upward Func instr: _ZN4Atom11pack_borderEiPdPi
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN4Atom15unpack_exchangeEiPd
+Upward Func instr: _ZN4Atom15unpack_exchangeEiPd
+Upward Func instr: _ZN4Atom4copyEii
+Upward Func instr: _ZN4Atom4copyEii
+Upward Func instr: _ZN4Atom13pack_exchangeEiPd
+Upward Func instr: _ZN4Atom13pack_exchangeEiPd
+Upward Func instr: _ZN4Comm12exchange_allER4Atom
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _ZN4Atom7addatomEdddddd
+Upward Func instr: _ZN4Atom7addatomEdddddd
+Upward Func instr: _ZN4Atom25create_2d_MMD_float_arrayEii
+Upward Func instr: _ZN4Atom25create_2d_MMD_float_arrayEii
+Upward Func instr: _Z18read_lammps_headerR4Atom
+Detected OpenMP outlined function: .omp_outlined..107
+Detected OpenMP outlined function: .omp_outlined.
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN9Integrate14finalIntegrateEv
+Upward Func instr: _ZN9Integrate16initialIntegrateEv
+Upward Func instr: _ZN4Comm12exchange_allER4Atom
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN4Comm11communicateER4Atom
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN4Atom9growarrayEv
+Upward Func instr: _ZN4Atom9growarrayEv
+Upward Func instr: _ZN4Atom9growarrayEv
+Upward Func instr: _ZN4Atom13skip_exchangeEPd
+Upward Func instr: _ZN4Atom7addatomEdddddd
+Upward Func instr: _ZN4Atom7addatomEdddddd
+Upward Func instr: _ZN4Atom25create_2d_MMD_float_arrayEii
+Upward Func instr: _ZN4Atom25create_2d_MMD_float_arrayEii
+Upward Func instr: _Z18read_lammps_headerR4Atom
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined.
+Upward Func instr: _ZN4Atom13skip_exchangeEPd
+Upward Func instr: _ZN4Atom11unpack_commEiiPd
+Upward Func instr: _ZN4Atom9pack_commEiPiPdS0_
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: .omp_outlined..52
+Identified 2912 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_ZN4Comm19reverse_communicateER4Atom'
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Detected OpenMP outlined function: .omp_outlined..107
+Detected OpenMP outlined function: .omp_outlined.
+Upward Func instr: _ZN4Comm12free_windowsEv
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined.
+Upward Func instr: _ZN4Comm5setupEdR4Atom
+Upward Func instr: _ZN4Comm5setupEdR4Atom
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _ZN4Atom14unpack_reverseEiPiPd
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _ZN4Atom12pack_reverseEiiPd
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Detected OpenMP outlined function: .omp_outlined..107
+Upward Func instr: .omp_outlined..52
+Detected OpenMP outlined function: .omp_outlined..107
+Detected OpenMP outlined function: .omp_outlined..107
+Detected OpenMP outlined function: .omp_outlined.
+Detected OpenMP outlined function: .omp_outlined..107
+Detected OpenMP outlined function: .omp_outlined.
+Upward Func instr: _ZN4Atom14unpack_reverseEiPiPd
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN5Timer12barrier_stopEi
+Upward Func instr: _ZN5Timer12barrier_stopEi
+Upward Func instr: _ZN5Timer13barrier_startEi
+Upward Func instr: .omp_outlined..107
+Upward Func instr: _ZN5Timer5stampEi
+Upward Func instr: _ZN5Timer5stampEi
+Upward Func instr: _ZN5Timer5stampEi
+Upward Func instr: _ZN5Timer5stampEi
+Upward Func instr: _ZN5Timer5stampEi
+Upward Func instr: _ZN5Timer16stamp_extra_stopEi
+Upward Func instr: _ZN5Timer17stamp_extra_startEv
+Upward Func instr: _ZN5Timer5stampEv
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: .omp_outlined..107
+Upward Func instr: _Z15create_velocitydR4AtomR6Thermo
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined.
+Upward Func instr: _ZN4Atom4sortER8Neighbor
+Upward Func instr: _ZN4Atom4sortER8Neighbor
+Upward Func instr: _ZN8Neighbor5setupER4Atom
+Upward Func instr: _ZN8Neighbor5setupER4Atom
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _ZN9Integrate5setupEv
+Upward Func instr: _ZN9Integrate5setupEv
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined.
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Upward Func instr: _ZN4Atom4sortER8Neighbor
+Upward Func instr: _ZN4Atom4sortER8Neighbor
+Upward Func instr: _ZN4Comm8exchangeER4Atom
+Upward Func instr: _ZN4Comm8exchangeER4Atom
+Upward Func instr: _Z15create_velocitydR4AtomR6Thermo
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _Z12create_atomsR4Atomiiid
+Upward Func instr: _ZN8Neighbor5setupER4Atom
+Upward Func instr: _ZN8Neighbor5setupER4Atom
+Upward Func instr: _ZN4Comm5setupEdR4Atom
+Upward Func instr: _ZN4Comm5setupEdR4Atom
+Upward Func instr: _Z10create_boxR4Atomiiid
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: .omp_outlined..107
+Upward Func instr: _ZN5Timer12barrier_stopEi
+Upward Func instr: _ZN5Timer12barrier_stopEi
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined..52
+Upward Func instr: _ZN6Thermo11temperatureER4Atom
+Upward Func instr: _ZN6Thermo11temperatureER4Atom
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined..52
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: .omp_outlined..52
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _ZN4Atom3pbcEv
+Upward Func instr: _ZN4Atom3pbcEv
+Upward Func instr: _ZN4Atom3pbcEv
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined..52
+Upward Func instr: _ZN6Thermo11temperatureER4Atom
+Upward Func instr: _ZN6Thermo11temperatureER4Atom
+Upward Func instr: _ZN4Atom14unpack_reverseEiPiPd
+Upward Func instr: _ZN4Atom12pack_reverseEiiPd
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN4Atom13unpack_borderEiPd
+Upward Func instr: _ZN4Atom11pack_borderEiPdPi
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN4Atom15unpack_exchangeEiPd
+Upward Func instr: _ZN4Atom15unpack_exchangeEiPd
+Upward Func instr: _ZN4Atom4copyEii
+Upward Func instr: _ZN4Atom4copyEii
+Upward Func instr: _ZN4Atom13pack_exchangeEiPd
+Upward Func instr: _ZN4Atom13pack_exchangeEiPd
+Upward Func instr: _ZN4Comm12exchange_allER4Atom
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _ZN4Atom7addatomEdddddd
+Upward Func instr: _ZN4Atom7addatomEdddddd
+Upward Func instr: _ZN4Atom25create_2d_MMD_float_arrayEii
+Upward Func instr: _ZN4Atom25create_2d_MMD_float_arrayEii
+Upward Func instr: _Z18read_lammps_headerR4Atom
+Detected OpenMP outlined function: .omp_outlined..107
+Detected OpenMP outlined function: .omp_outlined.
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN9Integrate14finalIntegrateEv
+Upward Func instr: _ZN9Integrate16initialIntegrateEv
+Upward Func instr: _ZN4Comm12exchange_allER4Atom
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN4Comm11communicateER4Atom
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN4Atom9growarrayEv
+Upward Func instr: _ZN4Atom9growarrayEv
+Upward Func instr: _ZN4Atom9growarrayEv
+Upward Func instr: _ZN4Atom13skip_exchangeEPd
+Upward Func instr: _ZN4Atom7addatomEdddddd
+Upward Func instr: _ZN4Atom7addatomEdddddd
+Upward Func instr: _ZN4Atom25create_2d_MMD_float_arrayEii
+Upward Func instr: _ZN4Atom25create_2d_MMD_float_arrayEii
+Upward Func instr: _Z18read_lammps_headerR4Atom
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined.
+Upward Func instr: _ZN4Atom13skip_exchangeEPd
+Upward Func instr: _ZN4Atom11unpack_commEiiPd
+Upward Func instr: _ZN4Atom9pack_commEiPiPdS0_
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: .omp_outlined..52
+Identified 2256 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_ZN4Comm8exchangeER4Atom'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_ZN4Comm8exchangeER4Atom'
+Identified 3 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_ZN4Comm8exchangeER4Atom'
+Identified 1 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_ZN4Comm8exchangeER4Atom'
+Upward Func instr: _ZN4Comm8exchangeER4Atom
+Upward Func instr: _ZN4Comm8exchangeER4Atom
+Upward Func instr: _ZN4Comm8growsendEi
+Upward Func instr: _ZN4Comm8growsendEi
+Upward Func instr: _ZN4Comm12exchange_allER4Atom
+Upward Func instr: _ZN4Atom15unpack_exchangeEiPd
+Upward Func instr: _ZN4Atom15unpack_exchangeEiPd
+Upward Func instr: _ZN4Atom13pack_exchangeEiPd
+Upward Func instr: _ZN4Atom13pack_exchangeEiPd
+Upward Func instr: _ZN4Atom13skip_exchangeEPd
+Identified 298 connected Value(s)
+Found Shared Resource Factory: 'MPI_Win_allocate' called in '_ZN4Comm12exchange_allER4Atom'
+Upward Func instr: _ZN4Comm12exchange_allER4Atom
+Upward Func instr: _ZN4Comm8exchangeER4Atom
+Upward Func instr: _ZN4Comm8exchangeER4Atom
+Detected OpenMP outlined function: .omp_outlined..107
+Detected OpenMP outlined function: .omp_outlined.
+Upward Func instr: .omp_outlined..52
+Upward Func instr: _ZN4Comm8growsendEi
+Upward Func instr: _ZN4Comm8growsendEi
+Upward Func instr: _ZN4Atom13pack_exchangeEiPd
+Upward Func instr: _ZN4Atom13pack_exchangeEiPd
+Upward Func instr: _ZN4Comm12free_windowsEv
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined.
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Upward Func instr: _ZN4Comm5setupEdR4Atom
+Upward Func instr: _ZN4Comm5setupEdR4Atom
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _ZN4Comm11communicateER4Atom
+Upward Func instr: .omp_outlined..107
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _ZN4Atom13skip_exchangeEPd
+Upward Func instr: _ZN4Atom15unpack_exchangeEiPd
+Upward Func instr: _ZN4Atom15unpack_exchangeEiPd
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: _ZN4Atom15unpack_exchangeEiPd
+Upward Func instr: _ZN4Atom15unpack_exchangeEiPd
+Upward Func instr: _ZN4Atom12pack_reverseEiiPd
+Detected OpenMP outlined function: .omp_outlined..107
+Upward Func instr: .omp_outlined..52
+Detected OpenMP outlined function: .omp_outlined..107
+Detected OpenMP outlined function: .omp_outlined..107
+Detected OpenMP outlined function: .omp_outlined.
+Detected OpenMP outlined function: .omp_outlined..107
+Detected OpenMP outlined function: .omp_outlined.
+Upward Func instr: _ZN4Atom9pack_commEiPiPdS0_
+Upward Func instr: _ZN4Atom14unpack_reverseEiPiPd
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN5Timer12barrier_stopEi
+Upward Func instr: _ZN5Timer12barrier_stopEi
+Upward Func instr: _ZN5Timer13barrier_startEi
+Upward Func instr: .omp_outlined..107
+Upward Func instr: _ZN5Timer5stampEi
+Upward Func instr: _ZN5Timer5stampEi
+Upward Func instr: _ZN5Timer5stampEi
+Upward Func instr: _ZN5Timer5stampEi
+Upward Func instr: _ZN5Timer5stampEi
+Upward Func instr: _ZN5Timer16stamp_extra_stopEi
+Upward Func instr: _ZN5Timer17stamp_extra_startEv
+Upward Func instr: _ZN5Timer5stampEv
+Upward Func instr: _ZN4Atom13unpack_borderEiPd
+Upward Func instr: _ZN4Atom11pack_borderEiPdPi
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: .omp_outlined..107
+Upward Func instr: _Z15create_velocitydR4AtomR6Thermo
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined.
+Upward Func instr: _ZN4Atom4sortER8Neighbor
+Upward Func instr: _ZN4Atom4sortER8Neighbor
+Upward Func instr: _ZN8Neighbor5setupER4Atom
+Upward Func instr: _ZN8Neighbor5setupER4Atom
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _ZN9Integrate5setupEv
+Upward Func instr: _ZN9Integrate5setupEv
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined.
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Upward Func instr: _ZN4Atom4sortER8Neighbor
+Upward Func instr: _ZN4Atom4sortER8Neighbor
+Upward Func instr: _ZN4Comm8exchangeER4Atom
+Upward Func instr: _ZN4Comm8exchangeER4Atom
+Upward Func instr: _Z15create_velocitydR4AtomR6Thermo
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _Z12create_atomsR4Atomiiid
+Upward Func instr: _ZN8Neighbor5setupER4Atom
+Upward Func instr: _ZN8Neighbor5setupER4Atom
+Upward Func instr: _ZN4Comm5setupEdR4Atom
+Upward Func instr: _ZN4Comm5setupEdR4Atom
+Upward Func instr: _Z10create_boxR4Atomiiid
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _ZN4Atom11unpack_commEiiPd
+Upward Func instr: _ZN4Atom14unpack_reverseEiPiPd
+Upward Func instr: .omp_outlined..107
+Upward Func instr: _ZN5Timer12barrier_stopEi
+Upward Func instr: _ZN5Timer12barrier_stopEi
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined..52
+Upward Func instr: _ZN6Thermo11temperatureER4Atom
+Upward Func instr: _ZN6Thermo11temperatureER4Atom
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined..52
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: .omp_outlined..52
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _ZN4Atom3pbcEv
+Upward Func instr: _ZN4Atom3pbcEv
+Upward Func instr: _ZN4Atom3pbcEv
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined..52
+Upward Func instr: _ZN6Thermo11temperatureER4Atom
+Upward Func instr: _ZN6Thermo11temperatureER4Atom
+Upward Func instr: _ZN4Atom14unpack_reverseEiPiPd
+Upward Func instr: _ZN4Atom12pack_reverseEiiPd
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN4Atom13unpack_borderEiPd
+Upward Func instr: _ZN4Atom11pack_borderEiPdPi
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN4Atom15unpack_exchangeEiPd
+Upward Func instr: _ZN4Atom15unpack_exchangeEiPd
+Upward Func instr: _ZN4Atom4copyEii
+Upward Func instr: _ZN4Atom4copyEii
+Upward Func instr: _ZN4Atom13pack_exchangeEiPd
+Upward Func instr: _ZN4Atom13pack_exchangeEiPd
+Upward Func instr: _ZN4Comm12exchange_allER4Atom
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _ZN4Atom7addatomEdddddd
+Upward Func instr: _ZN4Atom7addatomEdddddd
+Upward Func instr: _ZN4Atom25create_2d_MMD_float_arrayEii
+Upward Func instr: _ZN4Atom25create_2d_MMD_float_arrayEii
+Upward Func instr: _Z18read_lammps_headerR4Atom
+Upward Func instr: _ZN4Atom9pack_commEiPiPdS0_
+Detected OpenMP outlined function: .omp_outlined..107
+Detected OpenMP outlined function: .omp_outlined.
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN9Integrate14finalIntegrateEv
+Upward Func instr: _ZN9Integrate16initialIntegrateEv
+Upward Func instr: _ZN4Comm12exchange_allER4Atom
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN4Comm11communicateER4Atom
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN4Atom9growarrayEv
+Upward Func instr: _ZN4Atom9growarrayEv
+Upward Func instr: _ZN4Atom9growarrayEv
+Upward Func instr: _ZN4Atom13skip_exchangeEPd
+Upward Func instr: _ZN4Atom7addatomEdddddd
+Upward Func instr: _ZN4Atom7addatomEdddddd
+Upward Func instr: _ZN4Atom25create_2d_MMD_float_arrayEii
+Upward Func instr: _ZN4Atom25create_2d_MMD_float_arrayEii
+Upward Func instr: _Z18read_lammps_headerR4Atom
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined.
+Upward Func instr: _ZN4Atom13skip_exchangeEPd
+Upward Func instr: _ZN4Atom11unpack_commEiiPd
+Upward Func instr: _ZN4Atom9pack_commEiPiPdS0_
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: .omp_outlined..52
+Identified 2915 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_ZN4Comm12exchange_allER4Atom'
+Identified 5 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_ZN4Comm12exchange_allER4Atom'
+Identified 1 connected Value(s)
+Found Shared Resource Factory: 'MPI_Win_allocate' called in '_ZN4Comm8growsendEi'
+Upward Func instr: _ZN4Comm8growsendEi
+Upward Func instr: _ZN4Comm8growsendEi
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Upward Func instr: _ZN4Atom13unpack_borderEiPd
+Upward Func instr: _ZN4Atom11pack_borderEiPdPi
+Identified 275 connected Value(s)
+Found Shared Resource Factory: 'MPI_Win_allocate' called in '_ZN4Comm7bordersER4Atom'
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Detected OpenMP outlined function: .omp_outlined..107
+Detected OpenMP outlined function: .omp_outlined.
+Upward Func instr: .omp_outlined..52
+Upward Func instr: _ZN4Comm12free_windowsEv
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined.
+Upward Func instr: _ZN4Comm5setupEdR4Atom
+Upward Func instr: _ZN4Comm5setupEdR4Atom
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _ZN4Atom11pack_borderEiPdPi
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: _ZN4Atom13unpack_borderEiPd
+Detected OpenMP outlined function: .omp_outlined..107
+Upward Func instr: .omp_outlined..52
+Detected OpenMP outlined function: .omp_outlined..107
+Detected OpenMP outlined function: .omp_outlined..107
+Detected OpenMP outlined function: .omp_outlined.
+Detected OpenMP outlined function: .omp_outlined..107
+Detected OpenMP outlined function: .omp_outlined.
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN5Timer12barrier_stopEi
+Upward Func instr: _ZN5Timer12barrier_stopEi
+Upward Func instr: _ZN5Timer13barrier_startEi
+Upward Func instr: .omp_outlined..107
+Upward Func instr: _ZN5Timer5stampEi
+Upward Func instr: _ZN5Timer5stampEi
+Upward Func instr: _ZN5Timer5stampEi
+Upward Func instr: _ZN5Timer5stampEi
+Upward Func instr: _ZN5Timer5stampEi
+Upward Func instr: _ZN5Timer16stamp_extra_stopEi
+Upward Func instr: _ZN5Timer17stamp_extra_startEv
+Upward Func instr: _ZN5Timer5stampEv
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: .omp_outlined..107
+Upward Func instr: _Z15create_velocitydR4AtomR6Thermo
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined.
+Upward Func instr: _ZN4Atom4sortER8Neighbor
+Upward Func instr: _ZN4Atom4sortER8Neighbor
+Upward Func instr: _ZN8Neighbor5setupER4Atom
+Upward Func instr: _ZN8Neighbor5setupER4Atom
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _ZN9Integrate5setupEv
+Upward Func instr: _ZN9Integrate5setupEv
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined.
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Upward Func instr: _ZN4Atom4sortER8Neighbor
+Upward Func instr: _ZN4Atom4sortER8Neighbor
+Upward Func instr: _ZN4Comm8exchangeER4Atom
+Upward Func instr: _ZN4Comm8exchangeER4Atom
+Upward Func instr: _Z15create_velocitydR4AtomR6Thermo
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _ZN6Thermo5setupEdR9IntegrateR4Atomi
+Upward Func instr: _Z12create_atomsR4Atomiiid
+Upward Func instr: _ZN8Neighbor5setupER4Atom
+Upward Func instr: _ZN8Neighbor5setupER4Atom
+Upward Func instr: _ZN4Comm5setupEdR4Atom
+Upward Func instr: _ZN4Comm5setupEdR4Atom
+Upward Func instr: _Z10create_boxR4Atomiiid
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: .omp_outlined..52
+Upward Func instr: _ZN6Thermo11temperatureER4Atom
+Upward Func instr: _ZN6Thermo11temperatureER4Atom
+Upward Func instr: .omp_outlined..52
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: .omp_outlined..52
+Upward Func instr: _ZN4Atom3pbcEv
+Upward Func instr: _ZN4Atom3pbcEv
+Upward Func instr: _ZN4Atom3pbcEv
+Upward Func instr: .omp_outlined..52
+Upward Func instr: _ZN6Thermo11temperatureER4Atom
+Upward Func instr: _ZN6Thermo11temperatureER4Atom
+Upward Func instr: _ZN4Atom14unpack_reverseEiPiPd
+Upward Func instr: _ZN4Atom12pack_reverseEiiPd
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN8Neighbor5buildER4Atom
+Upward Func instr: _ZN4Atom13unpack_borderEiPd
+Upward Func instr: _ZN4Atom11pack_borderEiPdPi
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN8Neighbor8binatomsER4Atomi
+Upward Func instr: _ZN4Atom15unpack_exchangeEiPd
+Upward Func instr: _ZN4Atom15unpack_exchangeEiPd
+Upward Func instr: _ZN4Atom4copyEii
+Upward Func instr: _ZN4Atom4copyEii
+Upward Func instr: _ZN4Atom13pack_exchangeEiPd
+Upward Func instr: _ZN4Atom13pack_exchangeEiPd
+Upward Func instr: _ZN4Comm12exchange_allER4Atom
+Upward Func instr: _ZN4Atom7addatomEdddddd
+Upward Func instr: _ZN4Atom7addatomEdddddd
+Upward Func instr: _ZN4Atom25create_2d_MMD_float_arrayEii
+Upward Func instr: _ZN4Atom25create_2d_MMD_float_arrayEii
+Upward Func instr: _Z18read_lammps_headerR4Atom
+Detected OpenMP outlined function: .omp_outlined..107
+Detected OpenMP outlined function: .omp_outlined.
+Upward Func instr: _ZN9Integrate14finalIntegrateEv
+Upward Func instr: _ZN9Integrate16initialIntegrateEv
+Upward Func instr: _ZN4Comm11communicateER4Atom
+Upward Func instr: _ZN4Atom9growarrayEv
+Upward Func instr: _ZN4Atom9growarrayEv
+Upward Func instr: _ZN4Atom9growarrayEv
+Upward Func instr: _ZN4Atom13skip_exchangeEPd
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined.
+Upward Func instr: _ZN4Atom11unpack_commEiiPd
+Upward Func instr: _ZN4Atom9pack_commEiPiPdS0_
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: .omp_outlined..52
+Identified 2102 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_ZN4Comm7bordersER4Atom'
+Identified 10 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_ZN4Comm7bordersER4Atom'
+Identified 1 connected Value(s)
+
+Phase 2-Default: Clipping unrelated global Variables
+Clipped 532 global variables
+
+Phase 3: Adding SanitizeThread attribute to affected functions, if not present
+Added Function '_ZN8ForceEAM11communicateER4AtomR4Comm' to be instrumented
+Added Function '_ZN4CommC2Ev' to be instrumented
+Added Function '_ZN4Comm11communicateER4Atom' to be instrumented
+Added Function '.omp_outlined..52' to be instrumented
+Added Function 'main' to be instrumented
+Added Function '_ZN4Comm19reverse_communicateER4Atom' to be instrumented
+Added Function '_ZN4Comm7bordersER4Atom' to be instrumented
+Added Function '_ZN4Comm8exchangeER4Atom' to be instrumented
+Added Function '_ZN4Atom11unpack_commEiiPd' to be instrumented
+Added Function '_ZN4Comm8growsendEi' to be instrumented
+Added Function '_ZN4Comm12exchange_allER4Atom' to be instrumented
+Added Function '_ZN4Atom9pack_commEiPiPdS0_' to be instrumented
+Added Function '_ZN4Comm12free_windowsEv' to be instrumented
+Added Function '_Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri' to be instrumented
+Added Function '_ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer' to be instrumented
+Added Function '_ZN4Comm5setupEdR4Atom' to be instrumented
+Added Function '_ZN4Atom12pack_reverseEiiPd' to be instrumented
+Added Function '_ZN4Atom14unpack_reverseEiPiPd' to be instrumented
+Added Function '_ZN4Atom13unpack_borderEiPd' to be instrumented
+Added Function '_ZN4Atom11pack_borderEiPdPi' to be instrumented
+Added Function '_ZN4Atom15unpack_exchangeEiPd' to be instrumented
+Added Function '_ZN4Atom13pack_exchangeEiPd' to be instrumented
+Added Function '_ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm' to be instrumented
+Added Function '_ZN5Timer12barrier_stopEi' to be instrumented
+Added Function '_ZN5Timer13barrier_startEi' to be instrumented
+Added Function '_ZN5Timer5stampEi' to be instrumented
+Added Function '_ZN5Timer16stamp_extra_stopEi' to be instrumented
+Added Function '_ZN5Timer17stamp_extra_startEv' to be instrumented
+Added Function '_ZN5Timer5stampEv' to be instrumented
+Added Function '_Z15create_velocitydR4AtomR6Thermo' to be instrumented
+Added Function '_ZN6Thermo5setupEdR9IntegrateR4Atomi' to be instrumented
+Added Function '_ZN4Atom4sortER8Neighbor' to be instrumented
+Added Function '_ZN8Neighbor5setupER4Atom' to be instrumented
+Added Function '_Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci' to be instrumented
+Added Function '_ZN9Integrate5setupEv' to be instrumented
+Added Function '_Z12create_atomsR4Atomiiid' to be instrumented
+Added Function '_Z10create_boxR4Atomiiid' to be instrumented
+Added Function '_ZN6Thermo11temperatureER4Atom' to be instrumented
+Added Function '_ZN8Neighbor5buildER4Atom' to be instrumented
+Added Function '_ZN8Neighbor8binatomsER4Atomi' to be instrumented
+Added Function '_ZN4Atom3pbcEv' to be instrumented
+Added Function '_ZN4Atom4copyEii' to be instrumented
+Added Function '_ZN4Atom7addatomEdddddd' to be instrumented
+Added Function '_Z18read_lammps_headerR4Atom' to be instrumented
+Added Function '_ZN9Integrate14finalIntegrateEv' to be instrumented
+Added Function '_ZN9Integrate16initialIntegrateEv' to be instrumented
+Added Function '_ZN4Atom9growarrayEv' to be instrumented
+Added Function '.omp_outlined..107' to be instrumented
+Added Function '.omp_outlined.' to be instrumented
+
+Found 2634 shared resources in total.
+----------------------------------------
+18 | RemoteBuf
+61 | ReadBuf
+0 | WriteBuf
+2555 | DirtyBuf
+----------------------------------------
+Remote access types: RO 
+
+Shared Resource detection finished, generating Result Struct
+TSanRMAOpt done!
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+ 4633 aa               - Number of MayAlias results
+   17 aa               - Number of MustAlias results
+56502 aa               - Number of NoAlias results
+  208 capture-tracking - Number of pointers maybe captured
+   52 tsanMOD          - Number of accesses with bad size
+ 1060 tsanMOD          - Number of instrumented reads
+    5 tsanMOD          - Number of vtable ptr reads
+  387 tsanMOD          - Number of instrumented writes
+ 2061 tsanMOD          - Number of accesses ignored due to RMAOptimizerPlugin Whitelist
+    3 tsanMOD          - Number of accesses ignored due to RMAOptimizerPlugin Access Type
+   38 tsanMOD          - Number of reads ignored due to following writes
+   11 tsanMOD          - Number of vtable reads
+

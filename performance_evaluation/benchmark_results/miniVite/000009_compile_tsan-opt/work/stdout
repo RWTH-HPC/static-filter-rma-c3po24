@@ -1,0 +1,3 @@
+rm -rf *~ main.o miniVite
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/miniVite/../../dep/MUST/47a317bbbed9c779be827373644ebbed/install/bin/must-cxx --wrap-target mpicxx --print-opt-stats  -g --optimizations ALX1000 -std=c++11 -g -O3 -fopenmp -DPRINT_DIST_STATS -DUSE_MPI_RMA -c -o main.o main.cpp
+/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/miniVite/../../dep/MUST/47a317bbbed9c779be827373644ebbed/install/bin/must-cxx --wrap-target mpicxx --print-opt-stats  -g --optimizations ALX1000 main.o -O3 -fopenmp -DPRINT_DIST_STATS -DUSE_MPI_RMA -o miniVite

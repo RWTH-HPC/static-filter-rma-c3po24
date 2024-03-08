@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jube version="2.6.1">
+  <selection>
+    <tag>filterstats</tag>
+    <tag>M</tag>
+    <tag>ignorelist</tag>
+    <tag>tsan-opt</tag>
+  </selection>
+  <benchmark name="lulesh" file_path_ref="../.." outpath="..">
+    <parameterset name="config" duplicate="replace">
+      <parameter name="size" type="string" separator="," duplicate="none" mode="text">20</parameter>
+    </parameterset>
+    <parameterset name="source" duplicate="replace">
+      <parameter name="path_to_source" type="string" separator="," duplicate="none" mode="text">${jube_benchmark_home}/lulesh/</parameter>
+      <parameter name="ERROR_path_to_source_Empty" type="string" separator="," duplicate="none" mode="python">exit(
+        '\n[\033[91m\033[1m'+'ERROR'+'\033[0m'+'] in step \033[1m${jube_step_name}\033[0m:\n'+
+        '        path_to_source needs to be non-empty\n'+
+        '        make sure to set the path in the parameterset &quot;source&quot; in ${jube_benchmark_home}.xml\n'+
+        '        i.e. \n'+
+        '        &lt;parameterset name=&quot;source&quot;  init_with=&quot;defaults.xml&quot;&gt;\n'+
+        '          \033[93m&lt;parameter name=&quot;path_to_source&quot; type=&quot;string&quot;&gt; \033[1m&lt;PATH TO SOURCE&gt;\033[0m\033[93m &lt;/parameter&gt; &lt;--------------\033[0m\n'+
+        '        &lt;/parameterset&gt;'
+        ) if '${path_to_source}'=='' else 'OK'</parameter>
+    </parameterset>
+    <parameterset name="platform_specs_pset" duplicate="replace">
+      <parameter name="nodes" type="string" separator="," duplicate="none" mode="python">__import__(&quot;math&quot;).ceil($tasks/$taskspernode)</parameter>
+      <parameter name="taskspernode" type="int" separator="," duplicate="none" mode="text">48</parameter>
+      <parameter name="threadspertask" type="int" separator="," duplicate="none" mode="python">$threads + $must_threads_per_task</parameter>
+      <parameter name="tasks" type="int" separator="," duplicate="none" mode="python">${application_tasks} + (${must_tool_processes} if &quot;${measurement_mode}&quot; == &quot;must&quot; else 0)</parameter>
+      <parameter name="OMP_NUM_THREADS" type="int" separator="," duplicate="none" mode="text" export="true">$threads</parameter>
+      <parameter name="queue" type="string" separator="," duplicate="none" mode="text">c23test</parameter>
+      <parameter name="account" type="string" separator="," duplicate="none" mode="text">rwth1269</parameter>
+      <parameter name="account_slurm" type="string" separator="," duplicate="none" mode="python">&quot;#SBATCH --account=$account&quot; if &quot;$account&quot; else &quot;&quot;</parameter>
+      <parameter name="gres" type="string" separator="," duplicate="none" mode="text">NONE</parameter>
+      <parameter name="executable" type="string" separator="," duplicate="none" mode="text">compile/${executable_full_name}</parameter>
+      <parameter name="args_exec" type="string" separator="," duplicate="none" mode="text">-s $size</parameter>
+      <parameter name="mail" type="string" separator="," duplicate="none" mode="text"/>
+      <parameter name="env" type="string" separator=";" duplicate="none" mode="text">$jube_wp_envstr</parameter>
+      <parameter name="notification" type="string" separator="," duplicate="none" mode="text">NONE</parameter>
+      <parameter name="outlogfile" type="string" separator="," duplicate="none" mode="text">job.out</parameter>
+      <parameter name="errlogfile" type="string" separator="," duplicate="none" mode="text">job.err</parameter>
+      <parameter name="timelimit" type="string" separator="," duplicate="none" mode="text">00:40:00</parameter>
+      <parameter name="preprocess" type="string" separator="," duplicate="none" mode="text">echo &quot;nodelist=$SLURM_JOB_NODELIST&quot;     
+          SOURCE_DIR=compile/copy_source;
+          LAYOUT_DIR=$PWD;
+          COMPILE_DIR=compile;
+          ${load_modules};
+          ${export};</parameter>
+      <parameter name="postprocess" type="string" separator="," duplicate="none" mode="text">printf &quot;EXECUTION VERIFICATION CHECK: &quot;;if grep -q &quot;\[MUST-REPORT\] Error.*race&quot; job.out || grep -q &quot;^srun: error:&quot; job.err; then echo &quot;FAILURE&quot;; else echo &quot;SUCCESS&quot;; fi</parameter>
+      <parameter name="measurement" type="string" separator="," duplicate="none" mode="text"/>
+      <parameter name="additional_job_config" type="string" separator="," duplicate="none" mode="text">${benchmark_job_config}
+${basic_job_config}
+${perftool_job_config}</parameter>
+      <parameter name="application_tasks" type="int" separator="," duplicate="none" mode="text">27</parameter>
+      <parameter name="threads" type="int" separator="," duplicate="none" mode="text">1</parameter>
+      <parameter name="TSAN_OPTIONS" type="string" separator="," duplicate="none" mode="text" export="true">$$TSAN_OPTIONS ignore_noninstrumented_modules=1 exitcode=0 log_path=stdout</parameter>
+      <parameter name="basic_job_config" type="string" separator="," duplicate="none" mode="text">#SBATCH --ntasks-per-node=${taskspernode}</parameter>
+      <parameter name="benchmark_job_config" type="string" separator="," duplicate="none" mode="text">#SBATCH --exclusive
+#SBATCH --exclude=&quot;i23m[0001-0030]&quot;</parameter>
+      <parameter name="platform_name" type="string" separator="," duplicate="none" mode="text">CLAIX-23</parameter>
+      <parameter name="cores_per_node" type="int" separator="," duplicate="none" mode="text">96</parameter>
+      <parameter name="GB_per_node" type="int" separator="," duplicate="none" mode="text">256</parameter>
+      <parameter name="MB_LLC_size" type="int" separator="," duplicate="none" mode="text">210</parameter>
+      <parameter name="LLC_cache_line_size" type="int" separator="," duplicate="none" mode="text">64</parameter>
+      <parameter name="sockets_per_node" type="int" separator="," duplicate="none" mode="text">2</parameter>
+      <parameter name="NUMA_regions" type="int" separator="," duplicate="none" mode="text">4</parameter>
+      <parameter name="ERROR_tasks_msg" type="string" separator="!NONE!" duplicate="none" mode="text">tasks ($application_tasks) need to be cubic (N^3), e.g., 1, 8, 27, 64, etc.</parameter>
+      <parameter name="ERROR_tasks" type="string" separator="," duplicate="none" mode="python">print(
+        '\n[\033[91m\033[1m'+'ERROR'+'\033[0m'+'] in step \033[1m${jube_step_name} (${jube_wp_id})\033[0m:\n'+
+        '        $ERROR_tasks_msg'
+        ) or 'ERR' if round($application_tasks**(1/3))**3 != $application_tasks else 'OK'</parameter>
+    </parameterset>
+    <parameterset name="execute_pset" duplicate="replace">
+      <parameter name="submit" type="string" separator="," duplicate="none" mode="text">sbatch</parameter>
+      <parameter name="submit_script" type="string" separator="," duplicate="none" mode="text">submit.job</parameter>
+      <parameter name="done_file" type="string" separator="," duplicate="none" mode="text">ready</parameter>
+      <parameter name="error_file" type="string" separator="," duplicate="none" mode="text">error</parameter>
+      <parameter name="starter" type="string" separator="," duplicate="none" mode="text">srun</parameter>
+      <parameter name="args_starter" type="string" separator="," duplicate="none" mode="python">{ &quot;base&quot;: &quot;&quot;,
+          &quot;must&quot;: &quot;${must_arguments} --&quot;}.get(&quot;${measurement_mode}&quot;, 0)</parameter>
+      <parameter name="shared_folder" type="string" separator="," duplicate="none" mode="text">shared</parameter>
+      <parameter name="shared_job_info" type="string" separator="," duplicate="none" mode="text">${shared_folder}/jobid</parameter>
+      <parameter name="chainjob_script" type="string" separator="," duplicate="none" mode="text">./chainJobs.sh</parameter>
+      <parameter name="chainjob_needs_submit" type="string" separator="," duplicate="none" mode="text">false</parameter>
+      <parameter name="launcher" type="string" separator="," duplicate="none" mode="python">{ &quot;base&quot;: &quot;srun&quot;,
+          &quot;must&quot;: &quot;mustrun&quot;}.get(&quot;${measurement_mode}&quot;, 0)</parameter>
+    </parameterset>
+    <parameterset name="toolchain_env_pset" duplicate="replace">
+      <parameter name="toolchain_name" type="string" separator="," duplicate="none" mode="text">intel</parameter>
+      <parameter name="toolchain_version" type="string" separator="," duplicate="none" mode="text">2023a</parameter>
+      <parameter name="compiler_name" type="string" separator="," duplicate="none" mode="text">Classic-Flang</parameter>
+      <parameter name="compiler_version" type="string" separator="," duplicate="none" mode="text">16.0.4-c23</parameter>
+      <parameter name="mpi_name" type="string" separator="," duplicate="none" mode="text"/>
+      <parameter name="mpi_version" type="string" separator="," duplicate="none" mode="text"/>
+    </parameterset>
+    <parameterset name="compile_pset" duplicate="replace">
+      <parameter name="force_compilation" type="string" separator="," duplicate="none" mode="text">true</parameter>
+      <parameter name="executable_full_name" type="string" separator="," duplicate="none" mode="text">${executable_name}${executable_extension}</parameter>
+      <parameter name="compile_preparation" type="string" separator="," duplicate="none" mode="text">cd MPIRMA/${kernel_folder}</parameter>
+      <parameter name="compile_flags" type="string" separator=";" duplicate="none" mode="python">{&quot;base&quot;: &quot;&quot;,
+         &quot;tsan&quot;: &quot;${must_stats_compile_flags} -g&quot;,
+         &quot;tsan-opt&quot;: &quot;${must_stats_compile_flags} ${must_isl_compile_flags} -g --optimizations ${must_compile_opt}&quot;,
+         &quot;isl&quot;: &quot;${must_stats_compile_flags} ${must_isl_compile_flags}&quot;}.get(&quot;${compile_mode}&quot;, 0)</parameter>
+      <parameter name="tsan_opt_extension" type="string" separator="," duplicate="none" mode="text">.tsan-opt.${__tsan_opt_hash}</parameter>
+      <parameter name="executable_extension" type="string" separator="," duplicate="none" mode="python">{&quot;base&quot;: &quot;&quot;,
+        &quot;tsan&quot;: &quot;.tsan&quot;,
+        &quot;tsan-opt&quot;: &quot;${tsan_opt_extension}&quot;,
+        &quot;isl&quot;: &quot;.isl&quot;}.get(&quot;${compile_mode}&quot;, 0)</parameter>
+      <parameter name="compile_target" type="string" separator="," duplicate="none" mode="text">$executable_name</parameter>
+      <parameter name="benchmark_build_dir" type="string" separator="," duplicate="none" mode="python">&quot;${jube_benchmark_home}/executables/${__toolchain_module}/${__compiler_module}/${__mpi_module}/&quot; + (&quot;${RMA_target}&quot; if &quot;${RMA_target}&quot;.split() else &quot;Default&quot;)</parameter>
+      <parameter name="do_compile" type="string" separator="," duplicate="none" mode="shell">if ${force_compilation} || [ ! -f &quot;${benchmark_build_dir}/${executable_full_name}&quot; ]; then echo &quot;1&quot;; else echo &quot;0&quot;; fi</parameter>
+      <parameter name="compile_common_env_vars" type="string" separator="!NONE!" duplicate="none" mode="python">{&quot;base&quot;:     &quot;MPICC='mpicc ${compile_flags}' MPICXX='mpicxx ${compile_flags}' MPIFC='mpifc ${compile_flags}'&quot;,
+         &quot;tsan&quot;:     &quot;MPICC=\&quot;${MUSTCC} --wrap-target mpicc ${compile_flags}\&quot; MPICXX=\&quot;${MUSTCXX} --wrap-target mpicxx ${compile_flags}\&quot; MPIFC=\&quot;${MUSTFC} --wrap-target mpif90-flang ${compile_flags}\&quot;&quot;,
+         &quot;tsan-opt&quot;: &quot;MPICC=\&quot;${MUSTCC} --wrap-target mpicc ${compile_flags}\&quot; MPICXX=\&quot;${MUSTCXX} --wrap-target mpicxx ${compile_flags}\&quot; MPIFC=\&quot;${MUSTFC} --wrap-target mpif90-flang ${compile_flags}\&quot;&quot;,
+         &quot;isl&quot;:      &quot;MPICC=\&quot;${MUSTCC} --wrap-target mpicc ${compile_flags}\&quot; MPICXX=\&quot;${MUSTCXX} --wrap-target mpicxx ${compile_flags}\&quot; MPIFC=\&quot;${MUSTFC} --wrap-target mpif90-flang ${compile_flags}\&quot;&quot;}.get(&quot;${compile_mode}&quot;, '')</parameter>
+      <parameter name="compile_env_vars" type="string" separator="!NONE!" duplicate="none" mode="python">{&quot;base&quot;: &quot;&quot;,
+         &quot;tsan&quot;: &quot;CXX='${MUSTCXX}' CFLAGS='${compile_flags}' CXXFLAGS='${compile_flags}'&quot;,
+         &quot;tsan-opt&quot;: &quot;CXX='${MUSTCXX}' CFLAGS='${compile_flags}' CXXFLAGS='${compile_flags}'&quot;}.get(&quot;${compile_mode}&quot;, 0)</parameter>
+      <parameter name="compile_export" type="string" separator="!NONE!" duplicate="none" mode="text">for item in ${compile_common_env_vars} ${compile_env_vars}; do export &quot;$item&quot;; done</parameter>
+      <parameter name="time_output_file" type="string" separator="," duplicate="none" mode="text" export="true">${jube_wp_abspath}/time.out</parameter>
+      <parameter name="time_measure_command" type="string" separator="," duplicate="none" mode="text">/usr/bin/time -p -o ${time_output_file}</parameter>
+      <parameter name="executable_name" type="string" separator="," duplicate="none" mode="text">lulesh2.0</parameter>
+      <parameter name="RMA_target" type="string" separator="," duplicate="none" mode="python">&quot;-DUSE_RMA=1&quot;</parameter>
+    </parameterset>
+    <parameterset name="module_env_pset" duplicate="replace">
+      <parameter name="modulenames_defaults" type="string" separator=";" duplicate="none" mode="text">{
+            &quot;gcc&quot;: &quot;gcc&quot;,
+            &quot;clang&quot;: &quot;clang&quot;,
+            &quot;intelmpi&quot;: &quot;intelmpi&quot;,
+            &quot;cmake&quot;: &quot;cmake&quot;
+        }</parameter>
+      <parameter name="modulenames_updated" type="string" separator=";" duplicate="none" mode="text">{
+            &quot;gcc&quot;: &quot;GCC&quot;,
+            &quot;clang&quot;: &quot;Clang&quot;,
+            &quot;Classic-Flang&quot;: &quot;Classic-Flang&quot;,
+            &quot;intel&quot;: &quot;intel&quot;,
+            &quot;intelmpi&quot;: &quot;iimpi&quot;,
+            &quot;gompi&quot;: &quot;gompi&quot;,
+            &quot;openmpi&quot; : &quot;OpenMPI&quot;,
+            &quot;cmake&quot; : &quot;CMake&quot;
+        }</parameter>
+      <parameter name="modulenames" type="string" separator=";" duplicate="none" mode="python">{key:value for (key, value) in list(${modulenames_defaults}.items()) + list(${modulenames_updated}.items())}</parameter>
+      <parameter name="modules" type="string" separator=";" duplicate="none" mode="python">{
+              &quot;gcc&quot;:                &quot;{0[gcc]}/11.3.0&quot;.format(${modulenames}),
+              &quot;gcc/8.3.0&quot;:          &quot;{0[gcc]}/8.3.0&quot;.format(${modulenames}),
+              &quot;gcc/9.3.0&quot;:          &quot;{0[gcc]}/9.3.0&quot;.format(${modulenames}),
+              &quot;gcc/9.4.0&quot;:          &quot;{0[gcc]}/9.4.0&quot;.format(${modulenames}),
+              &quot;gcc/10.2.0&quot;:         &quot;{0[gcc]}/10.2.0&quot;.format(${modulenames}),
+              &quot;gcc/10.3.0&quot;:         &quot;{0[gcc]}/10.3.0&quot;.format(${modulenames}),
+              &quot;gcc/11.2.0&quot;:         &quot;{0[gcc]}/11.2.0&quot;.format(${modulenames}),
+              &quot;gcc/11.3.0&quot;:         &quot;{0[gcc]}/11.3.0&quot;.format(${modulenames}),
+              &quot;clang&quot;:              &quot;{0[clang]}/13.0.1&quot;.format(${modulenames}),
+              &quot;clang/13.0.1&quot;:       &quot;{0[clang]}/13.0.1&quot;.format(${modulenames}),
+              &quot;clang/15.0.5&quot;:       &quot;{0[clang]}/15.0.5&quot;.format(${modulenames}),
+              &quot;clang/16.0.6&quot;:       &quot;{0[clang]}/16.0.6&quot;.format(${modulenames}),
+              &quot;Classic-Flang&quot;:      &quot;{0[Classic-Flang]}/16.0.4-c23&quot;.format(${modulenames}),
+              &quot;Classic-Flang/16.0.4-c23&quot;:  &quot;{0[Classic-Flang]}/16.0.4-c23&quot;.format(${modulenames}),
+              &quot;intel&quot;       :       &quot;{0[intel]}/2022a&quot;.format(${modulenames}),
+              &quot;intel/2019b&quot; :       &quot;{0[intel]}/2019b&quot;.format(${modulenames}),
+              &quot;intel/2020a&quot; :       &quot;{0[intel]}/2020a&quot;.format(${modulenames}),
+              &quot;intel/2020b&quot; :       &quot;{0[intel]}/2020b&quot;.format(${modulenames}),
+              &quot;intel/2021a&quot; :       &quot;{0[intel]}/2021a&quot;.format(${modulenames}),
+              &quot;intel/2021b&quot; :       &quot;{0[intel]}/2021b&quot;.format(${modulenames}),
+              &quot;intel/2022a&quot; :       &quot;{0[intel]}/2022a&quot;.format(${modulenames}),
+              &quot;intel/2022b&quot; :       &quot;{0[intel]}/2022b&quot;.format(${modulenames}),
+              &quot;intel/2023a&quot; :       &quot;{0[intel]}/2023a&quot;.format(${modulenames}),
+              &quot;gompi/2020a&quot; :       &quot;{0[gompi]}/2020a&quot;.format(${modulenames}),
+              &quot;gompi/2020b&quot; :       &quot;{0[gompi]}/2020b&quot;.format(${modulenames}),
+              &quot;gompi/2021a&quot; :       &quot;{0[gompi]}/2021a&quot;.format(${modulenames}),
+              &quot;gompi/2021b&quot; :       &quot;{0[gompi]}/2021b&quot;.format(${modulenames}),
+              &quot;gompi/2022a&quot; :       &quot;{0[gompi]}/2022a&quot;.format(${modulenames}),
+              &quot;gompi/2022b&quot; :       &quot;{0[gompi]}/2022b&quot;.format(${modulenames}),
+              &quot;gompi/2023a&quot; :       &quot;{0[gompi]}/2023a&quot;.format(${modulenames}),
+              &quot;intelmpi&quot;:           &quot;{0[intelmpi]}/2022a&quot;.format(${modulenames}),
+              &quot;intelmpi&quot;:           &quot;{0[intelmpi]}/2022b&quot;.format(${modulenames}),
+              &quot;intelmpi&quot;:           &quot;{0[intelmpi]}/2023a&quot;.format(${modulenames}),
+              &quot;openmpi&quot;:            &quot;{0[openmpi]}/4.1.4&quot;.format(${modulenames}),
+              &quot;openmpi/4.0.3&quot;:      &quot;{0[openmpi]}/4.0.3&quot;.format(${modulenames}),
+              &quot;openmpi/4.0.5&quot;:      &quot;{0[openmpi]}/4.0.5&quot;.format(${modulenames}),
+              &quot;openmpi/4.1.1&quot;:      &quot;{0[openmpi]}/4.1.1&quot;.format(${modulenames}),
+              &quot;openmpi/4.1.4&quot;:      &quot;{0[openmpi]}/4.1.4&quot;.format(${modulenames}),
+              &quot;openmpi/4.1.5&quot;:      &quot;{0[openmpi]}/4.1.5&quot;.format(${modulenames}),
+              &quot;cmake&quot;:               &quot;{0[cmake]}/3.23.1&quot;.format(${modulenames}),
+              &quot;cmake/3.21.1&quot;:        &quot;{0[cmake]}/3.21.1&quot;.format(${modulenames}),
+              &quot;cmake/3.22.1&quot;:        &quot;{0[cmake]}/3.22.1&quot;.format(${modulenames}),
+              &quot;cmake/3.23.1&quot;:        &quot;{0[cmake]}/3.23.1&quot;.format(${modulenames}),
+              &quot;cmake/3.24.3&quot;:        &quot;{0[cmake]}/3.24.3&quot;.format(${modulenames}),
+              &quot;cmake/3.26.3&quot;:        &quot;{0[cmake]}/3.26.3&quot;.format(${modulenames})    
+          }</parameter>
+      <parameter name="prerequisite_modules_dict" type="string" separator=";" duplicate="none" mode="python">{
+            &quot;clang/13.0.1&quot;:       [&quot;GCCcore/.11.3.0&quot;, &quot;GCC/11.3.0&quot;],
+            &quot;clang/15.0.5&quot;:       [&quot;GCCcore/.11.3.0&quot;, &quot;GCC/11.3.0&quot;],
+            &quot;clang/16.0.6&quot;:       [&quot;GCCcore/.12.3.0&quot;, &quot;GCC/12.3.0&quot;],
+            &quot;Classic-Flang/16.0.4-c23&quot;:  [&quot;GCCcore/.12.3.0&quot;, &quot;GCC/12.3.0&quot;],
+            &quot;intelmpi/2021.6.0&quot;:  [&quot;intel-compilers/2022.1.0&quot;],
+            &quot;openmpi/4.0.3&quot;:      [&quot;GCC/9.3.0&quot;],
+            &quot;openmpi/4.0.5&quot;:      [&quot;GCC/10.2.0&quot;],
+            &quot;openmpi/4.1.1&quot;:      [&quot;GCC/11.2.0&quot;],
+            &quot;openmpi/4.1.4&quot;:      [&quot;GCC/11.3.0&quot;],
+            &quot;openmpi/4.1.5&quot;:      [&quot;GCC/12.3.0&quot;]
+        }</parameter>
+      <parameter name="cmake_version" type="string" separator="," duplicate="none" mode="text">3.26.3</parameter>
+      <parameter name="cmake_module" type="string" separator=";" duplicate="none" mode="python">$modules.get(&quot;cmake/${cmake_version}&quot;) if $modules.get(&quot;cmake/${cmake_version}&quot;) else $modules.get(&quot;cmake&quot;, &quot;cmake/${cmake_version}&quot;)</parameter>
+      <parameter name="prerequisite_modules" type="string" separator="," duplicate="none" mode="text"/>
+      <parameter name="toolchain_module" type="string" separator=";" duplicate="none" mode="python">$modules.get(&quot;${toolchain_name}/${toolchain_version}&quot;, $modules.get(&quot;${toolchain_name}&quot;, &quot;${toolchain_name}&quot; + (&quot;/${toolchain_version}&quot; if &quot;${toolchain_version}&quot; else &quot;&quot;)))</parameter>
+      <parameter name="compiler_module" type="string" separator=";" duplicate="none" mode="python">$modules.get(&quot;${compiler_name}/${compiler_version}&quot;, $modules.get(&quot;${compiler_name}&quot;, &quot;${compiler_name}&quot; + (&quot;/${compiler_version}&quot; if &quot;${compiler_version}&quot; else &quot;&quot;)))</parameter>
+      <parameter name="mpi_module" type="string" separator=";" duplicate="none" mode="python">$modules.get(&quot;${mpi_name}/${mpi_version}&quot;, $modules.get(&quot;${mpi_name}&quot;, &quot;${mpi_name}&quot; + (&quot;/${mpi_version}&quot; if &quot;${mpi_version}&quot; else &quot;&quot;)))</parameter>
+      <parameter name="required_modules" type="string" separator="," duplicate="none" mode="text">${prerequisite_modules} ${toolchain_module} ${mpi_module} ${compiler_module} ${cmake_module} ${must_prerequisite_modules}</parameter>
+      <parameter name="load_modules" type="string" separator="," duplicate="none" mode="text">module use /home/rwth1269/modules/; module purge; for modulename in ${required_modules}; do module load $modulename; done</parameter>
+      <parameter name="__toolchain_module" type="string" separator="," duplicate="none" mode="python">&quot;${toolchain_module}&quot;.lower()</parameter>
+      <parameter name="__compiler_module" type="string" separator="," duplicate="none" mode="python">&quot;${compiler_module}&quot;.lower()</parameter>
+      <parameter name="__mpi_module" type="string" separator="," duplicate="none" mode="python">&quot;${mpi_module}&quot;.lower()</parameter>
+    </parameterset>
+    <parameterset name="mpirun_env_pset" duplicate="replace">
+      <parameter name="mpirun_dict_default" type="string" separator=";" duplicate="none" mode="text">{
+          
+        }</parameter>
+      <parameter name="mpirun_dict_updated" type="string" separator=";" duplicate="none" mode="text">{}</parameter>
+      <parameter name="mpirun_dict" type="string" separator=";" duplicate="none" mode="text">{key:value for (key, value) in list(${mpirun_dict_default}.items()) + list(${mpirun_dict_updated}.items())}</parameter>
+      <parameter name="mpirun" type="string" separator=";" duplicate="none" mode="python">$mpirun_dict.get(&quot;${mpi_name}&quot;, &quot;${starter}&quot;)</parameter>
+    </parameterset>
+    <parameterset name="export_env_pset" duplicate="replace">
+      <parameter name="export_dict" type="string" separator=";" duplicate="none" mode="text">{
+              (&quot;clang&quot;, &quot;intelmpi&quot;): [&quot;MPICH_CC=clang&quot;, &quot;MPICH_CXX=clang++&quot;],
+              (&quot;Classic-Flang&quot;, &quot;intelmpi&quot;): [&quot;MPICH_CC=clang&quot;, &quot;MPICH_CXX=clang++&quot;],
+              (&quot;clang&quot;, &quot;openmpi&quot;): [&quot;OMPI_CC=clang&quot;, &quot;OMPI_CXX=clang++&quot;],
+              (&quot;clang&quot;, &quot;intel&quot;): [&quot;MPICH_CC=clang&quot;, &quot;MPICH_CXX=clang++&quot;],
+              (&quot;Classic-Flang&quot;, &quot;intel&quot;): [&quot;MPICH_CC=clang&quot;, &quot;MPICH_CXX=clang++&quot;],
+              (&quot;clang&quot;, &quot;gompi&quot;): [&quot;OMPI_CC=clang&quot;, &quot;OMPI_CXX=clang++&quot;]
+          }</parameter>
+      <parameter name="compiler_mpi_export" type="string" separator=";" duplicate="none" mode="python">&quot; &quot;.join($export_dict.get((&quot;${compiler_name}&quot;,&quot;${mpi_name}&quot;), []))</parameter>
+      <parameter name="compiler_toolchain_export" type="string" separator=";" duplicate="none" mode="python">&quot; &quot;.join($export_dict.get((&quot;${compiler_name}&quot;,&quot;${toolchain_name}&quot;), []))</parameter>
+      <parameter name="required_exports" type="string" separator="!NONE!" duplicate="none" mode="text">${compiler_mpi_export} ${compiler_toolchain_export} ${openmp_export} ${must_export}</parameter>
+      <parameter name="export" type="string" separator="!NONE!" duplicate="none" mode="text">for item in ${required_exports}; do export &quot;$item&quot;; done</parameter>
+    </parameterset>
+    <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_config_pset" duplicate="replace">
+      <parameter name="must_commit" type="string" separator="," duplicate="none" mode="text">9090b10422f3bbd7fc994f4ffb917fa0137b663c</parameter>
+      <parameter name="build_must" type="string" separator="," duplicate="none" mode="shell">if ${force_must_build} || [ ! -f &quot;${mustbin_path}/mustrun&quot; ]; then echo &quot;1&quot;; else echo &quot;0&quot;; fi</parameter>
+      <parameter name="must_prerequisite_modules" type="string" separator=";" duplicate="none" mode="python">&quot; &quot;.join(${prerequisite_modules_dict}.get(&quot;${cmake_module}&quot;, []) + [&quot;${cmake_module}&quot;])</parameter>
+      <parameter name="must_root" type="string" separator="," duplicate="none" mode="text">${jube_benchmark_home}/../../dep/MUST/${__must_hash}</parameter>
+      <parameter name="must_build_folder" type="string" separator="," duplicate="none" mode="text">${must_root}/build</parameter>
+      <parameter name="must_install_folder" type="string" separator="," duplicate="none" mode="text">${must_root}/install</parameter>
+      <parameter name="must_repo_folder" type="string" separator="," duplicate="none" mode="text">${jube_benchmark_home}/../../dep/MUST/repo</parameter>
+      <parameter name="mustbin_path" type="string" separator="," duplicate="none" mode="text">${must_install_folder}/bin</parameter>
+      <parameter name="must_stats_compile_flags" type="string" separator="," duplicate="none" mode="text">--print-opt-stats</parameter>
+      <parameter name="must_isl_compile_flags" type="string" separator="," duplicate="none" mode="text"/>
+      <parameter name="MUSTCC" type="string" separator="," duplicate="none" mode="text">${mustbin_path}/must-cc</parameter>
+      <parameter name="MUSTCXX" type="string" separator="," duplicate="none" mode="text">${mustbin_path}/must-cxx</parameter>
+      <parameter name="MUSTFC" type="string" separator="," duplicate="none" mode="text">${mustbin_path}/must-fort</parameter>
+      <parameter name="must_export" type="string" separator="," duplicate="none" mode="text">PATH=/${mustbin_path}:$PATH</parameter>
+      <parameter name="must_available" type="int" separator="," duplicate="none" mode="shell">if [[ -f &quot;${mustbin_path}/mustrun&quot; ]]; then echo &quot;1&quot;; else echo &quot;0&quot;; fi</parameter>
+      <parameter name="force_must_build" type="string" separator="," duplicate="none" mode="text">false</parameter>
+      <parameter name="__must_hash" type="string" separator="," duplicate="none" mode="shell">echo -n &quot;${__must_commit} ${must_git_branch} ${__toolchain_module} ${__compiler_module} ${__mpi_module}&quot; | md5sum | cut -f 1 -d &quot; &quot; | tr -d '\n'</parameter>
+    </parameterset>
+    <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_build_pset" duplicate="replace">
+      <parameter name="CMAKE_BUILD_TYPE" type="string" separator="," duplicate="none" mode="text">RelWithDebInfo</parameter>
+      <parameter name="MPI_C_COMPILER" type="string" separator="," duplicate="none" mode="text">mpicc</parameter>
+      <parameter name="MPI_CXX_COMPILER" type="string" separator="," duplicate="none" mode="text">mpicxx</parameter>
+      <parameter name="MPI_Fortran_COMPILER" type="string" separator="," duplicate="none" mode="text">mpif90-flang</parameter>
+      <parameter name="ENABLE_FORTRAN" type="string" separator="," duplicate="none" mode="text">1</parameter>
+      <parameter name="ENABLE_TSAN" type="string" separator="," duplicate="none" mode="text">1</parameter>
+      <parameter name="ENABLE_TYPEART" type="string" separator="," duplicate="none" mode="text">OFF</parameter>
+      <parameter name="ENABLE_TESTS" type="string" separator="," duplicate="none" mode="text">OFF</parameter>
+      <parameter name="GTI_DEBUG" type="string" separator="," duplicate="none" mode="text">False</parameter>
+      <parameter name="USE_BACKWARD" type="string" separator="," duplicate="none" mode="text">OFF</parameter>
+      <parameter name="MUST_build_args" type="string" separator="," duplicate="none" mode="text">-DMPI_C_COMPILER=${MPI_C_COMPILER} \
+      -DMPI_CXX_COMPILER=${MPI_CXX_COMPILER} \
+      -DCMAKE_Fortran_COMPILER=${MPI_Fortran_COMPILER} \
+      -DCMAKE_INSTALL_PREFIX=&quot;${must_install_folder}&quot; \
+      -DENABLE_FORTRAN=${ENABLE_FORTRAN} \
+      -DENABLE_TSAN=${ENABLE_TSAN} \
+      -DENABLE_TYPEART=${ENABLE_TYPEART} \
+      -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE} \
+      -DENABLE_TESTS=${ENABLE_TESTS} \
+      -DGTI_DEBUG=${GTI_DEBUG} \
+      -DUSE_BACKWARD=${USE_BACKWARD}</parameter>
+      <parameter name="must_git_clone_ssh" type="string" separator="," duplicate="none" mode="text">git@git-ce.rwth-aachen.de:hpc-research/correctness/MUST.git</parameter>
+      <parameter name="must_git_branch" type="string" separator="," duplicate="none" mode="text">feature/onesided</parameter>
+      <parameter name="__must_commit" type="string" separator="," duplicate="none" mode="shell">if [[ $(echo &quot;${must_commit}&quot; | tr '[:upper:]' '[:lower:]') != &quot;head&quot; ]]; then echo ${must_commit}| awk '{printf $1}'; else git ls-remote ${must_git_clone_ssh} ${must_git_branch} | awk '{printf $1}'; fi</parameter>
+    </parameterset>
+    <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_execute_pset" duplicate="replace">
+      <parameter name="must_threads_per_task" type="int" separator="," duplicate="none" mode="text">1</parameter>
+      <parameter name="must_tool_processes" type="int" separator="," duplicate="none" mode="text">${level2_size}</parameter>
+      <parameter name="must_layout_file" type="string" separator="," duplicate="replace" mode="text">must_layout.xml.in</parameter>
+      <parameter name="level0_place" type="string" separator="," duplicate="none" mode="text">thread_app</parameter>
+      <parameter name="level0_size" type="int" separator="," duplicate="none" mode="python">1000*${application_tasks}</parameter>
+      <parameter name="level1_size" type="int" separator="," duplicate="none" mode="text">${application_tasks}</parameter>
+      <parameter name="level1_place" type="string" separator="," duplicate="none" mode="text">thread_place</parameter>
+      <parameter name="level2_size" type="int" separator="," duplicate="replace" mode="text">0</parameter>
+      <parameter name="level2_place" type="string" separator="," duplicate="none" mode="text">mpi_place</parameter>
+      <parameter name="must_verbose" type="string" separator="," duplicate="none" mode="text"/>
+      <parameter name="must_layout" type="string" separator="," duplicate="none" mode="text">--must:rma-only -n ${application_tasks}</parameter>
+      <parameter name="must_rma_mode_tsan_opt" type="string" separator="," duplicate="none" mode="text">shadow</parameter>
+      <parameter name="must_rma_mode" type="string" separator="," duplicate="none" mode="python">{&quot;base&quot;: &quot;shadow&quot;,
+         &quot;tsan&quot;: &quot;shadow&quot;,
+         &quot;tsan-opt&quot;: &quot;${must_rma_mode_tsan_opt}&quot;,
+         &quot;isl&quot;: &quot;isl&quot;}.get(&quot;${compile_mode}&quot;, &quot;shadow&quot;)</parameter>
+      <parameter name="must_arguments" type="string" separator="," duplicate="none" mode="text">${must_verbose} --must:output stdout --must:mpiexec ${mpirun} ${must_layout} --must:rma-mode ${must_rma_mode}</parameter>
+    </parameterset>
+    <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_compile_pset" duplicate="replace">
+      <parameter name="must_compile_opt" type="string" separator=";" duplicate="none" mode="python">{&quot;tsan-opt&quot;: &quot;AL6;AL10;AL1000;ALX6;ALX10;ALX1000;CLUSTER;ALX6,CLUSTER;ALX10,CLUSTER;ALX1000,CLUSTER&quot;}.get(&quot;${compile_mode}&quot;, &quot;&quot;)</parameter>
+      <parameter name="__tsan_opt_hash" type="string" separator=";" duplicate="none" mode="shell">echo -n &quot;$must_compile_opt $__must_hash&quot; | md5sum | cut -f 1 -d &quot; &quot; | tr -d '\n'</parameter>
+    </parameterset>
+    <parameterset name="jube_6735070c71f31aac0f70d8501cd4b1e2_ignorelist_pset" duplicate="replace">
+      <parameter name="ignorelist" type="string" separator="," duplicate="none" mode="python">(&quot;${measurement_mode}&quot; == &quot;base&quot; and &quot;${compile_mode}&quot; == &quot;tsan-opt&quot;) or (&quot;${measurement_mode}&quot; == &quot;base&quot; and &quot;${compile_mode}&quot; == &quot;tsan&quot;)</parameter>
+    </parameterset>
+    <parameterset name="jube_6735070c71f31aac0f70d8501cd4b1e2_compile_mode_pset" duplicate="concat">
+      <parameter name="compile_mode" type="string" separator="," duplicate="none" mode="text">base,tsan,tsan-opt</parameter>
+    </parameterset>
+    <parameterset name="jube_6735070c71f31aac0f70d8501cd4b1e2_measurement_mode_pset" duplicate="concat">
+      <parameter name="measurement_mode" type="string" separator="," duplicate="none" mode="text">base,must</parameter>
+    </parameterset>
+    <substituteset name="job_sub">
+      <iofile in="${submit_script}.in" out="$submit_script" out_mode="w"/>
+      <sub source="#ENV#" mode="text">$env</sub>
+      <sub source="#NOTIFY_EMAIL#" mode="text">$mail</sub>
+      <sub source="#NOTIFICATION_TYPE#" mode="text">$notification</sub>
+      <sub source="#BENCHNAME#" mode="text">&quot;${jube_benchmark_name}_${measurement_mode}_${compile_mode}_${jube_wp_id}&quot;</sub>
+      <sub source="#NODES#" mode="text">$nodes</sub>
+      <sub source="#TASKS#" mode="text">$tasks</sub>
+      <sub source="#NCPUS#" mode="text">$taskspernode</sub>
+      <sub source="#NTHREADS#" mode="text">$threadspertask</sub>
+      <sub source="#TIME_LIMIT#" mode="text">$timelimit</sub>
+      <sub source="#PREPROCESS#" mode="text">$preprocess</sub>
+      <sub source="#POSTPROCESS#" mode="text">$postprocess</sub>
+      <sub source="#ACCOUNT_CONFIG#" mode="text">$account_slurm</sub>
+      <sub source="#QUEUE#" mode="text">$queue</sub>
+      <sub source="#GRES#" mode="text">$gres</sub>
+      <sub source="#STARTER#" mode="text">${launcher}</sub>
+      <sub source="#ARGS_STARTER#" mode="text">$args_starter</sub>
+      <sub source="#MEASUREMENT#" mode="text">$measurement</sub>
+      <sub source="#STDOUTLOGFILE#" mode="text">$outlogfile</sub>
+      <sub source="#STDERRLOGFILE#" mode="text">$errlogfile</sub>
+      <sub source="#ADDITIONAL_JOB_CONFIG#" mode="text">$additional_job_config</sub>
+      <sub source="#EXECUTABLE#" mode="text">$executable</sub>
+      <sub source="#ARGS_EXECUTABLE#" mode="text">$args_exec</sub>
+      <sub source="#FLAG#" mode="text">touch $done_file</sub>
+      <sub source="#FLAG_ERROR#" mode="text">touch $error_file</sub>
+    </substituteset>
+    <substituteset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_execute_sub">
+      <iofile in="${must_layout_file}" out="layout.xml" out_mode="w"/>
+      <sub source="#LEVEL0_SIZE#" mode="text">${level0_size}</sub>
+      <sub source="#LEVEL0_PLACE#" mode="text">${level0_place}</sub>
+      <sub source="#LEVEL1_SIZE#" mode="text">${level1_size}</sub>
+      <sub source="#LEVEL1_PLACE#" mode="text">${level1_place}</sub>
+      <sub source="#LEVEL2_SIZE#" mode="text">${level2_size}</sub>
+      <sub source="#LEVEL2_PLACE#" mode="text">${level2_place}</sub>
+    </substituteset>
+    <fileset name="source_files">
+      <copy file_path_ref="../../common">${path_to_source}/*</copy>
+    </fileset>
+    <fileset name="job_files">
+      <copy file_path_ref="/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/JUBE/2.6.1/share/jube/platform/slurm/">${submit_script}.in</copy>
+    </fileset>
+    <fileset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_files">
+      <copy file_path_ref="../../common">${jube_benchmark_home}/../../templates/${must_layout_file}</copy>
+    </fileset>
+    <patternset name="pattern">
+      <pattern name="verification" type="string" dotall="False" default="FAILURE" mode="pattern">EXECUTION VERIFICATION CHECK: ${jube_pat_wrd}</pattern>
+      <pattern name="time" type="float" dotall="False" mode="pattern">Elapsed time .* ${jube_pat_fp}</pattern>
+    </patternset>
+    <patternset name="filterstats_pattern">
+      <pattern name="instr_reads" type="int" dotall="False" default="0" mode="pattern">\s*${jube_pat_int} tsanMOD\s*-\s*Number of instrumented reads</pattern>
+      <pattern name="instr_writes" type="int" dotall="False" default="0" mode="pattern">\s*${jube_pat_int} tsanMOD\s*-\s*Number of instrumented writes</pattern>
+      <pattern name="ignore_read_write" type="int" dotall="False" default="0" mode="pattern">\s*${jube_pat_int} tsanMOD\s*-\s*Number of reads ignored due to following writes</pattern>
+      <pattern name="AL_ignored" type="int" dotall="False" default="0" mode="pattern">\s*${jube_pat_int} tsanMOD\s*- Number of accesses ignored due to RMAOptimizerPlugin Whitelist</pattern>
+      <pattern name="CLUSTER_ignored" type="int" dotall="False" default="0" mode="pattern">\s*${jube_pat_int} tsanMOD-clustering\s*- Number of removed ThreadSanitizer Calls by Clustering</pattern>
+      <pattern name="ALX_ignored" type="int" dotall="False" default="0" mode="pattern">\s*${jube_pat_int} tsanMOD\s*- Number of accesses ignored due to RMAOptimizerPlugin Access Type</pattern>
+    </patternset>
+    <patternset name="filterstats_time_pattern">
+      <pattern name="compile_time" type="float" dotall="False" mode="pattern">real ${jube_pat_fp}</pattern>
+    </patternset>
+    <step name="build_must">
+      <use>toolchain_env_pset</use>
+      <use>module_env_pset</use>
+      <use>export_env_pset</use>
+      <use>jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_config_pset</use>
+      <use>jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_build_pset</use>
+      <do active="${build_must}">${load_modules};
+        ${export}; 
+
+        rm -r -f ${must_install_folder}
+        if [ ! -d &quot;${must_repo_folder}&quot; ]; then git clone ${must_git_clone_ssh} ${must_repo_folder}; fi;
+        cd ${must_repo_folder};
+        if ! git cat-file -t ${__must_commit}; then git pull; fi;
+        git reset --hard;
+        git clean -fdx;
+        git checkout ${__must_commit};
+        git submodule update --init --recursive;
+
+        mkdir -p ${must_build_folder};
+        cd ${must_build_folder};
+        cmake ${MUST_build_args} ${must_repo_folder};
+        make -j50 install;
+        rm -r -f ${must_build_folder};
+
+        if [ ! -f &quot;${mustbin_path}/mustrun&quot; ]; then &gt;&amp;2 echo &quot;mustrun does not exist at ${mustbin_path}&quot;; exit 1; fi</do>
+    </step>
+    <step name="copy_source" depend="build_must">
+      <use>source</use>
+      <use>source_files</use>
+    </step>
+    <step name="compile" depend="copy_source" suffix="${compile_mode}" procs="8">
+      <use>compile_pset</use>
+      <use>jube_6735070c71f31aac0f70d8501cd4b1e2_compile_mode_pset</use>
+      <use>jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_config_pset</use>
+      <use>jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_compile_pset</use>
+      <use>toolchain_env_pset</use>
+      <use>module_env_pset</use>
+      <use>export_env_pset</use>
+      <do active="${do_compile}">${load_modules}; 
+        ${export}; 
+        ${compile_export};
+        
+        rm -r -f build
+        mkdir build
+        cd build
+        CXX=&quot;$MPICXX&quot; cmake -DWITH_OPENMP=OFF -DCMAKE_CXX_FLAGS=&quot;$RMA_target&quot; ../copy_source/
+        make clean;
+        ${time_measure_command} make;
+         
+        
+        mkdir -p ${benchmark_build_dir};
+        mv -f ${executable_name} ${benchmark_build_dir}/${executable_full_name};</do>
+      <do>cp -f ${benchmark_build_dir}/${executable_full_name} .;</do>
+    </step>
+    <step name="execute" depend="compile" active="not ${ignorelist}" suffix="${compile_mode}_${measurement_mode}" iterations="5">
+      <use>jube_6735070c71f31aac0f70d8501cd4b1e2_ignorelist_pset</use>
+      <use>config</use>
+      <use>execute_pset</use>
+      <use>jube_6735070c71f31aac0f70d8501cd4b1e2_measurement_mode_pset</use>
+      <use>jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_config_pset</use>
+      <use>jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_files</use>
+      <use>jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_execute_sub</use>
+      <use>jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_execute_pset</use>
+      <use>mpirun_env_pset</use>
+      <use>platform_specs_pset</use>
+      <use>job_files</use>
+      <use>job_sub</use>
+      <do done_file="${done_file}" error_file="${error_file}">if [[ &quot;$ERROR_tasks&quot; == &quot;ERR&quot; ]]; then &gt;&amp;2 echo &quot;$ERROR_tasks_msg&quot;; exit 1; fi
+        $submit $submit_script</do>
+    </step>
+    <analyser name="analyse" reduce="True">
+      <use>pattern</use>
+      <analyse step="execute">
+        <file use="pattern">job.out</file>
+      </analyse>
+    </analyser>
+    <analyser name="filterstats_analyse" reduce="True">
+      <use>pattern</use>
+      <analyse step="compile">
+        <file use="filterstats_pattern">stderr</file>
+        <file use="filterstats_time_pattern">time.out</file>
+      </analyse>
+    </analyser>
+    <result>
+      <use>analyse</use>
+      <table name="result_csv" style="csv" separator=";" transpose="False" sort="tasks,compile_mode,measurement_mode,jube_wp_id">
+        <column>jube_benchmark_id</column>
+        <column>jube_wp_id</column>
+        <column title="compile">compile_mode</column>
+        <column title="measurement">measurement_mode</column>
+        <column title="rma-mode">must_rma_mode</column>
+        <column title="tasks">application_tasks</column>
+        <column>must_compile_opt</column>
+        <column>RMA_target</column>
+        <column>time_avg</column>
+        <column>time_std</column>
+        <column>verification</column>
+      </table>
+    </result>
+    <result>
+      <use>analyse</use>
+      <table name="result" style="pretty" separator="," transpose="False" sort="tasks,compile_mode,measurement_mode,jube_wp_id">
+        <column>jube_benchmark_id</column>
+        <column>jube_wp_id</column>
+        <column title="compile">compile_mode</column>
+        <column title="measurement">measurement_mode</column>
+        <column title="rma-mode">must_rma_mode</column>
+        <column title="tasks">application_tasks</column>
+        <column>must_compile_opt</column>
+        <column>RMA_target</column>
+        <column format=".3f">time_avg</column>
+        <column format=".3f">time_std</column>
+        <column>verification</column>
+      </table>
+    </result>
+    <result>
+      <use>filterstats_analyse</use>
+      <table name="filterstats_result_csv" style="csv" separator=";" transpose="False" sort="jube_wp_id">
+        <column>jube_benchmark_id</column>
+        <column>jube_wp_id</column>
+        <column>compile_mode</column>
+        <column title="optimizations">must_compile_opt</column>
+        <column>compile_time</column>
+        <column>instr_reads</column>
+        <column>instr_writes</column>
+        <column>ignore_read_write</column>
+        <column>AL_ignored</column>
+        <column>ALX_ignored</column>
+        <column>CLUSTER_ignored</column>
+      </table>
+    </result>
+    <result>
+      <use>filterstats_analyse</use>
+      <table name="filterstats_result" style="pretty" separator="," transpose="False" sort="jube_wp_id">
+        <column>jube_benchmark_id</column>
+        <column>jube_wp_id</column>
+        <column>compile_mode</column>
+        <column title="optimizations">must_compile_opt</column>
+        <column>compile_time</column>
+        <column>instr_reads</column>
+        <column>instr_writes</column>
+        <column>ignore_read_write</column>
+        <column>AL_ignored</column>
+        <column>ALX_ignored</column>
+        <column>CLUSTER_ignored</column>
+      </table>
+    </result>
+  </benchmark>
+</jube>

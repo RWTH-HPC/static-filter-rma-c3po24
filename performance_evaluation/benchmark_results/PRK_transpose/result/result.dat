@@ -1,0 +1,16 @@
+result:
+| jube_benchmark_id | jube_wp_id |  compile | measurement | rma-mode | tasks | must_compile_opt | num_iters | matrix_order | time (s) | time_std |    rate (MFlops/s) | verification |
+|-------------------|------------|----------|-------------|----------|-------|------------------|-----------|--------------|----------|----------|--------------------|--------------|
+|                 3 |         18 |     base |        base |   shadow |    48 |                  |       400 |        16320 |   26.629 |    0.010 |       64012.924124 |      SUCCESS |
+|                 3 |         23 |     base |        must |   shadow |    48 |                  |       400 |        16320 |   41.321 |    0.187 |      41252.7707582 |      SUCCESS |
+|                 3 |         28 |     tsan |        must |   shadow |    48 |                  |       400 |        16320 |  262.037 |    2.220 | 6505.5259240000005 |      SUCCESS |
+|                 3 |         32 | tsan-opt |        must |   shadow |    48 |              AL6 |       400 |        16320 |  138.929 |    2.551 |      12272.8105264 |      SUCCESS |
+|                 3 |         37 | tsan-opt |        must |   shadow |    48 |             AL10 |       400 |        16320 |  139.272 |    1.701 | 12240.782093799999 |      SUCCESS |
+|                 3 |         42 | tsan-opt |        must |   shadow |    48 |           AL1000 |       400 |        16320 |  140.348 |    2.210 | 12147.824876000002 |      SUCCESS |
+|                 3 |         48 | tsan-opt |        must |   shadow |    48 |             ALX6 |       400 |        16320 |  136.627 |    1.404 | 12477.308330599999 |      SUCCESS |
+|                 3 |         53 | tsan-opt |        must |   shadow |    48 |            ALX10 |       400 |        16320 |  136.741 |    2.612 | 12469.574194800001 |      SUCCESS |
+|                 3 |         58 | tsan-opt |        must |   shadow |    48 |          ALX1000 |       400 |        16320 |  138.959 |    1.601 |      12268.1666118 |      SUCCESS |
+|                 3 |         63 | tsan-opt |        must |   shadow |    48 |          CLUSTER |       400 |        16320 |  261.648 |    1.558 |       6515.0228684 |      SUCCESS |
+|                 3 |         66 | tsan-opt |        must |   shadow |    48 |     ALX6,CLUSTER |       400 |        16320 |  140.580 |    1.899 |      12127.2372634 |      SUCCESS |
+|                 3 |         72 | tsan-opt |        must |   shadow |    48 |    ALX10,CLUSTER |       400 |        16320 |  136.965 |    2.148 |      12447.9676734 |      SUCCESS |
+|                 3 |         77 | tsan-opt |        must |   shadow |    48 |  ALX1000,CLUSTER |       400 |        16320 |  135.506 |    3.107 |      12584.7902336 |      SUCCESS |

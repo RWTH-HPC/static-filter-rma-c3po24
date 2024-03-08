@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone = "no"?>
+<!-- 
+#   Settings for PnMPI
+#   Include '<include from="pnmpi.xml" path="PnMPI/include"/>' in the benchmark xml to additionally run the benchmark with PnMPI
+-->
+<jube>
+    <PnMPI>
+      <include from="pnmpi.xml" path="parameterset"/>
+      <include from="pnmpi.xml" path="substituteset"/>
+      <include from="pnmpi.xml" path="patternset"/>
+      <include from="pnmpi.xml" path="step"/>
+      <include from="pnmpi.xml" path="analyser"/>
+      <include from="pnmpi.xml" path="result"/>
+    </PnMPI>
+    
+    <!-- Parametersets -->
+    <parameterset name="PnMPI_config_pset">
+      <parameter name="libpnmpi" type="string">${must_install_folder}/lib/libpnmpi.so</parameter>
+      <parameter name="config_file" type="string">${jube_benchmark_home}/../../common/pnmpi.conf</parameter>
+      <parameter name="PnMPI_measurement" type="string">PNMPI_CONF=${config_file} LD_PRELOAD=${libpnmpi}</parameter>
+    </parameterset>
+    
+    <!-- Substitutesets -->
+    <substituteset name="PnMPI_job_sub" init_with="defaults.xml:job_sub">
+      <sub source="#MEASUREMENT#" dest="${PnMPI_measurement}"/>
+      <sub source="#BENCHNAME#" dest="&quot;${jube_benchmark_name}_PnMPI_${jube_wp_id}&quot;"/>
+    </substituteset>
+
+    <!-- Regex patternsets -->
+    <patternset name="PnMPI_pattern">    
+      <pattern name="PnMPI_Empty"></pattern>
+      <pattern name="PnMPI_Send" type="int">Total:[.|\S\s]* $jube_pat_int MPI_Send$</pattern>
+      <pattern name="PnMPI_Isend" type="int">Total:[.|\S\s]* $jube_pat_int MPI_Isend$</pattern>
+      <pattern name="PnMPI_Recv" type="int">Total:[.|\S\s]* $jube_pat_int MPI_Recv$</pattern>
+      <pattern name="PnMPI_Irecv" type="int">Total:[.|\S\s]* $jube_pat_int MPI_Irecv$</pattern>      
+      <pattern name="PnMPI_Sendrecv" type="int">Total:[.|\S\s]* $jube_pat_int MPI_Sendrecv$</pattern>
+      <pattern name="PnMPI_Reduce" type="int">Total:[.|\S\s]* $jube_pat_int MPI_Reduce$</pattern>
+      <pattern name="PnMPI_Allreduce" type="int">Total:[.|\S\s]* $jube_pat_int MPI_Allreduce$</pattern>
+      <pattern name="PnMPI_Scatter" type="int">Total:[.|\S\s]* $jube_pat_int MPI_Scatter$</pattern>
+      <pattern name="PnMPI_Barrier" type="int">Total:[.|\S\s]* $jube_pat_int MPI_Barrier$</pattern>
+      <pattern name="PnMPI_Put" type="int">Total:[.|\S\s]* $jube_pat_int MPI_Put$</pattern>
+      <pattern name="PnMPI_Get" type="int">Total:[.|\S\s]* $jube_pat_int MPI_Get$</pattern>
+      <pattern name="PnMPI_Win_flush" type="int">Total:[.|\S\s]* $jube_pat_int MPI_Win_flush$</pattern>
+      <pattern name="PnMPI_Win_flush_all" type="int">Total:[.|\S\s]* $jube_pat_int MPI_Win_flush_all$</pattern>
+      <pattern name="PnMPI_Win_fence" type="int">Total:[.|\S\s]* $jube_pat_int MPI_Win_fence$</pattern>
+      <pattern name="PnMPI_Win_lock" type="int">Total:[.|\S\s]* $jube_pat_int MPI_Win_lock$</pattern>
+      <pattern name="PnMPI_Win_lock_all" type="int">Total:[.|\S\s]* $jube_pat_int MPI_Win_lock_all$</pattern>
+      <pattern name="PnMPI_Win_unlock" type="int">Total:[.|\S\s]* $jube_pat_int MPI_Win_unlock$</pattern>
+      <pattern name="PnMPI_Win_unlock_all" type="int">Total:[.|\S\s]* $jube_pat_int MPI_Win_unlock_all$</pattern>
+      <pattern name="PnMPI_Win_create" type="int">Total:[.|\S\s]* $jube_pat_int MPI_Win_create$</pattern>
+      <pattern name="PnMPI_Win_allocate" type="int">Total:[.|\S\s]* $jube_pat_int MPI_Win_allocate$</pattern>
+      <pattern name="PnMPI_Win_free" type="int">Total:[.|\S\s]* $jube_pat_int MPI_Win_free$</pattern>
+    </patternset>
+
+    <!-- 
+      #Steps
+     -->
+    <step name="PnMPI_execute" depend="compile" active="'${compile_mode}'=='base' and '${measurement_mode}'=='base'">
+      <use>config</use>
+      <use>execute_pset</use>
+      <use from="defaults.xml">measurement_mode_pset</use>
+      <use from="must.xml">must_config_pset</use>
+      <use from="must.xml">must_execute_pset</use>
+      <use>platform_specs_pset</use>
+      <use>job_files</use>
+      <use>PnMPI_config_pset</use>
+      <use>PnMPI_job_sub</use>
+      <do done_file="${done_file}" error_file="${error_file}">
+        $submit $submit_script
+      </do>
+    </step>
+
+    <!-- 
+      #Analyser
+    -->
+    <analyser name="PnMPI_analyse" reduce="true">
+      <use>pattern</use>
+      <analyse step="PnMPI_execute">
+        <file use="PnMPI_pattern">job.out</file>
+      </analyse>
+    </analyser>
+    
+    <!-- 
+      #Create result table 
+    -->
+    <result>
+      <use>PnMPI_analyse</use>
+      <table name="PnMPI_result" style="pretty" transpose="true" sort="tasks">
+        <column>jube_benchmark_id</column>
+        <column>jube_wp_id</column>
+        <column>RMA_target</column>
+        <column>tasks</column>
+        <column title="">PnMPI_Empty</column>
+        <column title="#Send">PnMPI_Send</column>
+        <column title="#Isend">PnMPI_Isend</column>
+        <column title="#Recv">PnMPI_Recv</column>
+        <column title="#Irecv">PnMPI_Irecv</column>
+        <column title="#Sendrecv">PnMPI_Sendrecv</column>
+        <column title="#Reduce">PnMPI_Reduce</column>
+        <column title="#Allreduce">PnMPI_Allreduce</column>
+        <column title="#Scatter">Scatter</column>
+        <column title="#Barrier">PnMPI_Barrier</column>
+        <column title="#Put">PnMPI_Put</column>
+        <column title="#Get">PnMPI_Get</column>
+        <column title="#lock">PnMPI_Win_lock</column>
+        <column title="#unlock">PnMPI_Win_unlock</column>
+        <column title="#lock_all">PnMPI_Win_lock_all</column>
+        <column title="#unlock_all">PnMPI_Win_unlock_all</column>
+        <column title="#fence">PnMPI_Win_fence</column>
+        <column title="#flush">PnMPI_Win_flush</column>
+        <column title="#flush_all">PnMPI_Win_flush_all</column>
+        <column title="#Win_create">PnMPI_Win_create</column>
+        <column title="#Win_allocate">PnMPI_Win_allocate</column>
+        <column title="#Win_free">PnMPI_Win_free</column>
+      </table>
+    </result>
+</jube>

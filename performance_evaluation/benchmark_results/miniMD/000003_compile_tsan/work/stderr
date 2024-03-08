@@ -1,0 +1,53 @@
+[INFO] Module intel/2023a loaded.
+[INFO] Module Classic-Flang/16.0.4-c23 loaded.
+[INFO] Module CMake/3.26.3 loaded.
+[INFO] Module CMake/3.26.3 loaded.
+force_eam.cpp:813:15: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    while(ptr = strtok(__null, " \t\n\r\f")) list[i++] = atof(ptr);
+          ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+force_eam.cpp:813:15: note: place parentheses around the assignment to silence this warning
+    while(ptr = strtok(__null, " \t\n\r\f")) list[i++] = atof(ptr);
+              ^
+          (                                )
+force_eam.cpp:813:15: note: use '==' to turn this assignment into an equality comparison
+    while(ptr = strtok(__null, " \t\n\r\f")) list[i++] = atof(ptr);
+              ^
+              ==
+1 warning generated.
+output.cpp:126:57: warning: format specifies type 'double' but the argument has type 'MMD_float *' (aka 'double *') [-Wformat]
+      fprintf(stdout, "  force_params: %2.2lf %2.2lf\n",force->epsilon,force->sigma);
+                                       ~~~~~~           ^~~~~~~~~~~~~~
+output.cpp:126:72: warning: format specifies type 'double' but the argument has type 'MMD_float *' (aka 'double *') [-Wformat]
+      fprintf(stdout, "  force_params: %2.2lf %2.2lf\n",force->epsilon,force->sigma);
+                                              ~~~~~~                   ^~~~~~~~~~~~
+output.cpp:154:51: warning: format specifies type 'double' but the argument has type 'MMD_float *' (aka 'double *') [-Wformat]
+    fprintf(fp, "  force_params: %2.2lf %2.2lf\n",force->epsilon,force->sigma);
+                                 ~~~~~~           ^~~~~~~~~~~~~~
+output.cpp:154:66: warning: format specifies type 'double' but the argument has type 'MMD_float *' (aka 'double *') [-Wformat]
+    fprintf(fp, "  force_params: %2.2lf %2.2lf\n",force->epsilon,force->sigma);
+                                        ~~~~~~                   ^~~~~~~~~~~~
+4 warnings generated.
+setup.cpp:127:12: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if(ptr = strchr(line, '#')) * ptr = '\0';
+       ~~~~^~~~~~~~~~~~~~~~~~~
+setup.cpp:127:12: note: place parentheses around the assignment to silence this warning
+    if(ptr = strchr(line, '#')) * ptr = '\0';
+           ^
+       (                      )
+setup.cpp:127:12: note: use '==' to turn this assignment into an equality comparison
+    if(ptr = strchr(line, '#')) * ptr = '\0';
+           ^
+           ==
+1 warning generated.
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+ 162 tsanMOD - Number of accesses with bad size
+2456 tsanMOD - Number of instrumented reads
+  11 tsanMOD - Number of vtable ptr reads
+   2 tsanMOD - Number of vtable ptr writes
+ 895 tsanMOD - Number of instrumented writes
+  80 tsanMOD - Number of reads ignored due to following writes
+  11 tsanMOD - Number of vtable reads
+

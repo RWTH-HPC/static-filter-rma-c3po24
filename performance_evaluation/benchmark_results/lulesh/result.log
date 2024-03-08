@@ -1,0 +1,1106 @@
+[2024-03-03 00:11:51,706]:DEBUG: No data found for analyser "analyse" in benchmark run 8. Run analyse step automatically.
+[2024-03-03 00:11:51,706]:DEBUG: Run analyser "analyse"
+[2024-03-03 00:11:51,706]:DEBUG:   available pattern:
+[2024-03-03 00:11:51,707]:DEBUG:          | pattern      | value                                    |
+[2024-03-03 00:11:51,707]:DEBUG:          |--------------|------------------------------------------|
+[2024-03-03 00:11:51,707]:DEBUG:          | time         | Elapsed time .* ${jube_pat_fp}           |
+[2024-03-03 00:11:51,708]:DEBUG:          | verification | EXECUTION VERIFICATION CHECK:            |
+[2024-03-03 00:11:51,708]:DEBUG:          |              | ${jube_pat_wrd}                          |
+[2024-03-03 00:11:51,708]:DEBUG: 
+[2024-03-03 00:11:51,708]:DEBUG:   available derived pattern:
+[2024-03-03 00:11:51,709]:DEBUG:          | pattern | value |
+[2024-03-03 00:11:51,709]:DEBUG:          |---------|-------|
+[2024-03-03 00:11:51,709]:DEBUG:   analyse step "execute"
+[2024-03-03 00:11:51,710]:DEBUG:     scan file lulesh.benchmarks/000008/000025_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,713]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,713]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-03 00:11:51,713]:DEBUG:          |         time |          first:77.0, min:77.0, max:77.0, |
+[2024-03-03 00:11:51,713]:DEBUG:          |              | sum:77.0, sum2:5929.0, cnt:1, avg:77.0,  |
+[2024-03-03 00:11:51,713]:DEBUG:          |              | std:0, last:77.0                         |
+[2024-03-03 00:11:51,715]:DEBUG:     scan file lulesh.benchmarks/000008/000027_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,717]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,717]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-03 00:11:51,717]:DEBUG:          |         time |          first:77.0, min:77.0, max:77.0, |
+[2024-03-03 00:11:51,717]:DEBUG:          |              | sum:154.0, sum2:11858.0, cnt:2,          |
+[2024-03-03 00:11:51,717]:DEBUG:          |              | avg:77.0, std:0.0, last:77.0             |
+[2024-03-03 00:11:51,719]:DEBUG:     scan file lulesh.benchmarks/000008/000028_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,721]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,721]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-03 00:11:51,721]:DEBUG:          |         time |          first:77.0, min:77.0, max:77.0, |
+[2024-03-03 00:11:51,721]:DEBUG:          |              | sum:231.0, sum2:17787.0, cnt:3,          |
+[2024-03-03 00:11:51,721]:DEBUG:          |              | avg:77.0, std:0.0, last:77.0             |
+[2024-03-03 00:11:51,722]:DEBUG:     scan file lulesh.benchmarks/000008/000026_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,725]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,725]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-03 00:11:51,725]:DEBUG:          |         time |          first:77.0, min:77.0, max:79.0, |
+[2024-03-03 00:11:51,725]:DEBUG:          |              | sum:310.0, sum2:24028.0, cnt:4,          |
+[2024-03-03 00:11:51,725]:DEBUG:          |              | avg:77.5, std:1.0, last:79.0             |
+[2024-03-03 00:11:51,726]:DEBUG:     scan file lulesh.benchmarks/000008/000024_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,729]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,729]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-03 00:11:51,729]:DEBUG:          |         time |          first:77.0, min:77.0, max:79.0, |
+[2024-03-03 00:11:51,729]:DEBUG:          |              | sum:388.0, sum2:30112.0, cnt:5,          |
+[2024-03-03 00:11:51,729]:DEBUG:          |              | avg:77.6, std:0.8944271910000176,        |
+[2024-03-03 00:11:51,730]:DEBUG:          |              | last:78.0                                |
+[2024-03-03 00:11:51,731]:DEBUG:     scan file lulesh.benchmarks/000008/000023_execute_base_must/work/job.out
+[2024-03-03 00:11:51,733]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,733]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-03 00:11:51,733]:DEBUG:          |         time |          first:50.0, min:50.0, max:50.0, |
+[2024-03-03 00:11:51,733]:DEBUG:          |              | sum:50.0, sum2:2500.0, cnt:1, avg:50.0,  |
+[2024-03-03 00:11:51,733]:DEBUG:          |              | std:0, last:50.0                         |
+[2024-03-03 00:11:51,735]:DEBUG:     scan file lulesh.benchmarks/000008/000021_execute_base_must/work/job.out
+[2024-03-03 00:11:51,737]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,737]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-03 00:11:51,737]:DEBUG:          |         time |          first:50.0, min:48.0, max:50.0, |
+[2024-03-03 00:11:51,737]:DEBUG:          |              | sum:98.0, sum2:4804.0, cnt:2, avg:49.0,  |
+[2024-03-03 00:11:51,737]:DEBUG:          |              | std:1.4142135623730951, last:48.0        |
+[2024-03-03 00:11:51,739]:DEBUG:     scan file lulesh.benchmarks/000008/000022_execute_base_must/work/job.out
+[2024-03-03 00:11:51,741]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,741]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-03 00:11:51,741]:DEBUG:          |         time |          first:50.0, min:48.0, max:50.0, |
+[2024-03-03 00:11:51,741]:DEBUG:          |              | sum:147.0, sum2:7205.0, cnt:3, avg:49.0, |
+[2024-03-03 00:11:51,741]:DEBUG:          |              | std:1.0, last:49.0                       |
+[2024-03-03 00:11:51,743]:DEBUG:     scan file lulesh.benchmarks/000008/000020_execute_base_must/work/job.out
+[2024-03-03 00:11:51,745]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,745]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-03 00:11:51,745]:DEBUG:          |         time |          first:50.0, min:48.0, max:51.0, |
+[2024-03-03 00:11:51,745]:DEBUG:          |              | sum:198.0, sum2:9806.0, cnt:4, avg:49.5, |
+[2024-03-03 00:11:51,745]:DEBUG:          |              | std:1.2909944487358056, last:51.0        |
+[2024-03-03 00:11:51,747]:DEBUG:     scan file lulesh.benchmarks/000008/000019_execute_base_must/work/job.out
+[2024-03-03 00:11:51,749]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,749]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-03 00:11:51,749]:DEBUG:          |         time |          first:50.0, min:48.0, max:51.0, |
+[2024-03-03 00:11:51,749]:DEBUG:          |              | sum:249.0, sum2:12407.0, cnt:5,          |
+[2024-03-03 00:11:51,749]:DEBUG:          |              | avg:49.8, std:1.30384048104046,          |
+[2024-03-03 00:11:51,749]:DEBUG:          |              | last:51.0                                |
+[2024-03-03 00:11:51,751]:DEBUG:     scan file lulesh.benchmarks/000008/000014_execute_base_base/work/job.out
+[2024-03-03 00:11:51,753]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,753]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-03 00:11:51,753]:DEBUG:          |         time |          first:36.0, min:36.0, max:36.0, |
+[2024-03-03 00:11:51,753]:DEBUG:          |              | sum:36.0, sum2:1296.0, cnt:1, avg:36.0,  |
+[2024-03-03 00:11:51,753]:DEBUG:          |              | std:0, last:36.0                         |
+[2024-03-03 00:11:51,755]:DEBUG:     scan file lulesh.benchmarks/000008/000018_execute_base_base/work/job.out
+[2024-03-03 00:11:51,757]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,757]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-03 00:11:51,757]:DEBUG:          |         time |          first:36.0, min:36.0, max:36.0, |
+[2024-03-03 00:11:51,757]:DEBUG:          |              | sum:72.0, sum2:2592.0, cnt:2, avg:36.0,  |
+[2024-03-03 00:11:51,757]:DEBUG:          |              | std:0.0, last:36.0                       |
+[2024-03-03 00:11:51,759]:DEBUG:     scan file lulesh.benchmarks/000008/000016_execute_base_base/work/job.out
+[2024-03-03 00:11:51,761]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,761]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-03 00:11:51,761]:DEBUG:          |         time |          first:36.0, min:36.0, max:36.0, |
+[2024-03-03 00:11:51,761]:DEBUG:          |              | sum:108.0, sum2:3888.0, cnt:3, avg:36.0, |
+[2024-03-03 00:11:51,761]:DEBUG:          |              | std:0.0, last:36.0                       |
+[2024-03-03 00:11:51,762]:DEBUG:     scan file lulesh.benchmarks/000008/000017_execute_base_base/work/job.out
+[2024-03-03 00:11:51,765]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,765]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-03 00:11:51,765]:DEBUG:          |         time |          first:36.0, min:36.0, max:36.0, |
+[2024-03-03 00:11:51,765]:DEBUG:          |              | sum:144.0, sum2:5184.0, cnt:4, avg:36.0, |
+[2024-03-03 00:11:51,765]:DEBUG:          |              | std:0.0, last:36.0                       |
+[2024-03-03 00:11:51,765]:DEBUG:     scan file lulesh.benchmarks/000008/000015_execute_base_base/work/job.out
+[2024-03-03 00:11:51,768]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,768]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-03 00:11:51,768]:DEBUG:          |         time |          first:36.0, min:36.0, max:36.0, |
+[2024-03-03 00:11:51,768]:DEBUG:          |              | sum:180.0, sum2:6480.0, cnt:5, avg:36.0, |
+[2024-03-03 00:11:51,768]:DEBUG:          |              | std:0.0, last:36.0                       |
+[2024-03-03 00:11:51,770]:DEBUG:     scan file lulesh.benchmarks/000008/000077_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,772]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,772]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-03 00:11:51,772]:DEBUG:          |         time |       first:240.0, min:240.0, max:240.0, |
+[2024-03-03 00:11:51,772]:DEBUG:          |              | sum:240.0, sum2:57600.0, cnt:1,          |
+[2024-03-03 00:11:51,772]:DEBUG:          |              | avg:240.0, std:0, last:240.0             |
+[2024-03-03 00:11:51,773]:DEBUG:     scan file lulesh.benchmarks/000008/000078_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,775]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,775]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-03 00:11:51,776]:DEBUG:          |         time |       first:240.0, min:240.0, max:250.0, |
+[2024-03-03 00:11:51,776]:DEBUG:          |              | sum:490.0, sum2:120100.0, cnt:2,         |
+[2024-03-03 00:11:51,776]:DEBUG:          |              | avg:245.0, std:7.0710678118654755,       |
+[2024-03-03 00:11:51,776]:DEBUG:          |              | last:250.0                               |
+[2024-03-03 00:11:51,777]:DEBUG:     scan file lulesh.benchmarks/000008/000075_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,780]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,780]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-03 00:11:51,780]:DEBUG:          |         time |       first:240.0, min:240.0, max:250.0, |
+[2024-03-03 00:11:51,780]:DEBUG:          |              | sum:740.0, sum2:182600.0, cnt:3,         |
+[2024-03-03 00:11:51,780]:DEBUG:          |              | avg:246.66666666666666,                  |
+[2024-03-03 00:11:51,780]:DEBUG:          |              | std:5.773502691895837, last:250.0        |
+[2024-03-03 00:11:51,781]:DEBUG:     scan file lulesh.benchmarks/000008/000076_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,784]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,784]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-03 00:11:51,784]:DEBUG:          |         time |       first:240.0, min:240.0, max:250.0, |
+[2024-03-03 00:11:51,784]:DEBUG:          |              | sum:990.0, sum2:245100.0, cnt:4,         |
+[2024-03-03 00:11:51,784]:DEBUG:          |              | avg:247.5, std:5.0, last:250.0           |
+[2024-03-03 00:11:51,784]:DEBUG:     scan file lulesh.benchmarks/000008/000074_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,787]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,787]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-03 00:11:51,787]:DEBUG:          |         time |       first:240.0, min:240.0, max:250.0, |
+[2024-03-03 00:11:51,787]:DEBUG:          |              | sum:1230.0, sum2:302700.0, cnt:5,        |
+[2024-03-03 00:11:51,787]:DEBUG:          |              | avg:246.0, std:5.477225575051661,        |
+[2024-03-03 00:11:51,788]:DEBUG:          |              | last:240.0                               |
+[2024-03-03 00:11:51,788]:DEBUG:     scan file lulesh.benchmarks/000008/000072_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,791]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,791]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-03 00:11:51,791]:DEBUG:          |         time |          first:97.0, min:97.0, max:97.0, |
+[2024-03-03 00:11:51,791]:DEBUG:          |              | sum:97.0, sum2:9409.0, cnt:1, avg:97.0,  |
+[2024-03-03 00:11:51,791]:DEBUG:          |              | std:0, last:97.0                         |
+[2024-03-03 00:11:51,792]:DEBUG:     scan file lulesh.benchmarks/000008/000073_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,795]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,795]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-03 00:11:51,795]:DEBUG:          |         time |          first:97.0, min:96.0, max:97.0, |
+[2024-03-03 00:11:51,795]:DEBUG:          |              | sum:193.0, sum2:18625.0, cnt:2,          |
+[2024-03-03 00:11:51,795]:DEBUG:          |              | avg:96.5, std:0.7071067811865476,        |
+[2024-03-03 00:11:51,795]:DEBUG:          |              | last:96.0                                |
+[2024-03-03 00:11:51,796]:DEBUG:     scan file lulesh.benchmarks/000008/000071_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,799]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,799]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-03 00:11:51,799]:DEBUG:          |         time |         first:97.0, min:96.0, max:100.0, |
+[2024-03-03 00:11:51,799]:DEBUG:          |              | sum:293.0, sum2:28625.0, cnt:3,          |
+[2024-03-03 00:11:51,799]:DEBUG:          |              | avg:97.66666666666667,                   |
+[2024-03-03 00:11:51,800]:DEBUG:          |              | std:2.0816659994662783, last:100.0       |
+[2024-03-03 00:11:51,800]:DEBUG:     scan file lulesh.benchmarks/000008/000069_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,803]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,803]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-03 00:11:51,803]:DEBUG:          |         time |         first:97.0, min:96.0, max:100.0, |
+[2024-03-03 00:11:51,803]:DEBUG:          |              | sum:393.0, sum2:38625.0, cnt:4,          |
+[2024-03-03 00:11:51,803]:DEBUG:          |              | avg:98.25, std:2.0615528128088303,       |
+[2024-03-03 00:11:51,803]:DEBUG:          |              | last:100.0                               |
+[2024-03-03 00:11:51,804]:DEBUG:     scan file lulesh.benchmarks/000008/000070_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,807]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,807]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-03 00:11:51,807]:DEBUG:          |         time |         first:97.0, min:96.0, max:100.0, |
+[2024-03-03 00:11:51,807]:DEBUG:          |              | sum:492.0, sum2:48426.0, cnt:5,          |
+[2024-03-03 00:11:51,807]:DEBUG:          |              | avg:98.4, std:1.8165902124582947,        |
+[2024-03-03 00:11:51,808]:DEBUG:          |              | last:99.0                                |
+[2024-03-03 00:11:51,809]:DEBUG:     scan file lulesh.benchmarks/000008/000066_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,811]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,811]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-03 00:11:51,811]:DEBUG:          |         time |          first:81.0, min:81.0, max:81.0, |
+[2024-03-03 00:11:51,811]:DEBUG:          |              | sum:81.0, sum2:6561.0, cnt:1, avg:81.0,  |
+[2024-03-03 00:11:51,811]:DEBUG:          |              | std:0, last:81.0                         |
+[2024-03-03 00:11:51,813]:DEBUG:     scan file lulesh.benchmarks/000008/000064_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,815]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,815]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-03 00:11:51,815]:DEBUG:          |         time |          first:81.0, min:78.0, max:81.0, |
+[2024-03-03 00:11:51,815]:DEBUG:          |              | sum:159.0, sum2:12645.0, cnt:2,          |
+[2024-03-03 00:11:51,815]:DEBUG:          |              | avg:79.5, std:2.1213203435596424,        |
+[2024-03-03 00:11:51,816]:DEBUG:          |              | last:78.0                                |
+[2024-03-03 00:11:51,817]:DEBUG:     scan file lulesh.benchmarks/000008/000065_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,819]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,819]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-03 00:11:51,819]:DEBUG:          |         time |          first:81.0, min:78.0, max:81.0, |
+[2024-03-03 00:11:51,819]:DEBUG:          |              | sum:238.0, sum2:18886.0, cnt:3,          |
+[2024-03-03 00:11:51,819]:DEBUG:          |              | avg:79.33333333333333,                   |
+[2024-03-03 00:11:51,820]:DEBUG:          |              | std:1.527525231652145, last:79.0         |
+[2024-03-03 00:11:51,821]:DEBUG:     scan file lulesh.benchmarks/000008/000067_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,823]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,823]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-03 00:11:51,823]:DEBUG:          |         time |          first:81.0, min:78.0, max:81.0, |
+[2024-03-03 00:11:51,823]:DEBUG:          |              | sum:316.0, sum2:24970.0, cnt:4,          |
+[2024-03-03 00:11:51,823]:DEBUG:          |              | avg:79.0, std:1.4142135623730951,        |
+[2024-03-03 00:11:51,823]:DEBUG:          |              | last:78.0                                |
+[2024-03-03 00:11:51,825]:DEBUG:     scan file lulesh.benchmarks/000008/000068_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,827]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,827]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-03 00:11:51,827]:DEBUG:          |         time |          first:81.0, min:77.0, max:81.0, |
+[2024-03-03 00:11:51,827]:DEBUG:          |              | sum:393.0, sum2:30899.0, cnt:5,          |
+[2024-03-03 00:11:51,827]:DEBUG:          |              | avg:78.6, std:1.5165750888103702,        |
+[2024-03-03 00:11:51,828]:DEBUG:          |              | last:77.0                                |
+[2024-03-03 00:11:51,831]:DEBUG:     scan file lulesh.benchmarks/000008/000063_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,833]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,833]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-03 00:11:51,833]:DEBUG:          |         time |       first:430.0, min:430.0, max:430.0, |
+[2024-03-03 00:11:51,833]:DEBUG:          |              | sum:430.0, sum2:184900.0, cnt:1,         |
+[2024-03-03 00:11:51,833]:DEBUG:          |              | avg:430.0, std:0, last:430.0             |
+[2024-03-03 00:11:51,836]:DEBUG:     scan file lulesh.benchmarks/000008/000061_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,839]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,839]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-03 00:11:51,839]:DEBUG:          |         time |       first:430.0, min:430.0, max:430.0, |
+[2024-03-03 00:11:51,839]:DEBUG:          |              | sum:860.0, sum2:369800.0, cnt:2,         |
+[2024-03-03 00:11:51,839]:DEBUG:          |              | avg:430.0, std:0.0, last:430.0           |
+[2024-03-03 00:11:51,842]:DEBUG:     scan file lulesh.benchmarks/000008/000062_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,844]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,844]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-03 00:11:51,844]:DEBUG:          |         time |       first:430.0, min:420.0, max:430.0, |
+[2024-03-03 00:11:51,844]:DEBUG:          |              | sum:1280.0, sum2:546200.0, cnt:3,        |
+[2024-03-03 00:11:51,844]:DEBUG:          |              | avg:426.6666666666667,                   |
+[2024-03-03 00:11:51,845]:DEBUG:          |              | std:5.773502691894578, last:420.0        |
+[2024-03-03 00:11:51,847]:DEBUG:     scan file lulesh.benchmarks/000008/000059_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,850]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,850]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-03 00:11:51,850]:DEBUG:          |         time |       first:430.0, min:420.0, max:430.0, |
+[2024-03-03 00:11:51,850]:DEBUG:          |              | sum:1710.0, sum2:731100.0, cnt:4,        |
+[2024-03-03 00:11:51,850]:DEBUG:          |              | avg:427.5, std:5.0, last:430.0           |
+[2024-03-03 00:11:51,851]:DEBUG:     scan file lulesh.benchmarks/000008/000060_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,853]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,854]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-03 00:11:51,854]:DEBUG:          |         time |       first:430.0, min:420.0, max:430.0, |
+[2024-03-03 00:11:51,854]:DEBUG:          |              | sum:2140.0, sum2:916000.0, cnt:5,        |
+[2024-03-03 00:11:51,854]:DEBUG:          |              | avg:428.0, std:4.47213595499958,         |
+[2024-03-03 00:11:51,854]:DEBUG:          |              | last:430.0                               |
+[2024-03-03 00:11:51,855]:DEBUG:     scan file lulesh.benchmarks/000008/000057_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,858]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,858]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-03 00:11:51,858]:DEBUG:          |         time |       first:260.0, min:260.0, max:260.0, |
+[2024-03-03 00:11:51,858]:DEBUG:          |              | sum:260.0, sum2:67600.0, cnt:1,          |
+[2024-03-03 00:11:51,858]:DEBUG:          |              | avg:260.0, std:0, last:260.0             |
+[2024-03-03 00:11:51,859]:DEBUG:     scan file lulesh.benchmarks/000008/000055_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,862]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,862]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-03 00:11:51,862]:DEBUG:          |         time |       first:260.0, min:260.0, max:260.0, |
+[2024-03-03 00:11:51,862]:DEBUG:          |              | sum:520.0, sum2:135200.0, cnt:2,         |
+[2024-03-03 00:11:51,862]:DEBUG:          |              | avg:260.0, std:0.0, last:260.0           |
+[2024-03-03 00:11:51,864]:DEBUG:     scan file lulesh.benchmarks/000008/000054_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,866]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,866]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-03 00:11:51,866]:DEBUG:          |         time |       first:260.0, min:260.0, max:260.0, |
+[2024-03-03 00:11:51,866]:DEBUG:          |              | sum:780.0, sum2:202800.0, cnt:3,         |
+[2024-03-03 00:11:51,866]:DEBUG:          |              | avg:260.0, std:0.0, last:260.0           |
+[2024-03-03 00:11:51,868]:DEBUG:     scan file lulesh.benchmarks/000008/000058_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,870]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,870]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-03 00:11:51,870]:DEBUG:          |         time |       first:260.0, min:260.0, max:260.0, |
+[2024-03-03 00:11:51,870]:DEBUG:          |              | sum:1040.0, sum2:270400.0, cnt:4,        |
+[2024-03-03 00:11:51,870]:DEBUG:          |              | avg:260.0, std:0.0, last:260.0           |
+[2024-03-03 00:11:51,872]:DEBUG:     scan file lulesh.benchmarks/000008/000056_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,874]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,874]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-03 00:11:51,874]:DEBUG:          |         time |       first:260.0, min:260.0, max:260.0, |
+[2024-03-03 00:11:51,874]:DEBUG:          |              | sum:1300.0, sum2:338000.0, cnt:5,        |
+[2024-03-03 00:11:51,874]:DEBUG:          |              | avg:260.0, std:0.0, last:260.0           |
+[2024-03-03 00:11:51,876]:DEBUG:     scan file lulesh.benchmarks/000008/000053_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,878]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,879]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-03 00:11:51,879]:DEBUG:          |         time |       first:260.0, min:260.0, max:260.0, |
+[2024-03-03 00:11:51,879]:DEBUG:          |              | sum:260.0, sum2:67600.0, cnt:1,          |
+[2024-03-03 00:11:51,879]:DEBUG:          |              | avg:260.0, std:0, last:260.0             |
+[2024-03-03 00:11:51,880]:DEBUG:     scan file lulesh.benchmarks/000008/000051_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,882]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,883]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-03 00:11:51,883]:DEBUG:          |         time |       first:260.0, min:260.0, max:260.0, |
+[2024-03-03 00:11:51,883]:DEBUG:          |              | sum:520.0, sum2:135200.0, cnt:2,         |
+[2024-03-03 00:11:51,883]:DEBUG:          |              | avg:260.0, std:0.0, last:260.0           |
+[2024-03-03 00:11:51,884]:DEBUG:     scan file lulesh.benchmarks/000008/000052_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,887]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,887]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-03 00:11:51,887]:DEBUG:          |         time |       first:260.0, min:260.0, max:260.0, |
+[2024-03-03 00:11:51,887]:DEBUG:          |              | sum:780.0, sum2:202800.0, cnt:3,         |
+[2024-03-03 00:11:51,887]:DEBUG:          |              | avg:260.0, std:0.0, last:260.0           |
+[2024-03-03 00:11:51,888]:DEBUG:     scan file lulesh.benchmarks/000008/000050_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,891]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,891]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-03 00:11:51,891]:DEBUG:          |         time |       first:260.0, min:260.0, max:260.0, |
+[2024-03-03 00:11:51,891]:DEBUG:          |              | sum:1040.0, sum2:270400.0, cnt:4,        |
+[2024-03-03 00:11:51,891]:DEBUG:          |              | avg:260.0, std:0.0, last:260.0           |
+[2024-03-03 00:11:51,892]:DEBUG:     scan file lulesh.benchmarks/000008/000049_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,895]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,895]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-03 00:11:51,895]:DEBUG:          |         time |       first:260.0, min:260.0, max:270.0, |
+[2024-03-03 00:11:51,895]:DEBUG:          |              | sum:1310.0, sum2:343300.0, cnt:5,        |
+[2024-03-03 00:11:51,895]:DEBUG:          |              | avg:262.0, std:4.47213595499958,         |
+[2024-03-03 00:11:51,896]:DEBUG:          |              | last:270.0                               |
+[2024-03-03 00:11:51,896]:DEBUG:     scan file lulesh.benchmarks/000008/000045_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,899]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,899]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-03 00:11:51,899]:DEBUG:          |         time |       first:110.0, min:110.0, max:110.0, |
+[2024-03-03 00:11:51,899]:DEBUG:          |              | sum:110.0, sum2:12100.0, cnt:1,          |
+[2024-03-03 00:11:51,899]:DEBUG:          |              | avg:110.0, std:0, last:110.0             |
+[2024-03-03 00:11:51,900]:DEBUG:     scan file lulesh.benchmarks/000008/000046_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,903]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,903]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-03 00:11:51,903]:DEBUG:          |         time |       first:110.0, min:100.0, max:110.0, |
+[2024-03-03 00:11:51,903]:DEBUG:          |              | sum:210.0, sum2:22100.0, cnt:2,          |
+[2024-03-03 00:11:51,903]:DEBUG:          |              | avg:105.0, std:7.0710678118654755,       |
+[2024-03-03 00:11:51,904]:DEBUG:          |              | last:100.0                               |
+[2024-03-03 00:11:51,904]:DEBUG:     scan file lulesh.benchmarks/000008/000044_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,907]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,907]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-03 00:11:51,907]:DEBUG:          |         time |       first:110.0, min:100.0, max:110.0, |
+[2024-03-03 00:11:51,907]:DEBUG:          |              | sum:320.0, sum2:34200.0, cnt:3,          |
+[2024-03-03 00:11:51,907]:DEBUG:          |              | avg:106.66666666666667,                  |
+[2024-03-03 00:11:51,908]:DEBUG:          |              | std:5.7735026918961525, last:110.0       |
+[2024-03-03 00:11:51,909]:DEBUG:     scan file lulesh.benchmarks/000008/000048_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,911]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,911]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-03 00:11:51,911]:DEBUG:          |         time |       first:110.0, min:100.0, max:110.0, |
+[2024-03-03 00:11:51,911]:DEBUG:          |              | sum:420.0, sum2:44200.0, cnt:4,          |
+[2024-03-03 00:11:51,911]:DEBUG:          |              | avg:105.0, std:5.773502691896258,        |
+[2024-03-03 00:11:51,911]:DEBUG:          |              | last:100.0                               |
+[2024-03-03 00:11:51,913]:DEBUG:     scan file lulesh.benchmarks/000008/000047_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,915]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,915]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-03 00:11:51,915]:DEBUG:          |         time |       first:110.0, min:100.0, max:110.0, |
+[2024-03-03 00:11:51,915]:DEBUG:          |              | sum:530.0, sum2:56300.0, cnt:5,          |
+[2024-03-03 00:11:51,915]:DEBUG:          |              | avg:106.0, std:5.477225575051661,        |
+[2024-03-03 00:11:51,916]:DEBUG:          |              | last:110.0                               |
+[2024-03-03 00:11:51,917]:DEBUG:     scan file lulesh.benchmarks/000008/000043_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,919]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,920]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-03 00:11:51,920]:DEBUG:          |         time |       first:110.0, min:110.0, max:110.0, |
+[2024-03-03 00:11:51,920]:DEBUG:          |              | sum:110.0, sum2:12100.0, cnt:1,          |
+[2024-03-03 00:11:51,920]:DEBUG:          |              | avg:110.0, std:0, last:110.0             |
+[2024-03-03 00:11:51,921]:DEBUG:     scan file lulesh.benchmarks/000008/000042_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,924]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,924]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-03 00:11:51,924]:DEBUG:          |         time |       first:110.0, min:110.0, max:110.0, |
+[2024-03-03 00:11:51,924]:DEBUG:          |              | sum:220.0, sum2:24200.0, cnt:2,          |
+[2024-03-03 00:11:51,924]:DEBUG:          |              | avg:110.0, std:0.0, last:110.0           |
+[2024-03-03 00:11:51,924]:DEBUG:     scan file lulesh.benchmarks/000008/000040_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,927]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,927]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-03 00:11:51,927]:DEBUG:          |         time |       first:110.0, min:110.0, max:110.0, |
+[2024-03-03 00:11:51,927]:DEBUG:          |              | sum:330.0, sum2:36300.0, cnt:3,          |
+[2024-03-03 00:11:51,927]:DEBUG:          |              | avg:110.0, std:0.0, last:110.0           |
+[2024-03-03 00:11:51,928]:DEBUG:     scan file lulesh.benchmarks/000008/000041_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,930]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,930]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-03 00:11:51,930]:DEBUG:          |         time |       first:110.0, min:100.0, max:110.0, |
+[2024-03-03 00:11:51,930]:DEBUG:          |              | sum:430.0, sum2:46300.0, cnt:4,          |
+[2024-03-03 00:11:51,930]:DEBUG:          |              | avg:107.5, std:5.0, last:100.0           |
+[2024-03-03 00:11:51,932]:DEBUG:     scan file lulesh.benchmarks/000008/000039_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,934]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,934]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-03 00:11:51,934]:DEBUG:          |         time |       first:110.0, min:100.0, max:110.0, |
+[2024-03-03 00:11:51,934]:DEBUG:          |              | sum:540.0, sum2:58400.0, cnt:5,          |
+[2024-03-03 00:11:51,934]:DEBUG:          |              | avg:108.0, std:4.47213595499958,         |
+[2024-03-03 00:11:51,935]:DEBUG:          |              | last:110.0                               |
+[2024-03-03 00:11:51,936]:DEBUG:     scan file lulesh.benchmarks/000008/000034_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,938]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,939]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-03 00:11:51,939]:DEBUG:          |         time |          first:76.0, min:76.0, max:76.0, |
+[2024-03-03 00:11:51,939]:DEBUG:          |              | sum:76.0, sum2:5776.0, cnt:1, avg:76.0,  |
+[2024-03-03 00:11:51,939]:DEBUG:          |              | std:0, last:76.0                         |
+[2024-03-03 00:11:51,940]:DEBUG:     scan file lulesh.benchmarks/000008/000037_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,943]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,943]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-03 00:11:51,943]:DEBUG:          |         time |          first:76.0, min:76.0, max:78.0, |
+[2024-03-03 00:11:51,943]:DEBUG:          |              | sum:154.0, sum2:11860.0, cnt:2,          |
+[2024-03-03 00:11:51,943]:DEBUG:          |              | avg:77.0, std:1.4142135623730951,        |
+[2024-03-03 00:11:51,943]:DEBUG:          |              | last:78.0                                |
+[2024-03-03 00:11:51,944]:DEBUG:     scan file lulesh.benchmarks/000008/000038_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,946]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,946]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-03 00:11:51,947]:DEBUG:          |         time |          first:76.0, min:76.0, max:78.0, |
+[2024-03-03 00:11:51,947]:DEBUG:          |              | sum:232.0, sum2:17944.0, cnt:3,          |
+[2024-03-03 00:11:51,947]:DEBUG:          |              | avg:77.33333333333333,                   |
+[2024-03-03 00:11:51,947]:DEBUG:          |              | std:1.1547005383795141, last:78.0        |
+[2024-03-03 00:11:51,948]:DEBUG:     scan file lulesh.benchmarks/000008/000035_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,951]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,951]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-03 00:11:51,951]:DEBUG:          |         time |          first:76.0, min:76.0, max:78.0, |
+[2024-03-03 00:11:51,951]:DEBUG:          |              | sum:310.0, sum2:24028.0, cnt:4,          |
+[2024-03-03 00:11:51,951]:DEBUG:          |              | avg:77.5, std:1.0, last:78.0             |
+[2024-03-03 00:11:51,952]:DEBUG:     scan file lulesh.benchmarks/000008/000036_execute_tsan-opt_must/work/job.out
+[2024-03-03 00:11:51,955]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,955]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-03 00:11:51,955]:DEBUG:          |         time |          first:76.0, min:76.0, max:79.0, |
+[2024-03-03 00:11:51,955]:DEBUG:          |              | sum:389.0, sum2:30269.0, cnt:5,          |
+[2024-03-03 00:11:51,955]:DEBUG:          |              | avg:77.8, std:1.095445115010249,         |
+[2024-03-03 00:11:51,955]:DEBUG:          |              | last:79.0                                |
+[2024-03-03 00:11:51,958]:DEBUG:     scan file lulesh.benchmarks/000008/000032_execute_tsan_must/work/job.out
+[2024-03-03 00:11:51,960]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,960]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-03 00:11:51,960]:DEBUG:          |         time |       first:620.0, min:620.0, max:620.0, |
+[2024-03-03 00:11:51,960]:DEBUG:          |              | sum:620.0, sum2:384400.0, cnt:1,         |
+[2024-03-03 00:11:51,960]:DEBUG:          |              | avg:620.0, std:0, last:620.0             |
+[2024-03-03 00:11:51,963]:DEBUG:     scan file lulesh.benchmarks/000008/000033_execute_tsan_must/work/job.out
+[2024-03-03 00:11:51,965]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,965]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-03 00:11:51,965]:DEBUG:          |         time |       first:620.0, min:610.0, max:620.0, |
+[2024-03-03 00:11:51,965]:DEBUG:          |              | sum:1230.0, sum2:756500.0, cnt:2,        |
+[2024-03-03 00:11:51,965]:DEBUG:          |              | avg:615.0, std:7.0710678118654755,       |
+[2024-03-03 00:11:51,966]:DEBUG:          |              | last:610.0                               |
+[2024-03-03 00:11:51,967]:DEBUG:     scan file lulesh.benchmarks/000008/000031_execute_tsan_must/work/job.out
+[2024-03-03 00:11:51,970]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,970]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-03 00:11:51,970]:DEBUG:          |         time |       first:620.0, min:610.0, max:620.0, |
+[2024-03-03 00:11:51,970]:DEBUG:          |              | sum:1840.0, sum2:1128600.0, cnt:3,       |
+[2024-03-03 00:11:51,970]:DEBUG:          |              | avg:613.3333333333334,                   |
+[2024-03-03 00:11:51,970]:DEBUG:          |              | std:5.773502691899618, last:610.0        |
+[2024-03-03 00:11:51,973]:DEBUG:     scan file lulesh.benchmarks/000008/000029_execute_tsan_must/work/job.out
+[2024-03-03 00:11:51,975]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,975]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-03 00:11:51,975]:DEBUG:          |         time |       first:620.0, min:610.0, max:620.0, |
+[2024-03-03 00:11:51,975]:DEBUG:          |              | sum:2460.0, sum2:1513000.0, cnt:4,       |
+[2024-03-03 00:11:51,975]:DEBUG:          |              | avg:615.0, std:5.773502691896258,        |
+[2024-03-03 00:11:51,976]:DEBUG:          |              | last:620.0                               |
+[2024-03-03 00:11:51,978]:DEBUG:     scan file lulesh.benchmarks/000008/000030_execute_tsan_must/work/job.out
+[2024-03-03 00:11:51,981]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-03 00:11:51,981]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-03 00:11:51,981]:DEBUG:          |         time |       first:620.0, min:610.0, max:630.0, |
+[2024-03-03 00:11:51,981]:DEBUG:          |              | sum:3090.0, sum2:1909900.0, cnt:5,       |
+[2024-03-03 00:11:51,981]:DEBUG:          |              | avg:618.0, std:8.366600265340756,        |
+[2024-03-03 00:11:51,982]:DEBUG:          |              | last:630.0                               |
+[2024-03-03 00:11:51,993]:DEBUG: sort using: tasks,compile_mode,measurement_mode,jube_wp_id
+[2024-03-03 00:11:51,996]:DEBUG: jube_benchmark_id;jube_wp_id;compile;measurement;rma-mode;tasks;must_compile_opt;RMA_target;time_avg;time_std;verification
+[2024-03-03 00:11:51,996]:DEBUG: 8;18;base;base;shadow;27;;-DUSE_RMA=1;36.0;0.0;SUCCESS
+[2024-03-03 00:11:51,996]:DEBUG: 8;23;base;must;shadow;27;;-DUSE_RMA=1;49.8;1.30384048104046;SUCCESS
+[2024-03-03 00:11:51,996]:DEBUG: 8;32;tsan;must;shadow;27;;-DUSE_RMA=1;618.0;8.366600265340756;SUCCESS
+[2024-03-03 00:11:51,996]:DEBUG: 8;25;tsan-opt;must;shadow;27;AL6;-DUSE_RMA=1;77.6;0.8944271910000176;SUCCESS
+[2024-03-03 00:11:51,997]:DEBUG: 8;37;tsan-opt;must;shadow;27;ALX6;-DUSE_RMA=1;77.8;1.095445115010249;SUCCESS
+[2024-03-03 00:11:51,997]:DEBUG: 8;43;tsan-opt;must;shadow;27;AL10;-DUSE_RMA=1;108.0;4.47213595499958;SUCCESS
+[2024-03-03 00:11:51,997]:DEBUG: 8;48;tsan-opt;must;shadow;27;ALX10;-DUSE_RMA=1;106.0;5.477225575051661;SUCCESS
+[2024-03-03 00:11:51,997]:DEBUG: 8;53;tsan-opt;must;shadow;27;ALX1000;-DUSE_RMA=1;262.0;4.47213595499958;SUCCESS
+[2024-03-03 00:11:51,997]:DEBUG: 8;58;tsan-opt;must;shadow;27;AL1000;-DUSE_RMA=1;260.0;0.0;SUCCESS
+[2024-03-03 00:11:51,997]:DEBUG: 8;63;tsan-opt;must;shadow;27;CLUSTER;-DUSE_RMA=1;428.0;4.47213595499958;SUCCESS
+[2024-03-03 00:11:51,997]:DEBUG: 8;67;tsan-opt;must;shadow;27;ALX6,CLUSTER;-DUSE_RMA=1;78.6;1.5165750888103702;SUCCESS
+[2024-03-03 00:11:51,997]:DEBUG: 8;72;tsan-opt;must;shadow;27;ALX10,CLUSTER;-DUSE_RMA=1;98.4;1.8165902124582947;SUCCESS
+[2024-03-03 00:11:51,997]:DEBUG: 8;77;tsan-opt;must;shadow;27;ALX1000,CLUSTER;-DUSE_RMA=1;246.0;5.477225575051661;SUCCESS
+[2024-03-03 00:11:51,997]:DEBUG: 
+[2024-03-03 00:11:52,007]:DEBUG: sort using: tasks,compile_mode,measurement_mode,jube_wp_id
+[2024-03-03 00:11:52,008]:DEBUG: result:
+[2024-03-03 00:11:52,008]:DEBUG: | jube_benchmark_id | jube_wp_id |  compile | measurement | rma-mode | tasks | must_compile_opt |  RMA_target | time_avg | time_std | verification |
+[2024-03-03 00:11:52,008]:DEBUG: |-------------------|------------|----------|-------------|----------|-------|------------------|-------------|----------|----------|--------------|
+[2024-03-03 00:11:52,008]:DEBUG: |                 8 |         18 |     base |        base |   shadow |    27 |                  | -DUSE_RMA=1 |   36.000 |    0.000 |      SUCCESS |
+[2024-03-03 00:11:52,008]:DEBUG: |                 8 |         23 |     base |        must |   shadow |    27 |                  | -DUSE_RMA=1 |   49.800 |    1.304 |      SUCCESS |
+[2024-03-03 00:11:52,008]:DEBUG: |                 8 |         32 |     tsan |        must |   shadow |    27 |                  | -DUSE_RMA=1 |  618.000 |    8.367 |      SUCCESS |
+[2024-03-03 00:11:52,008]:DEBUG: |                 8 |         25 | tsan-opt |        must |   shadow |    27 |              AL6 | -DUSE_RMA=1 |   77.600 |    0.894 |      SUCCESS |
+[2024-03-03 00:11:52,008]:DEBUG: |                 8 |         37 | tsan-opt |        must |   shadow |    27 |             ALX6 | -DUSE_RMA=1 |   77.800 |    1.095 |      SUCCESS |
+[2024-03-03 00:11:52,008]:DEBUG: |                 8 |         43 | tsan-opt |        must |   shadow |    27 |             AL10 | -DUSE_RMA=1 |  108.000 |    4.472 |      SUCCESS |
+[2024-03-03 00:11:52,008]:DEBUG: |                 8 |         48 | tsan-opt |        must |   shadow |    27 |            ALX10 | -DUSE_RMA=1 |  106.000 |    5.477 |      SUCCESS |
+[2024-03-03 00:11:52,009]:DEBUG: |                 8 |         53 | tsan-opt |        must |   shadow |    27 |          ALX1000 | -DUSE_RMA=1 |  262.000 |    4.472 |      SUCCESS |
+[2024-03-03 00:11:52,009]:DEBUG: |                 8 |         58 | tsan-opt |        must |   shadow |    27 |           AL1000 | -DUSE_RMA=1 |  260.000 |    0.000 |      SUCCESS |
+[2024-03-03 00:11:52,009]:DEBUG: |                 8 |         63 | tsan-opt |        must |   shadow |    27 |          CLUSTER | -DUSE_RMA=1 |  428.000 |    4.472 |      SUCCESS |
+[2024-03-03 00:11:52,009]:DEBUG: |                 8 |         67 | tsan-opt |        must |   shadow |    27 |     ALX6,CLUSTER | -DUSE_RMA=1 |   78.600 |    1.517 |      SUCCESS |
+[2024-03-03 00:11:52,010]:DEBUG: |                 8 |         72 | tsan-opt |        must |   shadow |    27 |    ALX10,CLUSTER | -DUSE_RMA=1 |   98.400 |    1.817 |      SUCCESS |
+[2024-03-03 00:11:52,010]:DEBUG: |                 8 |         77 | tsan-opt |        must |   shadow |    27 |  ALX1000,CLUSTER | -DUSE_RMA=1 |  246.000 |    5.477 |      SUCCESS |
+[2024-03-03 00:11:52,010]:DEBUG: 
+[2024-03-03 00:11:52,013]:DEBUG: No data found for analyser "filterstats_analyse" in benchmark run 8. Run analyse step automatically.
+[2024-03-03 00:11:52,013]:DEBUG: Run analyser "filterstats_analyse"
+[2024-03-03 00:11:52,013]:DEBUG:   available pattern:
+[2024-03-03 00:11:52,013]:DEBUG:          | pattern      | value                                    |
+[2024-03-03 00:11:52,013]:DEBUG:          |--------------|------------------------------------------|
+[2024-03-03 00:11:52,013]:DEBUG:          | time         | Elapsed time .* ${jube_pat_fp}           |
+[2024-03-03 00:11:52,014]:DEBUG:          | verification | EXECUTION VERIFICATION CHECK:            |
+[2024-03-03 00:11:52,014]:DEBUG:          |              | ${jube_pat_wrd}                          |
+[2024-03-03 00:11:52,014]:DEBUG: 
+[2024-03-03 00:11:52,014]:DEBUG:   available derived pattern:
+[2024-03-03 00:11:52,014]:DEBUG:          | pattern | value |
+[2024-03-03 00:11:52,015]:DEBUG:          |---------|-------|
+[2024-03-03 00:11:52,015]:DEBUG:   analyse step "compile"
+[2024-03-03 00:11:52,016]:DEBUG:     scan file lulesh.benchmarks/000008/000012_compile_tsan-opt/work/stderr
+[2024-03-03 00:11:52,154]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-03 00:11:52,154]:DEBUG:          |      verification |                                          |
+[2024-03-03 00:11:52,154]:DEBUG:          |              time |                                          |
+[2024-03-03 00:11:52,154]:DEBUG:          |       instr_reads |          first:1606, min:1606, max:1606, |
+[2024-03-03 00:11:52,154]:DEBUG:          |                   | sum:1606, sum2:2579236, cnt:1,           |
+[2024-03-03 00:11:52,154]:DEBUG:          |                   | avg:1606.0, std:0, last:1606             |
+[2024-03-03 00:11:52,154]:DEBUG:          |      instr_writes |    first:343, min:343, max:343, sum:343, |
+[2024-03-03 00:11:52,154]:DEBUG:          |                   | sum2:117649, cnt:1, avg:343.0, std:0,    |
+[2024-03-03 00:11:52,154]:DEBUG:          |                   | last:343                                 |
+[2024-03-03 00:11:52,154]:DEBUG:          | ignore_read_write |        first:44, min:44, max:44, sum:44, |
+[2024-03-03 00:11:52,154]:DEBUG:          |                   | sum2:1936, cnt:1, avg:44.0, std:0,       |
+[2024-03-03 00:11:52,154]:DEBUG:          |                   | last:44                                  |
+[2024-03-03 00:11:52,154]:DEBUG:          |        AL_ignored |       first:10838, min:10838, max:10838, |
+[2024-03-03 00:11:52,154]:DEBUG:          |                   | sum:10838, sum2:117462244, cnt:1,        |
+[2024-03-03 00:11:52,154]:DEBUG:          |                   | avg:10838.0, std:0, last:10838           |
+[2024-03-03 00:11:52,154]:DEBUG:          |   CLUSTER_ignored |    first:517, min:517, max:517, sum:517, |
+[2024-03-03 00:11:52,155]:DEBUG:          |                   | sum2:267289, cnt:1, avg:517.0, std:0,    |
+[2024-03-03 00:11:52,156]:DEBUG:          |                   | last:517                                 |
+[2024-03-03 00:11:52,156]:DEBUG:          |       ALX_ignored |        first:28, min:28, max:28, sum:28, |
+[2024-03-03 00:11:52,157]:DEBUG:          |                   | sum2:784, cnt:1, avg:28.0, std:0,        |
+[2024-03-03 00:11:52,157]:DEBUG:          |                   | last:28                                  |
+[2024-03-03 00:11:52,157]:DEBUG:     scan file lulesh.benchmarks/000008/000012_compile_tsan-opt/work/time.out
+[2024-03-03 00:11:52,160]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-03 00:11:52,160]:DEBUG:          |      verification |                                          |
+[2024-03-03 00:11:52,160]:DEBUG:          |              time |                                          |
+[2024-03-03 00:11:52,160]:DEBUG:          |       instr_reads |          first:1606, min:1606, max:1606, |
+[2024-03-03 00:11:52,160]:DEBUG:          |                   | sum:1606, sum2:2579236, cnt:1,           |
+[2024-03-03 00:11:52,161]:DEBUG:          |                   | avg:1606.0, std:0, last:1606             |
+[2024-03-03 00:11:52,161]:DEBUG:          |      instr_writes |    first:343, min:343, max:343, sum:343, |
+[2024-03-03 00:11:52,161]:DEBUG:          |                   | sum2:117649, cnt:1, avg:343.0, std:0,    |
+[2024-03-03 00:11:52,161]:DEBUG:          |                   | last:343                                 |
+[2024-03-03 00:11:52,161]:DEBUG:          | ignore_read_write |        first:44, min:44, max:44, sum:44, |
+[2024-03-03 00:11:52,161]:DEBUG:          |                   | sum2:1936, cnt:1, avg:44.0, std:0,       |
+[2024-03-03 00:11:52,162]:DEBUG:          |                   | last:44                                  |
+[2024-03-03 00:11:52,162]:DEBUG:          |        AL_ignored |       first:10838, min:10838, max:10838, |
+[2024-03-03 00:11:52,162]:DEBUG:          |                   | sum:10838, sum2:117462244, cnt:1,        |
+[2024-03-03 00:11:52,162]:DEBUG:          |                   | avg:10838.0, std:0, last:10838           |
+[2024-03-03 00:11:52,162]:DEBUG:          |   CLUSTER_ignored |    first:517, min:517, max:517, sum:517, |
+[2024-03-03 00:11:52,162]:DEBUG:          |                   | sum2:267289, cnt:1, avg:517.0, std:0,    |
+[2024-03-03 00:11:52,162]:DEBUG:          |                   | last:517                                 |
+[2024-03-03 00:11:52,162]:DEBUG:          |       ALX_ignored |        first:28, min:28, max:28, sum:28, |
+[2024-03-03 00:11:52,162]:DEBUG:          |                   | sum2:784, cnt:1, avg:28.0, std:0,        |
+[2024-03-03 00:11:52,163]:DEBUG:          |                   | last:28                                  |
+[2024-03-03 00:11:52,163]:DEBUG:          |      compile_time |          first:4.28, min:4.28, max:4.28, |
+[2024-03-03 00:11:52,163]:DEBUG:          |                   | sum:4.28, sum2:18.3184, cnt:1, avg:4.28, |
+[2024-03-03 00:11:52,163]:DEBUG:          |                   | std:0, last:4.28                         |
+[2024-03-03 00:11:52,164]:DEBUG:     scan file lulesh.benchmarks/000008/000010_compile_tsan-opt/work/stderr
+[2024-03-03 00:11:52,653]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-03 00:11:52,653]:DEBUG:          |      verification |                                          |
+[2024-03-03 00:11:52,653]:DEBUG:          |              time |                                          |
+[2024-03-03 00:11:52,653]:DEBUG:          |       instr_reads |          first:9167, min:9167, max:9167, |
+[2024-03-03 00:11:52,653]:DEBUG:          |                   | sum:9167, sum2:84033889, cnt:1,          |
+[2024-03-03 00:11:52,653]:DEBUG:          |                   | avg:9167.0, std:0, last:9167             |
+[2024-03-03 00:11:52,653]:DEBUG:          |      instr_writes |          first:3070, min:3070, max:3070, |
+[2024-03-03 00:11:52,653]:DEBUG:          |                   | sum:3070, sum2:9424900, cnt:1,           |
+[2024-03-03 00:11:52,654]:DEBUG:          |                   | avg:3070.0, std:0, last:3070             |
+[2024-03-03 00:11:52,655]:DEBUG:          | ignore_read_write |    first:622, min:622, max:622, sum:622, |
+[2024-03-03 00:11:52,655]:DEBUG:          |                   | sum2:386884, cnt:1, avg:622.0, std:0,    |
+[2024-03-03 00:11:52,655]:DEBUG:          |                   | last:622                                 |
+[2024-03-03 00:11:52,655]:DEBUG:          |        AL_ignored |                                          |
+[2024-03-03 00:11:52,655]:DEBUG:          |   CLUSTER_ignored |          first:3038, min:3038, max:3038, |
+[2024-03-03 00:11:52,655]:DEBUG:          |                   | sum:3038, sum2:9229444, cnt:1,           |
+[2024-03-03 00:11:52,655]:DEBUG:          |                   | avg:3038.0, std:0, last:3038             |
+[2024-03-03 00:11:52,655]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-03 00:11:52,657]:DEBUG:     scan file lulesh.benchmarks/000008/000010_compile_tsan-opt/work/time.out
+[2024-03-03 00:11:52,659]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-03 00:11:52,659]:DEBUG:          |      verification |                                          |
+[2024-03-03 00:11:52,659]:DEBUG:          |              time |                                          |
+[2024-03-03 00:11:52,659]:DEBUG:          |       instr_reads |          first:9167, min:9167, max:9167, |
+[2024-03-03 00:11:52,659]:DEBUG:          |                   | sum:9167, sum2:84033889, cnt:1,          |
+[2024-03-03 00:11:52,660]:DEBUG:          |                   | avg:9167.0, std:0, last:9167             |
+[2024-03-03 00:11:52,660]:DEBUG:          |      instr_writes |          first:3070, min:3070, max:3070, |
+[2024-03-03 00:11:52,660]:DEBUG:          |                   | sum:3070, sum2:9424900, cnt:1,           |
+[2024-03-03 00:11:52,660]:DEBUG:          |                   | avg:3070.0, std:0, last:3070             |
+[2024-03-03 00:11:52,661]:DEBUG:          | ignore_read_write |    first:622, min:622, max:622, sum:622, |
+[2024-03-03 00:11:52,661]:DEBUG:          |                   | sum2:386884, cnt:1, avg:622.0, std:0,    |
+[2024-03-03 00:11:52,661]:DEBUG:          |                   | last:622                                 |
+[2024-03-03 00:11:52,661]:DEBUG:          |        AL_ignored |                                          |
+[2024-03-03 00:11:52,661]:DEBUG:          |   CLUSTER_ignored |          first:3038, min:3038, max:3038, |
+[2024-03-03 00:11:52,661]:DEBUG:          |                   | sum:3038, sum2:9229444, cnt:1,           |
+[2024-03-03 00:11:52,661]:DEBUG:          |                   | avg:3038.0, std:0, last:3038             |
+[2024-03-03 00:11:52,662]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-03 00:11:52,662]:DEBUG:          |      compile_time |          first:4.32, min:4.32, max:4.32, |
+[2024-03-03 00:11:52,662]:DEBUG:          |                   | sum:4.32, sum2:18.6624, cnt:1, avg:4.32, |
+[2024-03-03 00:11:52,662]:DEBUG:          |                   | std:0, last:4.32                         |
+[2024-03-03 00:11:52,663]:DEBUG:     scan file lulesh.benchmarks/000008/000008_compile_tsan-opt/work/stderr
+[2024-03-03 00:11:52,689]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-03 00:11:52,689]:DEBUG:          |      verification |                                          |
+[2024-03-03 00:11:52,689]:DEBUG:          |              time |                                          |
+[2024-03-03 00:11:52,689]:DEBUG:          |       instr_reads |          first:1606, min:1606, max:1606, |
+[2024-03-03 00:11:52,689]:DEBUG:          |                   | sum:1606, sum2:2579236, cnt:1,           |
+[2024-03-03 00:11:52,689]:DEBUG:          |                   | avg:1606.0, std:0, last:1606             |
+[2024-03-03 00:11:52,689]:DEBUG:          |      instr_writes |    first:343, min:343, max:343, sum:343, |
+[2024-03-03 00:11:52,689]:DEBUG:          |                   | sum2:117649, cnt:1, avg:343.0, std:0,    |
+[2024-03-03 00:11:52,689]:DEBUG:          |                   | last:343                                 |
+[2024-03-03 00:11:52,689]:DEBUG:          | ignore_read_write |        first:44, min:44, max:44, sum:44, |
+[2024-03-03 00:11:52,689]:DEBUG:          |                   | sum2:1936, cnt:1, avg:44.0, std:0,       |
+[2024-03-03 00:11:52,689]:DEBUG:          |                   | last:44                                  |
+[2024-03-03 00:11:52,689]:DEBUG:          |        AL_ignored |       first:10838, min:10838, max:10838, |
+[2024-03-03 00:11:52,689]:DEBUG:          |                   | sum:10838, sum2:117462244, cnt:1,        |
+[2024-03-03 00:11:52,689]:DEBUG:          |                   | avg:10838.0, std:0, last:10838           |
+[2024-03-03 00:11:52,690]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-03 00:11:52,691]:DEBUG:          |       ALX_ignored |        first:28, min:28, max:28, sum:28, |
+[2024-03-03 00:11:52,691]:DEBUG:          |                   | sum2:784, cnt:1, avg:28.0, std:0,        |
+[2024-03-03 00:11:52,692]:DEBUG:          |                   | last:28                                  |
+[2024-03-03 00:11:52,692]:DEBUG:     scan file lulesh.benchmarks/000008/000008_compile_tsan-opt/work/time.out
+[2024-03-03 00:11:52,694]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-03 00:11:52,694]:DEBUG:          |      verification |                                          |
+[2024-03-03 00:11:52,694]:DEBUG:          |              time |                                          |
+[2024-03-03 00:11:52,695]:DEBUG:          |       instr_reads |          first:1606, min:1606, max:1606, |
+[2024-03-03 00:11:52,695]:DEBUG:          |                   | sum:1606, sum2:2579236, cnt:1,           |
+[2024-03-03 00:11:52,695]:DEBUG:          |                   | avg:1606.0, std:0, last:1606             |
+[2024-03-03 00:11:52,695]:DEBUG:          |      instr_writes |    first:343, min:343, max:343, sum:343, |
+[2024-03-03 00:11:52,695]:DEBUG:          |                   | sum2:117649, cnt:1, avg:343.0, std:0,    |
+[2024-03-03 00:11:52,696]:DEBUG:          |                   | last:343                                 |
+[2024-03-03 00:11:52,696]:DEBUG:          | ignore_read_write |        first:44, min:44, max:44, sum:44, |
+[2024-03-03 00:11:52,696]:DEBUG:          |                   | sum2:1936, cnt:1, avg:44.0, std:0,       |
+[2024-03-03 00:11:52,696]:DEBUG:          |                   | last:44                                  |
+[2024-03-03 00:11:52,696]:DEBUG:          |        AL_ignored |       first:10838, min:10838, max:10838, |
+[2024-03-03 00:11:52,696]:DEBUG:          |                   | sum:10838, sum2:117462244, cnt:1,        |
+[2024-03-03 00:11:52,696]:DEBUG:          |                   | avg:10838.0, std:0, last:10838           |
+[2024-03-03 00:11:52,697]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-03 00:11:52,697]:DEBUG:          |       ALX_ignored |        first:28, min:28, max:28, sum:28, |
+[2024-03-03 00:11:52,697]:DEBUG:          |                   | sum2:784, cnt:1, avg:28.0, std:0,        |
+[2024-03-03 00:11:52,697]:DEBUG:          |                   | last:28                                  |
+[2024-03-03 00:11:52,697]:DEBUG:          |      compile_time |          first:4.53, min:4.53, max:4.53, |
+[2024-03-03 00:11:52,697]:DEBUG:          |                   | sum:4.53, sum2:20.5209, cnt:1, avg:4.53, |
+[2024-03-03 00:11:52,697]:DEBUG:          |                   | std:0, last:4.53                         |
+[2024-03-03 00:11:52,698]:DEBUG:     scan file lulesh.benchmarks/000008/000006_compile_tsan-opt/work/stderr
+[2024-03-03 00:11:52,748]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-03 00:11:52,748]:DEBUG:          |      verification |                                          |
+[2024-03-03 00:11:52,748]:DEBUG:          |              time |                                          |
+[2024-03-03 00:11:52,748]:DEBUG:          |       instr_reads |          first:2901, min:2901, max:2901, |
+[2024-03-03 00:11:52,748]:DEBUG:          |                   | sum:2901, sum2:8415801, cnt:1,           |
+[2024-03-03 00:11:52,748]:DEBUG:          |                   | avg:2901.0, std:0, last:2901             |
+[2024-03-03 00:11:52,748]:DEBUG:          |      instr_writes |    first:931, min:931, max:931, sum:931, |
+[2024-03-03 00:11:52,748]:DEBUG:          |                   | sum2:866761, cnt:1, avg:931.0, std:0,    |
+[2024-03-03 00:11:52,748]:DEBUG:          |                   | last:931                                 |
+[2024-03-03 00:11:52,748]:DEBUG:          | ignore_read_write |    first:132, min:132, max:132, sum:132, |
+[2024-03-03 00:11:52,748]:DEBUG:          |                   | sum2:17424, cnt:1, avg:132.0, std:0,     |
+[2024-03-03 00:11:52,748]:DEBUG:          |                   | last:132                                 |
+[2024-03-03 00:11:52,748]:DEBUG:          |        AL_ignored |          first:8895, min:8895, max:8895, |
+[2024-03-03 00:11:52,748]:DEBUG:          |                   | sum:8895, sum2:79121025, cnt:1,          |
+[2024-03-03 00:11:52,748]:DEBUG:          |                   | avg:8895.0, std:0, last:8895             |
+[2024-03-03 00:11:52,748]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-03 00:11:52,749]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-03 00:11:52,750]:DEBUG:     scan file lulesh.benchmarks/000008/000006_compile_tsan-opt/work/time.out
+[2024-03-03 00:11:52,753]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-03 00:11:52,753]:DEBUG:          |      verification |                                          |
+[2024-03-03 00:11:52,753]:DEBUG:          |              time |                                          |
+[2024-03-03 00:11:52,753]:DEBUG:          |       instr_reads |          first:2901, min:2901, max:2901, |
+[2024-03-03 00:11:52,753]:DEBUG:          |                   | sum:2901, sum2:8415801, cnt:1,           |
+[2024-03-03 00:11:52,754]:DEBUG:          |                   | avg:2901.0, std:0, last:2901             |
+[2024-03-03 00:11:52,754]:DEBUG:          |      instr_writes |    first:931, min:931, max:931, sum:931, |
+[2024-03-03 00:11:52,754]:DEBUG:          |                   | sum2:866761, cnt:1, avg:931.0, std:0,    |
+[2024-03-03 00:11:52,754]:DEBUG:          |                   | last:931                                 |
+[2024-03-03 00:11:52,754]:DEBUG:          | ignore_read_write |    first:132, min:132, max:132, sum:132, |
+[2024-03-03 00:11:52,754]:DEBUG:          |                   | sum2:17424, cnt:1, avg:132.0, std:0,     |
+[2024-03-03 00:11:52,754]:DEBUG:          |                   | last:132                                 |
+[2024-03-03 00:11:52,754]:DEBUG:          |        AL_ignored |          first:8895, min:8895, max:8895, |
+[2024-03-03 00:11:52,754]:DEBUG:          |                   | sum:8895, sum2:79121025, cnt:1,          |
+[2024-03-03 00:11:52,754]:DEBUG:          |                   | avg:8895.0, std:0, last:8895             |
+[2024-03-03 00:11:52,754]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-03 00:11:52,754]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-03 00:11:52,754]:DEBUG:          |      compile_time |          first:4.61, min:4.61, max:4.61, |
+[2024-03-03 00:11:52,754]:DEBUG:          |                   | sum:4.61, sum2:21.252100000000002,       |
+[2024-03-03 00:11:52,754]:DEBUG:          |                   | cnt:1, avg:4.61, std:0, last:4.61        |
+[2024-03-03 00:11:52,755]:DEBUG:     scan file lulesh.benchmarks/000008/000004_compile_tsan-opt/work/stderr
+[2024-03-03 00:11:52,762]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-03 00:11:52,762]:DEBUG:          |      verification |                                          |
+[2024-03-03 00:11:52,762]:DEBUG:          |              time |                                          |
+[2024-03-03 00:11:52,762]:DEBUG:          |       instr_reads |    first:559, min:559, max:559, sum:559, |
+[2024-03-03 00:11:52,763]:DEBUG:          |                   | sum2:312481, cnt:1, avg:559.0, std:0,    |
+[2024-03-03 00:11:52,763]:DEBUG:          |                   | last:559                                 |
+[2024-03-03 00:11:52,763]:DEBUG:          |      instr_writes |        first:70, min:70, max:70, sum:70, |
+[2024-03-03 00:11:52,763]:DEBUG:          |                   | sum2:4900, cnt:1, avg:70.0, std:0,       |
+[2024-03-03 00:11:52,764]:DEBUG:          |                   | last:70                                  |
+[2024-03-03 00:11:52,764]:DEBUG:          | ignore_read_write |                                          |
+[2024-03-03 00:11:52,764]:DEBUG:          |        AL_ignored |       first:12230, min:12230, max:12230, |
+[2024-03-03 00:11:52,764]:DEBUG:          |                   | sum:12230, sum2:149572900, cnt:1,        |
+[2024-03-03 00:11:52,764]:DEBUG:          |                   | avg:12230.0, std:0, last:12230           |
+[2024-03-03 00:11:52,764]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-03 00:11:52,764]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-03 00:11:52,765]:DEBUG:     scan file lulesh.benchmarks/000008/000004_compile_tsan-opt/work/time.out
+[2024-03-03 00:11:52,767]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-03 00:11:52,767]:DEBUG:          |      verification |                                          |
+[2024-03-03 00:11:52,767]:DEBUG:          |              time |                                          |
+[2024-03-03 00:11:52,767]:DEBUG:          |       instr_reads |    first:559, min:559, max:559, sum:559, |
+[2024-03-03 00:11:52,767]:DEBUG:          |                   | sum2:312481, cnt:1, avg:559.0, std:0,    |
+[2024-03-03 00:11:52,768]:DEBUG:          |                   | last:559                                 |
+[2024-03-03 00:11:52,768]:DEBUG:          |      instr_writes |        first:70, min:70, max:70, sum:70, |
+[2024-03-03 00:11:52,768]:DEBUG:          |                   | sum2:4900, cnt:1, avg:70.0, std:0,       |
+[2024-03-03 00:11:52,769]:DEBUG:          |                   | last:70                                  |
+[2024-03-03 00:11:52,769]:DEBUG:          | ignore_read_write |                                          |
+[2024-03-03 00:11:52,769]:DEBUG:          |        AL_ignored |       first:12230, min:12230, max:12230, |
+[2024-03-03 00:11:52,769]:DEBUG:          |                   | sum:12230, sum2:149572900, cnt:1,        |
+[2024-03-03 00:11:52,769]:DEBUG:          |                   | avg:12230.0, std:0, last:12230           |
+[2024-03-03 00:11:52,769]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-03 00:11:52,769]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-03 00:11:52,769]:DEBUG:          |      compile_time |          first:4.44, min:4.44, max:4.44, |
+[2024-03-03 00:11:52,769]:DEBUG:          |                   | sum:4.44, sum2:19.713600000000003,       |
+[2024-03-03 00:11:52,769]:DEBUG:          |                   | cnt:1, avg:4.44, std:0, last:4.44        |
+[2024-03-03 00:11:52,771]:DEBUG:     scan file lulesh.benchmarks/000008/000002_compile_base/work/stderr
+[2024-03-03 00:11:52,775]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-03 00:11:52,775]:DEBUG:          |      verification |  |
+[2024-03-03 00:11:52,775]:DEBUG:          |              time |  |
+[2024-03-03 00:11:52,775]:DEBUG:          |       instr_reads |  |
+[2024-03-03 00:11:52,775]:DEBUG:          |      instr_writes |  |
+[2024-03-03 00:11:52,775]:DEBUG:          | ignore_read_write |  |
+[2024-03-03 00:11:52,775]:DEBUG:          |        AL_ignored |  |
+[2024-03-03 00:11:52,775]:DEBUG:          |   CLUSTER_ignored |  |
+[2024-03-03 00:11:52,776]:DEBUG:          |       ALX_ignored |  |
+[2024-03-03 00:11:52,777]:DEBUG:     scan file lulesh.benchmarks/000008/000002_compile_base/work/time.out
+[2024-03-03 00:11:52,779]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-03 00:11:52,779]:DEBUG:          |      verification |                                          |
+[2024-03-03 00:11:52,779]:DEBUG:          |              time |                                          |
+[2024-03-03 00:11:52,779]:DEBUG:          |       instr_reads |                                          |
+[2024-03-03 00:11:52,779]:DEBUG:          |      instr_writes |                                          |
+[2024-03-03 00:11:52,780]:DEBUG:          | ignore_read_write |                                          |
+[2024-03-03 00:11:52,780]:DEBUG:          |        AL_ignored |                                          |
+[2024-03-03 00:11:52,780]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-03 00:11:52,780]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-03 00:11:52,780]:DEBUG:          |      compile_time |          first:2.35, min:2.35, max:2.35, |
+[2024-03-03 00:11:52,780]:DEBUG:          |                   | sum:2.35, sum2:5.522500000000001, cnt:1, |
+[2024-03-03 00:11:52,780]:DEBUG:          |                   | avg:2.35, std:0, last:2.35               |
+[2024-03-03 00:11:52,781]:DEBUG:     scan file lulesh.benchmarks/000008/000013_compile_tsan-opt/work/stderr
+[2024-03-03 00:11:53,013]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-03 00:11:53,013]:DEBUG:          |      verification |                                          |
+[2024-03-03 00:11:53,013]:DEBUG:          |              time |                                          |
+[2024-03-03 00:11:53,013]:DEBUG:          |       instr_reads |          first:2901, min:2901, max:2901, |
+[2024-03-03 00:11:53,013]:DEBUG:          |                   | sum:2901, sum2:8415801, cnt:1,           |
+[2024-03-03 00:11:53,013]:DEBUG:          |                   | avg:2901.0, std:0, last:2901             |
+[2024-03-03 00:11:53,013]:DEBUG:          |      instr_writes |    first:931, min:931, max:931, sum:931, |
+[2024-03-03 00:11:53,013]:DEBUG:          |                   | sum2:866761, cnt:1, avg:931.0, std:0,    |
+[2024-03-03 00:11:53,013]:DEBUG:          |                   | last:931                                 |
+[2024-03-03 00:11:53,013]:DEBUG:          | ignore_read_write |    first:132, min:132, max:132, sum:132, |
+[2024-03-03 00:11:53,013]:DEBUG:          |                   | sum2:17424, cnt:1, avg:132.0, std:0,     |
+[2024-03-03 00:11:53,013]:DEBUG:          |                   | last:132                                 |
+[2024-03-03 00:11:53,013]:DEBUG:          |        AL_ignored |          first:8895, min:8895, max:8895, |
+[2024-03-03 00:11:53,013]:DEBUG:          |                   | sum:8895, sum2:79121025, cnt:1,          |
+[2024-03-03 00:11:53,013]:DEBUG:          |                   | avg:8895.0, std:0, last:8895             |
+[2024-03-03 00:11:53,014]:DEBUG:          |   CLUSTER_ignored |    first:643, min:643, max:643, sum:643, |
+[2024-03-03 00:11:53,015]:DEBUG:          |                   | sum2:413449, cnt:1, avg:643.0, std:0,    |
+[2024-03-03 00:11:53,015]:DEBUG:          |                   | last:643                                 |
+[2024-03-03 00:11:53,016]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-03 00:11:53,016]:DEBUG:     scan file lulesh.benchmarks/000008/000013_compile_tsan-opt/work/time.out
+[2024-03-03 00:11:53,019]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-03 00:11:53,019]:DEBUG:          |      verification |                                          |
+[2024-03-03 00:11:53,019]:DEBUG:          |              time |                                          |
+[2024-03-03 00:11:53,019]:DEBUG:          |       instr_reads |          first:2901, min:2901, max:2901, |
+[2024-03-03 00:11:53,019]:DEBUG:          |                   | sum:2901, sum2:8415801, cnt:1,           |
+[2024-03-03 00:11:53,019]:DEBUG:          |                   | avg:2901.0, std:0, last:2901             |
+[2024-03-03 00:11:53,019]:DEBUG:          |      instr_writes |    first:931, min:931, max:931, sum:931, |
+[2024-03-03 00:11:53,019]:DEBUG:          |                   | sum2:866761, cnt:1, avg:931.0, std:0,    |
+[2024-03-03 00:11:53,019]:DEBUG:          |                   | last:931                                 |
+[2024-03-03 00:11:53,020]:DEBUG:          | ignore_read_write |    first:132, min:132, max:132, sum:132, |
+[2024-03-03 00:11:53,020]:DEBUG:          |                   | sum2:17424, cnt:1, avg:132.0, std:0,     |
+[2024-03-03 00:11:53,020]:DEBUG:          |                   | last:132                                 |
+[2024-03-03 00:11:53,020]:DEBUG:          |        AL_ignored |          first:8895, min:8895, max:8895, |
+[2024-03-03 00:11:53,020]:DEBUG:          |                   | sum:8895, sum2:79121025, cnt:1,          |
+[2024-03-03 00:11:53,020]:DEBUG:          |                   | avg:8895.0, std:0, last:8895             |
+[2024-03-03 00:11:53,020]:DEBUG:          |   CLUSTER_ignored |    first:643, min:643, max:643, sum:643, |
+[2024-03-03 00:11:53,021]:DEBUG:          |                   | sum2:413449, cnt:1, avg:643.0, std:0,    |
+[2024-03-03 00:11:53,021]:DEBUG:          |                   | last:643                                 |
+[2024-03-03 00:11:53,021]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-03 00:11:53,022]:DEBUG:          |      compile_time |          first:4.34, min:4.34, max:4.34, |
+[2024-03-03 00:11:53,022]:DEBUG:          |                   | sum:4.34, sum2:18.8356, cnt:1, avg:4.34, |
+[2024-03-03 00:11:53,022]:DEBUG:          |                   | std:0, last:4.34                         |
+[2024-03-03 00:11:53,023]:DEBUG:     scan file lulesh.benchmarks/000008/000011_compile_tsan-opt/work/stderr
+[2024-03-03 00:11:53,082]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-03 00:11:53,082]:DEBUG:          |      verification |                                          |
+[2024-03-03 00:11:53,082]:DEBUG:          |              time |                                          |
+[2024-03-03 00:11:53,082]:DEBUG:          |       instr_reads |    first:146, min:146, max:146, sum:146, |
+[2024-03-03 00:11:53,082]:DEBUG:          |                   | sum2:21316, cnt:1, avg:146.0, std:0,     |
+[2024-03-03 00:11:53,082]:DEBUG:          |                   | last:146                                 |
+[2024-03-03 00:11:53,082]:DEBUG:          |      instr_writes |        first:70, min:70, max:70, sum:70, |
+[2024-03-03 00:11:53,082]:DEBUG:          |                   | sum2:4900, cnt:1, avg:70.0, std:0,       |
+[2024-03-03 00:11:53,082]:DEBUG:          |                   | last:70                                  |
+[2024-03-03 00:11:53,082]:DEBUG:          | ignore_read_write |                                          |
+[2024-03-03 00:11:53,082]:DEBUG:          |        AL_ignored |       first:12230, min:12230, max:12230, |
+[2024-03-03 00:11:53,082]:DEBUG:          |                   | sum:12230, sum2:149572900, cnt:1,        |
+[2024-03-03 00:11:53,082]:DEBUG:          |                   | avg:12230.0, std:0, last:12230           |
+[2024-03-03 00:11:53,082]:DEBUG:          |   CLUSTER_ignored |        first:85, min:85, max:85, sum:85, |
+[2024-03-03 00:11:53,082]:DEBUG:          |                   | sum2:7225, cnt:1, avg:85.0, std:0,       |
+[2024-03-03 00:11:53,083]:DEBUG:          |                   | last:85                                  |
+[2024-03-03 00:11:53,084]:DEBUG:          |       ALX_ignored |    first:413, min:413, max:413, sum:413, |
+[2024-03-03 00:11:53,084]:DEBUG:          |                   | sum2:170569, cnt:1, avg:413.0, std:0,    |
+[2024-03-03 00:11:53,084]:DEBUG:          |                   | last:413                                 |
+[2024-03-03 00:11:53,084]:DEBUG:     scan file lulesh.benchmarks/000008/000011_compile_tsan-opt/work/time.out
+[2024-03-03 00:11:53,087]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-03 00:11:53,087]:DEBUG:          |      verification |                                          |
+[2024-03-03 00:11:53,087]:DEBUG:          |              time |                                          |
+[2024-03-03 00:11:53,087]:DEBUG:          |       instr_reads |    first:146, min:146, max:146, sum:146, |
+[2024-03-03 00:11:53,087]:DEBUG:          |                   | sum2:21316, cnt:1, avg:146.0, std:0,     |
+[2024-03-03 00:11:53,087]:DEBUG:          |                   | last:146                                 |
+[2024-03-03 00:11:53,087]:DEBUG:          |      instr_writes |        first:70, min:70, max:70, sum:70, |
+[2024-03-03 00:11:53,088]:DEBUG:          |                   | sum2:4900, cnt:1, avg:70.0, std:0,       |
+[2024-03-03 00:11:53,088]:DEBUG:          |                   | last:70                                  |
+[2024-03-03 00:11:53,088]:DEBUG:          | ignore_read_write |                                          |
+[2024-03-03 00:11:53,088]:DEBUG:          |        AL_ignored |       first:12230, min:12230, max:12230, |
+[2024-03-03 00:11:53,088]:DEBUG:          |                   | sum:12230, sum2:149572900, cnt:1,        |
+[2024-03-03 00:11:53,088]:DEBUG:          |                   | avg:12230.0, std:0, last:12230           |
+[2024-03-03 00:11:53,088]:DEBUG:          |   CLUSTER_ignored |        first:85, min:85, max:85, sum:85, |
+[2024-03-03 00:11:53,088]:DEBUG:          |                   | sum2:7225, cnt:1, avg:85.0, std:0,       |
+[2024-03-03 00:11:53,088]:DEBUG:          |                   | last:85                                  |
+[2024-03-03 00:11:53,089]:DEBUG:          |       ALX_ignored |    first:413, min:413, max:413, sum:413, |
+[2024-03-03 00:11:53,089]:DEBUG:          |                   | sum2:170569, cnt:1, avg:413.0, std:0,    |
+[2024-03-03 00:11:53,089]:DEBUG:          |                   | last:413                                 |
+[2024-03-03 00:11:53,089]:DEBUG:          |      compile_time |          first:4.36, min:4.36, max:4.36, |
+[2024-03-03 00:11:53,090]:DEBUG:          |                   | sum:4.36, sum2:19.009600000000002,       |
+[2024-03-03 00:11:53,090]:DEBUG:          |                   | cnt:1, avg:4.36, std:0, last:4.36        |
+[2024-03-03 00:11:53,091]:DEBUG:     scan file lulesh.benchmarks/000008/000007_compile_tsan-opt/work/stderr
+[2024-03-03 00:11:53,097]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-03 00:11:53,097]:DEBUG:          |      verification |                                          |
+[2024-03-03 00:11:53,097]:DEBUG:          |              time |                                          |
+[2024-03-03 00:11:53,097]:DEBUG:          |       instr_reads |    first:146, min:146, max:146, sum:146, |
+[2024-03-03 00:11:53,097]:DEBUG:          |                   | sum2:21316, cnt:1, avg:146.0, std:0,     |
+[2024-03-03 00:11:53,098]:DEBUG:          |                   | last:146                                 |
+[2024-03-03 00:11:53,098]:DEBUG:          |      instr_writes |        first:70, min:70, max:70, sum:70, |
+[2024-03-03 00:11:53,098]:DEBUG:          |                   | sum2:4900, cnt:1, avg:70.0, std:0,       |
+[2024-03-03 00:11:53,099]:DEBUG:          |                   | last:70                                  |
+[2024-03-03 00:11:53,099]:DEBUG:          | ignore_read_write |                                          |
+[2024-03-03 00:11:53,099]:DEBUG:          |        AL_ignored |       first:12230, min:12230, max:12230, |
+[2024-03-03 00:11:53,099]:DEBUG:          |                   | sum:12230, sum2:149572900, cnt:1,        |
+[2024-03-03 00:11:53,099]:DEBUG:          |                   | avg:12230.0, std:0, last:12230           |
+[2024-03-03 00:11:53,099]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-03 00:11:53,100]:DEBUG:          |       ALX_ignored |    first:413, min:413, max:413, sum:413, |
+[2024-03-03 00:11:53,100]:DEBUG:          |                   | sum2:170569, cnt:1, avg:413.0, std:0,    |
+[2024-03-03 00:11:53,100]:DEBUG:          |                   | last:413                                 |
+[2024-03-03 00:11:53,101]:DEBUG:     scan file lulesh.benchmarks/000008/000007_compile_tsan-opt/work/time.out
+[2024-03-03 00:11:53,103]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-03 00:11:53,103]:DEBUG:          |      verification |                                          |
+[2024-03-03 00:11:53,103]:DEBUG:          |              time |                                          |
+[2024-03-03 00:11:53,103]:DEBUG:          |       instr_reads |    first:146, min:146, max:146, sum:146, |
+[2024-03-03 00:11:53,103]:DEBUG:          |                   | sum2:21316, cnt:1, avg:146.0, std:0,     |
+[2024-03-03 00:11:53,104]:DEBUG:          |                   | last:146                                 |
+[2024-03-03 00:11:53,104]:DEBUG:          |      instr_writes |        first:70, min:70, max:70, sum:70, |
+[2024-03-03 00:11:53,104]:DEBUG:          |                   | sum2:4900, cnt:1, avg:70.0, std:0,       |
+[2024-03-03 00:11:53,104]:DEBUG:          |                   | last:70                                  |
+[2024-03-03 00:11:53,105]:DEBUG:          | ignore_read_write |                                          |
+[2024-03-03 00:11:53,105]:DEBUG:          |        AL_ignored |       first:12230, min:12230, max:12230, |
+[2024-03-03 00:11:53,105]:DEBUG:          |                   | sum:12230, sum2:149572900, cnt:1,        |
+[2024-03-03 00:11:53,105]:DEBUG:          |                   | avg:12230.0, std:0, last:12230           |
+[2024-03-03 00:11:53,105]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-03 00:11:53,105]:DEBUG:          |       ALX_ignored |    first:413, min:413, max:413, sum:413, |
+[2024-03-03 00:11:53,105]:DEBUG:          |                   | sum2:170569, cnt:1, avg:413.0, std:0,    |
+[2024-03-03 00:11:53,105]:DEBUG:          |                   | last:413                                 |
+[2024-03-03 00:11:53,105]:DEBUG:          |      compile_time |          first:4.47, min:4.47, max:4.47, |
+[2024-03-03 00:11:53,105]:DEBUG:          |                   | sum:4.47, sum2:19.9809, cnt:1, avg:4.47, |
+[2024-03-03 00:11:53,106]:DEBUG:          |                   | std:0, last:4.47                         |
+[2024-03-03 00:11:53,107]:DEBUG:     scan file lulesh.benchmarks/000008/000009_compile_tsan-opt/work/stderr
+[2024-03-03 00:11:53,157]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-03 00:11:53,157]:DEBUG:          |      verification |                                          |
+[2024-03-03 00:11:53,157]:DEBUG:          |              time |                                          |
+[2024-03-03 00:11:53,157]:DEBUG:          |       instr_reads |          first:2901, min:2901, max:2901, |
+[2024-03-03 00:11:53,157]:DEBUG:          |                   | sum:2901, sum2:8415801, cnt:1,           |
+[2024-03-03 00:11:53,157]:DEBUG:          |                   | avg:2901.0, std:0, last:2901             |
+[2024-03-03 00:11:53,157]:DEBUG:          |      instr_writes |    first:931, min:931, max:931, sum:931, |
+[2024-03-03 00:11:53,157]:DEBUG:          |                   | sum2:866761, cnt:1, avg:931.0, std:0,    |
+[2024-03-03 00:11:53,157]:DEBUG:          |                   | last:931                                 |
+[2024-03-03 00:11:53,157]:DEBUG:          | ignore_read_write |    first:132, min:132, max:132, sum:132, |
+[2024-03-03 00:11:53,157]:DEBUG:          |                   | sum2:17424, cnt:1, avg:132.0, std:0,     |
+[2024-03-03 00:11:53,157]:DEBUG:          |                   | last:132                                 |
+[2024-03-03 00:11:53,157]:DEBUG:          |        AL_ignored |          first:8895, min:8895, max:8895, |
+[2024-03-03 00:11:53,157]:DEBUG:          |                   | sum:8895, sum2:79121025, cnt:1,          |
+[2024-03-03 00:11:53,157]:DEBUG:          |                   | avg:8895.0, std:0, last:8895             |
+[2024-03-03 00:11:53,158]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-03 00:11:53,159]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-03 00:11:53,159]:DEBUG:     scan file lulesh.benchmarks/000008/000009_compile_tsan-opt/work/time.out
+[2024-03-03 00:11:53,161]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-03 00:11:53,161]:DEBUG:          |      verification |                                          |
+[2024-03-03 00:11:53,161]:DEBUG:          |              time |                                          |
+[2024-03-03 00:11:53,161]:DEBUG:          |       instr_reads |          first:2901, min:2901, max:2901, |
+[2024-03-03 00:11:53,162]:DEBUG:          |                   | sum:2901, sum2:8415801, cnt:1,           |
+[2024-03-03 00:11:53,162]:DEBUG:          |                   | avg:2901.0, std:0, last:2901             |
+[2024-03-03 00:11:53,162]:DEBUG:          |      instr_writes |    first:931, min:931, max:931, sum:931, |
+[2024-03-03 00:11:53,162]:DEBUG:          |                   | sum2:866761, cnt:1, avg:931.0, std:0,    |
+[2024-03-03 00:11:53,162]:DEBUG:          |                   | last:931                                 |
+[2024-03-03 00:11:53,162]:DEBUG:          | ignore_read_write |    first:132, min:132, max:132, sum:132, |
+[2024-03-03 00:11:53,163]:DEBUG:          |                   | sum2:17424, cnt:1, avg:132.0, std:0,     |
+[2024-03-03 00:11:53,163]:DEBUG:          |                   | last:132                                 |
+[2024-03-03 00:11:53,163]:DEBUG:          |        AL_ignored |          first:8895, min:8895, max:8895, |
+[2024-03-03 00:11:53,163]:DEBUG:          |                   | sum:8895, sum2:79121025, cnt:1,          |
+[2024-03-03 00:11:53,163]:DEBUG:          |                   | avg:8895.0, std:0, last:8895             |
+[2024-03-03 00:11:53,163]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-03 00:11:53,163]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-03 00:11:53,164]:DEBUG:          |      compile_time |          first:4.61, min:4.61, max:4.61, |
+[2024-03-03 00:11:53,164]:DEBUG:          |                   | sum:4.61, sum2:21.252100000000002,       |
+[2024-03-03 00:11:53,164]:DEBUG:          |                   | cnt:1, avg:4.61, std:0, last:4.61        |
+[2024-03-03 00:11:53,165]:DEBUG:     scan file lulesh.benchmarks/000008/000005_compile_tsan-opt/work/stderr
+[2024-03-03 00:11:53,190]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-03 00:11:53,190]:DEBUG:          |      verification |                                          |
+[2024-03-03 00:11:53,190]:DEBUG:          |              time |                                          |
+[2024-03-03 00:11:53,190]:DEBUG:          |       instr_reads |          first:1634, min:1634, max:1634, |
+[2024-03-03 00:11:53,190]:DEBUG:          |                   | sum:1634, sum2:2669956, cnt:1,           |
+[2024-03-03 00:11:53,190]:DEBUG:          |                   | avg:1634.0, std:0, last:1634             |
+[2024-03-03 00:11:53,190]:DEBUG:          |      instr_writes |    first:343, min:343, max:343, sum:343, |
+[2024-03-03 00:11:53,190]:DEBUG:          |                   | sum2:117649, cnt:1, avg:343.0, std:0,    |
+[2024-03-03 00:11:53,190]:DEBUG:          |                   | last:343                                 |
+[2024-03-03 00:11:53,190]:DEBUG:          | ignore_read_write |        first:44, min:44, max:44, sum:44, |
+[2024-03-03 00:11:53,190]:DEBUG:          |                   | sum2:1936, cnt:1, avg:44.0, std:0,       |
+[2024-03-03 00:11:53,190]:DEBUG:          |                   | last:44                                  |
+[2024-03-03 00:11:53,190]:DEBUG:          |        AL_ignored |       first:10838, min:10838, max:10838, |
+[2024-03-03 00:11:53,190]:DEBUG:          |                   | sum:10838, sum2:117462244, cnt:1,        |
+[2024-03-03 00:11:53,190]:DEBUG:          |                   | avg:10838.0, std:0, last:10838           |
+[2024-03-03 00:11:53,191]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-03 00:11:53,191]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-03 00:11:53,192]:DEBUG:     scan file lulesh.benchmarks/000008/000005_compile_tsan-opt/work/time.out
+[2024-03-03 00:11:53,194]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-03 00:11:53,194]:DEBUG:          |      verification |                                          |
+[2024-03-03 00:11:53,194]:DEBUG:          |              time |                                          |
+[2024-03-03 00:11:53,194]:DEBUG:          |       instr_reads |          first:1634, min:1634, max:1634, |
+[2024-03-03 00:11:53,194]:DEBUG:          |                   | sum:1634, sum2:2669956, cnt:1,           |
+[2024-03-03 00:11:53,195]:DEBUG:          |                   | avg:1634.0, std:0, last:1634             |
+[2024-03-03 00:11:53,195]:DEBUG:          |      instr_writes |    first:343, min:343, max:343, sum:343, |
+[2024-03-03 00:11:53,195]:DEBUG:          |                   | sum2:117649, cnt:1, avg:343.0, std:0,    |
+[2024-03-03 00:11:53,196]:DEBUG:          |                   | last:343                                 |
+[2024-03-03 00:11:53,196]:DEBUG:          | ignore_read_write |        first:44, min:44, max:44, sum:44, |
+[2024-03-03 00:11:53,196]:DEBUG:          |                   | sum2:1936, cnt:1, avg:44.0, std:0,       |
+[2024-03-03 00:11:53,196]:DEBUG:          |                   | last:44                                  |
+[2024-03-03 00:11:53,196]:DEBUG:          |        AL_ignored |       first:10838, min:10838, max:10838, |
+[2024-03-03 00:11:53,196]:DEBUG:          |                   | sum:10838, sum2:117462244, cnt:1,        |
+[2024-03-03 00:11:53,196]:DEBUG:          |                   | avg:10838.0, std:0, last:10838           |
+[2024-03-03 00:11:53,196]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-03 00:11:53,196]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-03 00:11:53,196]:DEBUG:          |      compile_time |          first:4.49, min:4.49, max:4.49, |
+[2024-03-03 00:11:53,196]:DEBUG:          |                   | sum:4.49, sum2:20.160100000000003,       |
+[2024-03-03 00:11:53,197]:DEBUG:          |                   | cnt:1, avg:4.49, std:0, last:4.49        |
+[2024-03-03 00:11:53,198]:DEBUG:     scan file lulesh.benchmarks/000008/000003_compile_tsan/work/stderr
+[2024-03-03 00:11:53,202]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-03 00:11:53,202]:DEBUG:          |      verification |                                          |
+[2024-03-03 00:11:53,202]:DEBUG:          |              time |                                          |
+[2024-03-03 00:11:53,202]:DEBUG:          |       instr_reads |          first:9167, min:9167, max:9167, |
+[2024-03-03 00:11:53,202]:DEBUG:          |                   | sum:9167, sum2:84033889, cnt:1,          |
+[2024-03-03 00:11:53,203]:DEBUG:          |                   | avg:9167.0, std:0, last:9167             |
+[2024-03-03 00:11:53,203]:DEBUG:          |      instr_writes |          first:3070, min:3070, max:3070, |
+[2024-03-03 00:11:53,203]:DEBUG:          |                   | sum:3070, sum2:9424900, cnt:1,           |
+[2024-03-03 00:11:53,203]:DEBUG:          |                   | avg:3070.0, std:0, last:3070             |
+[2024-03-03 00:11:53,203]:DEBUG:          | ignore_read_write |    first:622, min:622, max:622, sum:622, |
+[2024-03-03 00:11:53,203]:DEBUG:          |                   | sum2:386884, cnt:1, avg:622.0, std:0,    |
+[2024-03-03 00:11:53,203]:DEBUG:          |                   | last:622                                 |
+[2024-03-03 00:11:53,203]:DEBUG:          |        AL_ignored |                                          |
+[2024-03-03 00:11:53,203]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-03 00:11:53,204]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-03 00:11:53,205]:DEBUG:     scan file lulesh.benchmarks/000008/000003_compile_tsan/work/time.out
+[2024-03-03 00:11:53,207]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-03 00:11:53,207]:DEBUG:          |      verification |                                          |
+[2024-03-03 00:11:53,207]:DEBUG:          |              time |                                          |
+[2024-03-03 00:11:53,207]:DEBUG:          |       instr_reads |          first:9167, min:9167, max:9167, |
+[2024-03-03 00:11:53,207]:DEBUG:          |                   | sum:9167, sum2:84033889, cnt:1,          |
+[2024-03-03 00:11:53,207]:DEBUG:          |                   | avg:9167.0, std:0, last:9167             |
+[2024-03-03 00:11:53,207]:DEBUG:          |      instr_writes |          first:3070, min:3070, max:3070, |
+[2024-03-03 00:11:53,207]:DEBUG:          |                   | sum:3070, sum2:9424900, cnt:1,           |
+[2024-03-03 00:11:53,207]:DEBUG:          |                   | avg:3070.0, std:0, last:3070             |
+[2024-03-03 00:11:53,208]:DEBUG:          | ignore_read_write |    first:622, min:622, max:622, sum:622, |
+[2024-03-03 00:11:53,208]:DEBUG:          |                   | sum2:386884, cnt:1, avg:622.0, std:0,    |
+[2024-03-03 00:11:53,208]:DEBUG:          |                   | last:622                                 |
+[2024-03-03 00:11:53,208]:DEBUG:          |        AL_ignored |                                          |
+[2024-03-03 00:11:53,208]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-03 00:11:53,208]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-03 00:11:53,208]:DEBUG:          |      compile_time |          first:4.45, min:4.45, max:4.45, |
+[2024-03-03 00:11:53,208]:DEBUG:          |                   | sum:4.45, sum2:19.802500000000002,       |
+[2024-03-03 00:11:53,209]:DEBUG:          |                   | cnt:1, avg:4.45, std:0, last:4.45        |
+[2024-03-03 00:11:53,232]:DEBUG: sort using: jube_wp_id
+[2024-03-03 00:11:53,232]:DEBUG: jube_benchmark_id;jube_wp_id;compile_mode;optimizations;compile_time;instr_reads;instr_writes;ignore_read_write;AL_ignored;ALX_ignored;CLUSTER_ignored
+[2024-03-03 00:11:53,233]:DEBUG: 8;2;base;;2.35;0;0;0;0;0;0
+[2024-03-03 00:11:53,233]:DEBUG: 8;3;tsan;;4.45;9167;3070;622;0;0;0
+[2024-03-03 00:11:53,234]:DEBUG: 8;4;tsan-opt;AL6;4.44;559;70;0;12230;0;0
+[2024-03-03 00:11:53,234]:DEBUG: 8;5;tsan-opt;AL10;4.49;1634;343;44;10838;0;0
+[2024-03-03 00:11:53,234]:DEBUG: 8;6;tsan-opt;AL1000;4.61;2901;931;132;8895;0;0
+[2024-03-03 00:11:53,234]:DEBUG: 8;7;tsan-opt;ALX6;4.47;146;70;0;12230;413;0
+[2024-03-03 00:11:53,234]:DEBUG: 8;8;tsan-opt;ALX10;4.53;1606;343;44;10838;28;0
+[2024-03-03 00:11:53,234]:DEBUG: 8;9;tsan-opt;ALX1000;4.61;2901;931;132;8895;0;0
+[2024-03-03 00:11:53,234]:DEBUG: 8;10;tsan-opt;CLUSTER;4.32;9167;3070;622;0;0;3038
+[2024-03-03 00:11:53,234]:DEBUG: 8;11;tsan-opt;ALX6,CLUSTER;4.36;146;70;0;12230;413;85
+[2024-03-03 00:11:53,234]:DEBUG: 8;12;tsan-opt;ALX10,CLUSTER;4.28;1606;343;44;10838;28;517
+[2024-03-03 00:11:53,234]:DEBUG: 8;13;tsan-opt;ALX1000,CLUSTER;4.34;2901;931;132;8895;0;643
+[2024-03-03 00:11:53,234]:DEBUG: 
+[2024-03-03 00:11:53,241]:DEBUG: sort using: jube_wp_id
+[2024-03-03 00:11:53,242]:DEBUG: filterstats_result:
+[2024-03-03 00:11:53,242]:DEBUG: | jube_benchmark_id | jube_wp_id | compile_mode |   optimizations | compile_time | instr_reads | instr_writes | ignore_read_write | AL_ignored | ALX_ignored | CLUSTER_ignored |
+[2024-03-03 00:11:53,242]:DEBUG: |-------------------|------------|--------------|-----------------|--------------|-------------|--------------|-------------------|------------|-------------|-----------------|
+[2024-03-03 00:11:53,243]:DEBUG: |                 8 |          2 |         base |                 |         2.35 |           0 |            0 |                 0 |          0 |           0 |               0 |
+[2024-03-03 00:11:53,243]:DEBUG: |                 8 |          3 |         tsan |                 |         4.45 |        9167 |         3070 |               622 |          0 |           0 |               0 |
+[2024-03-03 00:11:53,243]:DEBUG: |                 8 |          4 |     tsan-opt |             AL6 |         4.44 |         559 |           70 |                 0 |      12230 |           0 |               0 |
+[2024-03-03 00:11:53,243]:DEBUG: |                 8 |          5 |     tsan-opt |            AL10 |         4.49 |        1634 |          343 |                44 |      10838 |           0 |               0 |
+[2024-03-03 00:11:53,243]:DEBUG: |                 8 |          6 |     tsan-opt |          AL1000 |         4.61 |        2901 |          931 |               132 |       8895 |           0 |               0 |
+[2024-03-03 00:11:53,243]:DEBUG: |                 8 |          7 |     tsan-opt |            ALX6 |         4.47 |         146 |           70 |                 0 |      12230 |         413 |               0 |
+[2024-03-03 00:11:53,244]:DEBUG: |                 8 |          8 |     tsan-opt |           ALX10 |         4.53 |        1606 |          343 |                44 |      10838 |          28 |               0 |
+[2024-03-03 00:11:53,244]:DEBUG: |                 8 |          9 |     tsan-opt |         ALX1000 |         4.61 |        2901 |          931 |               132 |       8895 |           0 |               0 |
+[2024-03-03 00:11:53,244]:DEBUG: |                 8 |         10 |     tsan-opt |         CLUSTER |         4.32 |        9167 |         3070 |               622 |          0 |           0 |            3038 |
+[2024-03-03 00:11:53,245]:DEBUG: |                 8 |         11 |     tsan-opt |    ALX6,CLUSTER |         4.36 |         146 |           70 |                 0 |      12230 |         413 |              85 |
+[2024-03-03 00:11:53,245]:DEBUG: |                 8 |         12 |     tsan-opt |   ALX10,CLUSTER |         4.28 |        1606 |          343 |                44 |      10838 |          28 |             517 |
+[2024-03-03 00:11:53,245]:DEBUG: |                 8 |         13 |     tsan-opt | ALX1000,CLUSTER |         4.34 |        2901 |          931 |               132 |       8895 |           0 |             643 |
+[2024-03-03 00:11:53,245]:DEBUG: 
+[2024-03-04 22:22:07,688]:DEBUG: sort using: tasks,compile_mode,measurement_mode,jube_wp_id
+[2024-03-04 22:22:07,689]:DEBUG: jube_benchmark_id;jube_wp_id;compile;measurement;rma-mode;tasks;must_compile_opt;RMA_target;time_avg;time_std;verification
+[2024-03-04 22:22:07,706]:DEBUG: 8;18;base;base;shadow;27;;-DUSE_RMA=1;36.0;0.0;SUCCESS
+[2024-03-04 22:22:07,706]:DEBUG: 8;23;base;must;shadow;27;;-DUSE_RMA=1;49.8;1.30384048104046;SUCCESS
+[2024-03-04 22:22:07,706]:DEBUG: 8;32;tsan;must;shadow;27;;-DUSE_RMA=1;618.0;8.366600265340756;SUCCESS
+[2024-03-04 22:22:07,706]:DEBUG: 8;25;tsan-opt;must;shadow;27;AL6;-DUSE_RMA=1;77.6;0.8944271910000176;SUCCESS
+[2024-03-04 22:22:07,706]:DEBUG: 8;37;tsan-opt;must;shadow;27;ALX6;-DUSE_RMA=1;77.8;1.095445115010249;SUCCESS
+[2024-03-04 22:22:07,706]:DEBUG: 8;43;tsan-opt;must;shadow;27;AL10;-DUSE_RMA=1;108.0;4.47213595499958;SUCCESS
+[2024-03-04 22:22:07,706]:DEBUG: 8;48;tsan-opt;must;shadow;27;ALX10;-DUSE_RMA=1;106.0;5.477225575051661;SUCCESS
+[2024-03-04 22:22:07,706]:DEBUG: 8;53;tsan-opt;must;shadow;27;ALX1000;-DUSE_RMA=1;262.0;4.47213595499958;SUCCESS
+[2024-03-04 22:22:07,706]:DEBUG: 8;58;tsan-opt;must;shadow;27;AL1000;-DUSE_RMA=1;260.0;0.0;SUCCESS
+[2024-03-04 22:22:07,706]:DEBUG: 8;63;tsan-opt;must;shadow;27;CLUSTER;-DUSE_RMA=1;428.0;4.47213595499958;SUCCESS
+[2024-03-04 22:22:07,706]:DEBUG: 8;67;tsan-opt;must;shadow;27;ALX6,CLUSTER;-DUSE_RMA=1;78.6;1.5165750888103702;SUCCESS
+[2024-03-04 22:22:07,706]:DEBUG: 8;72;tsan-opt;must;shadow;27;ALX10,CLUSTER;-DUSE_RMA=1;98.4;1.8165902124582947;SUCCESS
+[2024-03-04 22:22:07,707]:DEBUG: 8;77;tsan-opt;must;shadow;27;ALX1000,CLUSTER;-DUSE_RMA=1;246.0;5.477225575051661;SUCCESS
+[2024-03-04 22:22:07,707]:DEBUG: 
+[2024-03-04 22:22:07,744]:DEBUG: sort using: tasks,compile_mode,measurement_mode,jube_wp_id
+[2024-03-04 22:22:07,744]:DEBUG: result:
+[2024-03-04 22:22:07,745]:DEBUG: | jube_benchmark_id | jube_wp_id |  compile | measurement | rma-mode | tasks | must_compile_opt |  RMA_target | time_avg | time_std | verification |
+[2024-03-04 22:22:07,745]:DEBUG: |-------------------|------------|----------|-------------|----------|-------|------------------|-------------|----------|----------|--------------|
+[2024-03-04 22:22:07,745]:DEBUG: |                 8 |         18 |     base |        base |   shadow |    27 |                  | -DUSE_RMA=1 |   36.000 |    0.000 |      SUCCESS |
+[2024-03-04 22:22:07,745]:DEBUG: |                 8 |         23 |     base |        must |   shadow |    27 |                  | -DUSE_RMA=1 |   49.800 |    1.304 |      SUCCESS |
+[2024-03-04 22:22:07,745]:DEBUG: |                 8 |         32 |     tsan |        must |   shadow |    27 |                  | -DUSE_RMA=1 |  618.000 |    8.367 |      SUCCESS |
+[2024-03-04 22:22:07,746]:DEBUG: |                 8 |         25 | tsan-opt |        must |   shadow |    27 |              AL6 | -DUSE_RMA=1 |   77.600 |    0.894 |      SUCCESS |
+[2024-03-04 22:22:07,746]:DEBUG: |                 8 |         37 | tsan-opt |        must |   shadow |    27 |             ALX6 | -DUSE_RMA=1 |   77.800 |    1.095 |      SUCCESS |
+[2024-03-04 22:22:07,746]:DEBUG: |                 8 |         43 | tsan-opt |        must |   shadow |    27 |             AL10 | -DUSE_RMA=1 |  108.000 |    4.472 |      SUCCESS |
+[2024-03-04 22:22:07,746]:DEBUG: |                 8 |         48 | tsan-opt |        must |   shadow |    27 |            ALX10 | -DUSE_RMA=1 |  106.000 |    5.477 |      SUCCESS |
+[2024-03-04 22:22:07,746]:DEBUG: |                 8 |         53 | tsan-opt |        must |   shadow |    27 |          ALX1000 | -DUSE_RMA=1 |  262.000 |    4.472 |      SUCCESS |
+[2024-03-04 22:22:07,746]:DEBUG: |                 8 |         58 | tsan-opt |        must |   shadow |    27 |           AL1000 | -DUSE_RMA=1 |  260.000 |    0.000 |      SUCCESS |
+[2024-03-04 22:22:07,746]:DEBUG: |                 8 |         63 | tsan-opt |        must |   shadow |    27 |          CLUSTER | -DUSE_RMA=1 |  428.000 |    4.472 |      SUCCESS |
+[2024-03-04 22:22:07,747]:DEBUG: |                 8 |         67 | tsan-opt |        must |   shadow |    27 |     ALX6,CLUSTER | -DUSE_RMA=1 |   78.600 |    1.517 |      SUCCESS |
+[2024-03-04 22:22:07,747]:DEBUG: |                 8 |         72 | tsan-opt |        must |   shadow |    27 |    ALX10,CLUSTER | -DUSE_RMA=1 |   98.400 |    1.817 |      SUCCESS |
+[2024-03-04 22:22:07,747]:DEBUG: |                 8 |         77 | tsan-opt |        must |   shadow |    27 |  ALX1000,CLUSTER | -DUSE_RMA=1 |  246.000 |    5.477 |      SUCCESS |
+[2024-03-04 22:22:07,747]:DEBUG: 
+[2024-03-04 22:22:07,774]:DEBUG: sort using: jube_wp_id
+[2024-03-04 22:22:07,774]:DEBUG: jube_benchmark_id;jube_wp_id;compile_mode;optimizations;compile_time;instr_reads;instr_writes;ignore_read_write;AL_ignored;ALX_ignored;CLUSTER_ignored
+[2024-03-04 22:22:07,775]:DEBUG: 8;2;base;;2.35;0;0;0;0;0;0
+[2024-03-04 22:22:07,775]:DEBUG: 8;3;tsan;;4.45;9167;3070;622;0;0;0
+[2024-03-04 22:22:07,776]:DEBUG: 8;4;tsan-opt;AL6;4.44;559;70;0;12230;0;0
+[2024-03-04 22:22:07,776]:DEBUG: 8;5;tsan-opt;AL10;4.49;1634;343;44;10838;0;0
+[2024-03-04 22:22:07,776]:DEBUG: 8;6;tsan-opt;AL1000;4.61;2901;931;132;8895;0;0
+[2024-03-04 22:22:07,776]:DEBUG: 8;7;tsan-opt;ALX6;4.47;146;70;0;12230;413;0
+[2024-03-04 22:22:07,776]:DEBUG: 8;8;tsan-opt;ALX10;4.53;1606;343;44;10838;28;0
+[2024-03-04 22:22:07,776]:DEBUG: 8;9;tsan-opt;ALX1000;4.61;2901;931;132;8895;0;0
+[2024-03-04 22:22:07,776]:DEBUG: 8;10;tsan-opt;CLUSTER;4.32;9167;3070;622;0;0;3038
+[2024-03-04 22:22:07,776]:DEBUG: 8;11;tsan-opt;ALX6,CLUSTER;4.36;146;70;0;12230;413;85
+[2024-03-04 22:22:07,777]:DEBUG: 8;12;tsan-opt;ALX10,CLUSTER;4.28;1606;343;44;10838;28;517
+[2024-03-04 22:22:07,777]:DEBUG: 8;13;tsan-opt;ALX1000,CLUSTER;4.34;2901;931;132;8895;0;643
+[2024-03-04 22:22:07,777]:DEBUG: 
+[2024-03-04 22:22:07,810]:DEBUG: sort using: jube_wp_id
+[2024-03-04 22:22:07,810]:DEBUG: filterstats_result:
+[2024-03-04 22:22:07,810]:DEBUG: | jube_benchmark_id | jube_wp_id | compile_mode |   optimizations | compile_time | instr_reads | instr_writes | ignore_read_write | AL_ignored | ALX_ignored | CLUSTER_ignored |
+[2024-03-04 22:22:07,810]:DEBUG: |-------------------|------------|--------------|-----------------|--------------|-------------|--------------|-------------------|------------|-------------|-----------------|
+[2024-03-04 22:22:07,811]:DEBUG: |                 8 |          2 |         base |                 |         2.35 |           0 |            0 |                 0 |          0 |           0 |               0 |
+[2024-03-04 22:22:07,811]:DEBUG: |                 8 |          3 |         tsan |                 |         4.45 |        9167 |         3070 |               622 |          0 |           0 |               0 |
+[2024-03-04 22:22:07,811]:DEBUG: |                 8 |          4 |     tsan-opt |             AL6 |         4.44 |         559 |           70 |                 0 |      12230 |           0 |               0 |
+[2024-03-04 22:22:07,811]:DEBUG: |                 8 |          5 |     tsan-opt |            AL10 |         4.49 |        1634 |          343 |                44 |      10838 |           0 |               0 |
+[2024-03-04 22:22:07,811]:DEBUG: |                 8 |          6 |     tsan-opt |          AL1000 |         4.61 |        2901 |          931 |               132 |       8895 |           0 |               0 |
+[2024-03-04 22:22:07,812]:DEBUG: |                 8 |          7 |     tsan-opt |            ALX6 |         4.47 |         146 |           70 |                 0 |      12230 |         413 |               0 |
+[2024-03-04 22:22:07,812]:DEBUG: |                 8 |          8 |     tsan-opt |           ALX10 |         4.53 |        1606 |          343 |                44 |      10838 |          28 |               0 |
+[2024-03-04 22:22:07,812]:DEBUG: |                 8 |          9 |     tsan-opt |         ALX1000 |         4.61 |        2901 |          931 |               132 |       8895 |           0 |               0 |
+[2024-03-04 22:22:07,812]:DEBUG: |                 8 |         10 |     tsan-opt |         CLUSTER |         4.32 |        9167 |         3070 |               622 |          0 |           0 |            3038 |
+[2024-03-04 22:22:07,813]:DEBUG: |                 8 |         11 |     tsan-opt |    ALX6,CLUSTER |         4.36 |         146 |           70 |                 0 |      12230 |         413 |              85 |
+[2024-03-04 22:22:07,813]:DEBUG: |                 8 |         12 |     tsan-opt |   ALX10,CLUSTER |         4.28 |        1606 |          343 |                44 |      10838 |          28 |             517 |
+[2024-03-04 22:22:07,813]:DEBUG: |                 8 |         13 |     tsan-opt | ALX1000,CLUSTER |         4.34 |        2901 |          931 |               132 |       8895 |           0 |             643 |
+[2024-03-04 22:22:07,813]:DEBUG: 
+[2024-03-04 22:22:33,172]:DEBUG: sort using: tasks,compile_mode,measurement_mode,jube_wp_id
+[2024-03-04 22:22:33,173]:DEBUG: jube_benchmark_id;jube_wp_id;compile;measurement;rma-mode;tasks;must_compile_opt;RMA_target;time_avg;time_std;verification
+[2024-03-04 22:22:33,174]:DEBUG: 8;18;base;base;shadow;27;;-DUSE_RMA=1;36.0;0.0;SUCCESS
+[2024-03-04 22:22:33,174]:DEBUG: 8;23;base;must;shadow;27;;-DUSE_RMA=1;49.8;1.30384048104046;SUCCESS
+[2024-03-04 22:22:33,174]:DEBUG: 8;32;tsan;must;shadow;27;;-DUSE_RMA=1;618.0;8.366600265340756;SUCCESS
+[2024-03-04 22:22:33,175]:DEBUG: 8;25;tsan-opt;must;shadow;27;AL6;-DUSE_RMA=1;77.6;0.8944271910000176;SUCCESS
+[2024-03-04 22:22:33,175]:DEBUG: 8;37;tsan-opt;must;shadow;27;ALX6;-DUSE_RMA=1;77.8;1.095445115010249;SUCCESS
+[2024-03-04 22:22:33,175]:DEBUG: 8;43;tsan-opt;must;shadow;27;AL10;-DUSE_RMA=1;108.0;4.47213595499958;SUCCESS
+[2024-03-04 22:22:33,175]:DEBUG: 8;48;tsan-opt;must;shadow;27;ALX10;-DUSE_RMA=1;106.0;5.477225575051661;SUCCESS
+[2024-03-04 22:22:33,176]:DEBUG: 8;53;tsan-opt;must;shadow;27;ALX1000;-DUSE_RMA=1;262.0;4.47213595499958;SUCCESS
+[2024-03-04 22:22:33,176]:DEBUG: 8;58;tsan-opt;must;shadow;27;AL1000;-DUSE_RMA=1;260.0;0.0;SUCCESS
+[2024-03-04 22:22:33,176]:DEBUG: 8;63;tsan-opt;must;shadow;27;CLUSTER;-DUSE_RMA=1;428.0;4.47213595499958;SUCCESS
+[2024-03-04 22:22:33,176]:DEBUG: 8;67;tsan-opt;must;shadow;27;ALX6,CLUSTER;-DUSE_RMA=1;78.6;1.5165750888103702;SUCCESS
+[2024-03-04 22:22:33,176]:DEBUG: 8;72;tsan-opt;must;shadow;27;ALX10,CLUSTER;-DUSE_RMA=1;98.4;1.8165902124582947;SUCCESS
+[2024-03-04 22:22:33,176]:DEBUG: 8;77;tsan-opt;must;shadow;27;ALX1000,CLUSTER;-DUSE_RMA=1;246.0;5.477225575051661;SUCCESS
+[2024-03-04 22:22:33,176]:DEBUG: 
+[2024-03-04 22:22:33,186]:DEBUG: sort using: tasks,compile_mode,measurement_mode,jube_wp_id
+[2024-03-04 22:22:33,186]:DEBUG: result:
+[2024-03-04 22:22:33,186]:DEBUG: | jube_benchmark_id | jube_wp_id |  compile | measurement | rma-mode | tasks | must_compile_opt |  RMA_target | time_avg | time_std | verification |
+[2024-03-04 22:22:33,186]:DEBUG: |-------------------|------------|----------|-------------|----------|-------|------------------|-------------|----------|----------|--------------|
+[2024-03-04 22:22:33,186]:DEBUG: |                 8 |         18 |     base |        base |   shadow |    27 |                  | -DUSE_RMA=1 |   36.000 |    0.000 |      SUCCESS |
+[2024-03-04 22:22:33,187]:DEBUG: |                 8 |         23 |     base |        must |   shadow |    27 |                  | -DUSE_RMA=1 |   49.800 |    1.304 |      SUCCESS |
+[2024-03-04 22:22:33,187]:DEBUG: |                 8 |         32 |     tsan |        must |   shadow |    27 |                  | -DUSE_RMA=1 |  618.000 |    8.367 |      SUCCESS |
+[2024-03-04 22:22:33,187]:DEBUG: |                 8 |         25 | tsan-opt |        must |   shadow |    27 |              AL6 | -DUSE_RMA=1 |   77.600 |    0.894 |      SUCCESS |
+[2024-03-04 22:22:33,187]:DEBUG: |                 8 |         37 | tsan-opt |        must |   shadow |    27 |             ALX6 | -DUSE_RMA=1 |   77.800 |    1.095 |      SUCCESS |
+[2024-03-04 22:22:33,188]:DEBUG: |                 8 |         43 | tsan-opt |        must |   shadow |    27 |             AL10 | -DUSE_RMA=1 |  108.000 |    4.472 |      SUCCESS |
+[2024-03-04 22:22:33,188]:DEBUG: |                 8 |         48 | tsan-opt |        must |   shadow |    27 |            ALX10 | -DUSE_RMA=1 |  106.000 |    5.477 |      SUCCESS |
+[2024-03-04 22:22:33,188]:DEBUG: |                 8 |         53 | tsan-opt |        must |   shadow |    27 |          ALX1000 | -DUSE_RMA=1 |  262.000 |    4.472 |      SUCCESS |
+[2024-03-04 22:22:33,188]:DEBUG: |                 8 |         58 | tsan-opt |        must |   shadow |    27 |           AL1000 | -DUSE_RMA=1 |  260.000 |    0.000 |      SUCCESS |
+[2024-03-04 22:22:33,189]:DEBUG: |                 8 |         63 | tsan-opt |        must |   shadow |    27 |          CLUSTER | -DUSE_RMA=1 |  428.000 |    4.472 |      SUCCESS |
+[2024-03-04 22:22:33,189]:DEBUG: |                 8 |         67 | tsan-opt |        must |   shadow |    27 |     ALX6,CLUSTER | -DUSE_RMA=1 |   78.600 |    1.517 |      SUCCESS |
+[2024-03-04 22:22:33,189]:DEBUG: |                 8 |         72 | tsan-opt |        must |   shadow |    27 |    ALX10,CLUSTER | -DUSE_RMA=1 |   98.400 |    1.817 |      SUCCESS |
+[2024-03-04 22:22:33,189]:DEBUG: |                 8 |         77 | tsan-opt |        must |   shadow |    27 |  ALX1000,CLUSTER | -DUSE_RMA=1 |  246.000 |    5.477 |      SUCCESS |
+[2024-03-04 22:22:33,189]:DEBUG: 
+[2024-03-04 22:22:33,195]:DEBUG: sort using: jube_wp_id
+[2024-03-04 22:22:33,195]:DEBUG: jube_benchmark_id;jube_wp_id;compile_mode;optimizations;compile_time;instr_reads;instr_writes;ignore_read_write;AL_ignored;ALX_ignored;CLUSTER_ignored
+[2024-03-04 22:22:33,196]:DEBUG: 8;2;base;;2.35;0;0;0;0;0;0
+[2024-03-04 22:22:33,196]:DEBUG: 8;3;tsan;;4.45;9167;3070;622;0;0;0
+[2024-03-04 22:22:33,196]:DEBUG: 8;4;tsan-opt;AL6;4.44;559;70;0;12230;0;0
+[2024-03-04 22:22:33,196]:DEBUG: 8;5;tsan-opt;AL10;4.49;1634;343;44;10838;0;0
+[2024-03-04 22:22:33,196]:DEBUG: 8;6;tsan-opt;AL1000;4.61;2901;931;132;8895;0;0
+[2024-03-04 22:22:33,196]:DEBUG: 8;7;tsan-opt;ALX6;4.47;146;70;0;12230;413;0
+[2024-03-04 22:22:33,197]:DEBUG: 8;8;tsan-opt;ALX10;4.53;1606;343;44;10838;28;0
+[2024-03-04 22:22:33,197]:DEBUG: 8;9;tsan-opt;ALX1000;4.61;2901;931;132;8895;0;0
+[2024-03-04 22:22:33,197]:DEBUG: 8;10;tsan-opt;CLUSTER;4.32;9167;3070;622;0;0;3038
+[2024-03-04 22:22:33,198]:DEBUG: 8;11;tsan-opt;ALX6,CLUSTER;4.36;146;70;0;12230;413;85
+[2024-03-04 22:22:33,198]:DEBUG: 8;12;tsan-opt;ALX10,CLUSTER;4.28;1606;343;44;10838;28;517
+[2024-03-04 22:22:33,198]:DEBUG: 8;13;tsan-opt;ALX1000,CLUSTER;4.34;2901;931;132;8895;0;643
+[2024-03-04 22:22:33,198]:DEBUG: 
+[2024-03-04 22:22:33,204]:DEBUG: sort using: jube_wp_id
+[2024-03-04 22:22:33,205]:DEBUG: filterstats_result:
+[2024-03-04 22:22:33,205]:DEBUG: | jube_benchmark_id | jube_wp_id | compile_mode |   optimizations | compile_time | instr_reads | instr_writes | ignore_read_write | AL_ignored | ALX_ignored | CLUSTER_ignored |
+[2024-03-04 22:22:33,205]:DEBUG: |-------------------|------------|--------------|-----------------|--------------|-------------|--------------|-------------------|------------|-------------|-----------------|
+[2024-03-04 22:22:33,205]:DEBUG: |                 8 |          2 |         base |                 |         2.35 |           0 |            0 |                 0 |          0 |           0 |               0 |
+[2024-03-04 22:22:33,206]:DEBUG: |                 8 |          3 |         tsan |                 |         4.45 |        9167 |         3070 |               622 |          0 |           0 |               0 |
+[2024-03-04 22:22:33,206]:DEBUG: |                 8 |          4 |     tsan-opt |             AL6 |         4.44 |         559 |           70 |                 0 |      12230 |           0 |               0 |
+[2024-03-04 22:22:33,206]:DEBUG: |                 8 |          5 |     tsan-opt |            AL10 |         4.49 |        1634 |          343 |                44 |      10838 |           0 |               0 |
+[2024-03-04 22:22:33,206]:DEBUG: |                 8 |          6 |     tsan-opt |          AL1000 |         4.61 |        2901 |          931 |               132 |       8895 |           0 |               0 |
+[2024-03-04 22:22:33,206]:DEBUG: |                 8 |          7 |     tsan-opt |            ALX6 |         4.47 |         146 |           70 |                 0 |      12230 |         413 |               0 |
+[2024-03-04 22:22:33,206]:DEBUG: |                 8 |          8 |     tsan-opt |           ALX10 |         4.53 |        1606 |          343 |                44 |      10838 |          28 |               0 |
+[2024-03-04 22:22:33,206]:DEBUG: |                 8 |          9 |     tsan-opt |         ALX1000 |         4.61 |        2901 |          931 |               132 |       8895 |           0 |               0 |
+[2024-03-04 22:22:33,206]:DEBUG: |                 8 |         10 |     tsan-opt |         CLUSTER |         4.32 |        9167 |         3070 |               622 |          0 |           0 |            3038 |
+[2024-03-04 22:22:33,206]:DEBUG: |                 8 |         11 |     tsan-opt |    ALX6,CLUSTER |         4.36 |         146 |           70 |                 0 |      12230 |         413 |              85 |
+[2024-03-04 22:22:33,207]:DEBUG: |                 8 |         12 |     tsan-opt |   ALX10,CLUSTER |         4.28 |        1606 |          343 |                44 |      10838 |          28 |             517 |
+[2024-03-04 22:22:33,207]:DEBUG: |                 8 |         13 |     tsan-opt | ALX1000,CLUSTER |         4.34 |        2901 |          931 |               132 |       8895 |           0 |             643 |
+[2024-03-04 22:22:33,207]:DEBUG: 

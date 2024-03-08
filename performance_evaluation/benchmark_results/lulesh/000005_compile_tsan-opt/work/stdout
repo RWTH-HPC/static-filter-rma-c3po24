@@ -1,0 +1,18 @@
+-- The CXX compiler identification is Clang 16.0.4
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/dep/MUST/47a317bbbed9c779be827373644ebbed/install/bin/must-cxx - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found MPI_CXX: /rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/dep/MUST/47a317bbbed9c779be827373644ebbed/install/bin/must-cxx (found version "3.1") 
+-- Found MPI: TRUE (found version "3.1")  
+-- Configuring done (4.3s)
+-- Generating done (0.1s)
+-- Build files have been written to: /rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/lulesh/lulesh.benchmarks/000008/000005_compile_tsan-opt/work/build
+[ 16%] Building CXX object CMakeFiles/lulesh2.0.dir/lulesh-comm.cc.o
+[ 33%] Building CXX object CMakeFiles/lulesh2.0.dir/lulesh-init.cc.o
+[ 50%] Building CXX object CMakeFiles/lulesh2.0.dir/lulesh-util.cc.o
+[ 66%] Building CXX object CMakeFiles/lulesh2.0.dir/lulesh-viz.cc.o
+[ 83%] Building CXX object CMakeFiles/lulesh2.0.dir/lulesh.cc.o
+[100%] Linking CXX executable lulesh2.0
+[100%] Built target lulesh2.0

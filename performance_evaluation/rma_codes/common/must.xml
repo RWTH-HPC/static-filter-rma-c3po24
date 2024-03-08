@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+#   MUST specific settings
+-->
+<jube>
+    <parameterset name="must_config_pset">
+      <parameter name="must_commit">9090b10422f3bbd7fc994f4ffb917fa0137b663c</parameter> <!-- commit hash or "HEAD" -->
+      <parameter name="build_must" mode="shell">if ${force_must_build} || [ ! -f "${mustbin_path}/mustrun" ]; then echo "1"; else echo "0"; fi</parameter>
+      <parameter name="must_prerequisite_modules"  separator=";" mode="python">
+        " ".join(${prerequisite_modules_dict}.get("${cmake_module}", []) + ["${cmake_module}"])
+      </parameter>
+      <parameter name="must_root">${jube_benchmark_home}/../../dep/MUST/${__must_hash}</parameter>
+      <parameter name="must_build_folder">${must_root}/build</parameter>
+      <parameter name="must_install_folder">${must_root}/install</parameter>
+      <parameter name="must_repo_folder">${jube_benchmark_home}/../../dep/MUST/repo</parameter>
+      <!-- path to a custom must installation can be set here -->
+      <parameter name="mustbin_path" type="string">${must_install_folder}/bin</parameter>
+      <parameter name="must_stats_compile_flags" tag="!filterstats"></parameter>
+      <parameter name="must_stats_compile_flags" tag="filterstats">--print-opt-stats</parameter>
+      <parameter name="must_isl_compile_flags" tag="!isl"></parameter>
+      <parameter name="must_isl_compile_flags" tag="isl">--tsan-rt ${must_install_folder}/lib/libtsanInterceptorStatic.a</parameter>
+      <parameter name="MUSTCC">${mustbin_path}/must-cc</parameter>
+      <parameter name="MUSTCXX">${mustbin_path}/must-cxx</parameter>
+      <parameter name="MUSTFC">${mustbin_path}/must-fort</parameter>
+      <!-- Set to space 
+      separated list of optimizations -->
+      <parameter name="must_export" type="string">PATH=/${mustbin_path}:$PATH</parameter>
+      <parameter name="must_available" type="int" mode="shell">if [[ -f "${mustbin_path}/mustrun" ]]; then echo "1"; else echo "0"; fi</parameter>
+      <parameter name="force_must_build">false</parameter>
+      <parameter name="force_must_build" tag="rebuild_must|rebuild">true</parameter>
+      <!-- Use hashes to distinguish different binaries and MUST builds for caching -->
+      <parameter name="__must_hash" mode="shell">echo -n "${__must_commit} ${must_git_branch} ${__toolchain_module} ${__compiler_module} ${__mpi_module}" | md5sum | cut -f 1 -d " " | tr -d '\n'</parameter>
+    </parameterset>
+
+    <parameterset name="must_build_pset">
+      <!-- MUST build options -->
+      <parameter name="CMAKE_BUILD_TYPE">RelWithDebInfo</parameter>
+      <parameter name="MPI_C_COMPILER">mpicc</parameter>        
+      <parameter name="MPI_CXX_COMPILER">mpicxx</parameter>
+      <parameter name="MPI_Fortran_COMPILER">mpif90-flang</parameter>
+      <parameter name="ENABLE_FORTRAN">1</parameter>        
+      <parameter name="ENABLE_TSAN">1</parameter>      
+      <parameter name="ENABLE_TYPEART">OFF</parameter>  
+      <parameter name="ENABLE_TESTS">OFF</parameter>
+      <parameter name="GTI_DEBUG">False</parameter>
+      <parameter name="USE_BACKWARD">OFF</parameter>
+      <parameter name="MUST_build_args">
+      -DMPI_C_COMPILER=${MPI_C_COMPILER} \
+      -DMPI_CXX_COMPILER=${MPI_CXX_COMPILER} \
+      -DCMAKE_Fortran_COMPILER=${MPI_Fortran_COMPILER} \
+      -DCMAKE_INSTALL_PREFIX="${must_install_folder}" \
+      -DENABLE_FORTRAN=${ENABLE_FORTRAN} \
+      -DENABLE_TSAN=${ENABLE_TSAN} \
+      -DENABLE_TYPEART=${ENABLE_TYPEART} \
+      -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE} \
+      -DENABLE_TESTS=${ENABLE_TESTS} \
+      -DGTI_DEBUG=${GTI_DEBUG} \
+      -DUSE_BACKWARD=${USE_BACKWARD}
+      </parameter>
+
+      <parameter name="must_git_clone_ssh">git@git-ce.rwth-aachen.de:hpc-research/correctness/MUST.git</parameter>
+      <parameter name="must_git_branch">feature/onesided</parameter>
+      <parameter name="__must_commit" mode="shell">if [[ $(echo "${must_commit}" | tr '[:upper:]' '[:lower:]') != "head" ]]; then echo ${must_commit}| awk '{printf $1}'; else git ls-remote ${must_git_clone_ssh} ${must_git_branch} | awk '{printf $1}'; fi</parameter> 
+    </parameterset>
+
+    <parameterset name="must_compile_pset">
+      <parameter name="must_compile_opt" mode="python" separator=";">
+        {"tsan-opt": "AL10;AL1000;ALX10;ALX1000;CLUSTER;ALX10,CLUSTER;ALX1000,CLUSTER"}.get("${compile_mode}", "") 
+      </parameter>
+      <parameter name="__tsan_opt_hash" separator=";" mode="shell">echo -n "$must_compile_opt $__must_hash" | md5sum | cut -f 1 -d " " | tr -d '\n'</parameter>
+    </parameterset>
+
+    <parameterset name="must_execute_pset">
+      <parameter name="must_threads_per_task" type="int">1</parameter>
+      <parameter name="must_tool_processes" type="int">${level2_size}</parameter>
+      <parameter name="must_layout_file" duplicate="replace">must_layout.xml.in</parameter> <!-- default layout -->
+      <parameter name="must_layout_file" duplicate="replace" tag="toolprocess">must_layout_toolprocess.xml.in</parameter> <!-- layout with toolproceses -->
+      <parameter name="level0_place">thread_app</parameter>
+      <parameter name="level0_size" type="int" mode="python">1000*${application_tasks}</parameter>
+      <parameter name="level1_size" type="int">${application_tasks}</parameter>
+      <parameter name="level1_place">thread_place</parameter>
+      <parameter name="level2_size" type="int" duplicate="replace">0</parameter> <!-- default value -->
+      <parameter name="level2_size" type="int" duplicate="replace" tag="toolprocess">1</parameter> <!-- value when toolprocesses are enabled -->
+      <parameter name="level2_place">mpi_place</parameter>
+      <parameter name="INTERNAL_GTI_PRINT_MEMORY_CONSUMPTION" export="true" tag="memusage">1</parameter>
+      <!-- Must arguments -->
+      <parameter name="must_verbose" tag="!must:verbose"></parameter>
+      <parameter name="must_verbose" tag="must:verbose">--must:verbose</parameter> 
+      <parameter name="must_layout" tag="!layout">--must:rma-only -n ${application_tasks}</parameter> <!-- Must generates the layout itself -->
+      <parameter name="must_layout" tag="layout">--must:layout $PWD/layout.xml</parameter>
+      <!-- Sets if which rma mode is used for tsan-opt -->
+      <parameter name="must_rma_mode_tsan_opt" tag="!isl">shadow</parameter>
+      <parameter name="must_rma_mode_tsan_opt" tag="isl">isl</parameter>   
+      <!-- Sets the rma mode for the different compile modes, e.g. base and tsan are not compiled with
+           the correct istrumentation for isl and must would quit early 
+           Default use shadow
+      -->
+      <parameter name="must_rma_mode" mode="python">
+        {"base": "shadow",
+         "tsan": "shadow",
+         "tsan-opt": "${must_rma_mode_tsan_opt}",
+         "isl": "isl"}.get("${compile_mode}", "shadow")
+      </parameter> 
+      <parameter name="must_arguments">${must_verbose} --must:output stdout --must:mpiexec ${mpirun} ${must_layout} --must:rma-mode ${must_rma_mode}</parameter>
+    </parameterset>
+
+    <!-- Substitution -->
+    <substituteset name="must_execute_sub">
+      <iofile in="${must_layout_file}" out="layout.xml"/> 
+      <sub source="#LEVEL0_SIZE#" dest="${level0_size}"/>
+      <sub source="#LEVEL0_PLACE#" dest="${level0_place}"/>
+      <sub source="#LEVEL1_SIZE#" dest="${level1_size}"/>
+      <sub source="#LEVEL1_PLACE#" dest="${level1_place}"/>
+      <sub source="#LEVEL2_SIZE#" dest="${level2_size}"/>
+      <sub source="#LEVEL2_PLACE#" dest="${level2_place}"/>
+    </substituteset>
+
+     <!-- Files -->
+    <fileset name="must_files">
+      <copy>${jube_benchmark_home}/../../templates/${must_layout_file}</copy>
+    </fileset>
+
+
+    <step name="build_must">
+      <use>toolchain_env_pset</use>
+      <use>module_env_pset</use>
+      <use>export_env_pset</use>
+      <use from="must.xml">must_config_pset</use>
+      <use from="must.xml">must_build_pset</use>
+
+      <do active="${build_must}">
+        ${load_modules};
+        ${export}; 
+
+        rm -r -f ${must_install_folder}
+        if [ ! -d "${must_repo_folder}" ]; then git clone ${must_git_clone_ssh} ${must_repo_folder}; fi;
+        cd ${must_repo_folder};
+        if ! git cat-file -t ${__must_commit}; then git pull; fi;
+        git reset --hard;
+        git clean -fdx;
+        git checkout ${__must_commit};
+        git submodule update --init --recursive;
+
+        mkdir -p ${must_build_folder};
+        cd ${must_build_folder};
+        cmake ${MUST_build_args} ${must_repo_folder};
+        make -j50 install;
+        rm -r -f ${must_build_folder};
+
+        if [ ! -f "${mustbin_path}/mustrun" ]; then &gt;&amp;2 echo "mustrun does not exist at ${mustbin_path}"; exit 1; fi
+      </do>
+    </step>
+</jube>

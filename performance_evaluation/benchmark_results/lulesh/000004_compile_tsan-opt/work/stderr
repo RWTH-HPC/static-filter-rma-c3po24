@@ -1,0 +1,275 @@
+[INFO] Module intel/2023a loaded.
+[INFO] Module Classic-Flang/16.0.4-c23 loaded.
+[INFO] Module CMake/3.26.3 loaded.
+[INFO] Module CMake/3.26.3 loaded.
+Running on Module: /tmp/ss540294/n23m0025_223103/tmp.BpxGrSZlOg.ll
+
+Detected RMA Models used: 
+MPI_RMA: Y
+OpenSHMEM: N
+GASPI: N
+
+Phase 1: Factory Detection and Incidence relation up to depth 6
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 125 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_Z8CommRecvR6Domainiiiiibb'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Win_allocate' called in '_ZN6Domain16SetupCommBuffersEi'
+Upward Func instr: _ZN6Domain5sizeZEv
+Upward Func instr: _ZN6Domain5sizeZEv
+Upward Func instr: _ZN6Domain5sizeZEv
+Upward Func instr: _ZN6Domain5sizeZEv
+Upward Func instr: _ZN6Domain5sizeZEv
+Upward Func instr: _ZN6Domain5sizeZEv
+Upward Func instr: _ZN6Domain5sizeZEv
+Upward Func instr: _ZN6Domain5sizeZEv
+Upward Func instr: _ZN6Domain5sizeZEv
+Upward Func instr: _ZN6Domain5sizeZEv
+Upward Func instr: _ZN6Domain5sizeZEv
+Upward Func instr: _ZN6Domain5sizeZEv
+Upward Func instr: _ZN6Domain5sizeZEv
+Upward Func instr: _ZN6Domain5sizeZEv
+Upward Func instr: _ZN6Domain5sizeZEv
+Upward Func instr: _ZN6Domain5sizeZEv
+Upward Func instr: _ZN6Domain5sizeZEv
+Upward Func instr: _ZN6Domain5sizeZEv
+Upward Func instr: _ZN6Domain5sizeZEv
+Upward Func instr: _ZN6Domain5sizeZEv
+Upward Func instr: _ZN6Domain5sizeYEv
+Upward Func instr: _ZN6Domain5sizeYEv
+Upward Func instr: _ZN6Domain5sizeYEv
+Upward Func instr: _ZN6Domain5sizeYEv
+Upward Func instr: _ZN6Domain5sizeYEv
+Upward Func instr: _ZN6Domain5sizeYEv
+Upward Func instr: _ZN6Domain5sizeYEv
+Upward Func instr: _ZN6Domain5sizeYEv
+Upward Func instr: _ZN6Domain5sizeYEv
+Upward Func instr: _ZN6Domain5sizeYEv
+Upward Func instr: _ZN6Domain5sizeYEv
+Upward Func instr: _ZN6Domain5sizeYEv
+Upward Func instr: _ZN6Domain5sizeYEv
+Upward Func instr: _ZN6Domain5sizeYEv
+Upward Func instr: _ZN6Domain5sizeYEv
+Upward Func instr: _ZN6Domain5sizeYEv
+Upward Func instr: _ZN6Domain5sizeYEv
+Upward Func instr: _ZN6Domain5sizeYEv
+Upward Func instr: _ZN6Domain5sizeYEv
+Upward Func instr: _ZN6Domain5sizeYEv
+Upward Func instr: _ZN6Domain5sizeXEv
+Upward Func instr: _ZN6Domain5sizeXEv
+Upward Func instr: _ZN6Domain5sizeXEv
+Upward Func instr: _ZN6Domain5sizeXEv
+Upward Func instr: _ZN6Domain5sizeXEv
+Upward Func instr: _ZN6Domain5sizeXEv
+Upward Func instr: _ZN6Domain5sizeXEv
+Upward Func instr: _ZN6Domain5sizeXEv
+Upward Func instr: _ZN6Domain5sizeXEv
+Upward Func instr: _ZN6Domain5sizeXEv
+Upward Func instr: _ZN6Domain5sizeXEv
+Upward Func instr: _ZN6Domain5sizeXEv
+Upward Func instr: _ZN6Domain5sizeXEv
+Upward Func instr: _ZN6Domain5sizeXEv
+Upward Func instr: _ZN6Domain5sizeXEv
+Upward Func instr: _ZN6Domain5sizeXEv
+Upward Func instr: _ZN6Domain5sizeXEv
+Upward Func instr: _ZN6Domain5sizeXEv
+Upward Func instr: _ZN6Domain5sizeXEv
+Upward Func instr: _ZN6Domain5sizeXEv
+Upward Func instr: _ZN6Domain16SetupCommBuffersEi
+Upward Func instr: _ZNSt6vectorIiSaIiEE6resizeEm
+Upward Func instr: _ZNSt6vectorIiSaIiEE6resizeEm
+Upward Func instr: _ZNSt6vectorIiSaIiEE6resizeEm
+Upward Func instr: _ZNSt6vectorIiSaIiEE6resizeEm
+Upward Func instr: _ZNSt6vectorIiSaIiEE6resizeEm
+Upward Func instr: _ZNSt6vectorIiSaIiEE6resizeEm
+Upward Func instr: _ZNSt6vectorIiSaIiEE6resizeEm
+Upward Func instr: _ZNSt6vectorIiSaIiEE6resizeEm
+Upward Func instr: _ZNSt6vectorIiSaIiEE6resizeEm
+Upward Func instr: _ZNSt6vectorIiSaIiEE6resizeEm
+Upward Func instr: _ZNSt6vectorIiSaIiEE6resizeEm
+Upward Func instr: _ZN6Domain4lxipEi
+Upward Func instr: _ZN6Domain4lxipEi
+Upward Func instr: _ZN6Domain4lxipEi
+Upward Func instr: _ZN6Domain4lxipEi
+Upward Func instr: _ZN6Domain6elemBCEi
+Upward Func instr: _ZN6Domain6elemBCEi
+Upward Func instr: _ZN6Domain6elemBCEi
+Upward Func instr: _ZN6Domain6elemBCEi
+Upward Func instr: _ZN6Domain6elemBCEi
+Upward Func instr: _ZN6Domain6elemBCEi
+Upward Func instr: _ZN6Domain6elemBCEi
+Upward Func instr: _ZN6Domain6elemBCEi
+Upward Func instr: _ZN6Domain6elemBCEi
+Upward Func instr: _ZN6Domain6elemBCEi
+Upward Func instr: _ZN6Domain6elemBCEi
+Upward Func instr: _ZN6Domain6elemBCEi
+Upward Func instr: _ZN6Domain6elemBCEi
+Upward Func instr: _ZN6Domain6elemBCEi
+Upward Func instr: _ZN6Domain4lximEi
+Upward Func instr: _ZN6Domain4lximEi
+Upward Func instr: _ZN6Domain4lximEi
+Upward Func instr: _ZN6Domain4lximEi
+Upward Func instr: _ZN6Domain5letapEi
+Upward Func instr: _ZN6Domain5letapEi
+Upward Func instr: _ZN6Domain5letapEi
+Upward Func instr: _ZN6Domain5letapEi
+Upward Func instr: _ZN6Domain5letamEi
+Upward Func instr: _ZN6Domain5letamEi
+Upward Func instr: _ZN6Domain5letamEi
+Upward Func instr: _ZN6Domain5letamEi
+Upward Func instr: _ZN6Domain6lzetapEi
+Upward Func instr: _ZN6Domain6lzetapEi
+Upward Func instr: _ZN6Domain6lzetapEi
+Upward Func instr: _ZN6Domain6lzetapEi
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain7numElemEv
+Upward Func instr: _ZN6Domain6lzetamEi
+Upward Func instr: _ZN6Domain6lzetamEi
+Upward Func instr: _ZN6Domain6lzetamEi
+Upward Func instr: _ZN6Domain6lzetamEi
+Identified 700 connected Value(s)
+
+Phase 2-Default: Clipping unrelated global Variables
+Clipped 89 global variables
+
+Phase 3: Adding SanitizeThread attribute to affected functions, if not present
+Added Function '_Z8CommRecvR6Domainiiiiibb' to be instrumented
+Added Function '_ZN6Domain16SetupCommBuffersEi' to be instrumented
+Added Function '_ZL17CalcForceForNodesR6Domain' to be instrumented
+Added Function '_ZL13CalcQForElemsR6Domain' to be instrumented
+Added Function '_ZL13LagrangeNodalR6Domain' to be instrumented
+Added Function 'main' to be instrumented
+Added Function '_ZN6Domain23SetupBoundaryConditionsEi' to be instrumented
+Added Function '_Z9CommMonoQR6Domain' to be instrumented
+Added Function '_Z14CommSyncPosVelR6Domain' to be instrumented
+Added Function '_Z7CommSBNR6DomainiPMS_FRdiE' to be instrumented
+Added Function '_ZN6Domain5sizeZEv' to be instrumented
+Added Function '_ZN6Domain5sizeYEv' to be instrumented
+Added Function '_ZL43ApplyAccelerationBoundaryConditionsForNodesR6Domain' to be instrumented
+Added Function '_ZN6Domain5sizeXEv' to be instrumented
+Added Function '_ZN6DomainC2Eiiiiiiiii' to be instrumented
+Added Function '_ZN6Domain22AllocateElemPersistentEi' to be instrumented
+Added Function '_ZNSt6vectorIiSaIiEE6resizeEm' to be instrumented
+Added Function '_ZL28CalcMonotonicQRegionForElemsR6Domainid' to be instrumented
+Added Function '_ZN6Domain26SetupElementConnectivitiesEi' to be instrumented
+Added Function '_ZN6Domain4lxipEi' to be instrumented
+Added Function '_ZN6Domain6elemBCEi' to be instrumented
+Added Function '_ZN6Domain4lximEi' to be instrumented
+Added Function '_ZN6Domain5letapEi' to be instrumented
+Added Function '_ZN6Domain5letamEi' to be instrumented
+Added Function '_ZN6Domain6lzetapEi' to be instrumented
+Added Function '_ZL28CalcHourglassControlForElemsR6DomainPdd' to be instrumented
+Added Function '_ZL23CalcVolumeForceForElemsR6Domain' to be instrumented
+Added Function '_ZL31CalcMonotonicQGradientsForElemsR6Domain' to be instrumented
+Added Function '_ZL31ApplyMaterialPropertiesForElemsR6Domain' to be instrumented
+Added Function '_ZL20CalcLagrangeElementsR6Domain' to be instrumented
+Added Function '_ZL16LagrangeLeapFrogR6Domain' to be instrumented
+Added Function '_ZN6Domain28SetupThreadSupportStructuresEv' to be instrumented
+Added Function '_ZN6Domain21CreateRegionIndexSetsEii' to be instrumented
+Added Function '_ZN6Domain7numElemEv' to be instrumented
+Added Function '_ZN6Domain6lzetamEi' to be instrumented
+
+Found 899 shared resources in total.
+----------------------------------------
+699 | RemoteBuf
+200 | ReadBuf
+0 | WriteBuf
+0 | DirtyBuf
+----------------------------------------
+Remote access types: RO 
+
+Shared Resource detection finished, generating Result Struct
+TSanRMAOpt done!
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+  233 aa      - Number of MayAlias results
+    2 aa      - Number of MustAlias results
+  559 tsanMOD - Number of instrumented reads
+   70 tsanMOD - Number of instrumented writes
+12230 tsanMOD - Number of accesses ignored due to RMAOptimizerPlugin Whitelist
+

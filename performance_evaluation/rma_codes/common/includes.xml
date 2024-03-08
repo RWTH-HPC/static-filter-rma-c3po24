@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone = "no"?>
+<!-- 
+#   Include '<include from="includes.xml" path="includes/include"/>' in the benchmark xml to include additional features
+-->
+<jube>
+    <includes>
+        <!-- Use PnMPI to count MPI calls -->
+        <include from="pnmpi.xml" path="PnMPI/include" tag="pnmpi"/>
+        <!-- Output nodelist -->
+        <include from="nodelist.xml" path="nodelist/include" tag="nodelist"/>
+        <!-- Output filterstats  -->
+        <include from="filterstats.xml" path="filterstats/include" tag="filterstats"/>
+    </includes>
+</jube>

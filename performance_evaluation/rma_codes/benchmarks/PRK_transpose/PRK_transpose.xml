@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jube>  
+  <include-path>
+    <path>../../common</path>
+    <path>../../platform/CLAIX-23</path>
+  </include-path>
+
+  <benchmark name="PRK Transpose" outpath="PRK_transpose.benchmarks">
+    <!-- 
+      #Transpose Dataset 
+    -->    
+    <parameterset name="dataset" tag="C|(!S+!M+!L)">      
+      <!-- Custom input values, used if tag C is set or none of the following: S, M, L -->
+      <parameter name="num_iterations">400</parameter>
+      <parameter name="matrix_order">4800</parameter>
+    </parameterset>
+
+    <!-- Presets S, M, L -->
+    <parameterset name="dataset" tag="S">      
+      <parameter name="num_iterations">400</parameter>
+      <parameter name="matrix_order">7104</parameter>
+    </parameterset>
+    <parameterset name="dataset" tag="M">      
+      <parameter name="num_iterations">400</parameter>
+      <parameter name="matrix_order">16320</parameter>
+    </parameterset>
+    <parameterset name="dataset" tag="L">      
+      <parameter name="num_iterations">400</parameter>
+      <parameter name="matrix_order">36672</parameter>
+    </parameterset>
+
+    <!-- 
+      #Transpose Configuration
+    -->    
+    <parameterset name="config" init_with="PRK_transpose.xml:dataset">
+      <parameter name="tile_size">-1</parameter>
+      <parameter name="sync">1</parameter>
+      <parameter name="flush_local">0</parameter>
+    </parameterset>
+   
+    <!-- 
+      source directory 
+    -->  
+    <parameterset name="source"  init_with="defaults.xml">
+      <parameter name="path_to_source" type="string">${jube_benchmark_home}/prk/</parameter> <!-- - - - - - - - - - -  Path to the source folder       -->  
+    </parameterset> 
+    <!-- 
+      #Fetching system settings       
+      #Here you can add or change parameters to fit this specific benchmark
+    -->
+    <parameterset name="platform_specs_pset" init_with="system_settings.xml">  
+      <parameter name="application_tasks" type="int">48</parameter>         
+      <parameter name="taskspernode" type="int">48</parameter> <!-- - - - - - - - - - - - - - - - -  Tasks per node           -->  
+      <parameter name="threads" type="int">1</parameter>       <!-- - - - - - - - - - - - - - - - -  Threads                -->
+      <parameter name="timelimit">00:40:00</parameter>
+      <parameter name="args_exec">$num_iterations $matrix_order $tile_size $sync $flush_local</parameter> 
+    </parameterset>    
+    <parameterset name="execute_pset" init_with="system_settings.xml"></parameterset>  
+    <parameterset name="toolchain_env_pset" init_with="system_settings.xml">
+        <!-- <parameter name="compiler_name">clang</parameter>      - - - - - - - - - - - - - - - -  Compiler               -->
+        <!-- <parameter name="compiler_version">13.0.1</parameter>  - - - - - - - - - - - - - - - -  Compiler Version       -->
+        <!-- <parameter name="mpi_name">intelmpi</parameter>        - - - - - - - - - - - - - - - -  MPI                    -->
+        <!-- <parameter name="mpi_version">2022a</parameter>        - - - - - - - - - - - - - - - -  MPI Version            -->
+    </parameterset>
+    <parameterset name="compile_pset" init_with="system_settings.xml">
+      <parameter name="executable_name">transpose</parameter> <!-- - - - - - - - - - -  Name of the executable       --> 
+      <parameter name="kernel_folder">Transpose</parameter>
+      <!-- Change folder before compilation -->
+      <parameter name="compile_preparation" type="string">cd MPIRMA/${kernel_folder}</parameter> <!-- - - - - - - -  commands that have to be executed before compilation -->
+      <parameter name="compile_target" type="string">$executable_name</parameter> <!-- - - - - - - -  Makefile target for compilation -->
+      <!-- RMA is used by default -->
+      <parameter name="RMA_target" type="string"></parameter>
+    </parameterset>
+    <parameterset name="module_env_pset" init_with="system_settings.xml"></parameterset>
+    <parameterset name="mpirun_env_pset" init_with="system_settings.xml"></parameterset>
+    <parameterset name="export_env_pset" init_with="system_settings.xml"></parameterset>
+
+    <!-- Regex patternsets -->
+    <patternset name="pattern" init_with="defaults.xml:pattern">
+      <pattern name="time" type="float">Total time \(s\): ${jube_pat_fp}</pattern>
+      <pattern name="time_average" type="float">Avg time \(s\): ${jube_pat_fp}</pattern>
+      <pattern name="rate" type="float">Rate \([^\s]*\): ${jube_pat_fp}</pattern>
+    </patternset>
+    <!-- Load filesets -->
+    <fileset name="source_files" init_with="system_settings.xml"></fileset>
+    <fileset name="job_files" init_with="system_settings.xml"></fileset> <!-- Slurm -->
+    <!-- Load substituteset -->
+    <substituteset name="job_sub" init_with="system_settings.xml"></substituteset> <!-- Slurm -->
+
+    <!-- Load steps -->
+    <include from="must.xml" path="step" /> <!-- Must -->
+    <include from="defaults.xml" path="step" />
+
+    <!-- Compile step -->
+    <step name="compile" depend="copy_source" suffix="${compile_mode}">
+      <include from="defaults.xml" path="compile_psets/use" />
+      <!-- Compile executable -->
+      <do active="${do_compile}">      
+        cd copy_source/;
+        ${load_modules}; 
+        ${export}; 
+        ${compile_export};
+        <!-- COMPILE INSTRUCTIONS START -->
+        cd MPIRMA/${kernel_folder}
+        make clean;
+        ${time_measure_command} make $compile_target;
+        <!-- COMPILE INSTRUCTIONS END --> 
+        <!-- Caching executable -->
+        mkdir -p ${benchmark_build_dir};
+        mv -f ${executable_name} ${benchmark_build_dir}/${executable_full_name};
+      </do>      
+      <!-- Copying cached executable -->
+      <do>
+        cp -f ${benchmark_build_dir}/${executable_full_name} .;
+      </do>
+    </step>
+    <!-- Execute step -->
+    <step name="execute" depend="compile" suffix="${compile_mode}_${measurement_mode}" active="not ${ignorelist}" iterations="5">
+      <include from="defaults.xml" path="execute_psets/use" />
+      <do done_file="${done_file}" error_file="${error_file}">
+        $submit $submit_script
+      </do>
+    </step>   
+    <!-- Load analyser -->
+    <include from="defaults.xml" path="analyser"/>
+    <!-- result -->
+    <result>
+      <use>analyse</use>
+      <table name="result_csv" style="csv" separator=";" sort="tasks,compile_mode,measurement_mode,jube_wp_id">
+        <include from="defaults.xml" path="columns/column"/>
+        <column title="num_iters">num_iterations</column>
+        <column title="matrix_order">matrix_order</column>
+        <column title="time_avg">time_avg</column>
+        <column title="time_std">time_std</column>
+        <column title="rate (MFlops/s)">rate_avg</column>
+        <column title="memory total (MiB)" tag="memusage">memory_total</column>
+        <column>verification</column>
+      </table>
+      <table name="result" style="pretty" sort="tasks,compile_mode,measurement_mode,jube_wp_id">
+        <include from="defaults.xml" path="columns/column"/>
+        <column title="num_iters">num_iterations</column>
+        <column title="matrix_order">matrix_order</column>
+        <column title="time (s)" format=".3f">time_avg</column>
+        <column format=".3f">time_std</column>
+        <column title="rate (MFlops/s)">rate_avg</column>
+        <column title="memory total (MiB)" tag="memusage">memory_total</column>
+        <column>verification</column>
+      </table>
+    </result>
+    
+    <!-- Use additional features -->
+    <include from="includes.xml" path="includes/include"/>
+  </benchmark>
+</jube>

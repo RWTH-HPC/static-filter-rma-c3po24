@@ -1,0 +1,13 @@
+jube_benchmark_id;jube_wp_id;compile_mode;optimizations;compile_time;instr_reads;instr_writes;ignore_read_write;AL_ignored;ALX_ignored;CLUSTER_ignored
+25;2;base;;2.42;0;0;0;0;0;0
+25;3;tsan;;3.85;1712;924;98;0;0;0
+25;4;tsan-opt;AL6;5.29;98;98;14;2628;0;0
+25;5;tsan-opt;AL10;5.31;183;113;14;2528;0;0
+25;6;tsan-opt;AL1000;5.29;264;139;14;2423;0;0
+25;7;tsan-opt;ALX6;5.32;98;98;14;2628;0;0
+25;8;tsan-opt;ALX10;5.35;183;113;14;2528;0;0
+25;9;tsan-opt;ALX1000;5.32;264;139;14;2423;0;0
+25;10;tsan-opt;CLUSTER;5.43;1712;924;98;0;0;48
+25;11;tsan-opt;ALX6,CLUSTER;6.4;98;98;14;2628;0;0
+25;12;tsan-opt;ALX10,CLUSTER;6.39;183;113;14;2528;0;3
+25;13;tsan-opt;ALX1000,CLUSTER;6.41;264;139;14;2423;0;13

@@ -1,0 +1,1222 @@
+[2024-03-08 15:30:31,817]:INFO: ######################################################################
+[2024-03-08 15:30:31,817]:INFO: # Analyse benchmark "miniVite" id: 25
+[2024-03-08 15:30:31,817]:INFO: ######################################################################
+[2024-03-08 15:30:31,819]:INFO: >>> Start analyse
+[2024-03-08 15:30:31,819]:DEBUG: Run analyser "analyse"
+[2024-03-08 15:30:31,819]:DEBUG:   available pattern:
+[2024-03-08 15:30:31,820]:DEBUG:          | pattern      | value                                    |
+[2024-03-08 15:30:31,820]:DEBUG:          |--------------|------------------------------------------|
+[2024-03-08 15:30:31,820]:DEBUG:          | mods         | MODS \(final modularity \* average       |
+[2024-03-08 15:30:31,820]:DEBUG:          |              | time\)\: $jube_pat_fp                    |
+[2024-03-08 15:30:31,820]:DEBUG:          | time         | Average total time \(in s\),             |
+[2024-03-08 15:30:31,820]:DEBUG:          |              | #Processes\: $jube_pat_fp,               |
+[2024-03-08 15:30:31,821]:DEBUG:          |              | $jube_pat_nint                           |
+[2024-03-08 15:30:31,821]:DEBUG:          | verification | EXECUTION VERIFICATION CHECK:            |
+[2024-03-08 15:30:31,821]:DEBUG:          |              | ${jube_pat_wrd}                          |
+[2024-03-08 15:30:31,821]:DEBUG: 
+[2024-03-08 15:30:31,822]:DEBUG:   available derived pattern:
+[2024-03-08 15:30:31,822]:DEBUG:          | pattern | value |
+[2024-03-08 15:30:31,822]:DEBUG:          |---------|-------|
+[2024-03-08 15:30:31,822]:DEBUG:   analyse step "execute"
+[2024-03-08 15:30:31,824]:DEBUG:     scan file miniVite.benchmarks/000025/000024_execute_tsan_must/work/job.out
+[2024-03-08 15:30:31,830]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:31,830]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-08 15:30:31,830]:DEBUG:          |         time | first:79.4381, min:79.4381, max:79.4381, |
+[2024-03-08 15:30:31,830]:DEBUG:          |              | sum:79.4381, sum2:6310.411731610001,     |
+[2024-03-08 15:30:31,830]:DEBUG:          |              | cnt:1, avg:79.4381, std:0, last:79.4381  |
+[2024-03-08 15:30:31,830]:DEBUG:          |         mods | first:40.0897, min:40.0897, max:40.0897, |
+[2024-03-08 15:30:31,830]:DEBUG:          |              | sum:40.0897, sum2:1607.18404609, cnt:1,  |
+[2024-03-08 15:30:31,831]:DEBUG:          |              | avg:40.0897, std:0, last:40.0897         |
+[2024-03-08 15:30:31,832]:DEBUG:     scan file miniVite.benchmarks/000025/000028_execute_tsan_must/work/job.out
+[2024-03-08 15:30:31,837]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:31,837]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-08 15:30:31,837]:DEBUG:          |         time | first:79.4381, min:77.3488, max:79.4381, |
+[2024-03-08 15:30:31,837]:DEBUG:          |              | sum:156.7869, sum2:12293.24859305,       |
+[2024-03-08 15:30:31,838]:DEBUG:          |              | cnt:2, avg:78.39345,                     |
+[2024-03-08 15:30:31,838]:DEBUG:          |              | std:1.4773581979333352, last:77.3488     |
+[2024-03-08 15:30:31,838]:DEBUG:          |         mods | first:40.0897, min:39.0353, max:40.0897, |
+[2024-03-08 15:30:31,838]:DEBUG:          |              | sum:79.125, sum2:3130.93869218, cnt:2,   |
+[2024-03-08 15:30:31,838]:DEBUG:          |              | avg:39.5625, std:0.7455733900831555,     |
+[2024-03-08 15:30:31,838]:DEBUG:          |              | last:39.0353                             |
+[2024-03-08 15:30:31,839]:DEBUG:     scan file miniVite.benchmarks/000025/000027_execute_tsan_must/work/job.out
+[2024-03-08 15:30:31,845]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:31,845]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-08 15:30:31,845]:DEBUG:          |         time | first:79.4381, min:77.3488, max:79.4381, |
+[2024-03-08 15:30:31,845]:DEBUG:          |              | sum:235.1547, sum2:18434.76066989,       |
+[2024-03-08 15:30:31,845]:DEBUG:          |              | cnt:3, avg:78.3849,                      |
+[2024-03-08 15:30:31,845]:DEBUG:          |              | std:1.0447549617020466, last:78.3678     |
+[2024-03-08 15:30:31,845]:DEBUG:          |         mods | first:40.0897, min:39.0353, max:40.0897, |
+[2024-03-08 15:30:31,846]:DEBUG:          |              | sum:118.6746, sum2:4695.10955234, cnt:3, |
+[2024-03-08 15:30:31,846]:DEBUG:          |              | avg:39.5582, std:0.5272526054940635,     |
+[2024-03-08 15:30:31,846]:DEBUG:          |              | last:39.5496                             |
+[2024-03-08 15:30:31,848]:DEBUG:     scan file miniVite.benchmarks/000025/000026_execute_tsan_must/work/job.out
+[2024-03-08 15:30:31,853]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:31,853]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-08 15:30:31,854]:DEBUG:          |         time | first:79.4381, min:77.3488, max:79.4381, |
+[2024-03-08 15:30:31,854]:DEBUG:          |              | sum:314.5568, sum2:24739.4541543, cnt:4, |
+[2024-03-08 15:30:31,854]:DEBUG:          |              | avg:78.6392, std:0.9931511700980792,     |
+[2024-03-08 15:30:31,854]:DEBUG:          |              | last:79.4021                             |
+[2024-03-08 15:30:31,854]:DEBUG:          |         mods | first:40.0897, min:39.0353, max:40.0897, |
+[2024-03-08 15:30:31,854]:DEBUG:          |              | sum:158.7461, sum2:6300.83466459, cnt:4, |
+[2024-03-08 15:30:31,854]:DEBUG:          |              | avg:39.686525, std:0.501197993976695,    |
+[2024-03-08 15:30:31,854]:DEBUG:          |              | last:40.0715                             |
+[2024-03-08 15:30:31,855]:DEBUG:     scan file miniVite.benchmarks/000025/000025_execute_tsan_must/work/job.out
+[2024-03-08 15:30:31,861]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:31,861]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-08 15:30:31,861]:DEBUG:          |         time | first:79.4381, min:77.3488, max:79.4381, |
+[2024-03-08 15:30:31,861]:DEBUG:          |              | sum:393.5232, sum2:30975.14648326,       |
+[2024-03-08 15:30:31,861]:DEBUG:          |              | cnt:5, avg:78.70464,                     |
+[2024-03-08 15:30:31,861]:DEBUG:          |              | std:0.8724528084663268, last:78.9664     |
+[2024-03-08 15:30:31,861]:DEBUG:          |         mods | first:40.0897, min:39.0353, max:40.0897, |
+[2024-03-08 15:30:31,861]:DEBUG:          |              | sum:198.5977, sum2:7888.984687149999,    |
+[2024-03-08 15:30:31,861]:DEBUG:          |              | cnt:5, avg:39.71954,                     |
+[2024-03-08 15:30:31,862]:DEBUG:          |              | std:0.44028345755879383, last:39.8516    |
+[2024-03-08 15:30:31,864]:DEBUG:     scan file miniVite.benchmarks/000025/000049_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:31,869]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:31,869]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-08 15:30:31,869]:DEBUG:          |         time | first:46.9583, min:46.9583, max:46.9583, |
+[2024-03-08 15:30:31,869]:DEBUG:          |              | sum:46.9583, sum2:2205.08193889, cnt:1,  |
+[2024-03-08 15:30:31,869]:DEBUG:          |              | avg:46.9583, std:0, last:46.9583         |
+[2024-03-08 15:30:31,869]:DEBUG:          |         mods | first:23.6982, min:23.6982, max:23.6982, |
+[2024-03-08 15:30:31,869]:DEBUG:          |              | sum:23.6982, sum2:561.60468324, cnt:1,   |
+[2024-03-08 15:30:31,869]:DEBUG:          |              | avg:23.6982, std:0, last:23.6982         |
+[2024-03-08 15:30:31,871]:DEBUG:     scan file miniVite.benchmarks/000025/000052_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:31,876]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:31,876]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-08 15:30:31,876]:DEBUG:          |         time | first:46.9583, min:46.7673, max:46.9583, |
+[2024-03-08 15:30:31,876]:DEBUG:          |              | sum:93.7256, sum2:4392.26228818, cnt:2,  |
+[2024-03-08 15:30:31,876]:DEBUG:          |              | avg:46.8628, std:0.1350573952051217,     |
+[2024-03-08 15:30:31,876]:DEBUG:          |              | last:46.7673                             |
+[2024-03-08 15:30:31,876]:DEBUG:          |         mods | first:23.6982, min:23.6018, max:23.6982, |
+[2024-03-08 15:30:31,876]:DEBUG:          |              | sum:47.3, sum2:1118.64964648, cnt:2,     |
+[2024-03-08 15:30:31,877]:DEBUG:          |              | avg:23.65, std:0.06816509370819357,      |
+[2024-03-08 15:30:31,877]:DEBUG:          |              | last:23.6018                             |
+[2024-03-08 15:30:31,878]:DEBUG:     scan file miniVite.benchmarks/000025/000051_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:31,883]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:31,883]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-08 15:30:31,883]:DEBUG:          |         time | first:46.9583, min:46.7673, max:46.9583, |
+[2024-03-08 15:30:31,883]:DEBUG:          |              | sum:140.5417, sum2:6584.009507389999,    |
+[2024-03-08 15:30:31,883]:DEBUG:          |              | cnt:3, avg:46.84723333333333,            |
+[2024-03-08 15:30:31,883]:DEBUG:          |              | std:0.09923312618858555, last:46.8161    |
+[2024-03-08 15:30:31,883]:DEBUG:          |         mods | first:23.6982, min:23.6018, max:23.6982, |
+[2024-03-08 15:30:31,884]:DEBUG:          |              | sum:70.9265, sum2:1676.86114873, cnt:3,  |
+[2024-03-08 15:30:31,884]:DEBUG:          |              | avg:23.642166666666668,                  |
+[2024-03-08 15:30:31,884]:DEBUG:          |              | std:0.05007317977854094, last:23.6265    |
+[2024-03-08 15:30:31,885]:DEBUG:     scan file miniVite.benchmarks/000025/000050_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:31,890]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:31,890]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-08 15:30:31,890]:DEBUG:          |         time | first:46.9583, min:46.6158, max:46.9583, |
+[2024-03-08 15:30:31,890]:DEBUG:          |              | sum:187.1575, sum2:8757.042317029998,    |
+[2024-03-08 15:30:31,890]:DEBUG:          |              | cnt:4, avg:46.789375,                    |
+[2024-03-08 15:30:31,891]:DEBUG:          |              | std:0.14126271918866834, last:46.6158    |
+[2024-03-08 15:30:31,891]:DEBUG:          |         mods | first:23.6982, min:23.5254, max:23.6982, |
+[2024-03-08 15:30:31,891]:DEBUG:          |              | sum:94.45190000000001,                   |
+[2024-03-08 15:30:31,891]:DEBUG:          |              | sum2:2230.30559389, cnt:4,               |
+[2024-03-08 15:30:31,891]:DEBUG:          |              | avg:23.612975000000002,                  |
+[2024-03-08 15:30:31,891]:DEBUG:          |              | std:0.07127525868021704, last:23.5254    |
+[2024-03-08 15:30:31,893]:DEBUG:     scan file miniVite.benchmarks/000025/000053_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:31,898]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:31,898]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-08 15:30:31,898]:DEBUG:          |         time | first:46.9583, min:46.6158, max:47.2311, |
+[2024-03-08 15:30:31,898]:DEBUG:          |              | sum:234.3886, sum2:10987.819124239999,   |
+[2024-03-08 15:30:31,898]:DEBUG:          |              | cnt:5, avg:46.87772,                     |
+[2024-03-08 15:30:31,898]:DEBUG:          |              | std:0.2323586925420556, last:47.2311     |
+[2024-03-08 15:30:31,898]:DEBUG:          |         mods | first:23.6982, min:23.5254, max:23.8359, |
+[2024-03-08 15:30:31,898]:DEBUG:          |              | sum:118.2878, sum2:2798.4557227, cnt:5,  |
+[2024-03-08 15:30:31,899]:DEBUG:          |              | avg:23.65756, std:0.11725712345098117,   |
+[2024-03-08 15:30:31,899]:DEBUG:          |              | last:23.8359                             |
+[2024-03-08 15:30:31,901]:DEBUG:     scan file miniVite.benchmarks/000025/000019_execute_base_must/work/job.out
+[2024-03-08 15:30:31,906]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:31,906]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-08 15:30:31,906]:DEBUG:          |         time | first:16.2001, min:16.2001, max:16.2001, |
+[2024-03-08 15:30:31,906]:DEBUG:          |              | sum:16.2001, sum2:262.44324000999995,    |
+[2024-03-08 15:30:31,906]:DEBUG:          |              | cnt:1, avg:16.2001, std:0, last:16.2001  |
+[2024-03-08 15:30:31,906]:DEBUG:          |         mods | first:8.17562, min:8.17562, max:8.17562, |
+[2024-03-08 15:30:31,906]:DEBUG:          |              | sum:8.17562, sum2:66.84076238440001,     |
+[2024-03-08 15:30:31,906]:DEBUG:          |              | cnt:1, avg:8.17562, std:0, last:8.17562  |
+[2024-03-08 15:30:31,908]:DEBUG:     scan file miniVite.benchmarks/000025/000020_execute_base_must/work/job.out
+[2024-03-08 15:30:31,913]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:31,913]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-08 15:30:31,913]:DEBUG:          |         time |   first:16.2001, min:16.2001, max:16.54, |
+[2024-03-08 15:30:31,913]:DEBUG:          |              | sum:32.7401, sum2:536.01484001, cnt:2,   |
+[2024-03-08 15:30:31,913]:DEBUG:          |              | avg:16.37005, std:0.2403455949252289,    |
+[2024-03-08 15:30:31,913]:DEBUG:          |              | last:16.54                               |
+[2024-03-08 15:30:31,913]:DEBUG:          |         mods | first:8.17562, min:8.17562, max:8.34718, |
+[2024-03-08 15:30:31,914]:DEBUG:          |              | sum:16.5228, sum2:136.51617633680002,    |
+[2024-03-08 15:30:31,914]:DEBUG:          |              | cnt:2, avg:8.2614,                       |
+[2024-03-08 15:30:31,914]:DEBUG:          |              | std:0.12131123938041817, last:8.34718    |
+[2024-03-08 15:30:31,916]:DEBUG:     scan file miniVite.benchmarks/000025/000023_execute_base_must/work/job.out
+[2024-03-08 15:30:31,921]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:31,921]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-08 15:30:31,921]:DEBUG:          |         time |   first:16.2001, min:16.2001, max:16.54, |
+[2024-03-08 15:30:31,921]:DEBUG:          |              | sum:49.0249, sum2:801.20955105, cnt:3,   |
+[2024-03-08 15:30:31,921]:DEBUG:          |              | avg:16.341633333333334,                  |
+[2024-03-08 15:30:31,921]:DEBUG:          |              | std:0.17693366930374646, last:16.2848    |
+[2024-03-08 15:30:31,921]:DEBUG:          |         mods | first:8.17562, min:8.17562, max:8.34718, |
+[2024-03-08 15:30:31,922]:DEBUG:          |              | sum:24.74118, sum2:204.0579461612,       |
+[2024-03-08 15:30:31,922]:DEBUG:          |              | cnt:3, avg:8.24706,                      |
+[2024-03-08 15:30:31,922]:DEBUG:          |              | std:0.08930350049128624, last:8.21838    |
+[2024-03-08 15:30:31,924]:DEBUG:     scan file miniVite.benchmarks/000025/000022_execute_base_must/work/job.out
+[2024-03-08 15:30:31,943]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:31,943]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-08 15:30:31,943]:DEBUG:          |         time |   first:16.2001, min:16.1426, max:16.54, |
+[2024-03-08 15:30:31,943]:DEBUG:          |              | sum:65.1675, sum2:1061.79308581, cnt:4,  |
+[2024-03-08 15:30:31,943]:DEBUG:          |              | avg:16.291875, std:0.17542495784039128,  |
+[2024-03-08 15:30:31,943]:DEBUG:          |              | last:16.1426                             |
+[2024-03-08 15:30:31,943]:DEBUG:          |         mods | first:8.17562, min:8.14663, max:8.34718, |
+[2024-03-08 15:30:31,943]:DEBUG:          |              | sum:32.88781, sum2:270.4255265181,       |
+[2024-03-08 15:30:31,943]:DEBUG:          |              | cnt:4, avg:8.2219525,                    |
+[2024-03-08 15:30:31,943]:DEBUG:          |              | std:0.08853411597603202, last:8.14663    |
+[2024-03-08 15:30:31,944]:DEBUG:     scan file miniVite.benchmarks/000025/000021_execute_base_must/work/job.out
+[2024-03-08 15:30:31,949]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:31,949]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-08 15:30:31,949]:DEBUG:          |         time |   first:16.2001, min:15.9848, max:16.54, |
+[2024-03-08 15:30:31,949]:DEBUG:          |              | sum:81.1523, sum2:1317.30691685, cnt:5,  |
+[2024-03-08 15:30:31,949]:DEBUG:          |              | avg:16.23046, std:0.20479123028110985,   |
+[2024-03-08 15:30:31,949]:DEBUG:          |              | last:15.9848                             |
+[2024-03-08 15:30:31,949]:DEBUG:          |         mods | first:8.17562, min:8.06696, max:8.34718, |
+[2024-03-08 15:30:31,949]:DEBUG:          |              | sum:40.95477, sum2:335.5013701597,       |
+[2024-03-08 15:30:31,950]:DEBUG:          |              | cnt:5, avg:8.190954000000001,            |
+[2024-03-08 15:30:31,950]:DEBUG:          |              | std:0.10335981946573397, last:8.06696    |
+[2024-03-08 15:30:31,951]:DEBUG:     scan file miniVite.benchmarks/000025/000074_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:31,957]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:31,957]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-08 15:30:31,957]:DEBUG:          |         time | first:63.9457, min:63.9457, max:63.9457, |
+[2024-03-08 15:30:31,957]:DEBUG:          |              | sum:63.9457, sum2:4089.0525484900004,    |
+[2024-03-08 15:30:31,957]:DEBUG:          |              | cnt:1, avg:63.9457, std:0, last:63.9457  |
+[2024-03-08 15:30:31,957]:DEBUG:          |         mods | first:32.2712, min:32.2712, max:32.2712, |
+[2024-03-08 15:30:31,957]:DEBUG:          |              | sum:32.2712, sum2:1041.43034944, cnt:1,  |
+[2024-03-08 15:30:31,957]:DEBUG:          |              | avg:32.2712, std:0, last:32.2712         |
+[2024-03-08 15:30:31,958]:DEBUG:     scan file miniVite.benchmarks/000025/000077_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:31,964]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:31,964]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-08 15:30:31,964]:DEBUG:          |         time | first:63.9457, min:63.8883, max:63.9457, |
+[2024-03-08 15:30:31,964]:DEBUG:          |              | sum:127.834, sum2:8170.7674253800005,    |
+[2024-03-08 15:30:31,964]:DEBUG:          |              | cnt:2, avg:63.917,                       |
+[2024-03-08 15:30:31,964]:DEBUG:          |              | std:0.04058792924721535, last:63.8883    |
+[2024-03-08 15:30:31,964]:DEBUG:          |         mods | first:32.2712, min:32.2422, max:32.2712, |
+[2024-03-08 15:30:31,965]:DEBUG:          |              | sum:64.51339999999999,                   |
+[2024-03-08 15:30:31,965]:DEBUG:          |              | sum2:2080.98981028, cnt:2,               |
+[2024-03-08 15:30:31,965]:DEBUG:          |              | avg:32.256699999999995,                  |
+[2024-03-08 15:30:31,965]:DEBUG:          |              | std:0.020506096665945762, last:32.2422   |
+[2024-03-08 15:30:31,967]:DEBUG:     scan file miniVite.benchmarks/000025/000076_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:31,972]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:31,972]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-08 15:30:31,972]:DEBUG:          |         time | first:63.9457, min:63.8883, max:64.5332, |
+[2024-03-08 15:30:31,972]:DEBUG:          |              | sum:192.3672, sum2:12335.30132762,       |
+[2024-03-08 15:30:31,972]:DEBUG:          |              | cnt:3, avg:64.1224,                      |
+[2024-03-08 15:30:31,972]:DEBUG:          |              | std:0.3569189964123651, last:64.5332     |
+[2024-03-08 15:30:31,972]:DEBUG:          |         mods | first:32.2712, min:32.2422, max:32.5677, |
+[2024-03-08 15:30:31,973]:DEBUG:          |              | sum:97.08109999999999,                   |
+[2024-03-08 15:30:31,973]:DEBUG:          |              | sum2:3141.64489357, cnt:3,               |
+[2024-03-08 15:30:31,973]:DEBUG:          |              | avg:32.360366666666664,                  |
+[2024-03-08 15:30:31,973]:DEBUG:          |              | std:0.18014045446174587, last:32.5677    |
+[2024-03-08 15:30:31,974]:DEBUG:     scan file miniVite.benchmarks/000025/000075_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:31,979]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:31,979]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-08 15:30:31,979]:DEBUG:          |         time | first:63.9457, min:63.8883, max:64.5332, |
+[2024-03-08 15:30:31,979]:DEBUG:          |              | sum:256.4809, sum2:16445.86785531,       |
+[2024-03-08 15:30:31,979]:DEBUG:          |              | cnt:4, avg:64.120225,                    |
+[2024-03-08 15:30:31,979]:DEBUG:          |              | std:0.2914556041069731, last:64.1137     |
+[2024-03-08 15:30:31,980]:DEBUG:          |         mods | first:32.2712, min:32.2422, max:32.5677, |
+[2024-03-08 15:30:31,980]:DEBUG:          |              | sum:129.4371, sum2:4188.55562957, cnt:4, |
+[2024-03-08 15:30:31,980]:DEBUG:          |              | avg:32.359275, std:0.14710026909234758,  |
+[2024-03-08 15:30:31,980]:DEBUG:          |              | last:32.356                              |
+[2024-03-08 15:30:31,981]:DEBUG:     scan file miniVite.benchmarks/000025/000078_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:31,985]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:31,985]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-08 15:30:31,985]:DEBUG:          |         time | first:63.9457, min:63.8883, max:64.7937, |
+[2024-03-08 15:30:31,985]:DEBUG:          |              | sum:321.2746, sum2:20644.091415, cnt:5,  |
+[2024-03-08 15:30:31,985]:DEBUG:          |              | avg:64.25492, std:0.3929675457328454,    |
+[2024-03-08 15:30:31,985]:DEBUG:          |              | last:64.7937                             |
+[2024-03-08 15:30:31,985]:DEBUG:          |         mods | first:32.2712, min:32.2422, max:32.6991, |
+[2024-03-08 15:30:31,985]:DEBUG:          |              | sum:162.13619999999997,                  |
+[2024-03-08 15:30:31,986]:DEBUG:          |              | sum2:5257.78677038, cnt:5, avg:32.42724, |
+[2024-03-08 15:30:31,986]:DEBUG:          |              | std:0.19830550421144333, last:32.6991    |
+[2024-03-08 15:30:31,987]:DEBUG:     scan file miniVite.benchmarks/000025/000045_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:31,992]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:31,992]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-08 15:30:31,992]:DEBUG:          |         time | first:39.4238, min:39.4238, max:39.4238, |
+[2024-03-08 15:30:31,992]:DEBUG:          |              | sum:39.4238, sum2:1554.23600644, cnt:1,  |
+[2024-03-08 15:30:31,992]:DEBUG:          |              | avg:39.4238, std:0, last:39.4238         |
+[2024-03-08 15:30:31,992]:DEBUG:          |         mods | first:19.8959, min:19.8959, max:19.8959, |
+[2024-03-08 15:30:31,992]:DEBUG:          |              | sum:19.8959, sum2:395.84683681, cnt:1,   |
+[2024-03-08 15:30:31,992]:DEBUG:          |              | avg:19.8959, std:0, last:19.8959         |
+[2024-03-08 15:30:31,994]:DEBUG:     scan file miniVite.benchmarks/000025/000048_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:31,999]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:31,999]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-08 15:30:31,999]:DEBUG:          |         time | first:39.4238, min:39.1519, max:39.4238, |
+[2024-03-08 15:30:31,999]:DEBUG:          |              | sum:78.5757, sum2:3087.1072800499996,    |
+[2024-03-08 15:30:31,999]:DEBUG:          |              | cnt:2, avg:39.28785,                     |
+[2024-03-08 15:30:31,999]:DEBUG:          |              | std:0.1922623338046875, last:39.1519     |
+[2024-03-08 15:30:31,999]:DEBUG:          |         mods | first:19.8959, min:19.7586, max:19.8959, |
+[2024-03-08 15:30:31,999]:DEBUG:          |              | sum:39.6545, sum2:786.24911077, cnt:2,   |
+[2024-03-08 15:30:32,000]:DEBUG:          |              | avg:19.82725, std:0.09708576105731713,   |
+[2024-03-08 15:30:32,000]:DEBUG:          |              | last:19.7586                             |
+[2024-03-08 15:30:32,001]:DEBUG:     scan file miniVite.benchmarks/000025/000044_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,006]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,006]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-08 15:30:32,007]:DEBUG:          |         time | first:39.4238, min:39.1519, max:39.4238, |
+[2024-03-08 15:30:32,007]:DEBUG:          |              | sum:117.8085, sum2:4626.31987589, cnt:3, |
+[2024-03-08 15:30:32,007]:DEBUG:          |              | avg:39.2695, std:0.13961579423632067,    |
+[2024-03-08 15:30:32,007]:DEBUG:          |              | last:39.2328                             |
+[2024-03-08 15:30:32,007]:DEBUG:          |         mods | first:19.8959, min:19.7586, max:19.8959, |
+[2024-03-08 15:30:32,007]:DEBUG:          |              | sum:59.45399999999999,                   |
+[2024-03-08 15:30:32,007]:DEBUG:          |              | sum2:1178.26931102, cnt:3,               |
+[2024-03-08 15:30:32,007]:DEBUG:          |              | avg:19.817999999999998,                  |
+[2024-03-08 15:30:32,007]:DEBUG:          |              | std:0.07049475157866175, last:19.7995    |
+[2024-03-08 15:30:32,009]:DEBUG:     scan file miniVite.benchmarks/000025/000047_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,014]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,014]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-08 15:30:32,015]:DEBUG:          |         time | first:39.4238, min:38.9559, max:39.4238, |
+[2024-03-08 15:30:32,015]:DEBUG:          |              | sum:156.7644, sum2:6143.8820207, cnt:4,  |
+[2024-03-08 15:30:32,015]:DEBUG:          |              | avg:39.1911, std:0.19385893496783657,    |
+[2024-03-08 15:30:32,015]:DEBUG:          |              | last:38.9559                             |
+[2024-03-08 15:30:32,015]:DEBUG:          |         mods | first:19.8959, min:19.6597, max:19.8959, |
+[2024-03-08 15:30:32,015]:DEBUG:          |              | sum:79.1137, sum2:1564.7731151100002,    |
+[2024-03-08 15:30:32,015]:DEBUG:          |              | cnt:4, avg:19.778425,                    |
+[2024-03-08 15:30:32,015]:DEBUG:          |              | std:0.09786587335122304, last:19.6597    |
+[2024-03-08 15:30:32,017]:DEBUG:     scan file miniVite.benchmarks/000025/000046_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,022]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,022]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-08 15:30:32,022]:DEBUG:          |         time | first:39.4238, min:38.9559, max:39.4238, |
+[2024-03-08 15:30:32,022]:DEBUG:          |              | sum:196.18449999999999,                  |
+[2024-03-08 15:30:32,022]:DEBUG:          |              | sum2:7697.82630471, cnt:5, avg:39.2369,  |
+[2024-03-08 15:30:32,022]:DEBUG:          |              | std:0.19665748142443568, last:39.4201    |
+[2024-03-08 15:30:32,022]:DEBUG:          |         mods | first:19.8959, min:19.6597, max:19.8959, |
+[2024-03-08 15:30:32,022]:DEBUG:          |              | sum:99.0077, sum2:1960.5443511100002,    |
+[2024-03-08 15:30:32,023]:DEBUG:          |              | cnt:5, avg:19.80154,                     |
+[2024-03-08 15:30:32,023]:DEBUG:          |              | std:0.09927141078911318, last:19.894     |
+[2024-03-08 15:30:32,024]:DEBUG:     scan file miniVite.benchmarks/000025/000014_execute_base_base/work/job.out
+[2024-03-08 15:30:32,029]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,029]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-08 15:30:32,029]:DEBUG:          |         time | first:15.5377, min:15.5377, max:15.5377, |
+[2024-03-08 15:30:32,029]:DEBUG:          |              | sum:15.5377, sum2:241.42012128999997,    |
+[2024-03-08 15:30:32,029]:DEBUG:          |              | cnt:1, avg:15.5377, std:0, last:15.5377  |
+[2024-03-08 15:30:32,029]:DEBUG:          |         mods | first:7.84137, min:7.84137, max:7.84137, |
+[2024-03-08 15:30:32,029]:DEBUG:          |              | sum:7.84137, sum2:61.487083476900004,    |
+[2024-03-08 15:30:32,029]:DEBUG:          |              | cnt:1, avg:7.84137, std:0, last:7.84137  |
+[2024-03-08 15:30:32,031]:DEBUG:     scan file miniVite.benchmarks/000025/000017_execute_base_base/work/job.out
+[2024-03-08 15:30:32,036]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,036]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-08 15:30:32,036]:DEBUG:          |         time | first:15.5377, min:15.5377, max:15.6163, |
+[2024-03-08 15:30:32,036]:DEBUG:          |              | sum:31.154, sum2:485.28894698, cnt:2,    |
+[2024-03-08 15:30:32,036]:DEBUG:          |              | avg:15.577, std:0.055578593001017106,    |
+[2024-03-08 15:30:32,037]:DEBUG:          |              | last:15.6163                             |
+[2024-03-08 15:30:32,037]:DEBUG:          |         mods | first:7.84137, min:7.84137, max:7.88099, |
+[2024-03-08 15:30:32,037]:DEBUG:          |              | sum:15.72236, sum2:123.597086857, cnt:2, |
+[2024-03-08 15:30:32,037]:DEBUG:          |              | avg:7.86118, std:0.02801557067036745,    |
+[2024-03-08 15:30:32,037]:DEBUG:          |              | last:7.88099                             |
+[2024-03-08 15:30:32,039]:DEBUG:     scan file miniVite.benchmarks/000025/000016_execute_base_base/work/job.out
+[2024-03-08 15:30:32,044]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,044]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-08 15:30:32,044]:DEBUG:          |         time | first:15.5377, min:15.5377, max:15.6163, |
+[2024-03-08 15:30:32,044]:DEBUG:          |              | sum:46.7638, sum2:728.95480302, cnt:3,   |
+[2024-03-08 15:30:32,044]:DEBUG:          |              | avg:15.587933333333334,                  |
+[2024-03-08 15:30:32,044]:DEBUG:          |              | std:0.043624572585766394, last:15.6098   |
+[2024-03-08 15:30:32,044]:DEBUG:          |         mods | first:7.84137, min:7.84137, max:7.88099, |
+[2024-03-08 15:30:32,044]:DEBUG:          |              | sum:23.60011, sum2:185.65603191949998,   |
+[2024-03-08 15:30:32,045]:DEBUG:          |              | cnt:3, avg:7.866703333333334,            |
+[2024-03-08 15:30:32,045]:DEBUG:          |              | std:0.021999039372729023, last:7.87775   |
+[2024-03-08 15:30:32,047]:DEBUG:     scan file miniVite.benchmarks/000025/000015_execute_base_base/work/job.out
+[2024-03-08 15:30:32,052]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,052]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-08 15:30:32,052]:DEBUG:          |         time | first:15.5377, min:15.3167, max:15.6163, |
+[2024-03-08 15:30:32,052]:DEBUG:          |              | sum:62.0805, sum2:963.55610191, cnt:4,   |
+[2024-03-08 15:30:32,052]:DEBUG:          |              | avg:15.520125, std:0.14021631799952963,  |
+[2024-03-08 15:30:32,052]:DEBUG:          |              | last:15.3167                             |
+[2024-03-08 15:30:32,052]:DEBUG:          |         mods |  first:7.84137, min:7.7298, max:7.88099, |
+[2024-03-08 15:30:32,052]:DEBUG:          |              | sum:31.32991, sum2:245.40583995949999,   |
+[2024-03-08 15:30:32,053]:DEBUG:          |              | cnt:4, avg:7.8324775,                    |
+[2024-03-08 15:30:32,053]:DEBUG:          |              | std:0.0707691257422293, last:7.7298      |
+[2024-03-08 15:30:32,054]:DEBUG:     scan file miniVite.benchmarks/000025/000018_execute_base_base/work/job.out
+[2024-03-08 15:30:32,059]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,059]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-08 15:30:32,059]:DEBUG:          |         time | first:15.5377, min:15.3167, max:15.6163, |
+[2024-03-08 15:30:32,059]:DEBUG:          |              | sum:77.5408, sum2:1202.576978, cnt:5,    |
+[2024-03-08 15:30:32,059]:DEBUG:          |              | avg:15.50816, std:0.1243433472284194,    |
+[2024-03-08 15:30:32,059]:DEBUG:          |              | last:15.4603                             |
+[2024-03-08 15:30:32,059]:DEBUG:          |         mods |  first:7.84137, min:7.7298, max:7.88099, |
+[2024-03-08 15:30:32,059]:DEBUG:          |              | sum:39.13219, sum2:306.2814131579,       |
+[2024-03-08 15:30:32,060]:DEBUG:          |              | cnt:5, avg:7.8264380000000005,           |
+[2024-03-08 15:30:32,060]:DEBUG:          |              | std:0.06275810441681443, last:7.80228    |
+[2024-03-08 15:30:32,061]:DEBUG:     scan file miniVite.benchmarks/000025/000070_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,065]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,065]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-08 15:30:32,065]:DEBUG:          |         time | first:47.2337, min:47.2337, max:47.2337, |
+[2024-03-08 15:30:32,065]:DEBUG:          |              | sum:47.2337, sum2:2231.02241569, cnt:1,  |
+[2024-03-08 15:30:32,065]:DEBUG:          |              | avg:47.2337, std:0, last:47.2337         |
+[2024-03-08 15:30:32,065]:DEBUG:          |         mods | first:23.8372, min:23.8372, max:23.8372, |
+[2024-03-08 15:30:32,065]:DEBUG:          |              | sum:23.8372, sum2:568.2121038399999,     |
+[2024-03-08 15:30:32,065]:DEBUG:          |              | cnt:1, avg:23.8372, std:0, last:23.8372  |
+[2024-03-08 15:30:32,066]:DEBUG:     scan file miniVite.benchmarks/000025/000073_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,070]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,070]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-08 15:30:32,070]:DEBUG:          |         time | first:47.2337, min:47.1777, max:47.2337, |
+[2024-03-08 15:30:32,070]:DEBUG:          |              | sum:94.4114, sum2:4456.75779298, cnt:2,  |
+[2024-03-08 15:30:32,071]:DEBUG:          |              | avg:47.2057, std:0.039597979742395435,   |
+[2024-03-08 15:30:32,071]:DEBUG:          |              | last:47.1777                             |
+[2024-03-08 15:30:32,071]:DEBUG:          |         mods |  first:23.8372, min:23.809, max:23.8372, |
+[2024-03-08 15:30:32,072]:DEBUG:          |              | sum:47.6462, sum2:1135.08058484, cnt:2,  |
+[2024-03-08 15:30:32,072]:DEBUG:          |              | avg:23.8231, std:0.019940411230913495,   |
+[2024-03-08 15:30:32,072]:DEBUG:          |              | last:23.809                              |
+[2024-03-08 15:30:32,073]:DEBUG:     scan file miniVite.benchmarks/000025/000069_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,078]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,078]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-08 15:30:32,078]:DEBUG:          |         time | first:47.2337, min:47.1777, max:47.8131, |
+[2024-03-08 15:30:32,078]:DEBUG:          |              | sum:142.2245, sum2:6742.850324589999,    |
+[2024-03-08 15:30:32,078]:DEBUG:          |              | cnt:3, avg:47.408166666666666,           |
+[2024-03-08 15:30:32,078]:DEBUG:          |              | std:0.35179859768495064, last:47.8131    |
+[2024-03-08 15:30:32,079]:DEBUG:          |         mods |  first:23.8372, min:23.809, max:24.1296, |
+[2024-03-08 15:30:32,079]:DEBUG:          |              | sum:71.7758, sum2:1717.318181, cnt:3,    |
+[2024-03-08 15:30:32,080]:DEBUG:          |              | avg:23.92526666666667,                   |
+[2024-03-08 15:30:32,080]:DEBUG:          |              | std:0.17751871262835625, last:24.1296    |
+[2024-03-08 15:30:32,081]:DEBUG:     scan file miniVite.benchmarks/000025/000072_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,085]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,085]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-08 15:30:32,085]:DEBUG:          |         time | first:47.2337, min:47.1777, max:47.8131, |
+[2024-03-08 15:30:32,085]:DEBUG:          |              | sum:189.4669, sum2:8974.69468235, cnt:4, |
+[2024-03-08 15:30:32,085]:DEBUG:          |              | avg:47.366725, std:0.2989612279767377,   |
+[2024-03-08 15:30:32,085]:DEBUG:          |              | last:47.2424                             |
+[2024-03-08 15:30:32,085]:DEBUG:          |         mods |  first:23.8372, min:23.809, max:24.1296, |
+[2024-03-08 15:30:32,085]:DEBUG:          |              | sum:95.6174, sum2:2285.74007156, cnt:4,  |
+[2024-03-08 15:30:32,086]:DEBUG:          |              | avg:23.90435, std:0.15085961465324804,   |
+[2024-03-08 15:30:32,086]:DEBUG:          |              | last:23.8416                             |
+[2024-03-08 15:30:32,088]:DEBUG:     scan file miniVite.benchmarks/000025/000071_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,091]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,091]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-08 15:30:32,091]:DEBUG:          |         time | first:47.2337, min:47.1777, max:47.8131, |
+[2024-03-08 15:30:32,091]:DEBUG:          |              | sum:236.7894, sum2:11214.1136886, cnt:5, |
+[2024-03-08 15:30:32,091]:DEBUG:          |              | avg:47.35788, std:0.25966234228345836,   |
+[2024-03-08 15:30:32,091]:DEBUG:          |              | last:47.3225                             |
+[2024-03-08 15:30:32,092]:DEBUG:          |         mods |  first:23.8372, min:23.809, max:24.1296, |
+[2024-03-08 15:30:32,092]:DEBUG:          |              | sum:119.49940000000001,                  |
+[2024-03-08 15:30:32,092]:DEBUG:          |              | sum2:2856.0899955600003, cnt:5,          |
+[2024-03-08 15:30:32,092]:DEBUG:          |              | avg:23.899880000000003,                  |
+[2024-03-08 15:30:32,093]:DEBUG:          |              | std:0.1310300423565395, last:23.882      |
+[2024-03-08 15:30:32,094]:DEBUG:     scan file miniVite.benchmarks/000025/000056_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,100]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,100]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-08 15:30:32,100]:DEBUG:          |         time | first:65.8641, min:65.8641, max:65.8641, |
+[2024-03-08 15:30:32,100]:DEBUG:          |              | sum:65.8641, sum2:4338.079668809999,     |
+[2024-03-08 15:30:32,100]:DEBUG:          |              | cnt:1, avg:65.8641, std:0, last:65.8641  |
+[2024-03-08 15:30:32,100]:DEBUG:          |         mods | first:33.2394, min:33.2394, max:33.2394, |
+[2024-03-08 15:30:32,100]:DEBUG:          |              | sum:33.2394, sum2:1104.8577123600003,    |
+[2024-03-08 15:30:32,101]:DEBUG:          |              | cnt:1, avg:33.2394, std:0, last:33.2394  |
+[2024-03-08 15:30:32,102]:DEBUG:     scan file miniVite.benchmarks/000025/000055_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,107]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,107]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-08 15:30:32,107]:DEBUG:          |         time | first:65.8641, min:64.4993, max:65.8641, |
+[2024-03-08 15:30:32,107]:DEBUG:          |              | sum:130.3634, sum2:8498.2393693, cnt:2,  |
+[2024-03-08 15:30:32,107]:DEBUG:          |              | avg:65.1817, std:0.9650593349618364,     |
+[2024-03-08 15:30:32,107]:DEBUG:          |              | last:64.4993                             |
+[2024-03-08 15:30:32,107]:DEBUG:          |         mods | first:33.2394, min:32.5506, max:33.2394, |
+[2024-03-08 15:30:32,107]:DEBUG:          |              | sum:65.79, sum2:2164.39927272, cnt:2,    |
+[2024-03-08 15:30:32,108]:DEBUG:          |              | avg:32.895, std:0.48705515088115364,     |
+[2024-03-08 15:30:32,108]:DEBUG:          |              | last:32.5506                             |
+[2024-03-08 15:30:32,109]:DEBUG:     scan file miniVite.benchmarks/000025/000058_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,115]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,115]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-08 15:30:32,115]:DEBUG:          |         time |  first:65.8641, min:63.914, max:65.8641, |
+[2024-03-08 15:30:32,115]:DEBUG:          |              | sum:194.2774, sum2:12583.2387653, cnt:3, |
+[2024-03-08 15:30:32,115]:DEBUG:          |              | avg:64.75913333333334,                   |
+[2024-03-08 15:30:32,115]:DEBUG:          |              | std:1.000678531464203, last:63.914       |
+[2024-03-08 15:30:32,115]:DEBUG:          |         mods | first:33.2394, min:32.2552, max:33.2394, |
+[2024-03-08 15:30:32,115]:DEBUG:          |              | sum:98.04520000000001,                   |
+[2024-03-08 15:30:32,115]:DEBUG:          |              | sum2:3204.7971997600007, cnt:3,          |
+[2024-03-08 15:30:32,115]:DEBUG:          |              | avg:32.681733333333334,                  |
+[2024-03-08 15:30:32,115]:DEBUG:          |              | std:0.5050340318568163, last:32.2552     |
+[2024-03-08 15:30:32,117]:DEBUG:     scan file miniVite.benchmarks/000025/000054_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,122]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,122]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-08 15:30:32,122]:DEBUG:          |         time |  first:65.8641, min:63.914, max:65.8641, |
+[2024-03-08 15:30:32,122]:DEBUG:          |              | sum:258.8835, sum2:16757.18692251,       |
+[2024-03-08 15:30:32,122]:DEBUG:          |              | cnt:4, avg:64.720875,                    |
+[2024-03-08 15:30:32,122]:DEBUG:          |              | std:0.8206256652695266, last:64.6061     |
+[2024-03-08 15:30:32,122]:DEBUG:          |         mods | first:33.2394, min:32.2552, max:33.2394, |
+[2024-03-08 15:30:32,122]:DEBUG:          |              | sum:130.6497, sum2:4267.850620010001,    |
+[2024-03-08 15:30:32,123]:DEBUG:          |              | cnt:4, avg:32.662425,                    |
+[2024-03-08 15:30:32,123]:DEBUG:          |              | std:0.41416280514689374, last:32.6045    |
+[2024-03-08 15:30:32,124]:DEBUG:     scan file miniVite.benchmarks/000025/000057_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,129]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,129]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-08 15:30:32,129]:DEBUG:          |         time |  first:65.8641, min:63.914, max:65.8641, |
+[2024-03-08 15:30:32,129]:DEBUG:          |              | sum:324.31370000000004,                  |
+[2024-03-08 15:30:32,129]:DEBUG:          |              | sum2:21038.29799455, cnt:5,              |
+[2024-03-08 15:30:32,129]:DEBUG:          |              | avg:64.86274, std:0.7782661838978943,    |
+[2024-03-08 15:30:32,129]:DEBUG:          |              | last:65.4302                             |
+[2024-03-08 15:30:32,129]:DEBUG:          |         mods | first:33.2394, min:32.2552, max:33.2394, |
+[2024-03-08 15:30:32,130]:DEBUG:          |              | sum:163.6701, sum2:5358.197436170001,    |
+[2024-03-08 15:30:32,130]:DEBUG:          |              | cnt:5, avg:32.73402,                     |
+[2024-03-08 15:30:32,130]:DEBUG:          |              | std:0.39278154488286326, last:33.0204    |
+[2024-03-08 15:30:32,133]:DEBUG:     scan file miniVite.benchmarks/000025/000042_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,138]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,138]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-08 15:30:32,138]:DEBUG:          |         time | first:66.5953, min:66.5953, max:66.5953, |
+[2024-03-08 15:30:32,138]:DEBUG:          |              | sum:66.5953, sum2:4434.9339820899995,    |
+[2024-03-08 15:30:32,138]:DEBUG:          |              | cnt:1, avg:66.5953, std:0, last:66.5953  |
+[2024-03-08 15:30:32,139]:DEBUG:          |         mods | first:33.6083, min:33.6083, max:33.6083, |
+[2024-03-08 15:30:32,139]:DEBUG:          |              | sum:33.6083, sum2:1129.51782889, cnt:1,  |
+[2024-03-08 15:30:32,139]:DEBUG:          |              | avg:33.6083, std:0, last:33.6083         |
+[2024-03-08 15:30:32,140]:DEBUG:     scan file miniVite.benchmarks/000025/000041_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,145]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,145]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-08 15:30:32,145]:DEBUG:          |         time | first:66.5953, min:65.3404, max:66.5953, |
+[2024-03-08 15:30:32,146]:DEBUG:          |              | sum:131.9357, sum2:8704.30185425, cnt:2, |
+[2024-03-08 15:30:32,146]:DEBUG:          |              | avg:65.96785, std:0.8873482997113985,    |
+[2024-03-08 15:30:32,146]:DEBUG:          |              | last:65.3404                             |
+[2024-03-08 15:30:32,146]:DEBUG:          |         mods |  first:33.6083, min:32.975, max:33.6083, |
+[2024-03-08 15:30:32,146]:DEBUG:          |              | sum:66.58330000000001,                   |
+[2024-03-08 15:30:32,146]:DEBUG:          |              | sum2:2216.8684538899997, cnt:2,          |
+[2024-03-08 15:30:32,146]:DEBUG:          |              | avg:33.291650000000004,                  |
+[2024-03-08 15:30:32,146]:DEBUG:          |              | std:0.44781072452431664, last:32.975     |
+[2024-03-08 15:30:32,147]:DEBUG:     scan file miniVite.benchmarks/000025/000040_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,153]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,153]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-08 15:30:32,153]:DEBUG:          |         time | first:66.5953, min:65.3404, max:66.5953, |
+[2024-03-08 15:30:32,153]:DEBUG:          |              | sum:198.2022, sum2:13095.550876499998,   |
+[2024-03-08 15:30:32,153]:DEBUG:          |              | cnt:3, avg:66.0674,                      |
+[2024-03-08 15:30:32,153]:DEBUG:          |              | std:0.6507104655670217, last:66.2665     |
+[2024-03-08 15:30:32,153]:DEBUG:          |         mods |  first:33.6083, min:32.975, max:33.6083, |
+[2024-03-08 15:30:32,153]:DEBUG:          |              | sum:100.0257, sum2:3335.2625716499997,   |
+[2024-03-08 15:30:32,153]:DEBUG:          |              | cnt:3, avg:33.3419,                      |
+[2024-03-08 15:30:32,153]:DEBUG:          |              | std:0.32839368142501707, last:33.4424    |
+[2024-03-08 15:30:32,155]:DEBUG:     scan file miniVite.benchmarks/000025/000043_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,160]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,160]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-08 15:30:32,160]:DEBUG:          |         time | first:66.5953, min:63.7863, max:66.5953, |
+[2024-03-08 15:30:32,160]:DEBUG:          |              | sum:261.9885, sum2:17164.24294419,       |
+[2024-03-08 15:30:32,160]:DEBUG:          |              | cnt:4, avg:65.497125,                    |
+[2024-03-08 15:30:32,160]:DEBUG:          |              | std:1.2582277387263052, last:63.7863     |
+[2024-03-08 15:30:32,160]:DEBUG:          |         mods | first:33.6083, min:32.1908, max:33.6083, |
+[2024-03-08 15:30:32,160]:DEBUG:          |              | sum:132.2165, sum2:4371.510176289999,    |
+[2024-03-08 15:30:32,161]:DEBUG:          |              | cnt:4, avg:33.054125,                    |
+[2024-03-08 15:30:32,161]:DEBUG:          |              | std:0.6349431017814257, last:32.1908     |
+[2024-03-08 15:30:32,162]:DEBUG:     scan file miniVite.benchmarks/000025/000039_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,167]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,167]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-08 15:30:32,167]:DEBUG:          |         time | first:66.5953, min:63.7863, max:66.5953, |
+[2024-03-08 15:30:32,167]:DEBUG:          |              | sum:326.4731, sum2:21322.506581349997,   |
+[2024-03-08 15:30:32,167]:DEBUG:          |              | cnt:5, avg:65.29462,                     |
+[2024-03-08 15:30:32,167]:DEBUG:          |              | std:1.1799975241499985, last:64.4846     |
+[2024-03-08 15:30:32,167]:DEBUG:          |         mods | first:33.6083, min:32.1908, max:33.6083, |
+[2024-03-08 15:30:32,167]:DEBUG:          |              | sum:164.7597, sum2:5430.570042529999,    |
+[2024-03-08 15:30:32,168]:DEBUG:          |              | cnt:5, avg:32.95194,                     |
+[2024-03-08 15:30:32,168]:DEBUG:          |              | std:0.5954606855197407, last:32.5432     |
+[2024-03-08 15:30:32,169]:DEBUG:     scan file miniVite.benchmarks/000025/000068_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,175]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,175]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-08 15:30:32,175]:DEBUG:          |         time | first:38.8193, min:38.8193, max:38.8193, |
+[2024-03-08 15:30:32,175]:DEBUG:          |              | sum:38.8193, sum2:1506.9380524899998,    |
+[2024-03-08 15:30:32,175]:DEBUG:          |              | cnt:1, avg:38.8193, std:0, last:38.8193  |
+[2024-03-08 15:30:32,175]:DEBUG:          |         mods | first:19.5908, min:19.5908, max:19.5908, |
+[2024-03-08 15:30:32,175]:DEBUG:          |              | sum:19.5908, sum2:383.79944464000005,    |
+[2024-03-08 15:30:32,175]:DEBUG:          |              | cnt:1, avg:19.5908, std:0, last:19.5908  |
+[2024-03-08 15:30:32,177]:DEBUG:     scan file miniVite.benchmarks/000025/000066_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,183]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,183]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-08 15:30:32,183]:DEBUG:          |         time | first:38.8193, min:38.8193, max:38.8614, |
+[2024-03-08 15:30:32,183]:DEBUG:          |              | sum:77.6807, sum2:3017.14646245, cnt:2,  |
+[2024-03-08 15:30:32,183]:DEBUG:          |              | avg:38.84035, std:0.02976919548652949,   |
+[2024-03-08 15:30:32,183]:DEBUG:          |              | last:38.8614                             |
+[2024-03-08 15:30:32,183]:DEBUG:          |         mods |  first:19.5908, min:19.5908, max:19.612, |
+[2024-03-08 15:30:32,183]:DEBUG:          |              | sum:39.202799999999996,                  |
+[2024-03-08 15:30:32,183]:DEBUG:          |              | sum2:768.4299886399999, cnt:2,           |
+[2024-03-08 15:30:32,183]:DEBUG:          |              | avg:19.601399999999998,                  |
+[2024-03-08 15:30:32,183]:DEBUG:          |              | std:0.014990663765134119, last:19.612    |
+[2024-03-08 15:30:32,185]:DEBUG:     scan file miniVite.benchmarks/000025/000065_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,190]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,190]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-08 15:30:32,190]:DEBUG:          |         time | first:38.8193, min:38.8193, max:39.3422, |
+[2024-03-08 15:30:32,190]:DEBUG:          |              | sum:117.02289999999999,                  |
+[2024-03-08 15:30:32,190]:DEBUG:          |              | sum2:4564.95516329, cnt:3,               |
+[2024-03-08 15:30:32,190]:DEBUG:          |              | avg:39.00763333333333,                   |
+[2024-03-08 15:30:32,190]:DEBUG:          |              | std:0.2905068731260299, last:39.3422     |
+[2024-03-08 15:30:32,190]:DEBUG:          |         mods | first:19.5908, min:19.5908, max:19.8547, |
+[2024-03-08 15:30:32,191]:DEBUG:          |              | sum:59.0575, sum2:1162.6391007299999,    |
+[2024-03-08 15:30:32,191]:DEBUG:          |              | cnt:3, avg:19.68583333333333,            |
+[2024-03-08 15:30:32,191]:DEBUG:          |              | std:0.1466264755539978, last:19.8547     |
+[2024-03-08 15:30:32,192]:DEBUG:     scan file miniVite.benchmarks/000025/000064_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,198]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,198]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-08 15:30:32,198]:DEBUG:          |         time | first:38.8193, min:38.7485, max:39.3422, |
+[2024-03-08 15:30:32,198]:DEBUG:          |              | sum:155.7714, sum2:6066.40141554, cnt:4, |
+[2024-03-08 15:30:32,198]:DEBUG:          |              | avg:38.94285, std:0.2702782825161931,    |
+[2024-03-08 15:30:32,198]:DEBUG:          |              | last:38.7485                             |
+[2024-03-08 15:30:32,198]:DEBUG:          |         mods |  first:19.5908, min:19.555, max:19.8547, |
+[2024-03-08 15:30:32,198]:DEBUG:          |              | sum:78.6125, sum2:1545.0371257299998,    |
+[2024-03-08 15:30:32,199]:DEBUG:          |              | cnt:4, avg:19.653125,                    |
+[2024-03-08 15:30:32,199]:DEBUG:          |              | std:0.1364266194699417, last:19.555      |
+[2024-03-08 15:30:32,200]:DEBUG:     scan file miniVite.benchmarks/000025/000067_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,205]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,205]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-08 15:30:32,205]:DEBUG:          |         time | first:38.8193, min:38.7485, max:40.2201, |
+[2024-03-08 15:30:32,206]:DEBUG:          |              | sum:195.9915, sum2:7684.05785955, cnt:5, |
+[2024-03-08 15:30:32,206]:DEBUG:          |              | avg:39.1983, std:0.6173016078059942,     |
+[2024-03-08 15:30:32,206]:DEBUG:          |              | last:40.2201                             |
+[2024-03-08 15:30:32,206]:DEBUG:          |         mods |  first:19.5908, min:19.555, max:20.2977, |
+[2024-03-08 15:30:32,206]:DEBUG:          |              | sum:98.9102, sum2:1957.0337510199997,    |
+[2024-03-08 15:30:32,206]:DEBUG:          |              | cnt:5, avg:19.782040000000002,           |
+[2024-03-08 15:30:32,206]:DEBUG:          |              | std:0.3115357973008083, last:20.2977     |
+[2024-03-08 15:30:32,208]:DEBUG:     scan file miniVite.benchmarks/000025/000038_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,214]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,214]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-08 15:30:32,214]:DEBUG:          |         time | first:47.2807, min:47.2807, max:47.2807, |
+[2024-03-08 15:30:32,214]:DEBUG:          |              | sum:47.2807, sum2:2235.46459249, cnt:1,  |
+[2024-03-08 15:30:32,214]:DEBUG:          |              | avg:47.2807, std:0, last:47.2807         |
+[2024-03-08 15:30:32,215]:DEBUG:          |         mods |    first:23.861, min:23.861, max:23.861, |
+[2024-03-08 15:30:32,215]:DEBUG:          |              | sum:23.861, sum2:569.3473210000001,      |
+[2024-03-08 15:30:32,215]:DEBUG:          |              | cnt:1, avg:23.861, std:0, last:23.861    |
+[2024-03-08 15:30:32,217]:DEBUG:     scan file miniVite.benchmarks/000025/000034_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,223]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,223]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-08 15:30:32,223]:DEBUG:          |         time | first:47.2807, min:47.2807, max:49.1875, |
+[2024-03-08 15:30:32,223]:DEBUG:          |              | sum:96.4682, sum2:4654.87474874, cnt:2,  |
+[2024-03-08 15:30:32,223]:DEBUG:          |              | avg:48.2341, std:1.3483112103663806,     |
+[2024-03-08 15:30:32,223]:DEBUG:          |              | last:49.1875                             |
+[2024-03-08 15:30:32,223]:DEBUG:          |         mods |   first:23.861, min:23.861, max:24.8232, |
+[2024-03-08 15:30:32,224]:DEBUG:          |              | sum:48.684200000000004,                  |
+[2024-03-08 15:30:32,224]:DEBUG:          |              | sum2:1185.5385792400002, cnt:2,          |
+[2024-03-08 15:30:32,224]:DEBUG:          |              | avg:24.342100000000002,                  |
+[2024-03-08 15:30:32,225]:DEBUG:          |              | std:0.6803781448577408, last:24.8232     |
+[2024-03-08 15:30:32,226]:DEBUG:     scan file miniVite.benchmarks/000025/000037_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,231]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,231]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-08 15:30:32,231]:DEBUG:          |         time | first:47.2807, min:47.2807, max:49.1875, |
+[2024-03-08 15:30:32,231]:DEBUG:          |              | sum:144.6423, sum2:6975.61865955, cnt:3, |
+[2024-03-08 15:30:32,231]:DEBUG:          |              | avg:48.2141, std:0.9540291190522048,     |
+[2024-03-08 15:30:32,231]:DEBUG:          |              | last:48.1741                             |
+[2024-03-08 15:30:32,232]:DEBUG:          |         mods |   first:23.861, min:23.861, max:24.8232, |
+[2024-03-08 15:30:32,232]:DEBUG:          |              | sum:72.99600000000001,                   |
+[2024-03-08 15:30:32,232]:DEBUG:          |              | sum2:1776.6021984800004, cnt:3,          |
+[2024-03-08 15:30:32,232]:DEBUG:          |              | avg:24.332000000000004,                  |
+[2024-03-08 15:30:32,232]:DEBUG:          |              | std:0.48141794731820864, last:24.3118    |
+[2024-03-08 15:30:32,234]:DEBUG:     scan file miniVite.benchmarks/000025/000036_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,239]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,239]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-08 15:30:32,239]:DEBUG:          |         time | first:47.2807, min:47.2807, max:49.1875, |
+[2024-03-08 15:30:32,239]:DEBUG:          |              | sum:192.6975, sum2:9284.92090659, cnt:4, |
+[2024-03-08 15:30:32,239]:DEBUG:          |              | avg:48.174375, std:0.783002772983516,    |
+[2024-03-08 15:30:32,240]:DEBUG:          |              | last:48.0552                             |
+[2024-03-08 15:30:32,240]:DEBUG:          |         mods |   first:23.861, min:23.861, max:24.8232, |
+[2024-03-08 15:30:32,240]:DEBUG:          |              | sum:97.24780000000001,                   |
+[2024-03-08 15:30:32,240]:DEBUG:          |              | sum2:2364.7520017200004, cnt:4,          |
+[2024-03-08 15:30:32,240]:DEBUG:          |              | avg:24.311950000000003,                  |
+[2024-03-08 15:30:32,240]:DEBUG:          |              | std:0.3951162318439597, last:24.2518     |
+[2024-03-08 15:30:32,242]:DEBUG:     scan file miniVite.benchmarks/000025/000035_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,247]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,247]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-08 15:30:32,247]:DEBUG:          |         time | first:47.2807, min:47.2807, max:49.1875, |
+[2024-03-08 15:30:32,247]:DEBUG:          |              | sum:240.5461, sum2:11574.40942855,       |
+[2024-03-08 15:30:32,248]:DEBUG:          |              | cnt:5, avg:48.10922,                     |
+[2024-03-08 15:30:32,248]:DEBUG:          |              | std:0.6935747090258335, last:47.8486     |
+[2024-03-08 15:30:32,248]:DEBUG:          |         mods |   first:23.861, min:23.861, max:24.8232, |
+[2024-03-08 15:30:32,249]:DEBUG:          |              | sum:121.39540000000001,                  |
+[2024-03-08 15:30:32,249]:DEBUG:          |              | sum2:2947.8585874800006, cnt:5,          |
+[2024-03-08 15:30:32,249]:DEBUG:          |              | avg:24.27908, std:0.3499854454117002,    |
+[2024-03-08 15:30:32,249]:DEBUG:          |              | last:24.1476                             |
+[2024-03-08 15:30:32,251]:DEBUG:     scan file miniVite.benchmarks/000025/000060_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,256]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,256]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-08 15:30:32,256]:DEBUG:          |         time | first:77.5757, min:77.5757, max:77.5757, |
+[2024-03-08 15:30:32,256]:DEBUG:          |              | sum:77.5757, sum2:6017.9892304899995,    |
+[2024-03-08 15:30:32,256]:DEBUG:          |              | cnt:1, avg:77.5757, std:0, last:77.5757  |
+[2024-03-08 15:30:32,256]:DEBUG:          |         mods | first:39.1498, min:39.1498, max:39.1498, |
+[2024-03-08 15:30:32,256]:DEBUG:          |              | sum:39.1498, sum2:1532.7068400399999,    |
+[2024-03-08 15:30:32,256]:DEBUG:          |              | cnt:1, avg:39.1498, std:0, last:39.1498  |
+[2024-03-08 15:30:32,258]:DEBUG:     scan file miniVite.benchmarks/000025/000059_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,263]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,263]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-08 15:30:32,263]:DEBUG:          |         time | first:77.5757, min:77.2927, max:77.5757, |
+[2024-03-08 15:30:32,263]:DEBUG:          |              | sum:154.8684, sum2:11992.15070378,       |
+[2024-03-08 15:30:32,263]:DEBUG:          |              | cnt:2, avg:77.4342,                      |
+[2024-03-08 15:30:32,263]:DEBUG:          |              | std:0.2001112190747112, last:77.2927     |
+[2024-03-08 15:30:32,264]:DEBUG:          |         mods |  first:39.1498, min:39.007, max:39.1498, |
+[2024-03-08 15:30:32,264]:DEBUG:          |              | sum:78.1568, sum2:3054.25288904, cnt:2,  |
+[2024-03-08 15:30:32,264]:DEBUG:          |              | avg:39.0784, std:0.10097484835175521,    |
+[2024-03-08 15:30:32,264]:DEBUG:          |              | last:39.007                              |
+[2024-03-08 15:30:32,266]:DEBUG:     scan file miniVite.benchmarks/000025/000063_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,271]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,272]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-08 15:30:32,272]:DEBUG:          |         time | first:77.5757, min:77.2927, max:78.4387, |
+[2024-03-08 15:30:32,272]:DEBUG:          |              | sum:233.3071, sum2:18144.78036147,       |
+[2024-03-08 15:30:32,273]:DEBUG:          |              | cnt:3, avg:77.76903333333333,            |
+[2024-03-08 15:30:32,273]:DEBUG:          |              | std:0.5969609144105592, last:78.4387     |
+[2024-03-08 15:30:32,273]:DEBUG:          |         mods |  first:39.1498, min:39.007, max:39.5853, |
+[2024-03-08 15:30:32,274]:DEBUG:          |              | sum:117.7421, sum2:4621.248865129999,    |
+[2024-03-08 15:30:32,274]:DEBUG:          |              | cnt:3, avg:39.247366666666665,           |
+[2024-03-08 15:30:32,274]:DEBUG:          |              | std:0.3012426983897908, last:39.5853     |
+[2024-03-08 15:30:32,275]:DEBUG:     scan file miniVite.benchmarks/000025/000062_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,280]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,280]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-08 15:30:32,280]:DEBUG:          |         time |  first:77.5757, min:77.2927, max:78.713, |
+[2024-03-08 15:30:32,280]:DEBUG:          |              | sum:312.02009999999996,                  |
+[2024-03-08 15:30:32,281]:DEBUG:          |              | sum2:24340.516730469997, cnt:4,          |
+[2024-03-08 15:30:32,281]:DEBUG:          |              | avg:78.00502499999999,                   |
+[2024-03-08 15:30:32,281]:DEBUG:          |              | std:0.6784859289875339, last:78.713      |
+[2024-03-08 15:30:32,282]:DEBUG:          |         mods |  first:39.1498, min:39.007, max:39.7237, |
+[2024-03-08 15:30:32,282]:DEBUG:          |              | sum:157.4658, sum2:6199.221206819999,    |
+[2024-03-08 15:30:32,282]:DEBUG:          |              | cnt:4, avg:39.36645,                     |
+[2024-03-08 15:30:32,283]:DEBUG:          |              | std:0.342376211205891, last:39.7237      |
+[2024-03-08 15:30:32,284]:DEBUG:     scan file miniVite.benchmarks/000025/000061_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,289]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,289]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-08 15:30:32,289]:DEBUG:          |         time |  first:77.5757, min:77.2927, max:78.713, |
+[2024-03-08 15:30:32,289]:DEBUG:          |              | sum:390.6877999999999,                   |
+[2024-03-08 15:30:32,289]:DEBUG:          |              | sum2:30529.123753759995, cnt:5,          |
+[2024-03-08 15:30:32,289]:DEBUG:          |              | avg:78.13755999999998,                   |
+[2024-03-08 15:30:32,289]:DEBUG:          |              | std:0.6580919373472863, last:78.6677     |
+[2024-03-08 15:30:32,289]:DEBUG:          |         mods |  first:39.1498, min:39.007, max:39.7237, |
+[2024-03-08 15:30:32,290]:DEBUG:          |              | sum:197.1667, sum2:7775.382667629999,    |
+[2024-03-08 15:30:32,290]:DEBUG:          |              | cnt:5, avg:39.43334,                     |
+[2024-03-08 15:30:32,290]:DEBUG:          |              | std:0.3320955630532004, last:39.7009     |
+[2024-03-08 15:30:32,292]:DEBUG:     scan file miniVite.benchmarks/000025/000031_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,297]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,297]:DEBUG:          | verification |       first:SUCCESS, cnt:1, last:SUCCESS |
+[2024-03-08 15:30:32,297]:DEBUG:          |         time | first:40.2653, min:40.2653, max:40.2653, |
+[2024-03-08 15:30:32,297]:DEBUG:          |              | sum:40.2653, sum2:1621.2943840900002,    |
+[2024-03-08 15:30:32,297]:DEBUG:          |              | cnt:1, avg:40.2653, std:0, last:40.2653  |
+[2024-03-08 15:30:32,297]:DEBUG:          |         mods | first:20.3205, min:20.3205, max:20.3205, |
+[2024-03-08 15:30:32,297]:DEBUG:          |              | sum:20.3205, sum2:412.92272024999994,    |
+[2024-03-08 15:30:32,297]:DEBUG:          |              | cnt:1, avg:20.3205, std:0, last:20.3205  |
+[2024-03-08 15:30:32,299]:DEBUG:     scan file miniVite.benchmarks/000025/000030_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,305]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,305]:DEBUG:          | verification |       first:SUCCESS, cnt:2, last:SUCCESS |
+[2024-03-08 15:30:32,305]:DEBUG:          |         time | first:40.2653, min:38.8722, max:40.2653, |
+[2024-03-08 15:30:32,305]:DEBUG:          |              | sum:79.1375, sum2:3132.3423169300004,    |
+[2024-03-08 15:30:32,305]:DEBUG:          |              | cnt:2, avg:39.56875,                     |
+[2024-03-08 15:30:32,305]:DEBUG:          |              | std:0.9850704568709964, last:38.8722     |
+[2024-03-08 15:30:32,305]:DEBUG:          |         mods | first:20.3205, min:19.6175, max:20.3205, |
+[2024-03-08 15:30:32,305]:DEBUG:          |              | sum:39.938, sum2:797.7690264999999,      |
+[2024-03-08 15:30:32,305]:DEBUG:          |              | cnt:2, avg:19.969,                       |
+[2024-03-08 15:30:32,306]:DEBUG:          |              | std:0.4970960671738917, last:19.6175     |
+[2024-03-08 15:30:32,307]:DEBUG:     scan file miniVite.benchmarks/000025/000033_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,312]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,312]:DEBUG:          | verification |       first:SUCCESS, cnt:3, last:SUCCESS |
+[2024-03-08 15:30:32,312]:DEBUG:          |         time | first:40.2653, min:38.8722, max:40.2653, |
+[2024-03-08 15:30:32,312]:DEBUG:          |              | sum:118.664, sum2:4694.686519180001,     |
+[2024-03-08 15:30:32,312]:DEBUG:          |              | cnt:3, avg:39.55466666666667,            |
+[2024-03-08 15:30:32,312]:DEBUG:          |              | std:0.6969769890990378, last:39.5265     |
+[2024-03-08 15:30:32,312]:DEBUG:          |         mods | first:20.3205, min:19.6175, max:20.3205, |
+[2024-03-08 15:30:32,312]:DEBUG:          |              | sum:59.8857, sum2:1195.67976179, cnt:3,  |
+[2024-03-08 15:30:32,313]:DEBUG:          |              | avg:19.9619, std:0.3517150551226145,     |
+[2024-03-08 15:30:32,313]:DEBUG:          |              | last:19.9477                             |
+[2024-03-08 15:30:32,314]:DEBUG:     scan file miniVite.benchmarks/000025/000029_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,321]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,321]:DEBUG:          | verification |       first:SUCCESS, cnt:4, last:SUCCESS |
+[2024-03-08 15:30:32,321]:DEBUG:          |         time | first:40.2653, min:38.8722, max:40.2653, |
+[2024-03-08 15:30:32,321]:DEBUG:          |              | sum:158.0662, sum2:6247.219884020001,    |
+[2024-03-08 15:30:32,321]:DEBUG:          |              | cnt:4, avg:39.51655,                     |
+[2024-03-08 15:30:32,321]:DEBUG:          |              | std:0.5741626976157759, last:39.4022     |
+[2024-03-08 15:30:32,321]:DEBUG:          |         mods | first:20.3205, min:19.6175, max:20.3205, |
+[2024-03-08 15:30:32,321]:DEBUG:          |              | sum:79.7706, sum2:1591.0890098, cnt:4,   |
+[2024-03-08 15:30:32,321]:DEBUG:          |              | avg:19.94265, std:0.2897433979690637,    |
+[2024-03-08 15:30:32,321]:DEBUG:          |              | last:19.8849                             |
+[2024-03-08 15:30:32,323]:DEBUG:     scan file miniVite.benchmarks/000025/000032_execute_tsan-opt_must/work/job.out
+[2024-03-08 15:30:32,328]:DEBUG:       file "job.out" scanned pattern found:
+[2024-03-08 15:30:32,328]:DEBUG:          | verification |       first:SUCCESS, cnt:5, last:SUCCESS |
+[2024-03-08 15:30:32,328]:DEBUG:          |         time | first:40.2653, min:38.8722, max:40.2653, |
+[2024-03-08 15:30:32,328]:DEBUG:          |              | sum:198.1474, sum2:7853.722477460001,    |
+[2024-03-08 15:30:32,328]:DEBUG:          |              | cnt:5, avg:39.62948,                     |
+[2024-03-08 15:30:32,328]:DEBUG:          |              | std:0.5576854193899746, last:40.0812     |
+[2024-03-08 15:30:32,328]:DEBUG:          |         mods | first:20.3205, min:19.6175, max:20.3205, |
+[2024-03-08 15:30:32,328]:DEBUG:          |              | sum:99.9982, sum2:2000.24481156, cnt:5,  |
+[2024-03-08 15:30:32,329]:DEBUG:          |              | avg:19.99964, std:0.28142979231069537,   |
+[2024-03-08 15:30:32,329]:DEBUG:          |              | last:20.2276                             |
+[2024-03-08 15:30:32,329]:DEBUG: Run analyser "filterstats_analyse"
+[2024-03-08 15:30:32,330]:DEBUG:   available pattern:
+[2024-03-08 15:30:32,330]:DEBUG:          | pattern      | value                                    |
+[2024-03-08 15:30:32,330]:DEBUG:          |--------------|------------------------------------------|
+[2024-03-08 15:30:32,330]:DEBUG:          | mods         | MODS \(final modularity \* average       |
+[2024-03-08 15:30:32,331]:DEBUG:          |              | time\)\: $jube_pat_fp                    |
+[2024-03-08 15:30:32,331]:DEBUG:          | time         | Average total time \(in s\),             |
+[2024-03-08 15:30:32,331]:DEBUG:          |              | #Processes\: $jube_pat_fp,               |
+[2024-03-08 15:30:32,331]:DEBUG:          |              | $jube_pat_nint                           |
+[2024-03-08 15:30:32,331]:DEBUG:          | verification | EXECUTION VERIFICATION CHECK:            |
+[2024-03-08 15:30:32,331]:DEBUG:          |              | ${jube_pat_wrd}                          |
+[2024-03-08 15:30:32,331]:DEBUG: 
+[2024-03-08 15:30:32,332]:DEBUG:   available derived pattern:
+[2024-03-08 15:30:32,332]:DEBUG:          | pattern | value |
+[2024-03-08 15:30:32,332]:DEBUG:          |---------|-------|
+[2024-03-08 15:30:32,332]:DEBUG:   analyse step "compile"
+[2024-03-08 15:30:32,334]:DEBUG:     scan file miniVite.benchmarks/000025/000004_compile_tsan-opt/work/stderr
+[2024-03-08 15:30:32,349]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-08 15:30:32,349]:DEBUG:          |      verification |                                          |
+[2024-03-08 15:30:32,349]:DEBUG:          |              time |                                          |
+[2024-03-08 15:30:32,349]:DEBUG:          |              mods |                                          |
+[2024-03-08 15:30:32,349]:DEBUG:          |       instr_reads |        first:98, min:98, max:98, sum:98, |
+[2024-03-08 15:30:32,349]:DEBUG:          |                   | sum2:9604, cnt:1, avg:98.0, std:0,       |
+[2024-03-08 15:30:32,349]:DEBUG:          |                   | last:98                                  |
+[2024-03-08 15:30:32,349]:DEBUG:          |      instr_writes |        first:98, min:98, max:98, sum:98, |
+[2024-03-08 15:30:32,349]:DEBUG:          |                   | sum2:9604, cnt:1, avg:98.0, std:0,       |
+[2024-03-08 15:30:32,349]:DEBUG:          |                   | last:98                                  |
+[2024-03-08 15:30:32,349]:DEBUG:          | ignore_read_write |        first:14, min:14, max:14, sum:14, |
+[2024-03-08 15:30:32,350]:DEBUG:          |                   | sum2:196, cnt:1, avg:14.0, std:0,        |
+[2024-03-08 15:30:32,350]:DEBUG:          |                   | last:14                                  |
+[2024-03-08 15:30:32,350]:DEBUG:          |        AL_ignored |          first:2628, min:2628, max:2628, |
+[2024-03-08 15:30:32,350]:DEBUG:          |                   | sum:2628, sum2:6906384, cnt:1,           |
+[2024-03-08 15:30:32,351]:DEBUG:          |                   | avg:2628.0, std:0, last:2628             |
+[2024-03-08 15:30:32,351]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-08 15:30:32,351]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-08 15:30:32,352]:DEBUG:     scan file miniVite.benchmarks/000025/000004_compile_tsan-opt/work/time.out
+[2024-03-08 15:30:32,357]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-08 15:30:32,357]:DEBUG:          |      verification |                                          |
+[2024-03-08 15:30:32,357]:DEBUG:          |              time |                                          |
+[2024-03-08 15:30:32,357]:DEBUG:          |              mods |                                          |
+[2024-03-08 15:30:32,357]:DEBUG:          |       instr_reads |        first:98, min:98, max:98, sum:98, |
+[2024-03-08 15:30:32,357]:DEBUG:          |                   | sum2:9604, cnt:1, avg:98.0, std:0,       |
+[2024-03-08 15:30:32,357]:DEBUG:          |                   | last:98                                  |
+[2024-03-08 15:30:32,357]:DEBUG:          |      instr_writes |        first:98, min:98, max:98, sum:98, |
+[2024-03-08 15:30:32,358]:DEBUG:          |                   | sum2:9604, cnt:1, avg:98.0, std:0,       |
+[2024-03-08 15:30:32,358]:DEBUG:          |                   | last:98                                  |
+[2024-03-08 15:30:32,358]:DEBUG:          | ignore_read_write |        first:14, min:14, max:14, sum:14, |
+[2024-03-08 15:30:32,358]:DEBUG:          |                   | sum2:196, cnt:1, avg:14.0, std:0,        |
+[2024-03-08 15:30:32,359]:DEBUG:          |                   | last:14                                  |
+[2024-03-08 15:30:32,359]:DEBUG:          |        AL_ignored |          first:2628, min:2628, max:2628, |
+[2024-03-08 15:30:32,359]:DEBUG:          |                   | sum:2628, sum2:6906384, cnt:1,           |
+[2024-03-08 15:30:32,359]:DEBUG:          |                   | avg:2628.0, std:0, last:2628             |
+[2024-03-08 15:30:32,359]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-08 15:30:32,359]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-08 15:30:32,360]:DEBUG:          |      compile_time |          first:5.29, min:5.29, max:5.29, |
+[2024-03-08 15:30:32,360]:DEBUG:          |                   | sum:5.29, sum2:27.9841, cnt:1, avg:5.29, |
+[2024-03-08 15:30:32,360]:DEBUG:          |                   | std:0, last:5.29                         |
+[2024-03-08 15:30:32,362]:DEBUG:     scan file miniVite.benchmarks/000025/000010_compile_tsan-opt/work/stderr
+[2024-03-08 15:30:32,668]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-08 15:30:32,668]:DEBUG:          |      verification |                                          |
+[2024-03-08 15:30:32,668]:DEBUG:          |              time |                                          |
+[2024-03-08 15:30:32,668]:DEBUG:          |              mods |                                          |
+[2024-03-08 15:30:32,668]:DEBUG:          |       instr_reads |          first:1712, min:1712, max:1712, |
+[2024-03-08 15:30:32,668]:DEBUG:          |                   | sum:1712, sum2:2930944, cnt:1,           |
+[2024-03-08 15:30:32,668]:DEBUG:          |                   | avg:1712.0, std:0, last:1712             |
+[2024-03-08 15:30:32,668]:DEBUG:          |      instr_writes |    first:924, min:924, max:924, sum:924, |
+[2024-03-08 15:30:32,670]:DEBUG:          |                   | sum2:853776, cnt:1, avg:924.0, std:0,    |
+[2024-03-08 15:30:32,670]:DEBUG:          |                   | last:924                                 |
+[2024-03-08 15:30:32,671]:DEBUG:          | ignore_read_write |        first:98, min:98, max:98, sum:98, |
+[2024-03-08 15:30:32,671]:DEBUG:          |                   | sum2:9604, cnt:1, avg:98.0, std:0,       |
+[2024-03-08 15:30:32,671]:DEBUG:          |                   | last:98                                  |
+[2024-03-08 15:30:32,671]:DEBUG:          |        AL_ignored |                                          |
+[2024-03-08 15:30:32,672]:DEBUG:          |   CLUSTER_ignored |        first:48, min:48, max:48, sum:48, |
+[2024-03-08 15:30:32,672]:DEBUG:          |                   | sum2:2304, cnt:1, avg:48.0, std:0,       |
+[2024-03-08 15:30:32,672]:DEBUG:          |                   | last:48                                  |
+[2024-03-08 15:30:32,672]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-08 15:30:32,673]:DEBUG:     scan file miniVite.benchmarks/000025/000010_compile_tsan-opt/work/time.out
+[2024-03-08 15:30:32,678]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-08 15:30:32,678]:DEBUG:          |      verification |                                          |
+[2024-03-08 15:30:32,678]:DEBUG:          |              time |                                          |
+[2024-03-08 15:30:32,678]:DEBUG:          |              mods |                                          |
+[2024-03-08 15:30:32,678]:DEBUG:          |       instr_reads |          first:1712, min:1712, max:1712, |
+[2024-03-08 15:30:32,678]:DEBUG:          |                   | sum:1712, sum2:2930944, cnt:1,           |
+[2024-03-08 15:30:32,678]:DEBUG:          |                   | avg:1712.0, std:0, last:1712             |
+[2024-03-08 15:30:32,678]:DEBUG:          |      instr_writes |    first:924, min:924, max:924, sum:924, |
+[2024-03-08 15:30:32,679]:DEBUG:          |                   | sum2:853776, cnt:1, avg:924.0, std:0,    |
+[2024-03-08 15:30:32,679]:DEBUG:          |                   | last:924                                 |
+[2024-03-08 15:30:32,679]:DEBUG:          | ignore_read_write |        first:98, min:98, max:98, sum:98, |
+[2024-03-08 15:30:32,679]:DEBUG:          |                   | sum2:9604, cnt:1, avg:98.0, std:0,       |
+[2024-03-08 15:30:32,679]:DEBUG:          |                   | last:98                                  |
+[2024-03-08 15:30:32,679]:DEBUG:          |        AL_ignored |                                          |
+[2024-03-08 15:30:32,680]:DEBUG:          |   CLUSTER_ignored |        first:48, min:48, max:48, sum:48, |
+[2024-03-08 15:30:32,680]:DEBUG:          |                   | sum2:2304, cnt:1, avg:48.0, std:0,       |
+[2024-03-08 15:30:32,680]:DEBUG:          |                   | last:48                                  |
+[2024-03-08 15:30:32,680]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-08 15:30:32,680]:DEBUG:          |      compile_time |          first:5.43, min:5.43, max:5.43, |
+[2024-03-08 15:30:32,681]:DEBUG:          |                   | sum:5.43, sum2:29.484899999999996,       |
+[2024-03-08 15:30:32,681]:DEBUG:          |                   | cnt:1, avg:5.43, std:0, last:5.43        |
+[2024-03-08 15:30:32,682]:DEBUG:     scan file miniVite.benchmarks/000025/000005_compile_tsan-opt/work/stderr
+[2024-03-08 15:30:32,698]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-08 15:30:32,698]:DEBUG:          |      verification |                                          |
+[2024-03-08 15:30:32,698]:DEBUG:          |              time |                                          |
+[2024-03-08 15:30:32,699]:DEBUG:          |              mods |                                          |
+[2024-03-08 15:30:32,699]:DEBUG:          |       instr_reads |    first:183, min:183, max:183, sum:183, |
+[2024-03-08 15:30:32,699]:DEBUG:          |                   | sum2:33489, cnt:1, avg:183.0, std:0,     |
+[2024-03-08 15:30:32,699]:DEBUG:          |                   | last:183                                 |
+[2024-03-08 15:30:32,699]:DEBUG:          |      instr_writes |    first:113, min:113, max:113, sum:113, |
+[2024-03-08 15:30:32,699]:DEBUG:          |                   | sum2:12769, cnt:1, avg:113.0, std:0,     |
+[2024-03-08 15:30:32,699]:DEBUG:          |                   | last:113                                 |
+[2024-03-08 15:30:32,699]:DEBUG:          | ignore_read_write |        first:14, min:14, max:14, sum:14, |
+[2024-03-08 15:30:32,699]:DEBUG:          |                   | sum2:196, cnt:1, avg:14.0, std:0,        |
+[2024-03-08 15:30:32,700]:DEBUG:          |                   | last:14                                  |
+[2024-03-08 15:30:32,700]:DEBUG:          |        AL_ignored |          first:2528, min:2528, max:2528, |
+[2024-03-08 15:30:32,700]:DEBUG:          |                   | sum:2528, sum2:6390784, cnt:1,           |
+[2024-03-08 15:30:32,700]:DEBUG:          |                   | avg:2528.0, std:0, last:2528             |
+[2024-03-08 15:30:32,701]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-08 15:30:32,701]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-08 15:30:32,701]:DEBUG:     scan file miniVite.benchmarks/000025/000005_compile_tsan-opt/work/time.out
+[2024-03-08 15:30:32,706]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-08 15:30:32,706]:DEBUG:          |      verification |                                          |
+[2024-03-08 15:30:32,706]:DEBUG:          |              time |                                          |
+[2024-03-08 15:30:32,706]:DEBUG:          |              mods |                                          |
+[2024-03-08 15:30:32,706]:DEBUG:          |       instr_reads |    first:183, min:183, max:183, sum:183, |
+[2024-03-08 15:30:32,706]:DEBUG:          |                   | sum2:33489, cnt:1, avg:183.0, std:0,     |
+[2024-03-08 15:30:32,706]:DEBUG:          |                   | last:183                                 |
+[2024-03-08 15:30:32,707]:DEBUG:          |      instr_writes |    first:113, min:113, max:113, sum:113, |
+[2024-03-08 15:30:32,707]:DEBUG:          |                   | sum2:12769, cnt:1, avg:113.0, std:0,     |
+[2024-03-08 15:30:32,707]:DEBUG:          |                   | last:113                                 |
+[2024-03-08 15:30:32,707]:DEBUG:          | ignore_read_write |        first:14, min:14, max:14, sum:14, |
+[2024-03-08 15:30:32,708]:DEBUG:          |                   | sum2:196, cnt:1, avg:14.0, std:0,        |
+[2024-03-08 15:30:32,708]:DEBUG:          |                   | last:14                                  |
+[2024-03-08 15:30:32,708]:DEBUG:          |        AL_ignored |          first:2528, min:2528, max:2528, |
+[2024-03-08 15:30:32,708]:DEBUG:          |                   | sum:2528, sum2:6390784, cnt:1,           |
+[2024-03-08 15:30:32,708]:DEBUG:          |                   | avg:2528.0, std:0, last:2528             |
+[2024-03-08 15:30:32,708]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-08 15:30:32,709]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-08 15:30:32,709]:DEBUG:          |      compile_time |          first:5.31, min:5.31, max:5.31, |
+[2024-03-08 15:30:32,709]:DEBUG:          |                   | sum:5.31, sum2:28.196099999999994,       |
+[2024-03-08 15:30:32,709]:DEBUG:          |                   | cnt:1, avg:5.31, std:0, last:5.31        |
+[2024-03-08 15:30:32,711]:DEBUG:     scan file miniVite.benchmarks/000025/000011_compile_tsan-opt/work/stderr
+[2024-03-08 15:30:32,815]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-08 15:30:32,815]:DEBUG:          |      verification |                                          |
+[2024-03-08 15:30:32,815]:DEBUG:          |              time |                                          |
+[2024-03-08 15:30:32,815]:DEBUG:          |              mods |                                          |
+[2024-03-08 15:30:32,816]:DEBUG:          |       instr_reads |        first:98, min:98, max:98, sum:98, |
+[2024-03-08 15:30:32,816]:DEBUG:          |                   | sum2:9604, cnt:1, avg:98.0, std:0,       |
+[2024-03-08 15:30:32,816]:DEBUG:          |                   | last:98                                  |
+[2024-03-08 15:30:32,816]:DEBUG:          |      instr_writes |        first:98, min:98, max:98, sum:98, |
+[2024-03-08 15:30:32,816]:DEBUG:          |                   | sum2:9604, cnt:1, avg:98.0, std:0,       |
+[2024-03-08 15:30:32,816]:DEBUG:          |                   | last:98                                  |
+[2024-03-08 15:30:32,816]:DEBUG:          | ignore_read_write |        first:14, min:14, max:14, sum:14, |
+[2024-03-08 15:30:32,816]:DEBUG:          |                   | sum2:196, cnt:1, avg:14.0, std:0,        |
+[2024-03-08 15:30:32,817]:DEBUG:          |                   | last:14                                  |
+[2024-03-08 15:30:32,817]:DEBUG:          |        AL_ignored |          first:2628, min:2628, max:2628, |
+[2024-03-08 15:30:32,817]:DEBUG:          |                   | sum:2628, sum2:6906384, cnt:1,           |
+[2024-03-08 15:30:32,817]:DEBUG:          |                   | avg:2628.0, std:0, last:2628             |
+[2024-03-08 15:30:32,818]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-08 15:30:32,818]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-08 15:30:32,818]:DEBUG:     scan file miniVite.benchmarks/000025/000011_compile_tsan-opt/work/time.out
+[2024-03-08 15:30:32,824]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-08 15:30:32,824]:DEBUG:          |      verification |                                          |
+[2024-03-08 15:30:32,824]:DEBUG:          |              time |                                          |
+[2024-03-08 15:30:32,824]:DEBUG:          |              mods |                                          |
+[2024-03-08 15:30:32,824]:DEBUG:          |       instr_reads |        first:98, min:98, max:98, sum:98, |
+[2024-03-08 15:30:32,824]:DEBUG:          |                   | sum2:9604, cnt:1, avg:98.0, std:0,       |
+[2024-03-08 15:30:32,824]:DEBUG:          |                   | last:98                                  |
+[2024-03-08 15:30:32,824]:DEBUG:          |      instr_writes |        first:98, min:98, max:98, sum:98, |
+[2024-03-08 15:30:32,824]:DEBUG:          |                   | sum2:9604, cnt:1, avg:98.0, std:0,       |
+[2024-03-08 15:30:32,824]:DEBUG:          |                   | last:98                                  |
+[2024-03-08 15:30:32,824]:DEBUG:          | ignore_read_write |        first:14, min:14, max:14, sum:14, |
+[2024-03-08 15:30:32,825]:DEBUG:          |                   | sum2:196, cnt:1, avg:14.0, std:0,        |
+[2024-03-08 15:30:32,825]:DEBUG:          |                   | last:14                                  |
+[2024-03-08 15:30:32,825]:DEBUG:          |        AL_ignored |          first:2628, min:2628, max:2628, |
+[2024-03-08 15:30:32,825]:DEBUG:          |                   | sum:2628, sum2:6906384, cnt:1,           |
+[2024-03-08 15:30:32,826]:DEBUG:          |                   | avg:2628.0, std:0, last:2628             |
+[2024-03-08 15:30:32,826]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-08 15:30:32,826]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-08 15:30:32,826]:DEBUG:          |      compile_time |    first:6.4, min:6.4, max:6.4, sum:6.4, |
+[2024-03-08 15:30:32,827]:DEBUG:          |                   | sum2:40.96000000000001, cnt:1, avg:6.4,  |
+[2024-03-08 15:30:32,827]:DEBUG:          |                   | std:0, last:6.4                          |
+[2024-03-08 15:30:32,828]:DEBUG:     scan file miniVite.benchmarks/000025/000006_compile_tsan-opt/work/stderr
+[2024-03-08 15:30:32,844]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-08 15:30:32,844]:DEBUG:          |      verification |                                          |
+[2024-03-08 15:30:32,844]:DEBUG:          |              time |                                          |
+[2024-03-08 15:30:32,844]:DEBUG:          |              mods |                                          |
+[2024-03-08 15:30:32,844]:DEBUG:          |       instr_reads |    first:264, min:264, max:264, sum:264, |
+[2024-03-08 15:30:32,845]:DEBUG:          |                   | sum2:69696, cnt:1, avg:264.0, std:0,     |
+[2024-03-08 15:30:32,845]:DEBUG:          |                   | last:264                                 |
+[2024-03-08 15:30:32,845]:DEBUG:          |      instr_writes |    first:139, min:139, max:139, sum:139, |
+[2024-03-08 15:30:32,845]:DEBUG:          |                   | sum2:19321, cnt:1, avg:139.0, std:0,     |
+[2024-03-08 15:30:32,845]:DEBUG:          |                   | last:139                                 |
+[2024-03-08 15:30:32,846]:DEBUG:          | ignore_read_write |        first:14, min:14, max:14, sum:14, |
+[2024-03-08 15:30:32,846]:DEBUG:          |                   | sum2:196, cnt:1, avg:14.0, std:0,        |
+[2024-03-08 15:30:32,846]:DEBUG:          |                   | last:14                                  |
+[2024-03-08 15:30:32,846]:DEBUG:          |        AL_ignored |          first:2423, min:2423, max:2423, |
+[2024-03-08 15:30:32,846]:DEBUG:          |                   | sum:2423, sum2:5870929, cnt:1,           |
+[2024-03-08 15:30:32,847]:DEBUG:          |                   | avg:2423.0, std:0, last:2423             |
+[2024-03-08 15:30:32,847]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-08 15:30:32,847]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-08 15:30:32,847]:DEBUG:     scan file miniVite.benchmarks/000025/000006_compile_tsan-opt/work/time.out
+[2024-03-08 15:30:32,852]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-08 15:30:32,852]:DEBUG:          |      verification |                                          |
+[2024-03-08 15:30:32,852]:DEBUG:          |              time |                                          |
+[2024-03-08 15:30:32,852]:DEBUG:          |              mods |                                          |
+[2024-03-08 15:30:32,853]:DEBUG:          |       instr_reads |    first:264, min:264, max:264, sum:264, |
+[2024-03-08 15:30:32,853]:DEBUG:          |                   | sum2:69696, cnt:1, avg:264.0, std:0,     |
+[2024-03-08 15:30:32,853]:DEBUG:          |                   | last:264                                 |
+[2024-03-08 15:30:32,854]:DEBUG:          |      instr_writes |    first:139, min:139, max:139, sum:139, |
+[2024-03-08 15:30:32,854]:DEBUG:          |                   | sum2:19321, cnt:1, avg:139.0, std:0,     |
+[2024-03-08 15:30:32,854]:DEBUG:          |                   | last:139                                 |
+[2024-03-08 15:30:32,854]:DEBUG:          | ignore_read_write |        first:14, min:14, max:14, sum:14, |
+[2024-03-08 15:30:32,854]:DEBUG:          |                   | sum2:196, cnt:1, avg:14.0, std:0,        |
+[2024-03-08 15:30:32,854]:DEBUG:          |                   | last:14                                  |
+[2024-03-08 15:30:32,855]:DEBUG:          |        AL_ignored |          first:2423, min:2423, max:2423, |
+[2024-03-08 15:30:32,855]:DEBUG:          |                   | sum:2423, sum2:5870929, cnt:1,           |
+[2024-03-08 15:30:32,855]:DEBUG:          |                   | avg:2423.0, std:0, last:2423             |
+[2024-03-08 15:30:32,855]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-08 15:30:32,856]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-08 15:30:32,856]:DEBUG:          |      compile_time |          first:5.29, min:5.29, max:5.29, |
+[2024-03-08 15:30:32,856]:DEBUG:          |                   | sum:5.29, sum2:27.9841, cnt:1, avg:5.29, |
+[2024-03-08 15:30:32,856]:DEBUG:          |                   | std:0, last:5.29                         |
+[2024-03-08 15:30:32,858]:DEBUG:     scan file miniVite.benchmarks/000025/000012_compile_tsan-opt/work/stderr
+[2024-03-08 15:30:33,030]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-08 15:30:33,030]:DEBUG:          |      verification |                                          |
+[2024-03-08 15:30:33,030]:DEBUG:          |              time |                                          |
+[2024-03-08 15:30:33,030]:DEBUG:          |              mods |                                          |
+[2024-03-08 15:30:33,030]:DEBUG:          |       instr_reads |    first:183, min:183, max:183, sum:183, |
+[2024-03-08 15:30:33,030]:DEBUG:          |                   | sum2:33489, cnt:1, avg:183.0, std:0,     |
+[2024-03-08 15:30:33,030]:DEBUG:          |                   | last:183                                 |
+[2024-03-08 15:30:33,030]:DEBUG:          |      instr_writes |    first:113, min:113, max:113, sum:113, |
+[2024-03-08 15:30:33,030]:DEBUG:          |                   | sum2:12769, cnt:1, avg:113.0, std:0,     |
+[2024-03-08 15:30:33,031]:DEBUG:          |                   | last:113                                 |
+[2024-03-08 15:30:33,031]:DEBUG:          | ignore_read_write |        first:14, min:14, max:14, sum:14, |
+[2024-03-08 15:30:33,031]:DEBUG:          |                   | sum2:196, cnt:1, avg:14.0, std:0,        |
+[2024-03-08 15:30:33,031]:DEBUG:          |                   | last:14                                  |
+[2024-03-08 15:30:33,032]:DEBUG:          |        AL_ignored |          first:2528, min:2528, max:2528, |
+[2024-03-08 15:30:33,032]:DEBUG:          |                   | sum:2528, sum2:6390784, cnt:1,           |
+[2024-03-08 15:30:33,032]:DEBUG:          |                   | avg:2528.0, std:0, last:2528             |
+[2024-03-08 15:30:33,032]:DEBUG:          |   CLUSTER_ignored |    first:3, min:3, max:3, sum:3, sum2:9, |
+[2024-03-08 15:30:33,033]:DEBUG:          |                   | cnt:1, avg:3.0, std:0, last:3            |
+[2024-03-08 15:30:33,033]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-08 15:30:33,033]:DEBUG:     scan file miniVite.benchmarks/000025/000012_compile_tsan-opt/work/time.out
+[2024-03-08 15:30:33,038]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-08 15:30:33,038]:DEBUG:          |      verification |                                          |
+[2024-03-08 15:30:33,038]:DEBUG:          |              time |                                          |
+[2024-03-08 15:30:33,038]:DEBUG:          |              mods |                                          |
+[2024-03-08 15:30:33,038]:DEBUG:          |       instr_reads |    first:183, min:183, max:183, sum:183, |
+[2024-03-08 15:30:33,038]:DEBUG:          |                   | sum2:33489, cnt:1, avg:183.0, std:0,     |
+[2024-03-08 15:30:33,038]:DEBUG:          |                   | last:183                                 |
+[2024-03-08 15:30:33,038]:DEBUG:          |      instr_writes |    first:113, min:113, max:113, sum:113, |
+[2024-03-08 15:30:33,038]:DEBUG:          |                   | sum2:12769, cnt:1, avg:113.0, std:0,     |
+[2024-03-08 15:30:33,038]:DEBUG:          |                   | last:113                                 |
+[2024-03-08 15:30:33,038]:DEBUG:          | ignore_read_write |        first:14, min:14, max:14, sum:14, |
+[2024-03-08 15:30:33,039]:DEBUG:          |                   | sum2:196, cnt:1, avg:14.0, std:0,        |
+[2024-03-08 15:30:33,039]:DEBUG:          |                   | last:14                                  |
+[2024-03-08 15:30:33,039]:DEBUG:          |        AL_ignored |          first:2528, min:2528, max:2528, |
+[2024-03-08 15:30:33,039]:DEBUG:          |                   | sum:2528, sum2:6390784, cnt:1,           |
+[2024-03-08 15:30:33,039]:DEBUG:          |                   | avg:2528.0, std:0, last:2528             |
+[2024-03-08 15:30:33,039]:DEBUG:          |   CLUSTER_ignored |    first:3, min:3, max:3, sum:3, sum2:9, |
+[2024-03-08 15:30:33,039]:DEBUG:          |                   | cnt:1, avg:3.0, std:0, last:3            |
+[2024-03-08 15:30:33,039]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-08 15:30:33,039]:DEBUG:          |      compile_time |          first:6.39, min:6.39, max:6.39, |
+[2024-03-08 15:30:33,039]:DEBUG:          |                   | sum:6.39, sum2:40.8321, cnt:1, avg:6.39, |
+[2024-03-08 15:30:33,039]:DEBUG:          |                   | std:0, last:6.39                         |
+[2024-03-08 15:30:33,040]:DEBUG:     scan file miniVite.benchmarks/000025/000007_compile_tsan-opt/work/stderr
+[2024-03-08 15:30:33,064]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-08 15:30:33,064]:DEBUG:          |      verification |                                          |
+[2024-03-08 15:30:33,064]:DEBUG:          |              time |                                          |
+[2024-03-08 15:30:33,064]:DEBUG:          |              mods |                                          |
+[2024-03-08 15:30:33,064]:DEBUG:          |       instr_reads |        first:98, min:98, max:98, sum:98, |
+[2024-03-08 15:30:33,065]:DEBUG:          |                   | sum2:9604, cnt:1, avg:98.0, std:0,       |
+[2024-03-08 15:30:33,065]:DEBUG:          |                   | last:98                                  |
+[2024-03-08 15:30:33,065]:DEBUG:          |      instr_writes |        first:98, min:98, max:98, sum:98, |
+[2024-03-08 15:30:33,066]:DEBUG:          |                   | sum2:9604, cnt:1, avg:98.0, std:0,       |
+[2024-03-08 15:30:33,066]:DEBUG:          |                   | last:98                                  |
+[2024-03-08 15:30:33,066]:DEBUG:          | ignore_read_write |        first:14, min:14, max:14, sum:14, |
+[2024-03-08 15:30:33,066]:DEBUG:          |                   | sum2:196, cnt:1, avg:14.0, std:0,        |
+[2024-03-08 15:30:33,067]:DEBUG:          |                   | last:14                                  |
+[2024-03-08 15:30:33,067]:DEBUG:          |        AL_ignored |          first:2628, min:2628, max:2628, |
+[2024-03-08 15:30:33,067]:DEBUG:          |                   | sum:2628, sum2:6906384, cnt:1,           |
+[2024-03-08 15:30:33,067]:DEBUG:          |                   | avg:2628.0, std:0, last:2628             |
+[2024-03-08 15:30:33,067]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-08 15:30:33,067]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-08 15:30:33,068]:DEBUG:     scan file miniVite.benchmarks/000025/000007_compile_tsan-opt/work/time.out
+[2024-03-08 15:30:33,073]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-08 15:30:33,073]:DEBUG:          |      verification |                                          |
+[2024-03-08 15:30:33,073]:DEBUG:          |              time |                                          |
+[2024-03-08 15:30:33,073]:DEBUG:          |              mods |                                          |
+[2024-03-08 15:30:33,074]:DEBUG:          |       instr_reads |        first:98, min:98, max:98, sum:98, |
+[2024-03-08 15:30:33,074]:DEBUG:          |                   | sum2:9604, cnt:1, avg:98.0, std:0,       |
+[2024-03-08 15:30:33,074]:DEBUG:          |                   | last:98                                  |
+[2024-03-08 15:30:33,075]:DEBUG:          |      instr_writes |        first:98, min:98, max:98, sum:98, |
+[2024-03-08 15:30:33,075]:DEBUG:          |                   | sum2:9604, cnt:1, avg:98.0, std:0,       |
+[2024-03-08 15:30:33,075]:DEBUG:          |                   | last:98                                  |
+[2024-03-08 15:30:33,075]:DEBUG:          | ignore_read_write |        first:14, min:14, max:14, sum:14, |
+[2024-03-08 15:30:33,075]:DEBUG:          |                   | sum2:196, cnt:1, avg:14.0, std:0,        |
+[2024-03-08 15:30:33,075]:DEBUG:          |                   | last:14                                  |
+[2024-03-08 15:30:33,076]:DEBUG:          |        AL_ignored |          first:2628, min:2628, max:2628, |
+[2024-03-08 15:30:33,076]:DEBUG:          |                   | sum:2628, sum2:6906384, cnt:1,           |
+[2024-03-08 15:30:33,076]:DEBUG:          |                   | avg:2628.0, std:0, last:2628             |
+[2024-03-08 15:30:33,076]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-08 15:30:33,076]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-08 15:30:33,077]:DEBUG:          |      compile_time |          first:5.32, min:5.32, max:5.32, |
+[2024-03-08 15:30:33,077]:DEBUG:          |                   | sum:5.32, sum2:28.302400000000002,       |
+[2024-03-08 15:30:33,077]:DEBUG:          |                   | cnt:1, avg:5.32, std:0, last:5.32        |
+[2024-03-08 15:30:33,079]:DEBUG:     scan file miniVite.benchmarks/000025/000013_compile_tsan-opt/work/stderr
+[2024-03-08 15:30:33,261]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-08 15:30:33,261]:DEBUG:          |      verification |                                          |
+[2024-03-08 15:30:33,261]:DEBUG:          |              time |                                          |
+[2024-03-08 15:30:33,261]:DEBUG:          |              mods |                                          |
+[2024-03-08 15:30:33,261]:DEBUG:          |       instr_reads |    first:264, min:264, max:264, sum:264, |
+[2024-03-08 15:30:33,263]:DEBUG:          |                   | sum2:69696, cnt:1, avg:264.0, std:0,     |
+[2024-03-08 15:30:33,263]:DEBUG:          |                   | last:264                                 |
+[2024-03-08 15:30:33,263]:DEBUG:          |      instr_writes |    first:139, min:139, max:139, sum:139, |
+[2024-03-08 15:30:33,263]:DEBUG:          |                   | sum2:19321, cnt:1, avg:139.0, std:0,     |
+[2024-03-08 15:30:33,264]:DEBUG:          |                   | last:139                                 |
+[2024-03-08 15:30:33,264]:DEBUG:          | ignore_read_write |        first:14, min:14, max:14, sum:14, |
+[2024-03-08 15:30:33,264]:DEBUG:          |                   | sum2:196, cnt:1, avg:14.0, std:0,        |
+[2024-03-08 15:30:33,264]:DEBUG:          |                   | last:14                                  |
+[2024-03-08 15:30:33,265]:DEBUG:          |        AL_ignored |          first:2423, min:2423, max:2423, |
+[2024-03-08 15:30:33,265]:DEBUG:          |                   | sum:2423, sum2:5870929, cnt:1,           |
+[2024-03-08 15:30:33,265]:DEBUG:          |                   | avg:2423.0, std:0, last:2423             |
+[2024-03-08 15:30:33,265]:DEBUG:          |   CLUSTER_ignored |        first:13, min:13, max:13, sum:13, |
+[2024-03-08 15:30:33,266]:DEBUG:          |                   | sum2:169, cnt:1, avg:13.0, std:0,        |
+[2024-03-08 15:30:33,266]:DEBUG:          |                   | last:13                                  |
+[2024-03-08 15:30:33,266]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-08 15:30:33,266]:DEBUG:     scan file miniVite.benchmarks/000025/000013_compile_tsan-opt/work/time.out
+[2024-03-08 15:30:33,274]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-08 15:30:33,274]:DEBUG:          |      verification |                                          |
+[2024-03-08 15:30:33,274]:DEBUG:          |              time |                                          |
+[2024-03-08 15:30:33,274]:DEBUG:          |              mods |                                          |
+[2024-03-08 15:30:33,274]:DEBUG:          |       instr_reads |    first:264, min:264, max:264, sum:264, |
+[2024-03-08 15:30:33,275]:DEBUG:          |                   | sum2:69696, cnt:1, avg:264.0, std:0,     |
+[2024-03-08 15:30:33,275]:DEBUG:          |                   | last:264                                 |
+[2024-03-08 15:30:33,275]:DEBUG:          |      instr_writes |    first:139, min:139, max:139, sum:139, |
+[2024-03-08 15:30:33,275]:DEBUG:          |                   | sum2:19321, cnt:1, avg:139.0, std:0,     |
+[2024-03-08 15:30:33,275]:DEBUG:          |                   | last:139                                 |
+[2024-03-08 15:30:33,276]:DEBUG:          | ignore_read_write |        first:14, min:14, max:14, sum:14, |
+[2024-03-08 15:30:33,276]:DEBUG:          |                   | sum2:196, cnt:1, avg:14.0, std:0,        |
+[2024-03-08 15:30:33,276]:DEBUG:          |                   | last:14                                  |
+[2024-03-08 15:30:33,276]:DEBUG:          |        AL_ignored |          first:2423, min:2423, max:2423, |
+[2024-03-08 15:30:33,276]:DEBUG:          |                   | sum:2423, sum2:5870929, cnt:1,           |
+[2024-03-08 15:30:33,276]:DEBUG:          |                   | avg:2423.0, std:0, last:2423             |
+[2024-03-08 15:30:33,277]:DEBUG:          |   CLUSTER_ignored |        first:13, min:13, max:13, sum:13, |
+[2024-03-08 15:30:33,277]:DEBUG:          |                   | sum2:169, cnt:1, avg:13.0, std:0,        |
+[2024-03-08 15:30:33,277]:DEBUG:          |                   | last:13                                  |
+[2024-03-08 15:30:33,277]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-08 15:30:33,278]:DEBUG:          |      compile_time |          first:6.41, min:6.41, max:6.41, |
+[2024-03-08 15:30:33,278]:DEBUG:          |                   | sum:6.41, sum2:41.088100000000004,       |
+[2024-03-08 15:30:33,278]:DEBUG:          |                   | cnt:1, avg:6.41, std:0, last:6.41        |
+[2024-03-08 15:30:33,280]:DEBUG:     scan file miniVite.benchmarks/000025/000002_compile_base/work/stderr
+[2024-03-08 15:30:33,290]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-08 15:30:33,290]:DEBUG:          |      verification |  |
+[2024-03-08 15:30:33,290]:DEBUG:          |              time |  |
+[2024-03-08 15:30:33,290]:DEBUG:          |              mods |  |
+[2024-03-08 15:30:33,290]:DEBUG:          |       instr_reads |  |
+[2024-03-08 15:30:33,290]:DEBUG:          |      instr_writes |  |
+[2024-03-08 15:30:33,290]:DEBUG:          | ignore_read_write |  |
+[2024-03-08 15:30:33,290]:DEBUG:          |        AL_ignored |  |
+[2024-03-08 15:30:33,290]:DEBUG:          |   CLUSTER_ignored |  |
+[2024-03-08 15:30:33,291]:DEBUG:          |       ALX_ignored |  |
+[2024-03-08 15:30:33,291]:DEBUG:     scan file miniVite.benchmarks/000025/000002_compile_base/work/time.out
+[2024-03-08 15:30:33,296]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-08 15:30:33,296]:DEBUG:          |      verification |                                          |
+[2024-03-08 15:30:33,296]:DEBUG:          |              time |                                          |
+[2024-03-08 15:30:33,296]:DEBUG:          |              mods |                                          |
+[2024-03-08 15:30:33,296]:DEBUG:          |       instr_reads |                                          |
+[2024-03-08 15:30:33,296]:DEBUG:          |      instr_writes |                                          |
+[2024-03-08 15:30:33,296]:DEBUG:          | ignore_read_write |                                          |
+[2024-03-08 15:30:33,296]:DEBUG:          |        AL_ignored |                                          |
+[2024-03-08 15:30:33,296]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-08 15:30:33,296]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-08 15:30:33,296]:DEBUG:          |      compile_time |          first:2.42, min:2.42, max:2.42, |
+[2024-03-08 15:30:33,296]:DEBUG:          |                   | sum:2.42, sum2:5.8564, cnt:1, avg:2.42,  |
+[2024-03-08 15:30:33,296]:DEBUG:          |                   | std:0, last:2.42                         |
+[2024-03-08 15:30:33,298]:DEBUG:     scan file miniVite.benchmarks/000025/000008_compile_tsan-opt/work/stderr
+[2024-03-08 15:30:33,314]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-08 15:30:33,314]:DEBUG:          |      verification |                                          |
+[2024-03-08 15:30:33,314]:DEBUG:          |              time |                                          |
+[2024-03-08 15:30:33,314]:DEBUG:          |              mods |                                          |
+[2024-03-08 15:30:33,314]:DEBUG:          |       instr_reads |    first:183, min:183, max:183, sum:183, |
+[2024-03-08 15:30:33,315]:DEBUG:          |                   | sum2:33489, cnt:1, avg:183.0, std:0,     |
+[2024-03-08 15:30:33,315]:DEBUG:          |                   | last:183                                 |
+[2024-03-08 15:30:33,315]:DEBUG:          |      instr_writes |    first:113, min:113, max:113, sum:113, |
+[2024-03-08 15:30:33,316]:DEBUG:          |                   | sum2:12769, cnt:1, avg:113.0, std:0,     |
+[2024-03-08 15:30:33,316]:DEBUG:          |                   | last:113                                 |
+[2024-03-08 15:30:33,316]:DEBUG:          | ignore_read_write |        first:14, min:14, max:14, sum:14, |
+[2024-03-08 15:30:33,316]:DEBUG:          |                   | sum2:196, cnt:1, avg:14.0, std:0,        |
+[2024-03-08 15:30:33,317]:DEBUG:          |                   | last:14                                  |
+[2024-03-08 15:30:33,317]:DEBUG:          |        AL_ignored |          first:2528, min:2528, max:2528, |
+[2024-03-08 15:30:33,317]:DEBUG:          |                   | sum:2528, sum2:6390784, cnt:1,           |
+[2024-03-08 15:30:33,318]:DEBUG:          |                   | avg:2528.0, std:0, last:2528             |
+[2024-03-08 15:30:33,318]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-08 15:30:33,318]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-08 15:30:33,318]:DEBUG:     scan file miniVite.benchmarks/000025/000008_compile_tsan-opt/work/time.out
+[2024-03-08 15:30:33,324]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-08 15:30:33,324]:DEBUG:          |      verification |                                          |
+[2024-03-08 15:30:33,324]:DEBUG:          |              time |                                          |
+[2024-03-08 15:30:33,324]:DEBUG:          |              mods |                                          |
+[2024-03-08 15:30:33,324]:DEBUG:          |       instr_reads |    first:183, min:183, max:183, sum:183, |
+[2024-03-08 15:30:33,324]:DEBUG:          |                   | sum2:33489, cnt:1, avg:183.0, std:0,     |
+[2024-03-08 15:30:33,324]:DEBUG:          |                   | last:183                                 |
+[2024-03-08 15:30:33,324]:DEBUG:          |      instr_writes |    first:113, min:113, max:113, sum:113, |
+[2024-03-08 15:30:33,325]:DEBUG:          |                   | sum2:12769, cnt:1, avg:113.0, std:0,     |
+[2024-03-08 15:30:33,325]:DEBUG:          |                   | last:113                                 |
+[2024-03-08 15:30:33,325]:DEBUG:          | ignore_read_write |        first:14, min:14, max:14, sum:14, |
+[2024-03-08 15:30:33,326]:DEBUG:          |                   | sum2:196, cnt:1, avg:14.0, std:0,        |
+[2024-03-08 15:30:33,326]:DEBUG:          |                   | last:14                                  |
+[2024-03-08 15:30:33,326]:DEBUG:          |        AL_ignored |          first:2528, min:2528, max:2528, |
+[2024-03-08 15:30:33,326]:DEBUG:          |                   | sum:2528, sum2:6390784, cnt:1,           |
+[2024-03-08 15:30:33,327]:DEBUG:          |                   | avg:2528.0, std:0, last:2528             |
+[2024-03-08 15:30:33,327]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-08 15:30:33,327]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-08 15:30:33,328]:DEBUG:          |      compile_time |          first:5.35, min:5.35, max:5.35, |
+[2024-03-08 15:30:33,328]:DEBUG:          |                   | sum:5.35, sum2:28.622499999999995,       |
+[2024-03-08 15:30:33,328]:DEBUG:          |                   | cnt:1, avg:5.35, std:0, last:5.35        |
+[2024-03-08 15:30:33,329]:DEBUG:     scan file miniVite.benchmarks/000025/000003_compile_tsan/work/stderr
+[2024-03-08 15:30:33,340]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-08 15:30:33,340]:DEBUG:          |      verification |                                          |
+[2024-03-08 15:30:33,340]:DEBUG:          |              time |                                          |
+[2024-03-08 15:30:33,340]:DEBUG:          |              mods |                                          |
+[2024-03-08 15:30:33,341]:DEBUG:          |       instr_reads |          first:1712, min:1712, max:1712, |
+[2024-03-08 15:30:33,341]:DEBUG:          |                   | sum:1712, sum2:2930944, cnt:1,           |
+[2024-03-08 15:30:33,341]:DEBUG:          |                   | avg:1712.0, std:0, last:1712             |
+[2024-03-08 15:30:33,342]:DEBUG:          |      instr_writes |    first:924, min:924, max:924, sum:924, |
+[2024-03-08 15:30:33,342]:DEBUG:          |                   | sum2:853776, cnt:1, avg:924.0, std:0,    |
+[2024-03-08 15:30:33,342]:DEBUG:          |                   | last:924                                 |
+[2024-03-08 15:30:33,342]:DEBUG:          | ignore_read_write |        first:98, min:98, max:98, sum:98, |
+[2024-03-08 15:30:33,343]:DEBUG:          |                   | sum2:9604, cnt:1, avg:98.0, std:0,       |
+[2024-03-08 15:30:33,343]:DEBUG:          |                   | last:98                                  |
+[2024-03-08 15:30:33,343]:DEBUG:          |        AL_ignored |                                          |
+[2024-03-08 15:30:33,343]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-08 15:30:33,344]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-08 15:30:33,344]:DEBUG:     scan file miniVite.benchmarks/000025/000003_compile_tsan/work/time.out
+[2024-03-08 15:30:33,350]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-08 15:30:33,350]:DEBUG:          |      verification |                                          |
+[2024-03-08 15:30:33,350]:DEBUG:          |              time |                                          |
+[2024-03-08 15:30:33,350]:DEBUG:          |              mods |                                          |
+[2024-03-08 15:30:33,351]:DEBUG:          |       instr_reads |          first:1712, min:1712, max:1712, |
+[2024-03-08 15:30:33,351]:DEBUG:          |                   | sum:1712, sum2:2930944, cnt:1,           |
+[2024-03-08 15:30:33,351]:DEBUG:          |                   | avg:1712.0, std:0, last:1712             |
+[2024-03-08 15:30:33,352]:DEBUG:          |      instr_writes |    first:924, min:924, max:924, sum:924, |
+[2024-03-08 15:30:33,352]:DEBUG:          |                   | sum2:853776, cnt:1, avg:924.0, std:0,    |
+[2024-03-08 15:30:33,352]:DEBUG:          |                   | last:924                                 |
+[2024-03-08 15:30:33,353]:DEBUG:          | ignore_read_write |        first:98, min:98, max:98, sum:98, |
+[2024-03-08 15:30:33,353]:DEBUG:          |                   | sum2:9604, cnt:1, avg:98.0, std:0,       |
+[2024-03-08 15:30:33,353]:DEBUG:          |                   | last:98                                  |
+[2024-03-08 15:30:33,354]:DEBUG:          |        AL_ignored |                                          |
+[2024-03-08 15:30:33,354]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-08 15:30:33,354]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-08 15:30:33,354]:DEBUG:          |      compile_time |          first:3.85, min:3.85, max:3.85, |
+[2024-03-08 15:30:33,355]:DEBUG:          |                   | sum:3.85, sum2:14.822500000000002,       |
+[2024-03-08 15:30:33,355]:DEBUG:          |                   | cnt:1, avg:3.85, std:0, last:3.85        |
+[2024-03-08 15:30:33,356]:DEBUG:     scan file miniVite.benchmarks/000025/000009_compile_tsan-opt/work/stderr
+[2024-03-08 15:30:33,387]:DEBUG:       file "stderr" scanned pattern found:
+[2024-03-08 15:30:33,387]:DEBUG:          |      verification |                                          |
+[2024-03-08 15:30:33,387]:DEBUG:          |              time |                                          |
+[2024-03-08 15:30:33,388]:DEBUG:          |              mods |                                          |
+[2024-03-08 15:30:33,388]:DEBUG:          |       instr_reads |    first:264, min:264, max:264, sum:264, |
+[2024-03-08 15:30:33,388]:DEBUG:          |                   | sum2:69696, cnt:1, avg:264.0, std:0,     |
+[2024-03-08 15:30:33,388]:DEBUG:          |                   | last:264                                 |
+[2024-03-08 15:30:33,389]:DEBUG:          |      instr_writes |    first:139, min:139, max:139, sum:139, |
+[2024-03-08 15:30:33,389]:DEBUG:          |                   | sum2:19321, cnt:1, avg:139.0, std:0,     |
+[2024-03-08 15:30:33,389]:DEBUG:          |                   | last:139                                 |
+[2024-03-08 15:30:33,389]:DEBUG:          | ignore_read_write |        first:14, min:14, max:14, sum:14, |
+[2024-03-08 15:30:33,390]:DEBUG:          |                   | sum2:196, cnt:1, avg:14.0, std:0,        |
+[2024-03-08 15:30:33,390]:DEBUG:          |                   | last:14                                  |
+[2024-03-08 15:30:33,390]:DEBUG:          |        AL_ignored |          first:2423, min:2423, max:2423, |
+[2024-03-08 15:30:33,390]:DEBUG:          |                   | sum:2423, sum2:5870929, cnt:1,           |
+[2024-03-08 15:30:33,390]:DEBUG:          |                   | avg:2423.0, std:0, last:2423             |
+[2024-03-08 15:30:33,391]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-08 15:30:33,391]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-08 15:30:33,392]:DEBUG:     scan file miniVite.benchmarks/000025/000009_compile_tsan-opt/work/time.out
+[2024-03-08 15:30:33,398]:DEBUG:       file "time.out" scanned pattern found:
+[2024-03-08 15:30:33,398]:DEBUG:          |      verification |                                          |
+[2024-03-08 15:30:33,398]:DEBUG:          |              time |                                          |
+[2024-03-08 15:30:33,398]:DEBUG:          |              mods |                                          |
+[2024-03-08 15:30:33,398]:DEBUG:          |       instr_reads |    first:264, min:264, max:264, sum:264, |
+[2024-03-08 15:30:33,398]:DEBUG:          |                   | sum2:69696, cnt:1, avg:264.0, std:0,     |
+[2024-03-08 15:30:33,398]:DEBUG:          |                   | last:264                                 |
+[2024-03-08 15:30:33,398]:DEBUG:          |      instr_writes |    first:139, min:139, max:139, sum:139, |
+[2024-03-08 15:30:33,399]:DEBUG:          |                   | sum2:19321, cnt:1, avg:139.0, std:0,     |
+[2024-03-08 15:30:33,399]:DEBUG:          |                   | last:139                                 |
+[2024-03-08 15:30:33,399]:DEBUG:          | ignore_read_write |        first:14, min:14, max:14, sum:14, |
+[2024-03-08 15:30:33,400]:DEBUG:          |                   | sum2:196, cnt:1, avg:14.0, std:0,        |
+[2024-03-08 15:30:33,400]:DEBUG:          |                   | last:14                                  |
+[2024-03-08 15:30:33,400]:DEBUG:          |        AL_ignored |          first:2423, min:2423, max:2423, |
+[2024-03-08 15:30:33,400]:DEBUG:          |                   | sum:2423, sum2:5870929, cnt:1,           |
+[2024-03-08 15:30:33,401]:DEBUG:          |                   | avg:2423.0, std:0, last:2423             |
+[2024-03-08 15:30:33,401]:DEBUG:          |   CLUSTER_ignored |                                          |
+[2024-03-08 15:30:33,401]:DEBUG:          |       ALX_ignored |                                          |
+[2024-03-08 15:30:33,401]:DEBUG:          |      compile_time |          first:5.32, min:5.32, max:5.32, |
+[2024-03-08 15:30:33,402]:DEBUG:          |                   | sum:5.32, sum2:28.302400000000002,       |
+[2024-03-08 15:30:33,402]:DEBUG:          |                   | cnt:1, avg:5.32, std:0, last:5.32        |
+[2024-03-08 15:30:33,440]:INFO: >>> Analyse finished
+[2024-03-08 15:30:33,440]:INFO: >>> Analyse data storage: miniVite.benchmarks/000025/analyse.xml
+[2024-03-08 15:30:33,440]:INFO: ######################################################################

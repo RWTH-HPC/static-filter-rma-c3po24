@@ -1,0 +1,300 @@
+[2024-03-02 23:53:45,314]:DEBUG: Command: jube run lulesh.xml --tag M tsan-opt filterstats ignorelist
+[2024-03-02 23:53:45,314]:DEBUG: Version: 2.6.1
+[2024-03-02 23:53:45,314]:DEBUG: Parsing lulesh.xml
+[2024-03-02 23:53:45,315]:DEBUG:   --> Preprocess run 1 <--
+[2024-03-02 23:53:45,315]:DEBUG:   Remove invalid tags
+[2024-03-02 23:53:45,315]:DEBUG:     Available tags: filterstats,M,ignorelist,tsan-opt
+[2024-03-02 23:53:45,315]:DEBUG:   Remove invalid tags
+[2024-03-02 23:53:45,315]:DEBUG:     Available tags: filterstats,M,ignorelist,tsan-opt
+[2024-03-02 23:53:45,315]:DEBUG:   Parsing <include-path>
+[2024-03-02 23:53:45,315]:DEBUG:     New path: ./../../common
+[2024-03-02 23:53:45,315]:DEBUG:     New path: ./../../platform/CLAIX-23
+[2024-03-02 23:53:45,315]:DEBUG:   Read $JUBE_INCLUDE_PATH
+[2024-03-02 23:53:45,315]:DEBUG:   Preprocess xml tree
+[2024-03-02 23:53:45,315]:DEBUG:     path: ./../../common
+[2024-03-02 23:53:45,315]:DEBUG:     path: ./../../platform/CLAIX-23
+[2024-03-02 23:53:45,315]:DEBUG:     path: /cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/JUBE/2.6.1/share/jube/platform/slurm
+[2024-03-02 23:53:45,315]:DEBUG:     path: .
+[2024-03-02 23:53:45,319]:DEBUG:   New tags might be included, start additional include-preprocess run.
+[2024-03-02 23:53:45,320]:DEBUG:   --> Preprocess run 2 <--
+[2024-03-02 23:53:45,320]:DEBUG:   Remove invalid tags
+[2024-03-02 23:53:45,320]:DEBUG:     Available tags: filterstats,M,ignorelist,tsan-opt
+[2024-03-02 23:53:45,320]:DEBUG:   Remove invalid tags
+[2024-03-02 23:53:45,320]:DEBUG:     Available tags: filterstats,M,ignorelist,tsan-opt
+[2024-03-02 23:53:45,320]:DEBUG:   Parsing <include-path>
+[2024-03-02 23:53:45,320]:DEBUG:     New path: ./../../common
+[2024-03-02 23:53:45,320]:DEBUG:     New path: ./../../platform/CLAIX-23
+[2024-03-02 23:53:45,320]:DEBUG:   Read $JUBE_INCLUDE_PATH
+[2024-03-02 23:53:45,320]:DEBUG:   Preprocess xml tree
+[2024-03-02 23:53:45,320]:DEBUG:     path: ./../../common
+[2024-03-02 23:53:45,320]:DEBUG:     path: ./../../platform/CLAIX-23
+[2024-03-02 23:53:45,321]:DEBUG:     path: /cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/JUBE/2.6.1/share/jube/platform/slurm
+[2024-03-02 23:53:45,321]:DEBUG:     path: .
+[2024-03-02 23:53:45,321]:DEBUG:   New tags might be included, start additional include-preprocess run.
+[2024-03-02 23:53:45,321]:DEBUG:   --> Preprocess run 3 <--
+[2024-03-02 23:53:45,321]:DEBUG:   Remove invalid tags
+[2024-03-02 23:53:45,321]:DEBUG:     Available tags: filterstats,M,ignorelist,tsan-opt
+[2024-03-02 23:53:45,321]:DEBUG:   Remove invalid tags
+[2024-03-02 23:53:45,321]:DEBUG:     Available tags: filterstats,M,ignorelist,tsan-opt
+[2024-03-02 23:53:45,322]:DEBUG:   Parsing <include-path>
+[2024-03-02 23:53:45,322]:DEBUG:     New path: ./../../common
+[2024-03-02 23:53:45,322]:DEBUG:     New path: ./../../platform/CLAIX-23
+[2024-03-02 23:53:45,322]:DEBUG:   Read $JUBE_INCLUDE_PATH
+[2024-03-02 23:53:45,322]:DEBUG:   Preprocess xml tree
+[2024-03-02 23:53:45,322]:DEBUG:     path: ./../../common
+[2024-03-02 23:53:45,322]:DEBUG:     path: ./../../platform/CLAIX-23
+[2024-03-02 23:53:45,322]:DEBUG:     path: /cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/JUBE/2.6.1/share/jube/platform/slurm
+[2024-03-02 23:53:45,322]:DEBUG:     path: .
+[2024-03-02 23:53:45,323]:DEBUG:   New tags might be included, start additional include-preprocess run.
+[2024-03-02 23:53:45,323]:DEBUG:   --> Preprocess run 4 <--
+[2024-03-02 23:53:45,323]:DEBUG:   Remove invalid tags
+[2024-03-02 23:53:45,323]:DEBUG:     Available tags: filterstats,M,ignorelist,tsan-opt
+[2024-03-02 23:53:45,323]:DEBUG:   Remove invalid tags
+[2024-03-02 23:53:45,323]:DEBUG:     Available tags: filterstats,M,ignorelist,tsan-opt
+[2024-03-02 23:53:45,323]:DEBUG:   Parsing <include-path>
+[2024-03-02 23:53:45,323]:DEBUG:     New path: ./../../common
+[2024-03-02 23:53:45,323]:DEBUG:     New path: ./../../platform/CLAIX-23
+[2024-03-02 23:53:45,323]:DEBUG:   Read $JUBE_INCLUDE_PATH
+[2024-03-02 23:53:45,323]:DEBUG:   Preprocess xml tree
+[2024-03-02 23:53:45,323]:DEBUG:     path: ./../../common
+[2024-03-02 23:53:45,323]:DEBUG:     path: ./../../platform/CLAIX-23
+[2024-03-02 23:53:45,323]:DEBUG:     path: /cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/JUBE/2.6.1/share/jube/platform/slurm
+[2024-03-02 23:53:45,323]:DEBUG:     path: .
+[2024-03-02 23:53:45,324]:DEBUG:   No preprocessing changes were detected, stop additional include-preprocess runs.
+[2024-03-02 23:53:45,324]:DEBUG:   Remove invalid tags
+[2024-03-02 23:53:45,324]:DEBUG:     Available tags: filterstats,M,ignorelist,tsan-opt
+[2024-03-02 23:53:45,324]:DEBUG:   Preprocess done
+[2024-03-02 23:53:45,324]:DEBUG:   Preprocess benchmark xml tree
+[2024-03-02 23:53:45,324]:DEBUG:     Searching for type of "must_config_pset" in must.xml
+[2024-03-02 23:53:45,325]:DEBUG:     Created new <parameterset>: jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_config_pset
+[2024-03-02 23:53:45,325]:DEBUG:     Searching for type of "must_execute_sub" in must.xml
+[2024-03-02 23:53:45,325]:DEBUG:     Created new <substituteset>: jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_execute_sub
+[2024-03-02 23:53:45,325]:DEBUG:     Searching for type of "must_files" in must.xml
+[2024-03-02 23:53:45,326]:DEBUG:     Created new <fileset>: jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_files
+[2024-03-02 23:53:45,326]:DEBUG:     Searching for type of "must_build_pset" in must.xml
+[2024-03-02 23:53:45,327]:DEBUG:     Created new <parameterset>: jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_build_pset
+[2024-03-02 23:53:45,327]:DEBUG:     Searching for type of "must_execute_pset" in must.xml
+[2024-03-02 23:53:45,327]:DEBUG:     Created new <parameterset>: jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_execute_pset
+[2024-03-02 23:53:45,327]:DEBUG:     Searching for type of "must_compile_pset" in must.xml
+[2024-03-02 23:53:45,328]:DEBUG:     Created new <parameterset>: jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_compile_pset
+[2024-03-02 23:53:45,328]:DEBUG:     Searching for type of "ignorelist_pset" in defaults.xml
+[2024-03-02 23:53:45,329]:DEBUG:     Created new <parameterset>: jube_6735070c71f31aac0f70d8501cd4b1e2_ignorelist_pset
+[2024-03-02 23:53:45,329]:DEBUG:     Searching for type of "compile_mode_pset" in defaults.xml
+[2024-03-02 23:53:45,330]:DEBUG:     Created new <parameterset>: jube_6735070c71f31aac0f70d8501cd4b1e2_compile_mode_pset
+[2024-03-02 23:53:45,330]:DEBUG:     Searching for type of "measurement_mode_pset" in defaults.xml
+[2024-03-02 23:53:45,330]:DEBUG:     Created new <parameterset>: jube_6735070c71f31aac0f70d8501cd4b1e2_measurement_mode_pset
+[2024-03-02 23:53:45,331]:DEBUG:   Parsing <parameterset name="config">
+[2024-03-02 23:53:45,331]:DEBUG:   Parsing <parameterset name="source">
+[2024-03-02 23:53:45,331]:DEBUG:     Searching for <parameterset name="source"> in defaults.xml
+[2024-03-02 23:53:45,332]:DEBUG:   Parsing <parameterset name="platform_specs_pset">
+[2024-03-02 23:53:45,333]:DEBUG:     Searching for <parameterset name="platform_specs_pset"> in system_settings.xml
+[2024-03-02 23:53:45,333]:DEBUG:     Searching for <parameterset name="platform_specs_pset"> in defaults.xml
+[2024-03-02 23:53:45,335]:DEBUG:     Searching for <parameterset name="systemParameter"> in platform.xml
+[2024-03-02 23:53:45,336]:DEBUG:   Parsing <parameterset name="execute_pset">
+[2024-03-02 23:53:45,336]:DEBUG:     Searching for <parameterset name="execute_pset"> in system_settings.xml
+[2024-03-02 23:53:45,337]:DEBUG:     Searching for <parameterset name="execute_pset"> in defaults.xml
+[2024-03-02 23:53:45,338]:DEBUG:     Searching for <parameterset name="executeset"> in platform.xml
+[2024-03-02 23:53:45,339]:DEBUG:   Parsing <parameterset name="toolchain_env_pset">
+[2024-03-02 23:53:45,339]:DEBUG:     Searching for <parameterset name="toolchain_env_pset"> in system_settings.xml
+[2024-03-02 23:53:45,339]:DEBUG:   Parsing <parameterset name="compile_pset">
+[2024-03-02 23:53:45,339]:DEBUG:     Searching for <parameterset name="compile_pset"> in system_settings.xml
+[2024-03-02 23:53:45,340]:DEBUG:     Searching for <parameterset name="compile_pset"> in defaults.xml
+[2024-03-02 23:53:45,342]:DEBUG:   Parsing <parameterset name="module_env_pset">
+[2024-03-02 23:53:45,342]:DEBUG:     Searching for <parameterset name="module_env_pset"> in system_settings.xml
+[2024-03-02 23:53:45,343]:DEBUG:     Searching for <parameterset name="module_env_pset"> in defaults.xml
+[2024-03-02 23:53:45,345]:DEBUG:   Parsing <parameterset name="mpirun_env_pset">
+[2024-03-02 23:53:45,345]:DEBUG:     Searching for <parameterset name="mpirun_env_pset"> in system_settings.xml
+[2024-03-02 23:53:45,345]:DEBUG:     Searching for <parameterset name="mpirun_env_pset"> in defaults.xml
+[2024-03-02 23:53:45,347]:DEBUG:   Parsing <parameterset name="export_env_pset">
+[2024-03-02 23:53:45,347]:DEBUG:     Searching for <parameterset name="export_env_pset"> in system_settings.xml
+[2024-03-02 23:53:45,347]:DEBUG:     Searching for <parameterset name="export_env_pset"> in defaults.xml
+[2024-03-02 23:53:45,349]:DEBUG:   Parsing <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_config_pset">
+[2024-03-02 23:53:45,349]:DEBUG:     Searching for <parameterset name="must_config_pset"> in must.xml
+[2024-03-02 23:53:45,350]:DEBUG:   Parsing <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_build_pset">
+[2024-03-02 23:53:45,350]:DEBUG:     Searching for <parameterset name="must_build_pset"> in must.xml
+[2024-03-02 23:53:45,350]:DEBUG:   Parsing <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_execute_pset">
+[2024-03-02 23:53:45,350]:DEBUG:     Searching for <parameterset name="must_execute_pset"> in must.xml
+[2024-03-02 23:53:45,351]:DEBUG:   Parsing <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_compile_pset">
+[2024-03-02 23:53:45,351]:DEBUG:     Searching for <parameterset name="must_compile_pset"> in must.xml
+[2024-03-02 23:53:45,352]:DEBUG:   Parsing <parameterset name="jube_6735070c71f31aac0f70d8501cd4b1e2_ignorelist_pset">
+[2024-03-02 23:53:45,352]:DEBUG:     Searching for <parameterset name="ignorelist_pset"> in defaults.xml
+[2024-03-02 23:53:45,353]:DEBUG:   Parsing <parameterset name="jube_6735070c71f31aac0f70d8501cd4b1e2_compile_mode_pset">
+[2024-03-02 23:53:45,353]:DEBUG:     Searching for <parameterset name="compile_mode_pset"> in defaults.xml
+[2024-03-02 23:53:45,355]:DEBUG:   Parsing <parameterset name="jube_6735070c71f31aac0f70d8501cd4b1e2_measurement_mode_pset">
+[2024-03-02 23:53:45,355]:DEBUG:     Searching for <parameterset name="measurement_mode_pset"> in defaults.xml
+[2024-03-02 23:53:45,357]:DEBUG:   Parsing <substituteset name="job_sub">
+[2024-03-02 23:53:45,357]:DEBUG:     Searching for <substituteset name="job_sub"> in system_settings.xml
+[2024-03-02 23:53:45,357]:DEBUG:     Searching for <substituteset name="job_sub"> in defaults.xml
+[2024-03-02 23:53:45,359]:DEBUG:     Searching for <substituteset name="executesub"> in platform.xml
+[2024-03-02 23:53:45,359]:DEBUG:   Parsing <substituteset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_execute_sub">
+[2024-03-02 23:53:45,359]:DEBUG:     Searching for <substituteset name="must_execute_sub"> in must.xml
+[2024-03-02 23:53:45,360]:DEBUG:   Parsing <fileset name="source_files">
+[2024-03-02 23:53:45,360]:DEBUG:     Searching for <fileset name="source_files"> in system_settings.xml
+[2024-03-02 23:53:45,360]:DEBUG:     Searching for <fileset name="source_files"> in defaults.xml
+[2024-03-02 23:53:45,362]:DEBUG:   Parsing <fileset name="job_files">
+[2024-03-02 23:53:45,362]:DEBUG:     Searching for <fileset name="job_files"> in system_settings.xml
+[2024-03-02 23:53:45,363]:DEBUG:     Searching for <fileset name="job_files"> in defaults.xml
+[2024-03-02 23:53:45,364]:DEBUG:     Searching for <fileset name="jobfiles"> in platform.xml
+[2024-03-02 23:53:45,365]:DEBUG:   Parsing <fileset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_files">
+[2024-03-02 23:53:45,365]:DEBUG:     Searching for <fileset name="must_files"> in must.xml
+[2024-03-02 23:53:45,365]:DEBUG:   Parsing <patternset name="pattern">
+[2024-03-02 23:53:45,365]:DEBUG:     Searching for <patternset name="pattern"> in defaults.xml
+[2024-03-02 23:53:45,367]:DEBUG:   Parsing <patternset name="filterstats_pattern">
+[2024-03-02 23:53:45,367]:DEBUG:   Parsing <patternset name="filterstats_time_pattern">
+[2024-03-02 23:53:45,367]:DEBUG:   Parsing <step name="build_must">
+[2024-03-02 23:53:45,367]:DEBUG:   Parsing <step name="copy_source">
+[2024-03-02 23:53:45,367]:DEBUG:   Parsing <step name="compile">
+[2024-03-02 23:53:45,367]:DEBUG:   Parsing <step name="execute">
+[2024-03-02 23:53:45,367]:DEBUG:   Parsing <analyser name="analyse">
+[2024-03-02 23:53:45,367]:DEBUG:   Parsing <analyser name="filterstats_analyse">
+[2024-03-02 23:53:45,367]:DEBUG: Start consistency check
+[2024-03-02 23:53:45,367]:DEBUG: Create benchmark directory
+[2024-03-03 00:11:50,571]:DEBUG: Command: jube result lulesh.benchmarks --id last -u lulesh.xml
+[2024-03-03 00:11:50,571]:DEBUG: Version: 2.6.1
+[2024-03-03 00:11:50,571]:DEBUG: Parsing lulesh.benchmarks/000008/configuration.xml
+[2024-03-03 00:11:50,574]:DEBUG:   --> Preprocess run 1 <--
+[2024-03-03 00:11:50,576]:DEBUG:   Remove invalid tags
+[2024-03-03 00:11:50,576]:DEBUG:     Available tags: 
+[2024-03-03 00:11:50,576]:DEBUG:   Parsing <selection>
+[2024-03-03 00:11:50,577]:DEBUG:   Remove invalid tags
+[2024-03-03 00:11:50,577]:DEBUG:     Available tags: M,ignorelist,tsan-opt,filterstats
+[2024-03-03 00:11:50,577]:DEBUG:   Read $JUBE_INCLUDE_PATH
+[2024-03-03 00:11:50,577]:DEBUG:   Preprocess xml tree
+[2024-03-03 00:11:50,577]:DEBUG:     path: /cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/JUBE/2.6.1/share/jube/platform/slurm
+[2024-03-03 00:11:50,578]:DEBUG:     path: lulesh.benchmarks/000008
+[2024-03-03 00:11:50,578]:DEBUG:   No preprocessing changes were detected, stop additional include-preprocess runs.
+[2024-03-03 00:11:50,579]:DEBUG:   Remove invalid tags
+[2024-03-03 00:11:50,579]:DEBUG:     Available tags: M,ignorelist,tsan-opt,filterstats
+[2024-03-03 00:11:50,579]:DEBUG:   Preprocess done
+[2024-03-03 00:11:50,580]:DEBUG:   Preprocess benchmark xml tree
+[2024-03-03 00:11:50,580]:DEBUG:   Parsing <parameterset name="config">
+[2024-03-03 00:11:50,580]:DEBUG:   Parsing <parameterset name="source">
+[2024-03-03 00:11:50,581]:DEBUG:   Parsing <parameterset name="platform_specs_pset">
+[2024-03-03 00:11:50,581]:DEBUG:   Parsing <parameterset name="execute_pset">
+[2024-03-03 00:11:50,582]:DEBUG:   Parsing <parameterset name="toolchain_env_pset">
+[2024-03-03 00:11:50,582]:DEBUG:   Parsing <parameterset name="compile_pset">
+[2024-03-03 00:11:50,583]:DEBUG:   Parsing <parameterset name="module_env_pset">
+[2024-03-03 00:11:50,583]:DEBUG:   Parsing <parameterset name="mpirun_env_pset">
+[2024-03-03 00:11:50,584]:DEBUG:   Parsing <parameterset name="export_env_pset">
+[2024-03-03 00:11:50,584]:DEBUG:   Parsing <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_config_pset">
+[2024-03-03 00:11:50,585]:DEBUG:   Parsing <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_build_pset">
+[2024-03-03 00:11:50,585]:DEBUG:   Parsing <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_execute_pset">
+[2024-03-03 00:11:50,586]:DEBUG:   Parsing <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_compile_pset">
+[2024-03-03 00:11:50,587]:DEBUG:   Parsing <parameterset name="jube_6735070c71f31aac0f70d8501cd4b1e2_ignorelist_pset">
+[2024-03-03 00:11:50,587]:DEBUG:   Parsing <parameterset name="jube_6735070c71f31aac0f70d8501cd4b1e2_compile_mode_pset">
+[2024-03-03 00:11:50,587]:DEBUG:   Parsing <parameterset name="jube_6735070c71f31aac0f70d8501cd4b1e2_measurement_mode_pset">
+[2024-03-03 00:11:50,587]:DEBUG:   Parsing <substituteset name="job_sub">
+[2024-03-03 00:11:50,588]:DEBUG:   Parsing <substituteset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_execute_sub">
+[2024-03-03 00:11:50,589]:DEBUG:   Parsing <fileset name="source_files">
+[2024-03-03 00:11:50,589]:DEBUG:   Parsing <fileset name="job_files">
+[2024-03-03 00:11:50,589]:DEBUG:   Parsing <fileset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_files">
+[2024-03-03 00:11:50,589]:DEBUG:   Parsing <patternset name="pattern">
+[2024-03-03 00:11:50,590]:DEBUG:   Parsing <patternset name="filterstats_pattern">
+[2024-03-03 00:11:50,591]:DEBUG:   Parsing <patternset name="filterstats_time_pattern">
+[2024-03-03 00:11:50,591]:DEBUG:   Parsing <step name="build_must">
+[2024-03-03 00:11:50,592]:DEBUG:   Parsing <step name="copy_source">
+[2024-03-03 00:11:50,592]:DEBUG:   Parsing <step name="compile">
+[2024-03-03 00:11:50,592]:DEBUG:   Parsing <step name="execute">
+[2024-03-03 00:11:50,593]:DEBUG:   Parsing <analyser name="analyse">
+[2024-03-03 00:11:50,593]:DEBUG:   Parsing <analyser name="filterstats_analyse">
+[2024-03-03 00:11:50,593]:DEBUG: Parsing lulesh.benchmarks/000008/workpackages.xml
+[2024-03-04 22:22:05,901]:DEBUG: Command: jube result lulesh.benchmarks --id last -u lulesh.xml
+[2024-03-04 22:22:05,901]:DEBUG: Version: 2.6.1
+[2024-03-04 22:22:05,901]:DEBUG: Parsing lulesh.benchmarks/000008/configuration.xml
+[2024-03-04 22:22:05,906]:DEBUG:   --> Preprocess run 1 <--
+[2024-03-04 22:22:05,935]:DEBUG:   Remove invalid tags
+[2024-03-04 22:22:05,935]:DEBUG:     Available tags: 
+[2024-03-04 22:22:05,935]:DEBUG:   Parsing <selection>
+[2024-03-04 22:22:05,936]:DEBUG:   Remove invalid tags
+[2024-03-04 22:22:05,936]:DEBUG:     Available tags: filterstats,ignorelist,M,tsan-opt
+[2024-03-04 22:22:05,936]:DEBUG:   Read $JUBE_INCLUDE_PATH
+[2024-03-04 22:22:05,936]:DEBUG:   Preprocess xml tree
+[2024-03-04 22:22:05,936]:DEBUG:     path: /cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/JUBE/2.6.1/share/jube/platform/slurm
+[2024-03-04 22:22:05,937]:DEBUG:     path: lulesh.benchmarks/000008
+[2024-03-04 22:22:05,937]:DEBUG:   No preprocessing changes were detected, stop additional include-preprocess runs.
+[2024-03-04 22:22:05,938]:DEBUG:   Remove invalid tags
+[2024-03-04 22:22:05,938]:DEBUG:     Available tags: filterstats,ignorelist,M,tsan-opt
+[2024-03-04 22:22:05,938]:DEBUG:   Preprocess done
+[2024-03-04 22:22:05,939]:DEBUG:   Preprocess benchmark xml tree
+[2024-03-04 22:22:05,939]:DEBUG:   Parsing <parameterset name="config">
+[2024-03-04 22:22:05,939]:DEBUG:   Parsing <parameterset name="source">
+[2024-03-04 22:22:05,940]:DEBUG:   Parsing <parameterset name="platform_specs_pset">
+[2024-03-04 22:22:05,941]:DEBUG:   Parsing <parameterset name="execute_pset">
+[2024-03-04 22:22:05,941]:DEBUG:   Parsing <parameterset name="toolchain_env_pset">
+[2024-03-04 22:22:05,942]:DEBUG:   Parsing <parameterset name="compile_pset">
+[2024-03-04 22:22:05,943]:DEBUG:   Parsing <parameterset name="module_env_pset">
+[2024-03-04 22:22:05,943]:DEBUG:   Parsing <parameterset name="mpirun_env_pset">
+[2024-03-04 22:22:05,944]:DEBUG:   Parsing <parameterset name="export_env_pset">
+[2024-03-04 22:22:05,944]:DEBUG:   Parsing <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_config_pset">
+[2024-03-04 22:22:05,945]:DEBUG:   Parsing <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_build_pset">
+[2024-03-04 22:22:05,945]:DEBUG:   Parsing <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_execute_pset">
+[2024-03-04 22:22:05,946]:DEBUG:   Parsing <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_compile_pset">
+[2024-03-04 22:22:05,947]:DEBUG:   Parsing <parameterset name="jube_6735070c71f31aac0f70d8501cd4b1e2_ignorelist_pset">
+[2024-03-04 22:22:05,947]:DEBUG:   Parsing <parameterset name="jube_6735070c71f31aac0f70d8501cd4b1e2_compile_mode_pset">
+[2024-03-04 22:22:05,947]:DEBUG:   Parsing <parameterset name="jube_6735070c71f31aac0f70d8501cd4b1e2_measurement_mode_pset">
+[2024-03-04 22:22:05,947]:DEBUG:   Parsing <substituteset name="job_sub">
+[2024-03-04 22:22:05,948]:DEBUG:   Parsing <substituteset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_execute_sub">
+[2024-03-04 22:22:05,949]:DEBUG:   Parsing <fileset name="source_files">
+[2024-03-04 22:22:05,949]:DEBUG:   Parsing <fileset name="job_files">
+[2024-03-04 22:22:05,949]:DEBUG:   Parsing <fileset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_files">
+[2024-03-04 22:22:05,949]:DEBUG:   Parsing <patternset name="pattern">
+[2024-03-04 22:22:05,949]:DEBUG:   Parsing <patternset name="filterstats_pattern">
+[2024-03-04 22:22:05,950]:DEBUG:   Parsing <patternset name="filterstats_time_pattern">
+[2024-03-04 22:22:05,951]:DEBUG:   Parsing <step name="build_must">
+[2024-03-04 22:22:05,951]:DEBUG:   Parsing <step name="copy_source">
+[2024-03-04 22:22:05,952]:DEBUG:   Parsing <step name="compile">
+[2024-03-04 22:22:05,952]:DEBUG:   Parsing <step name="execute">
+[2024-03-04 22:22:05,952]:DEBUG:   Parsing <analyser name="analyse">
+[2024-03-04 22:22:05,952]:DEBUG:   Parsing <analyser name="filterstats_analyse">
+[2024-03-04 22:22:05,953]:DEBUG: Parsing lulesh.benchmarks/000008/workpackages.xml
+[2024-03-04 22:22:07,412]:DEBUG: Parsing lulesh.benchmarks/000008/analyse.xml
+[2024-03-04 22:22:32,057]:DEBUG: Command: jube result lulesh.benchmarks --id last -u lulesh.xml
+[2024-03-04 22:22:32,057]:DEBUG: Version: 2.6.1
+[2024-03-04 22:22:32,057]:DEBUG: Parsing lulesh.benchmarks/000008/configuration.xml
+[2024-03-04 22:22:32,060]:DEBUG:   --> Preprocess run 1 <--
+[2024-03-04 22:22:32,060]:DEBUG:   Remove invalid tags
+[2024-03-04 22:22:32,060]:DEBUG:     Available tags: 
+[2024-03-04 22:22:32,060]:DEBUG:   Parsing <selection>
+[2024-03-04 22:22:32,060]:DEBUG:   Remove invalid tags
+[2024-03-04 22:22:32,061]:DEBUG:     Available tags: filterstats,M,ignorelist,tsan-opt
+[2024-03-04 22:22:32,061]:DEBUG:   Read $JUBE_INCLUDE_PATH
+[2024-03-04 22:22:32,062]:DEBUG:   Preprocess xml tree
+[2024-03-04 22:22:32,062]:DEBUG:     path: /cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/JUBE/2.6.1/share/jube/platform/slurm
+[2024-03-04 22:22:32,063]:DEBUG:     path: lulesh.benchmarks/000008
+[2024-03-04 22:22:32,063]:DEBUG:   No preprocessing changes were detected, stop additional include-preprocess runs.
+[2024-03-04 22:22:32,063]:DEBUG:   Remove invalid tags
+[2024-03-04 22:22:32,063]:DEBUG:     Available tags: filterstats,M,ignorelist,tsan-opt
+[2024-03-04 22:22:32,064]:DEBUG:   Preprocess done
+[2024-03-04 22:22:32,064]:DEBUG:   Preprocess benchmark xml tree
+[2024-03-04 22:22:32,064]:DEBUG:   Parsing <parameterset name="config">
+[2024-03-04 22:22:32,065]:DEBUG:   Parsing <parameterset name="source">
+[2024-03-04 22:22:32,066]:DEBUG:   Parsing <parameterset name="platform_specs_pset">
+[2024-03-04 22:22:32,066]:DEBUG:   Parsing <parameterset name="execute_pset">
+[2024-03-04 22:22:32,067]:DEBUG:   Parsing <parameterset name="toolchain_env_pset">
+[2024-03-04 22:22:32,068]:DEBUG:   Parsing <parameterset name="compile_pset">
+[2024-03-04 22:22:32,068]:DEBUG:   Parsing <parameterset name="module_env_pset">
+[2024-03-04 22:22:32,069]:DEBUG:   Parsing <parameterset name="mpirun_env_pset">
+[2024-03-04 22:22:32,070]:DEBUG:   Parsing <parameterset name="export_env_pset">
+[2024-03-04 22:22:32,070]:DEBUG:   Parsing <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_config_pset">
+[2024-03-04 22:22:32,071]:DEBUG:   Parsing <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_build_pset">
+[2024-03-04 22:22:32,071]:DEBUG:   Parsing <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_execute_pset">
+[2024-03-04 22:22:32,072]:DEBUG:   Parsing <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_compile_pset">
+[2024-03-04 22:22:32,073]:DEBUG:   Parsing <parameterset name="jube_6735070c71f31aac0f70d8501cd4b1e2_ignorelist_pset">
+[2024-03-04 22:22:32,073]:DEBUG:   Parsing <parameterset name="jube_6735070c71f31aac0f70d8501cd4b1e2_compile_mode_pset">
+[2024-03-04 22:22:32,073]:DEBUG:   Parsing <parameterset name="jube_6735070c71f31aac0f70d8501cd4b1e2_measurement_mode_pset">
+[2024-03-04 22:22:32,073]:DEBUG:   Parsing <substituteset name="job_sub">
+[2024-03-04 22:22:32,074]:DEBUG:   Parsing <substituteset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_execute_sub">
+[2024-03-04 22:22:32,075]:DEBUG:   Parsing <fileset name="source_files">
+[2024-03-04 22:22:32,075]:DEBUG:   Parsing <fileset name="job_files">
+[2024-03-04 22:22:32,075]:DEBUG:   Parsing <fileset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_files">
+[2024-03-04 22:22:32,075]:DEBUG:   Parsing <patternset name="pattern">
+[2024-03-04 22:22:32,075]:DEBUG:   Parsing <patternset name="filterstats_pattern">
+[2024-03-04 22:22:32,076]:DEBUG:   Parsing <patternset name="filterstats_time_pattern">
+[2024-03-04 22:22:32,077]:DEBUG:   Parsing <step name="build_must">
+[2024-03-04 22:22:32,077]:DEBUG:   Parsing <step name="copy_source">
+[2024-03-04 22:22:32,078]:DEBUG:   Parsing <step name="compile">
+[2024-03-04 22:22:32,078]:DEBUG:   Parsing <step name="execute">
+[2024-03-04 22:22:32,078]:DEBUG:   Parsing <analyser name="analyse">
+[2024-03-04 22:22:32,079]:DEBUG:   Parsing <analyser name="filterstats_analyse">
+[2024-03-04 22:22:32,079]:DEBUG: Parsing lulesh.benchmarks/000008/workpackages.xml
+[2024-03-04 22:22:33,089]:DEBUG: Parsing lulesh.benchmarks/000008/analyse.xml

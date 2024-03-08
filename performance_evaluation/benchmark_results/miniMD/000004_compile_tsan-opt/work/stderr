@@ -1,0 +1,220 @@
+[INFO] Module intel/2023a loaded.
+[INFO] Module Classic-Flang/16.0.4-c23 loaded.
+[INFO] Module CMake/3.26.3 loaded.
+[INFO] Module CMake/3.26.3 loaded.
+force_eam.cpp:813:15: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    while(ptr = strtok(__null, " \t\n\r\f")) list[i++] = atof(ptr);
+          ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+force_eam.cpp:813:15: note: place parentheses around the assignment to silence this warning
+    while(ptr = strtok(__null, " \t\n\r\f")) list[i++] = atof(ptr);
+              ^
+          (                                )
+force_eam.cpp:813:15: note: use '==' to turn this assignment into an equality comparison
+    while(ptr = strtok(__null, " \t\n\r\f")) list[i++] = atof(ptr);
+              ^
+              ==
+1 warning generated.
+output.cpp:126:57: warning: format specifies type 'double' but the argument has type 'MMD_float *' (aka 'double *') [-Wformat]
+      fprintf(stdout, "  force_params: %2.2lf %2.2lf\n",force->epsilon,force->sigma);
+                                       ~~~~~~           ^~~~~~~~~~~~~~
+output.cpp:126:72: warning: format specifies type 'double' but the argument has type 'MMD_float *' (aka 'double *') [-Wformat]
+      fprintf(stdout, "  force_params: %2.2lf %2.2lf\n",force->epsilon,force->sigma);
+                                              ~~~~~~                   ^~~~~~~~~~~~
+output.cpp:154:51: warning: format specifies type 'double' but the argument has type 'MMD_float *' (aka 'double *') [-Wformat]
+    fprintf(fp, "  force_params: %2.2lf %2.2lf\n",force->epsilon,force->sigma);
+                                 ~~~~~~           ^~~~~~~~~~~~~~
+output.cpp:154:66: warning: format specifies type 'double' but the argument has type 'MMD_float *' (aka 'double *') [-Wformat]
+    fprintf(fp, "  force_params: %2.2lf %2.2lf\n",force->epsilon,force->sigma);
+                                        ~~~~~~                   ^~~~~~~~~~~~
+4 warnings generated.
+setup.cpp:127:12: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+    if(ptr = strchr(line, '#')) * ptr = '\0';
+       ~~~~^~~~~~~~~~~~~~~~~~~
+setup.cpp:127:12: note: place parentheses around the assignment to silence this warning
+    if(ptr = strchr(line, '#')) * ptr = '\0';
+           ^
+       (                      )
+setup.cpp:127:12: note: use '==' to turn this assignment into an equality comparison
+    if(ptr = strchr(line, '#')) * ptr = '\0';
+           ^
+           ==
+1 warning generated.
+Running on Module: /tmp/ss540294/n23m0025_223103/tmp.aRPQOTkFpE.ll
+
+Detected RMA Models used: 
+MPI_RMA: Y
+OpenSHMEM: N
+GASPI: N
+
+Phase 1: Factory Detection and Incidence relation up to depth 6
+Found Shared Resource Factory: 'MPI_Get' called in '_ZN8ForceEAM11communicateER4AtomR4Comm'
+Upward Func instr: _ZN8ForceEAM11communicateER4AtomR4Comm
+Upward Func instr: _ZN8ForceEAM11communicateER4AtomR4Comm
+Upward Func instr: _ZN8ForceEAM11communicateER4AtomR4Comm
+Upward Func instr: _ZN8ForceEAM17compute_halfneighER4AtomR8NeighborR4Commi
+Upward Func instr: _ZN8ForceEAM17compute_fullneighER4AtomR8NeighborR4Commi
+Upward Func instr: _ZN8ForceEAM7computeER4AtomR8NeighborR4Commi
+Identified 36 connected Value(s)
+Found Shared Resource Factory: 'MPI_Win_create' called in '_ZN4CommC2Ev'
+Upward Func instr: _ZN4CommC2Ev
+Identified 20 connected Value(s)
+Found Shared Resource Factory: 'MPI_Win_allocate' called in '_ZN4CommC2Ev'
+Identified 1 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_ZN4Comm11communicateER4Atom'
+Upward Func instr: _ZN4Comm11communicateER4Atom
+Upward Func instr: .omp_outlined..52
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Upward Func instr: _ZN4Comm8exchangeER4Atom
+Upward Func instr: _ZN4Comm8exchangeER4Atom
+Upward Func instr: _ZN4Atom11unpack_commEiiPd
+Identified 143 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_ZN4Comm19reverse_communicateER4Atom'
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Detected OpenMP outlined function: .omp_outlined..107
+Detected OpenMP outlined function: .omp_outlined.
+Upward Func instr: _ZN4Comm12free_windowsEv
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined.
+Upward Func instr: _ZN4Comm5setupEdR4Atom
+Upward Func instr: _ZN4Comm5setupEdR4Atom
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _ZN4Atom14unpack_reverseEiPiPd
+Identified 105 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_ZN4Comm8exchangeER4Atom'
+Identified 4 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_ZN4Comm8exchangeER4Atom'
+Identified 3 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_ZN4Comm8exchangeER4Atom'
+Identified 1 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_ZN4Comm8exchangeER4Atom'
+Upward Func instr: _ZN4Comm8exchangeER4Atom
+Upward Func instr: _ZN4Comm8exchangeER4Atom
+Upward Func instr: _ZN4Comm8growsendEi
+Upward Func instr: _ZN4Comm8growsendEi
+Upward Func instr: _ZN4Comm12exchange_allER4Atom
+Identified 135 connected Value(s)
+Found Shared Resource Factory: 'MPI_Win_allocate' called in '_ZN4Comm12exchange_allER4Atom'
+Upward Func instr: _ZN4Comm12exchange_allER4Atom
+Upward Func instr: _ZN4Comm8exchangeER4Atom
+Upward Func instr: _ZN4Comm8exchangeER4Atom
+Detected OpenMP outlined function: .omp_outlined..107
+Detected OpenMP outlined function: .omp_outlined.
+Upward Func instr: .omp_outlined..52
+Upward Func instr: _ZN4Comm8growsendEi
+Upward Func instr: _ZN4Comm8growsendEi
+Upward Func instr: _ZN4Atom13pack_exchangeEiPd
+Upward Func instr: _ZN4Atom13pack_exchangeEiPd
+Upward Func instr: _ZN4Comm12free_windowsEv
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN4Comm19reverse_communicateER4Atom
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined.
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Upward Func instr: _ZN4Comm5setupEdR4Atom
+Upward Func instr: _ZN4Comm5setupEdR4Atom
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _ZN4Comm11communicateER4Atom
+Identified 369 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_ZN4Comm12exchange_allER4Atom'
+Identified 5 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_ZN4Comm12exchange_allER4Atom'
+Identified 1 connected Value(s)
+Found Shared Resource Factory: 'MPI_Win_allocate' called in '_ZN4Comm8growsendEi'
+Upward Func instr: _ZN4Comm8growsendEi
+Upward Func instr: _ZN4Comm8growsendEi
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Identified 190 connected Value(s)
+Found Shared Resource Factory: 'MPI_Win_allocate' called in '_ZN4Comm7bordersER4Atom'
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Upward Func instr: _ZN4Comm7bordersER4Atom
+Detected OpenMP outlined function: .omp_outlined..107
+Detected OpenMP outlined function: .omp_outlined.
+Upward Func instr: .omp_outlined..52
+Upward Func instr: _ZN4Comm12free_windowsEv
+Upward Func instr: _Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN6Thermo7computeEiR4AtomR8NeighborP5ForceR5TimerR4Comm
+Upward Func instr: _ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer
+Detected OpenMP outlined function: .omp_outlined..52
+Upward Func instr: .omp_outlined..107
+Upward Func instr: .omp_outlined.
+Upward Func instr: _ZN4Comm5setupEdR4Atom
+Upward Func instr: _ZN4Comm5setupEdR4Atom
+Upward Func instr: _Z16read_lammps_dataR4AtomR4CommR8NeighborR9IntegrateR6ThermoPci
+Upward Func instr: _ZN4Atom11pack_borderEiPdPi
+Identified 395 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_ZN4Comm7bordersER4Atom'
+Identified 10 connected Value(s)
+Found Shared Resource Factory: 'MPI_Get' called in '_ZN4Comm7bordersER4Atom'
+Identified 1 connected Value(s)
+
+Phase 2-Default: Clipping unrelated global Variables
+Clipped 532 global variables
+
+Phase 3: Adding SanitizeThread attribute to affected functions, if not present
+Added Function '_ZN8ForceEAM11communicateER4AtomR4Comm' to be instrumented
+Added Function '_ZN4CommC2Ev' to be instrumented
+Added Function '_ZN4Comm11communicateER4Atom' to be instrumented
+Added Function '.omp_outlined..52' to be instrumented
+Added Function 'main' to be instrumented
+Added Function '_ZN4Comm19reverse_communicateER4Atom' to be instrumented
+Added Function '_ZN4Comm7bordersER4Atom' to be instrumented
+Added Function '_ZN4Comm8exchangeER4Atom' to be instrumented
+Added Function '_ZN4Atom11unpack_commEiiPd' to be instrumented
+Added Function '_ZN4Comm12free_windowsEv' to be instrumented
+Added Function '_Z6outputR2InR4AtomP5ForceR8NeighborR4CommR6ThermoR9IntegrateR5Timeri' to be instrumented
+Added Function '_ZN9Integrate3runER4AtomP5ForceR8NeighborR4CommR6ThermoR5Timer' to be instrumented
+Added Function '_ZN4Comm5setupEdR4Atom' to be instrumented
+Added Function '_ZN4Atom14unpack_reverseEiPiPd' to be instrumented
+Added Function '_ZN4Comm8growsendEi' to be instrumented
+Added Function '_ZN4Comm12exchange_allER4Atom' to be instrumented
+Added Function '_ZN4Atom13pack_exchangeEiPd' to be instrumented
+Added Function '_ZN4Atom11pack_borderEiPdPi' to be instrumented
+
+Found 799 shared resources in total.
+----------------------------------------
+19 | RemoteBuf
+129 | ReadBuf
+0 | WriteBuf
+651 | DirtyBuf
+----------------------------------------
+Remote access types: RO 
+
+Shared Resource detection finished, generating Result Struct
+TSanRMAOpt done!
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+ 734 aa      - Number of MayAlias results
+   1 aa      - Number of MustAlias results
+2128 aa      - Number of NoAlias results
+   5 tsanMOD - Number of accesses with bad size
+ 387 tsanMOD - Number of instrumented reads
+ 132 tsanMOD - Number of instrumented writes
+3075 tsanMOD - Number of accesses ignored due to RMAOptimizerPlugin Whitelist
+   5 tsanMOD - Number of reads ignored due to following writes
+  11 tsanMOD - Number of vtable reads
+

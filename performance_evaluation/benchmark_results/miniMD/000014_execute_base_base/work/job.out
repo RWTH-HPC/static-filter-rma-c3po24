@@ -1,0 +1,45 @@
+nodelist=n23m0026
+# Create System:
+# Done .... 
+# miniMD-Reference 2.0 (MPI+OpenMP) output ...
+# Run Settings: 
+	# MPI communication: MPI-RMA with lock_all
+	# MPI processes: 48
+	# OpenMP threads: 1
+	# Inputfile: compile/copy_source/in.lj.miniMD
+	# Datafile: None
+# Physics Settings: 
+	# ForceStyle: LJ
+	# Force Parameters: 1.00 1.00
+	# Units: LJ
+	# Atoms: 4000000
+	# Atom types: 4
+	# System size: 167.96 167.96 167.96 (unit cells: 100 100 100)
+	# Density: 0.844200
+	# Force cutoff: 2.500000
+	# Timestep size: 0.005000
+# Technical Settings: 
+	# Neigh cutoff: 2.800000
+	# Half neighborlists: 1
+	# Neighbor bins: 83 83 83
+	# Neighbor frequency: 20
+	# Sorting frequency: 20
+	# Thermo frequency: 100
+	# Ghost Newton: 1
+	# Use intrinsics: 0
+	# Do safe exchange: 0
+	# Size of float: 8
+
+# Starting dynamics ...
+# Timestep T U P Time
+0 1.440000e+00 -6.773368e+00 -5.019670e+00  0.000
+100 7.704794e-01 -5.776853e+00 7.195969e-02  2.703
+200 7.601074e-01 -5.762833e+00 2.041238e-01  5.389
+
+
+# Performance Summary:
+# MPI_proc OMP_threads nsteps natoms t_total t_force t_neigh t_comm t_other performance perf/thread grep_string t_extra
+48 1 200 4000000 5.389227 3.873641 0.893505 0.424811 0.197269 148444302.703614 3092589.639659 PERF_SUMMARY 0.063673
+
+
+EXECUTION VERIFICATION CHECK: SUCCESS

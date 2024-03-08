@@ -1,0 +1,82 @@
+[INFO] Module intel/2023a loaded.
+[INFO] Module Classic-Flang/16.0.4-c23 loaded.
+[INFO] Module CMake/3.26.3 loaded.
+[INFO] Module CMake/3.26.3 loaded.
+In file included from stencil.c:71:
+../../include/par-res-kern_general.h:190:12: warning: implicit conversion from 'int' to 'float' changes value from 2147483647 to 2147483648 [-Wimplicit-const-int-float-conversion]
+  cost_opt=INT_MAX;
+          ~^~~~~~~
+/rwthfs/rz/cluster/work/rwth1269/software/c23/classic-flang/lib/clang/16/include/limits.h:46:19: note: expanded from macro 'INT_MAX'
+#define INT_MAX   __INT_MAX__
+                  ^~~~~~~~~~~
+<built-in>:45:21: note: expanded from macro '__INT_MAX__'
+#define __INT_MAX__ 2147483647
+                    ^~~~~~~~~~
+1 warning generated.
+In file included from ../../common/MPI_bail_out.c:50:
+../../include/par-res-kern_general.h:190:12: warning: implicit conversion from 'int' to 'float' changes value from 2147483647 to 2147483648 [-Wimplicit-const-int-float-conversion]
+  cost_opt=INT_MAX;
+          ~^~~~~~~
+/rwthfs/rz/cluster/work/rwth1269/software/c23/classic-flang/lib/clang/16/include/limits.h:46:19: note: expanded from macro 'INT_MAX'
+#define INT_MAX   __INT_MAX__
+                  ^~~~~~~~~~~
+<built-in>:45:21: note: expanded from macro '__INT_MAX__'
+#define __INT_MAX__ 2147483647
+                    ^~~~~~~~~~
+1 warning generated.
+Running on Module: /tmp/ss540294/n23m0025_223103/tmp.sRJNo968MV.ll
+
+Detected RMA Models used: 
+MPI_RMA: Y
+OpenSHMEM: N
+GASPI: N
+
+Phase 1: Factory Detection and Incidence relation up to depth 10
+Found Shared Resource Factory: 'MPI_Win_allocate' called in 'PRK_Win_allocate'
+Identified 1 connected Value(s)
+Found Shared Resource Factory: 'MPI_Win_get_attr' called in 'PRK_Win_free'
+Identified 6 connected Value(s)
+Found Shared Resource Factory: 'MPI_Win_get_attr' called in 'PRK_Win_free'
+Identified 0 connected Value(s)
+Found Shared Resource Factory: 'MPI_Win_allocate' called in 'main'
+Identified 37 connected Value(s)
+Found Shared Resource Factory: 'MPI_Win_allocate' called in 'main'
+Identified 31 connected Value(s)
+Found Shared Resource Factory: 'MPI_Put' called in 'main'
+Identified 1 connected Value(s)
+Found Shared Resource Factory: 'MPI_Put' called in 'main'
+Identified 36 connected Value(s)
+Found Shared Resource Factory: 'MPI_Put' called in 'main'
+Identified 31 connected Value(s)
+Found Shared Resource Factory: 'MPI_Put' called in 'main'
+Identified 7 connected Value(s)
+
+Phase 2-Default: Clipping unrelated global Variables
+Clipped 31 global variables
+
+Phase 3: Adding SanitizeThread attribute to affected functions, if not present
+Added Function 'PRK_Win_free' to be instrumented
+Added Function 'main' to be instrumented
+
+Found 75 shared resources in total.
+----------------------------------------
+7 | RemoteBuf
+0 | ReadBuf
+0 | WriteBuf
+68 | DirtyBuf
+----------------------------------------
+Remote access types: WO 
+
+Shared Resource detection finished, generating Result Struct
+TSanRMAOpt done!
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+ 73 aa               - Number of MayAlias results
+325 aa               - Number of NoAlias results
+ 73 capture-tracking - Number of pointers maybe captured
+ 24 tsanMOD          - Number of instrumented reads
+ 12 tsanMOD          - Number of instrumented writes
+135 tsanMOD          - Number of accesses ignored due to RMAOptimizerPlugin Whitelist
+

@@ -1,0 +1,68 @@
+nodelist=n23m0060
+[MUST] MUST configuration ... centralized checks with fall-back application crash handling (very slow)
+[MUST] Using prebuilt infrastructure at /home/ss540294/.cache/must/prebuilds/f9e5b4c1455b311dccdf8210b5fd2e3b
+[MUST] Weaver ... success
+[MUST] Generating P^nMPI configuration ... success
+[MUST] Infrastructure in "/home/ss540294/.cache/must/prebuilds/f9e5b4c1455b311dccdf8210b5fd2e3b" is present and used.
+[MUST] Search for linked P^nMPI ... not found ... using LD_PRELOAD to load P^nMPI ... success
+[MUST] Note: MPI RMA support requires the application to be built with Clang >= 15.Executing application:
+Parallel Research Kernels version 2.17
+MPIRMA matrix transpose: B = A^T
+Number of ranks      = 48
+Matrix order         = 16320
+Number of iterations = 400
+Untiled
+Synchronization      = MPI_Win_flush (bundle=1)
+Block_size           = 115600
+Solution validates
+Rate (MB/s): 12022.878842 Avg time (s): 0.354447  Total time (s): 141.778968
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST-REPORT] MUST detected no MPI usage errors nor any suspicious behavior during this application run.
+[MUST] Execution finished.
+EXECUTION VERIFICATION CHECK: SUCCESS

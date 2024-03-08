@@ -1,0 +1,17 @@
+# Binary Directories
+bin/*
+
+#But keep the bin directory
+!bin/.gitkeep
+
+# Fortran module files
+*.mod
+*.smod
+
+# Executables
+*.exe
+*.out
+*.x
+
+# Compiled Object files
+*.o

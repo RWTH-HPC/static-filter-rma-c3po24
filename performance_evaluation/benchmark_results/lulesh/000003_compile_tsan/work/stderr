@@ -1,0 +1,12 @@
+[INFO] Module intel/2023a loaded.
+[INFO] Module Classic-Flang/16.0.4-c23 loaded.
+[INFO] Module CMake/3.26.3 loaded.
+[INFO] Module CMake/3.26.3 loaded.
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+9167 tsanMOD - Number of instrumented reads
+3070 tsanMOD - Number of instrumented writes
+ 622 tsanMOD - Number of reads ignored due to following writes
+

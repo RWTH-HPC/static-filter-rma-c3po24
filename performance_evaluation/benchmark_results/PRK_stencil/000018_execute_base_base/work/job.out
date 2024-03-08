@@ -1,0 +1,14 @@
+nodelist=n23m0032
+Parallel Research Kernels version 2.17
+MPIRMA stencil execution on 2D grid
+Number of ranks        = 48
+Grid size              = 20000
+Radius of stencil      = 1
+Tiles in x/y-direction = 6/8
+Type of stencil        = star
+Data type              = double precision
+Compact representation of stencil loop body
+Number of iterations   = 400
+Solution validates
+Rate (MFlops/s): 100210.455466  Avg time (s): 0.043899  Total time (s): 17.559525
+EXECUTION VERIFICATION CHECK: SUCCESS

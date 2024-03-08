@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jube>  
+  <include-path>
+    <path>../../common</path>
+    <path>../../platform/CLAIX-23</path>
+  </include-path>
+
+  <benchmark name="lulesh" outpath="lulesh.benchmarks">
+    <!-- 
+      #Lulesh Configuration 
+    -->     
+    <parameterset name="config">
+      <parameter name="size" tag="C|(!S+!M+!L)">10</parameter> <!-- Custom size -->
+      <parameter name="size" tag="S">12</parameter> <!-- with 27 tasks: ~10s / ~1min-->
+      <parameter name="size" tag="M">20</parameter> <!-- with 27 tasks: ~57s / ~10min -->
+      <parameter name="size" tag="L">29</parameter> <!-- with 27 tasks: ~300s / ~20min -->
+    </parameterset>    
+    <!-- 
+      source directory 
+    -->  
+    <parameterset name="source"  init_with="defaults.xml">
+      <parameter name="path_to_source" type="string">${jube_benchmark_home}/lulesh/</parameter> <!-- - - - - - - - - - -  Path to the source folder       -->  
+    </parameterset> 
+    <!--
+      #Fetching system settings       
+      #Here you can add or change parameters to fit this specific benchmark
+    -->
+    <parameterset name="platform_specs_pset" init_with="system_settings.xml">  
+      <parameter name="application_tasks" type="int">27</parameter>       <!-- - - - - - - - - - - - - - - - -  tasks has to be N^3           -->
+      <parameter name="threads" type="int">1</parameter>   <!-- - - - - - - - - - - - - - - - -  Threads                       -->
+      <parameter name="taskspernode" type="int">48</parameter> <!-- - - - - - - - - - - - - - - - -  Tasks per node           -->
+      <parameter name="timelimit">00:40:00</parameter>
+      <parameter name="args_exec">-s $size</parameter>
+      <parameter name="ERROR_tasks_msg" type="string" separator="!NONE!">tasks ($application_tasks) need to be cubic (N^3), e.g., 1, 8, 27, 64, etc.</parameter>
+      <parameter name="ERROR_tasks" mode="python">
+      print(
+        '\n[\033[91m\033[1m'+'ERROR'+'\033[0m'+'] in step \033[1m${jube_step_name} (${jube_wp_id})\033[0m:\n'+
+        '        $ERROR_tasks_msg'
+        ) or 'ERR' if round($application_tasks**(1/3))**3 != $application_tasks else 'OK'
+      </parameter>
+    </parameterset>    
+    <parameterset name="execute_pset" init_with="system_settings.xml"></parameterset>  
+    <parameterset name="toolchain_env_pset" init_with="system_settings.xml">
+        <!-- <parameter name="compiler_name">clang</parameter>      - - - - - - - - - - - - - - - -  Compiler               -->
+        <!-- <parameter name="compiler_version">13.0.1</parameter>  - - - - - - - - - - - - - - - -  Compiler Version       -->
+        <!-- <parameter name="mpi_name">openmpi</parameter>         - - - - - - - - - - - - - - - -  MPI                    -->
+        <!-- <parameter name="mpi_version">2022a</parameter>        - - - - - - - - - - - - - - - -  MPI Version            -->
+    </parameterset>
+    <parameterset name="compile_pset" init_with="system_settings.xml">
+      <parameter name="executable_name">lulesh2.0</parameter> <!-- - - - - - - - - - -  Name of the executable       --> 
+      <!-- Change folder before compilation -->
+      <parameter name="compile_preparation" type="string">cd MPIRMA/${kernel_folder}</parameter> <!-- - - - - - - -  commands that have to be executed before compilation -->
+      <parameter name="compile_target" type="string">$executable_name</parameter> <!-- - - - - - - -  Makefile target for compilation -->
+      <!-- RMA is used by default -->
+      <parameter name="RMA_target" type="string" mode="python">"-DUSE_RMA=1"</parameter>
+      <parameter name="compile_env_vars" separator="!NONE!" mode="python"> <!-- Environment variables for compilation with tsan -->
+        {"base": "",
+         "tsan": "CXX='${MUSTCXX}' CFLAGS='${compile_flags}' CXXFLAGS='${compile_flags}'",
+         "tsan-opt": "CXX='${MUSTCXX}' CFLAGS='${compile_flags}' CXXFLAGS='${compile_flags}'"}.get("${compile_mode}", 0)
+      </parameter> 
+    </parameterset>
+    <parameterset name="module_env_pset" init_with="system_settings.xml"></parameterset>
+    <parameterset name="mpirun_env_pset" init_with="system_settings.xml"></parameterset>
+    <parameterset name="export_env_pset" init_with="system_settings.xml"></parameterset>
+
+    <!-- Regex patternsets -->
+    <patternset name="pattern" init_with="defaults.xml:pattern">
+      <pattern name="time" type="float">Elapsed time .* ${jube_pat_fp}</pattern>
+    </patternset>
+    <!-- Load filesets -->
+    <fileset name="source_files" init_with="system_settings.xml"></fileset>
+    <fileset name="job_files" init_with="system_settings.xml"></fileset> <!-- Slurm -->
+    <!-- Load substituteset -->
+    <substituteset name="job_sub" init_with="system_settings.xml"></substituteset> <!-- Slurm -->
+    <!-- Load steps -->
+    <include from="must.xml" path="step" /> <!-- Must -->
+    <include from="defaults.xml" path="step" />
+    
+    <!-- Compile step -->
+    <step name="compile" depend="copy_source" suffix="${compile_mode}" procs="8">
+      <include from="defaults.xml" path="compile_psets/use" />
+      <!-- Compile executable -->
+      <do active="${do_compile}">
+        ${load_modules}; 
+        ${export}; 
+        ${compile_export};
+        <!-- COMPILE INSTRUCTIONS START -->
+        rm -r -f build
+        mkdir build
+        cd build
+        CXX="$MPICXX" cmake -DWITH_OPENMP=OFF -DCMAKE_CXX_FLAGS="$RMA_target" ../copy_source/
+        make clean;
+        ${time_measure_command} make;
+        <!-- COMPILE INSTRUCTIONS END --> 
+        <!-- Caching executable -->
+        mkdir -p ${benchmark_build_dir};
+        mv -f ${executable_name} ${benchmark_build_dir}/${executable_full_name};
+      </do>      
+      <!-- Copying cached executable -->
+      <do>
+        cp -f ${benchmark_build_dir}/${executable_full_name} .;
+      </do>
+    </step>
+    <!-- Execute step -->
+    <step name="execute" depend="compile" suffix="${compile_mode}_${measurement_mode}" active="not ${ignorelist}" iterations="5">
+      <include from="defaults.xml" path="execute_psets/use" />
+      <do done_file="${done_file}" error_file="${error_file}">
+        if [[ "$ERROR_tasks" == "ERR" ]]; then &gt;&amp;2 echo "$ERROR_tasks_msg"; exit 1; fi
+        $submit $submit_script
+      </do>
+    </step>
+    <!-- Load analyser -->
+    <include from="defaults.xml" path="analyser"/>
+    <!-- Load result -->
+    <include from="defaults.xml" path="result"/>
+
+    <!-- Use additional features -->
+    <include from="includes.xml" path="includes/include"/>
+  </benchmark>
+</jube>

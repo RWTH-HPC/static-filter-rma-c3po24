@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jube [
+  <!ENTITY iterations "5"> <!-- - - - - - - - - - - number of times the exectuion step should be repeated -->
+]>
+<jube>  
+  <include-path>
+    <path>../../common</path>
+    <path>../../platform/CLAIX-23</path>
+  </include-path>
+
+  <benchmark name="miniMD" outpath="miniMD.benchmarks">
+    <!-- 
+      #miniMD Dataset 
+    -->    
+    <parameterset name="dataset" tag="C|(!S+!M+!L)">      
+      <!-- Custom input values, used if tag C is set or none of the following: S, M, L -->
+      <parameter name="timesteps" type="int">1000</parameter>
+      <parameter name="size" type="int">50</parameter> <!-- 0 means that the size of the input_file is used !-->
+    </parameterset>
+
+    <!-- Presets S, M, L -->
+    <parameterset name="dataset" tag="S">      
+      <parameter name="timesteps" type="int">200</parameter>
+      <parameter name="size" type="int">100</parameter>
+    </parameterset>
+    <parameterset name="dataset" tag="M">      
+      <parameter name="timesteps" type="int">200</parameter>
+      <parameter name="size" type="int">100</parameter>
+    </parameterset>
+    <parameterset name="dataset" tag="L">      
+      <parameter name="timesteps" type="int">1000</parameter>
+      <parameter name="size" type="int">152</parameter>
+    </parameterset>
+
+    <!-- 
+      #miniMD Configuration 
+    -->     
+    <parameterset name="config" init_with="miniMD.xml:dataset">
+      <parameter name="input_file" type="string">in.lj.miniMD</parameter>
+    </parameterset>
+  
+    <!-- 
+      source directory 
+    -->  
+    <parameterset name="source"  init_with="defaults.xml">
+      <parameter name="path_to_source" type="string">${jube_benchmark_home}/miniMD/ref</parameter> <!-- - - - - - - - - - -  Path to the source folder       -->      
+      <parameter name="miniMD_type">openmpi</parameter>
+    </parameterset> 
+    <!-- 
+      #Fetching system settings       
+      #Here you can add or change parameters to fit this specific benchmark
+    -->
+    <parameterset name="platform_specs_pset" init_with="system_settings.xml">      
+      <parameter name="application_tasks" type="int">48</parameter>       
+      <parameter name="taskspernode" type="int">48</parameter> <!-- - - - - - - - - - - - - - - - -  Tasks per node           -->  
+      <parameter name="threads" type="int">1</parameter>       <!-- - - - - - - - - - - - - - - - -  Threads                -->
+      <parameter name="timelimit">00:40:00</parameter>
+      <parameter name="args_exec">-t ${threads} -s $size -dm -i $SOURCE_DIR/$input_file --nsteps ${timesteps}</parameter> 
+    </parameterset>    
+    <parameterset name="execute_pset" init_with="system_settings.xml"></parameterset>  
+    <parameterset name="toolchain_env_pset" init_with="system_settings.xml">
+        <!-- <parameter name="compiler_name">clang</parameter>      - - - - - - - - - - - - - - - -  Compiler               -->
+        <!-- <parameter name="compiler_version">13.0.1</parameter>  - - - - - - - - - - - - - - - -  Compiler Version       -->
+        <!-- <parameter name="mpi_name">intelmpi</parameter>        - - - - - - - - - - - - - - - -  MPI                    -->
+        <!-- <parameter name="mpi_version">2022a</parameter>        - - - - - - - - - - - - - - - -  MPI Version            -->
+    </parameterset>
+    <parameterset name="compile_pset" init_with="system_settings.xml">
+      <parameter name="executable_name">miniMD_${miniMD_type}</parameter> <!-- - - - - - - - - - -  Name of the executable       -->     
+      <parameter name="compile_target" type="string">${miniMD_type}</parameter> <!-- - - - - - - -  Makefile target for compilation -->
+      <!-- <parameter name="RMA_target" type="string">,RMA,RMA_FENCE</parameter>  - - - - - - - -  RMA targets              -->
+      <parameter name="RMA_target" type="string">RMA</parameter>  <!-- - - - - - - - -  RMA targets -->
+    </parameterset>
+    <parameterset name="module_env_pset" init_with="system_settings.xml"></parameterset>
+    <parameterset name="mpirun_env_pset" init_with="system_settings.xml"></parameterset>
+    <parameterset name="export_env_pset" init_with="system_settings.xml"></parameterset>
+    <!-- Regex patternsets -->
+    <patternset name="pattern" init_with="defaults.xml:pattern">
+      <pattern name="time" type="float">^$tasks $jube_pat_nint $jube_pat_nint $jube_pat_nint $jube_pat_fp</pattern>
+    </patternset> 
+    <!-- Load filesets -->
+    <fileset name="source_files" init_with="system_settings.xml"></fileset>
+    <fileset name="job_files" init_with="system_settings.xml"></fileset> <!-- Slurm -->
+    <!-- Load substituteset -->
+    <substituteset name="job_sub" init_with="system_settings.xml"></substituteset> <!-- Slurm -->
+    <!-- Load steps -->
+    <include from="must.xml" path="step" /> <!-- Must -->
+    <include from="defaults.xml" path="step" />
+    <!-- Compile step -->
+    <step name="compile" depend="copy_source" suffix="${compile_mode}">
+      <include from="defaults.xml" path="compile_psets/use" />
+      <!-- Compile executable -->
+      <do active="${do_compile}">      
+        cd copy_source/;
+        ${load_modules}; 
+        ${export}; 
+        ${compile_export};
+        <!-- COMPILE INSTRUCTIONS START -->
+        <!-- Set CXX instead of CC due to error in Makefile -->
+        make clean;
+        ${time_measure_command} make $RMA_target $compile_target CC="$MPICXX" LINK="$MPICXX";
+        <!-- COMPILE INSTRUCTIONS END -->
+        <!-- Caching executable -->
+        mkdir -p ${benchmark_build_dir};
+        mv -f ${executable_name} ${benchmark_build_dir}/${executable_full_name};
+      </do>      
+      <!-- Copying cached executable -->
+      <do>
+        cp -f ${benchmark_build_dir}/${executable_full_name} .;
+      </do>
+    </step>
+    <!-- Execute step -->
+    <step name="execute" depend="compile" suffix="${compile_mode}_${measurement_mode}" iterations="&iterations;" active="not ${ignorelist}">
+      <include from="defaults.xml" path="execute_psets/use" />
+      <do done_file="${done_file}" error_file="${error_file}">
+        $submit $submit_script
+      </do>
+    </step> 
+    <!-- Load analyser -->
+    <include from="defaults.xml" path="analyser"/>
+    <!-- Load result -->
+    <include from="defaults.xml" path="result"/>
+    
+    <!-- Use additional features -->
+    <include from="includes.xml" path="includes/include"/>
+  </benchmark>
+</jube>
