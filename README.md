@@ -23,14 +23,23 @@ If no optimization is applied, then MUST-RMA has a recall of 1 for the `misc` ca
 
 ## Performance Evaluation
 
-The results of the performance evaluation for the different benchmarks are available at:
+The results of the performance evaluation for the filter statistics for the different benchmarks are available at:
 
-- [performance_evaluation/benchmark_results/PRK_stencil/result](performance_evaluation/benchmark_results/PRK_stencil/result)
-- [performance_evaluation/benchmark_results/PRK_transpose/result](performance_evaluation/benchmark_results/PRK_transpose/result)
-- [performance_evaluation/benchmark_results/miniMD/result](performance_evaluation/benchmark_results/miniMD/result)
-- [performance_evaluation/benchmark_results/lulesh/result](performance_evaluation/benchmark_results/lulesh/result)
-- [performance_evaluation/benchmark_results/BT-RMA/result](performance_evaluation/benchmark_results/BT-RMA/result)
-- [performance_evaluation/benchmark_results/miniVite/result](performance_evaluation/benchmark_results/miniVite/result)
+- [performance_evaluation/benchmark_results/PRK_stencil/result/result.dat](performance_evaluation/benchmark_results/PRK_stencil/result/result.dat)
+- [performance_evaluation/benchmark_results/PRK_transpose/result/result.dat](performance_evaluation/benchmark_results/PRK_transpose/result/result.dat)
+- [performance_evaluation/benchmark_results/miniMD/result/result.dat](performance_evaluation/benchmark_results/miniMD/result/result.dat)
+- [performance_evaluation/benchmark_results/lulesh/result/result.dat](performance_evaluation/benchmark_results/lulesh/result/result.dat)
+- [performance_evaluation/benchmark_results/BT-RMA/result/result.dat](performance_evaluation/benchmark_results/BT-RMA/result/result.dat)
+- [performance_evaluation/benchmark_results/miniVite/result/result.dat](performance_evaluation/benchmark_results/miniVite/result/result.dat)
+
+The results of the performance evaluation with MUST-RMA for the different benchmarks are available at:
+
+- [performance_evaluation/benchmark_results/PRK_stencil/result/filterstats_result.dat](performance_evaluation/benchmark_results/PRK_stencil/result/filterstats_result.dat)
+- [performance_evaluation/benchmark_results/PRK_transpose/result/filterstats_result.dat](performance_evaluation/benchmark_results/PRK_transpose/result/filterstats_result.dat)
+- [performance_evaluation/benchmark_results/miniMD/result/filterstats_result.dat](performance_evaluation/benchmark_results/miniMD/result/filterstats_result.dat)
+- [performance_evaluation/benchmark_results/lulesh/result/filterstats_result.dat](performance_evaluation/benchmark_results/lulesh/result/filterstats_result.dat)
+- [performance_evaluation/benchmark_results/BT-RMA/result/filterstats_result.dat](performance_evaluation/benchmark_results/BT-RMA/result/filterstats_result.dat)
+- [performance_evaluation/benchmark_results/miniVite/result/filterstats_result.dat](performance_evaluation/benchmark_results/miniVite/result/filterstats_result.dat)
 
 Our benchmark suite is based on the [JUBE benchmarking environment](https://apps.fz-juelich.de/jsc/jube/jube2/docu/) and can be used to reproduce our experiments. The setup can be found at [performance_evaluation/rma_codes](performance_evaluation/rma_codes).
 
