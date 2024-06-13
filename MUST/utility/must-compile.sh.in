@@ -257,4 +257,4 @@ opt_argument_string="$(@RMAOPT_OPT_CONFIGURE_SCRIPT@ --get-config args ${optimiz
 ifdryrun "llvm-link -S ${OBJ_FILES[*]} -o ${tmpfile}"
 ifdryrun "opt ${opt_params} -load-pass-plugin ${MUST_COMPILER_OPT_PLUGIN} -passes='"${opt_passlist_string}"' ${opt_argument_string} ${tmpfile} -o ${tmpfile}.opt"
 ifdryrun "llc ${opt_level_string} ${tmpfile}.opt -o ${tmpfile}.opt.o -filetype=obj --relocation-model=pic"
-ifdryrun "${compiler_bin} $rem_args ${compiler_onreport_string} ${compiler_tsan_rtl_string} -lm ${tmpfile}.opt.o"
+ifdryrun "${compiler_bin} $rem_args ${compiler_onreport_string} ${compiler_tsan_rtl_string} -lm -ldl -lpthread ${tmpfile}.opt.o"

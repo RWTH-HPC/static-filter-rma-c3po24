@@ -1,7 +1,0 @@
-digraph ReducedMessageQueue {
-graph [bgcolor=transparent]
-1 [label="1"  ];
-0 [label="0"  ];
-1->0[label=" sends={comms={A={tags={123}}}} "]; 
-0->1[label=" receives={comms={A={tags={567}}}} "]; 
-}
