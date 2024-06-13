@@ -3,15 +3,9 @@
 #include <llvm/Support/CommandLine.h>
 #include <llvm/Demangle/Demangle.h>
 
-#include <algorithm>
-#include <cstddef>
 #include <fstream>
 #include <regex>
-#include <ostream>
 #include <string>
-#include <utility>
-#include <vector>
-#include <map>
 
 using namespace llvm;
 

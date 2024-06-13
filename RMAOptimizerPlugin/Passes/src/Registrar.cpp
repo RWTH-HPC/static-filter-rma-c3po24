@@ -1,5 +1,7 @@
 #include "llvm/Passes/PassBuilder.h"
 #include "llvm/Passes/PassPlugin.h"
+#include <llvm/IR/PassManager.h>
+#include <llvm/Passes/OptimizationLevel.h>
 
 #include "../inc/TSanActivatorPass.h"
 #include "../inc/TSanRMAOptimizer.h"

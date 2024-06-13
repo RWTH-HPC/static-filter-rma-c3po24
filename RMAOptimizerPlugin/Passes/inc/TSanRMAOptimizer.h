@@ -6,6 +6,7 @@
 #include "llvm/IR/PassManager.h"
 #include <map>
 #include <vector>
+#include <set>
 
 namespace llvm {
 
@@ -103,19 +104,24 @@ class TSanRMAOptimizerAnalysis : public AnalysisInfoMixin<TSanRMAOptimizerAnalys
 
             #warning TODO Test PGAS programming frameworks other than MPI RMA
             // C Bindings - OpenSHMEM
-            {"shmem_malloc",                {{-1}, ShResType::RemoteBuf}},
-            {"shmem_realloc",               {{-1}, ShResType::RemoteBuf}},
-            {"shmem_align",                 {{-1}, ShResType::RemoteBuf}},
-            {"shmem_malloc_with_hints",     {{-1}, ShResType::RemoteBuf}},
-            {"shmem_calloc",                {{-1}, ShResType::RemoteBuf}},
-            {"shmem_[a-zA-Z0-9]*_put(_nbi)?",  {{1}, ShResType::WriteBuf}},
-            {"shmem_[a-zA-Z0-9]*_get(_nbi)?",  {{0}, ShResType::ReadBuf}},
-            {"shmem_[a-zA-Z0-9]*_p(_nbi)?",  {{1}, ShResType::WriteBuf}},
-            {"shmem_[a-zA-Z0-9]*_g(_nbi)?",  {{-1}, ShResType::ReadBuf}},
-            {"shmem_[a-zA-Z0-9]*_atomic(_fetch)?(_(set|swap|compare_swap|inc|add|or|xor))?(_nbi)?",  {{-1}, ShResType::DirtyBuf}},
+            {"shmem_malloc(_)?",                {{-1}, ShResType::RemoteBuf}},
+            {"shmem_realloc(_)?",               {{-1}, ShResType::RemoteBuf}},
+            {"shmem_align(_)?",                 {{-1}, ShResType::RemoteBuf}},
+            {"shmem_malloc_with_hints(_)?",     {{-1}, ShResType::RemoteBuf}},
+            {"shmem_calloc(_)?",                {{-1}, ShResType::RemoteBuf}},
+            {"shmem_[a-zA-Z0-9]*_put(_nbi)?(_)?",  {{1}, ShResType::WriteBuf}},
+            {"shmem_[a-zA-Z0-9]*_get(_nbi)?(_)?",  {{0}, ShResType::ReadBuf}},
+            {"shmem_[a-zA-Z0-9]*_p(_nbi)?(_)?",  {{1}, ShResType::WriteBuf}},
+            {"shmem_[a-zA-Z0-9]*_g(_nbi)?(_)?",  {{-1}, ShResType::ReadBuf}},
+            {"shmem_putmem(_nbi)?(_)?",  {{1}, ShResType::WriteBuf}},
+            {"shmem_getmem(_nbi)?(_)?",  {{0}, ShResType::ReadBuf}},
+            {"shmem_[a-zA-Z0-9]*_atomic(_fetch)?(_(set|swap|compare_swap|inc|add|or|xor))?(_nbi)?(_)?",  {{-1}, ShResType::DirtyBuf}},
             // TODO: Think about adding shmem collectives
 
-            // TODO: Add GASPI calls
+            // C Bindings - GASPI
+            {"gaspi_segment_bind", {{1}, ShResType::RemoteBuf}},
+            {"gaspi_segment_use", {{1}, ShResType::RemoteBuf}},
+            {"gaspi_segment_ptr", {{1}, ShResType::RemoteBuf}}
         };
 
         // Map of (some) functions that, if at least one present, indicate that the mapped RMA framework is being used
@@ -125,9 +131,13 @@ class TSanRMAOptimizerAnalysis : public AnalysisInfoMixin<TSanRMAOptimizerAnalys
             {"mpi_win_create_", RMAFramework::MPI_RMA},   // MPI RMA on Fortran
             {"mpi_win_allocate_", RMAFramework::MPI_RMA},   // MPI RMA on Fortran
             #warning TODO Test PGAS programming frameworks other than MPI RMA
+            {"start_pes",      RMAFramework::OpenSHMEM}, // OpenSHMEM on C/C++
             {"shmem_init",      RMAFramework::OpenSHMEM}, // OpenSHMEM on C/C++
             {"shmem_init_thread", RMAFramework::OpenSHMEM}, // OpenSHMEM on C/C++
-            {"gaspi_connect",   RMAFramework::GASPI},     // GASPI on C/C++
+            {"start_pes_",      RMAFramework::OpenSHMEM}, // OpenSHMEM on Fortran
+            {"shmem_init_",      RMAFramework::OpenSHMEM}, // OpenSHMEM on Fortran
+            {"shmem_init_thread_", RMAFramework::OpenSHMEM}, // OpenSHMEM on Fortran
+            {"gaspi_proc_init",   RMAFramework::GASPI},     // GASPI on C/C++
         };
 
         /* ---------------------------------------------- */

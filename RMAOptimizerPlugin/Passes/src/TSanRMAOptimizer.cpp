@@ -32,20 +32,20 @@ static const cl::opt<int> ClAllowlistGenDepth(
 
 AnalysisKey TSanRMAOptimizerAnalysis::Key;
 
-static const Function *getParent(const Value *V) {
-    if (const Instruction *inst = dyn_cast<Instruction>(V)) {
+static Function *getParent(Value *V) {
+    if (Instruction *inst = dyn_cast<Instruction>(V)) {
     if (!inst->getParent())
         return nullptr;
     return inst->getParent()->getParent();
     }
  
-    if (const Argument *arg = dyn_cast<Argument>(V))
+    if (Argument *arg = dyn_cast<Argument>(V))
         return arg->getParent();
  
     return nullptr;
 }
  
-static bool notDifferentParent(const Value *O1, const Value *O2) {
+static bool notDifferentParent(Value *O1, Value *O2) {
  
     const Function *F1 = getParent(O1);
     const Function *F2 = getParent(O2);
@@ -129,7 +129,7 @@ TSanRMAOptimizerAnalysis::TSanRMAOptResult TSanRMAOptimizerAnalysis::run(Module 
 
     if (FrameworksUsed[RMAFramework::OpenSHMEM]) {
         errs() << "Phase 2-OpenSHMEM: Adding all global Variables\n";
-        for (GlobalVariable& GVar : M.getGlobalList()) {
+        for (GlobalVariable& GVar : M.globals()) {
             SharedResource G = {&GVar, ShResType::RemoteBuf};
             RecurseValue RV = {DefaultConfig, G};
             recurseGenerateAllowlist(G, DefaultConfig, *AA);
@@ -137,7 +137,7 @@ TSanRMAOptimizerAnalysis::TSanRMAOptResult TSanRMAOptimizerAnalysis::run(Module 
     } else {
         errs() << "Phase 2-Default: Clipping unrelated global Variables\n";
         int clipped = 0;
-        for (GlobalVariable& GVar : M.getGlobalList()) {
+        for (GlobalVariable& GVar : M.globals()) {
             SharedResource G = {&GVar, ShResType::DirtyBuf};
             if (std::find(SharedResources.begin(), SharedResources.end(), G) == SharedResources.end()) {
                 GVar.addAttribute("no_sanitize", "thread");
@@ -152,7 +152,7 @@ TSanRMAOptimizerAnalysis::TSanRMAOptResult TSanRMAOptimizerAnalysis::run(Module 
     errs() << "Phase 3: Adding SanitizeThread attribute to affected functions, if not present\n";
     for (SharedResource V : SharedResources) {
         if (Instruction* I = dyn_cast<Instruction>(V.V)) {
-            Function* F = I->getParent()->getParent();
+            Function* F = getParent(I);
             if (!F) continue;
             if (!F->hasFnAttribute(Attribute::SanitizeThread) && !F->hasFnAttribute(Attribute::DisableSanitizerInstrumentation)) {
                 errs() << "Added Function '" << F->getName() << "' to be instrumented\n";
@@ -195,6 +195,17 @@ int TSanRMAOptimizerAnalysis::recurseGenerateAllowlist(SharedResource V, Recurse
     while (!WorkingSet.empty()) {
         for (RecurseValue CurRV : WorkingSet) {
             addShRes(CurRV);
+            if (ConstantExpr *CE = dyn_cast<ConstantExpr>(CurRV.V.V)) {
+                if (GetElementPtrInst *GEP = dyn_cast<GetElementPtrInst>(CE->getAsInstruction())) {
+                    // Constant pointer address - Probably global variable
+                    // Add the original value and continue normally. The constant can be ignored
+                    RecurseValue NewVal = create_recval(CurRV, GEP->getPointerOperand(), -1);
+                    addUnique(NewSet, NewVal);
+                    // Destroy the instruction afterwards. We only wanted the pointer.
+                    // Otherwise: Dangling OP will cause issues during compilation
+                    GEP->deleteValue();
+                }
+            }
             if (!CurRV.V.V->getType()->isPointerTy()) continue;
             if (CurRV.config.depth <= 1 && !CurRV.config.ignore_depth) continue;
 
@@ -326,11 +337,10 @@ bool TSanRMAOptimizerAnalysis::addUnique(std::vector<RecurseValue> &Set, Recurse
         }
     }
 
-    // If this SharedResource has already been added, then skip if
-    // (1) we ignore the depth
-    // (2) the SharedResource has been added previously with the *same* type *and* with a larger or equal depth (no need to iterate over it again)
+    // If this SharedResource has already been added, then skip if the SharedResource
+    // has been added previously, with the *same* type *and* with a larger or equal depth (no need to iterate over it again)
     auto res = std::find(SharedResources.begin(), SharedResources.end(), V.V);
-    if (res != SharedResources.end() && (V.config.ignore_depth || (res->Type == V.V.Type && res->max_rem_depth >= V.config.depth))) {
+    if (res != SharedResources.end() && (res->Type == V.V.Type && res->max_rem_depth >= V.config.depth)) {
         return false; // Value already considered in previous iteration, and added as a shared resource.
     }
     Set.push_back(V);

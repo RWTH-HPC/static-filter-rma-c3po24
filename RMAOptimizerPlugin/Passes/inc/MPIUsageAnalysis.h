@@ -6,6 +6,7 @@
 #include "llvm/IR/PassManager.h"
 #include <map>
 #include <vector>
+#include <set>
 
 namespace llvm {
 
