@@ -67,7 +67,7 @@ def read_csv(benchmark_name, csv_file) -> None:
     df = df.drop(df[(df['optimizations'] == "AL6") |
                  (df['optimizations'] == "ALX6") | (df['optimizations'] == "ALX6,CLUSTER")].index)
 
-    df['optimizations'] = df['optimizations'].replace('1000', r'($\\infty$)', regex=True).replace('10', '(10)', regex=True).replace('10', '(10)', regex=True).replace(
+    df['optimizations'] = df['optimizations'].replace('1000', r'($\\infty$)', regex=True).replace('10', '(10)', regex=True).replace(
         'CLUSTER', 'CL', regex=True).replace('ALX', 'BDX', regex=True).replace('AL', 'BD', regex=True)
     # df = df.replace('AL1000','AL(∞)').replace('ALX1000','ALX(∞)').replace('ALX6','ALX(6)').replace('ALX1000,CLUSTER','ALX(∞)+CLUSTER').replace('ALX6,CLUSTER','ALX(6)+CLUSTER')
 
@@ -84,8 +84,8 @@ def read_csv(benchmark_name, csv_file) -> None:
 
 
 def create_plots(dfs) -> None:
-    palette = ["#383838", "#FFFFFF", "#b0b0b0", "#b0b0b0",
-               "#b0b0b0", "#f0f0f0", "#f0f0f0", "#f0f0f0"]
+    palette = ["#383838", "#FFFFFF", "#7c7c7c", "#7c7c7c",
+               "#7c7c7c", "#d5d5d5", "#d5d5d5", "#d5d5d5"]
 
     sns.set_style("whitegrid")
     fig = plt.figure(figsize=(9, 2), dpi=300)
@@ -104,7 +104,7 @@ def create_plots(dfs) -> None:
 
     # define hatches for the different bars
     hatches = ['', '//', '..', '', '//', '..', '', '//']
-    hatches = [hatch for hatch in hatches for _ in range(num_benchmarks)]
+    hatches = [hatch for hatch in hatches for _ in range(num_benchmarks)] + hatches
     # Loop over the bars
     for i, thisbar in enumerate(ax.patches):
         # Set a different hatch for each bar

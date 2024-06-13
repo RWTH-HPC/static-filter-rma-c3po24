@@ -25,7 +25,7 @@ benchmark_paths = {
     "PRK Transpose\n{\small 48 procs, 400 iters}\n{\small Matrix: $16320^2$}": "benchmark_results/PRK_transpose/result/result_csv.dat",
     "miniMD-RMA\n{\small 48 procs, 200 iters}\n{\small LJ, $4 \cdot 10^6$ atoms}": "benchmark_results/miniMD//result/result_csv.dat",
     "LULESH-RMA\n{\small 27 procs}\n{\small Mesh Size: $20^3$}": "benchmark_results/lulesh/result/result_csv.dat",
-    "NPB BT-RMA\n{\small 36 procs}\n{\small Class B}": "benchmark_results/BT-RMA/result/result_csv.dat",
+    "NPB BT-RMA\n{\small 36 procs}\n{\small Class C}": "benchmark_results/BT-RMA/result/result_csv.dat",
     "miniVite\n{\small 32 procs}\n{\small nlpkkt240}": "benchmark_results/miniVite/result/result_csv.dat"
 }
 
@@ -96,8 +96,8 @@ def read_csv(benchmark_name, csv_file) -> None:
 
 
 def create_plots(dfs) -> None:
-    palette = ["#383838", "#FFFFFF", "#b0b0b0",
-               "#b0b0b0", "#f0f0f0", "#f0f0f0"]
+    palette = ["#383838", "#FFFFFF", "#7c7c7c",
+               "#7c7c7c", "#d5d5d5", "#d5d5d5"]
 
     sns.set_style("whitegrid")
     fig = plt.figure(figsize=(9, 2.2), dpi=300)
@@ -112,7 +112,7 @@ def create_plots(dfs) -> None:
 
     # define hatches for the different bars
     hatches = ['', '//', '', '//', '', '//']
-    hatches = [hatch for hatch in hatches for _ in range(num_benchmarks)]
+    hatches = [hatch for hatch in hatches for _ in range(num_benchmarks)] + hatches
     # Loop over the bars
     for i, thisbar in enumerate(ax.patches):
         # Set a different hatch for each bar
