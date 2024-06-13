@@ -1,13 +1,14 @@
 [INFO] Module intel/2023a loaded.
-[INFO] Module Classic-Flang/16.0.4-c23 loaded.
+[INFO] Module Classic-Flang/16.0.4-c23-impi loaded.
 [INFO] Module CMake/3.26.3 loaded.
 [INFO] Module CMake/3.26.3 loaded.
 ===-------------------------------------------------------------------------===
                           ... Statistics Collected ...
 ===-------------------------------------------------------------------------===
 
-17626 tsanMOD - Number of instrumented reads
- 3624 tsanMOD - Number of instrumented writes
- 2609 tsanMOD - Number of reads ignored due to following writes
-   32 tsanMOD - Number of reads from constant globals
+  14 tsanMOD - Number of accesses with bad size
+5447 tsanMOD - Number of instrumented reads
+2256 tsanMOD - Number of instrumented writes
+ 384 tsanMOD - Number of reads ignored due to following writes
+  23 tsanMOD - Number of reads from constant globals
 

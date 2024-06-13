@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jube version="2.6.1">
   <selection>
-    <tag>tsan-opt</tag>
     <tag>filterstats</tag>
+    <tag>tsan-opt</tag>
     <tag>M</tag>
     <tag>ignorelist</tag>
   </selection>
@@ -10,7 +10,7 @@
     <parameterset name="config" duplicate="replace">
       <parameter name="SOLVER" type="string" separator="," duplicate="none" mode="text">FENCE</parameter>
       <parameter name="EXCHG" type="string" separator="," duplicate="none" mode="text">FENCE</parameter>
-      <parameter name="CLASS" type="string" separator="," duplicate="none" mode="text">B</parameter>
+      <parameter name="CLASS" type="string" separator="," duplicate="none" mode="text">C</parameter>
     </parameterset>
     <parameterset name="source" duplicate="replace">
       <parameter name="path_to_source" type="string" separator="," duplicate="none" mode="text">${jube_benchmark_home}/npb</parameter>
@@ -30,7 +30,7 @@
       <parameter name="threadspertask" type="int" separator="," duplicate="none" mode="python">$threads + $must_threads_per_task</parameter>
       <parameter name="tasks" type="int" separator="," duplicate="none" mode="python">${application_tasks} + (${must_tool_processes} if &quot;${measurement_mode}&quot; == &quot;must&quot; else 0)</parameter>
       <parameter name="OMP_NUM_THREADS" type="int" separator="," duplicate="none" mode="text" export="true">$threads</parameter>
-      <parameter name="queue" type="string" separator="," duplicate="none" mode="text">c23test</parameter>
+      <parameter name="queue" type="string" separator="," duplicate="none" mode="text">c23ms</parameter>
       <parameter name="account" type="string" separator="," duplicate="none" mode="text">rwth1269</parameter>
       <parameter name="account_slurm" type="string" separator="," duplicate="none" mode="python">&quot;#SBATCH --account=$account&quot; if &quot;$account&quot; else &quot;&quot;</parameter>
       <parameter name="gres" type="string" separator="," duplicate="none" mode="text">NONE</parameter>
@@ -50,15 +50,16 @@
           ${export};</parameter>
       <parameter name="postprocess" type="string" separator="," duplicate="none" mode="text">printf &quot;EXECUTION VERIFICATION CHECK: &quot;;if grep -q &quot;\[MUST-REPORT\] Error.*race&quot; job.out || grep -q &quot;^srun: error:&quot; job.err; then echo &quot;FAILURE&quot;; else echo &quot;SUCCESS&quot;; fi</parameter>
       <parameter name="measurement" type="string" separator="," duplicate="none" mode="text"/>
-      <parameter name="additional_job_config" type="string" separator="," duplicate="none" mode="text">${benchmark_job_config}
+      <parameter name="additional_job_config" type="string" separator="!NONE!" duplicate="none" mode="text">${benchmark_job_config}
 ${basic_job_config}
 ${perftool_job_config}</parameter>
       <parameter name="application_tasks" type="int" separator="," duplicate="none" mode="text">36</parameter>
       <parameter name="threads" type="int" separator="," duplicate="none" mode="text">1</parameter>
       <parameter name="TSAN_OPTIONS" type="string" separator="," duplicate="none" mode="text" export="true">$$TSAN_OPTIONS ignore_noninstrumented_modules=1 exitcode=0 log_path=stdout</parameter>
       <parameter name="basic_job_config" type="string" separator="," duplicate="none" mode="text">#SBATCH --ntasks-per-node=${taskspernode}</parameter>
-      <parameter name="benchmark_job_config" type="string" separator="," duplicate="none" mode="text">#SBATCH --exclusive
-#SBATCH --exclude=&quot;i23m[0001-0030]&quot;</parameter>
+      <parameter name="benchmark_job_config" type="string" separator="!NONE!" duplicate="none" mode="text">#SBATCH --exclusive
+#SBATCH --exclude=&quot;i23m[0001-0030]&quot;
+#SBATCH --hwctr=likwid</parameter>
       <parameter name="platform_name" type="string" separator="," duplicate="none" mode="text">CLAIX-23</parameter>
       <parameter name="cores_per_node" type="int" separator="," duplicate="none" mode="text">96</parameter>
       <parameter name="GB_per_node" type="int" separator="," duplicate="none" mode="text">256</parameter>
@@ -91,7 +92,7 @@ ${perftool_job_config}</parameter>
       <parameter name="toolchain_name" type="string" separator="," duplicate="none" mode="text">intel</parameter>
       <parameter name="toolchain_version" type="string" separator="," duplicate="none" mode="text">2023a</parameter>
       <parameter name="compiler_name" type="string" separator="," duplicate="none" mode="text">Classic-Flang</parameter>
-      <parameter name="compiler_version" type="string" separator="," duplicate="none" mode="text">16.0.4-c23</parameter>
+      <parameter name="compiler_version" type="string" separator="," duplicate="none" mode="text">16.0.4-c23-impi</parameter>
       <parameter name="mpi_name" type="string" separator="," duplicate="none" mode="text"/>
       <parameter name="mpi_version" type="string" separator="," duplicate="none" mode="text"/>
     </parameterset>
@@ -121,9 +122,9 @@ ${perftool_job_config}</parameter>
       <parameter name="time_measure_command" type="string" separator="," duplicate="none" mode="text">/usr/bin/time -p -o ${time_output_file}</parameter>
       <parameter name="executable_name" type="string" separator="," duplicate="none" mode="text">${compile_target}.${CLASS}.x</parameter>
       <parameter name="RMA_target" type="string" separator="," duplicate="none" mode="text"/>
-      <parameter name="export_flags" type="string" separator="!NONE!" duplicate="none" mode="python">{&quot;base&quot;: 'MPIFC=&quot;mpif90-flang&quot; FFLAGS=&quot;-g&quot;',
-        &quot;tsan&quot;: 'MPIFC=&quot;${MUSTFC}&quot; FFLAGS=&quot;--wrap-target mpif90-flang -g ${must_stats_compile_flags}&quot; FLINKFLAGS=&quot;-g --wrap-target mpif90-flang ${must_stats_compile_flags}&quot;',
-        &quot;tsan-opt&quot;: 'MPIFC=&quot;${MUSTFC}&quot; FFLAGS=&quot;--wrap-target mpif90-flang --optimizations ${must_compile_opt} -g ${must_stats_compile_flags}&quot; FLINKFLAGS=&quot;-g --wrap-target mpif90-flang --optimizations ${must_compile_opt} ${must_stats_compile_flags}&quot;'}.get(&quot;${compile_mode}&quot;, 0)</parameter>
+      <parameter name="export_flags" type="string" separator="!NONE!" duplicate="none" mode="python">{&quot;base&quot;: 'MPIFC=&quot;mpif90-flang&quot; FFLAGS=&quot;-g -O3&quot;',
+        &quot;tsan&quot;: 'MPIFC=&quot;${MUSTFC}&quot; FFLAGS=&quot;-O3 --wrap-target mpif90-flang -g ${must_stats_compile_flags}&quot; FLINKFLAGS=&quot;-O3 -g --wrap-target mpif90-flang ${must_stats_compile_flags}&quot;',
+        &quot;tsan-opt&quot;: 'MPIFC=&quot;${MUSTFC}&quot; FFLAGS=&quot;-O3 --wrap-target mpif90-flang --optimizations ${must_compile_opt} -g ${must_stats_compile_flags}&quot; FLINKFLAGS=&quot;-O3 -g --wrap-target mpif90-flang --optimizations ${must_compile_opt} ${must_stats_compile_flags}&quot;'}.get(&quot;${compile_mode}&quot;, 0)</parameter>
     </parameterset>
     <parameterset name="module_env_pset" duplicate="replace">
       <parameter name="modulenames_defaults" type="string" separator=";" duplicate="none" mode="text">{
@@ -158,6 +159,7 @@ ${perftool_job_config}</parameter>
               &quot;clang/16.0.6&quot;:       &quot;{0[clang]}/16.0.6&quot;.format(${modulenames}),
               &quot;Classic-Flang&quot;:      &quot;{0[Classic-Flang]}/16.0.4-c23&quot;.format(${modulenames}),
               &quot;Classic-Flang/16.0.4-c23&quot;:  &quot;{0[Classic-Flang]}/16.0.4-c23&quot;.format(${modulenames}),
+              &quot;Classic-Flang/16.0.4-c23-impi&quot;:  &quot;{0[Classic-Flang]}/16.0.4-c23-impi&quot;.format(${modulenames}),
               &quot;intel&quot;       :       &quot;{0[intel]}/2022a&quot;.format(${modulenames}),
               &quot;intel/2019b&quot; :       &quot;{0[intel]}/2019b&quot;.format(${modulenames}),
               &quot;intel/2020a&quot; :       &quot;{0[intel]}/2020a&quot;.format(${modulenames}),
@@ -195,6 +197,7 @@ ${perftool_job_config}</parameter>
             &quot;clang/15.0.5&quot;:       [&quot;GCCcore/.11.3.0&quot;, &quot;GCC/11.3.0&quot;],
             &quot;clang/16.0.6&quot;:       [&quot;GCCcore/.12.3.0&quot;, &quot;GCC/12.3.0&quot;],
             &quot;Classic-Flang/16.0.4-c23&quot;:  [&quot;GCCcore/.12.3.0&quot;, &quot;GCC/12.3.0&quot;],
+            &quot;Classic-Flang/16.0.4-c23-impi&quot;:  [&quot;GCCcore/.12.3.0&quot;, &quot;GCC/12.3.0&quot;],
             &quot;intelmpi/2021.6.0&quot;:  [&quot;intel-compilers/2022.1.0&quot;],
             &quot;openmpi/4.0.3&quot;:      [&quot;GCC/9.3.0&quot;],
             &quot;openmpi/4.0.5&quot;:      [&quot;GCC/10.2.0&quot;],
@@ -236,6 +239,29 @@ ${perftool_job_config}</parameter>
       <parameter name="required_exports" type="string" separator="!NONE!" duplicate="none" mode="text">${compiler_mpi_export} ${compiler_toolchain_export} ${openmp_export} ${must_export}</parameter>
       <parameter name="export" type="string" separator="!NONE!" duplicate="none" mode="text">for item in ${required_exports}; do export &quot;$item&quot;; done</parameter>
     </parameterset>
+    <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_config_pset" duplicate="replace">
+      <parameter name="must_commit" type="string" separator="," duplicate="none" mode="text">HEAD</parameter>
+      <parameter name="build_must" type="string" separator="," duplicate="none" mode="shell">if ${force_must_build} || [ ! -f &quot;${mustbin_path}/mustrun&quot; ]; then echo &quot;1&quot;; else echo &quot;0&quot;; fi</parameter>
+      <parameter name="must_prerequisite_modules" type="string" separator=";" duplicate="none" mode="python">&quot; &quot;.join(${prerequisite_modules_dict}.get(&quot;${cmake_module}&quot;, []) + [&quot;${cmake_module}&quot;])</parameter>
+      <parameter name="must_root" type="string" separator="," duplicate="none" mode="text">${jube_benchmark_home}/../../dep/MUST/${__must_hash}</parameter>
+      <parameter name="must_build_folder" type="string" separator="," duplicate="none" mode="text">${must_root}/build</parameter>
+      <parameter name="must_install_folder" type="string" separator="," duplicate="none" mode="text">${must_root}/install</parameter>
+      <parameter name="must_repo_folder" type="string" separator="," duplicate="none" mode="text">${jube_benchmark_home}/../../dep/MUST/repo</parameter>
+      <parameter name="mustbin_path" type="string" separator="," duplicate="none" mode="text">${must_install_folder}/bin</parameter>
+      <parameter name="must_stats_compile_flags" type="string" separator="," duplicate="none" mode="text">--print-opt-stats</parameter>
+      <parameter name="must_isl_compile_flags" type="string" separator="," duplicate="none" mode="text"/>
+      <parameter name="MUSTCC" type="string" separator="," duplicate="none" mode="text">${mustbin_path}/must-cc</parameter>
+      <parameter name="MUSTCXX" type="string" separator="," duplicate="none" mode="text">${mustbin_path}/must-cxx</parameter>
+      <parameter name="MUSTFC" type="string" separator="," duplicate="none" mode="text">${mustbin_path}/must-fort</parameter>
+      <parameter name="must_export" type="string" separator="," duplicate="none" mode="text">PATH=/${mustbin_path}:$PATH</parameter>
+      <parameter name="must_available" type="int" separator="," duplicate="none" mode="shell">if [[ -f &quot;${mustbin_path}/mustrun&quot; ]]; then echo &quot;1&quot;; else echo &quot;0&quot;; fi</parameter>
+      <parameter name="force_must_build" type="string" separator="," duplicate="none" mode="text">false</parameter>
+      <parameter name="__must_hash" type="string" separator="," duplicate="none" mode="shell">echo -n &quot;${__must_commit} ${must_git_branch} ${__toolchain_module} ${__compiler_module} ${__mpi_module}&quot; | md5sum | cut -f 1 -d &quot; &quot; | tr -d '\n'</parameter>
+    </parameterset>
+    <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_compile_pset" duplicate="replace">
+      <parameter name="must_compile_opt" type="string" separator=";" duplicate="none" mode="python">{&quot;tsan-opt&quot;: &quot;AL10;AL1000;ALX10;ALX1000;CLUSTER;ALX10,CLUSTER;ALX1000,CLUSTER&quot;}.get(&quot;${compile_mode}&quot;, &quot;&quot;)</parameter>
+      <parameter name="__tsan_opt_hash" type="string" separator=";" duplicate="none" mode="shell">echo -n &quot;$must_compile_opt $__must_hash&quot; | md5sum | cut -f 1 -d &quot; &quot; | tr -d '\n'</parameter>
+    </parameterset>
     <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_build_pset" duplicate="replace">
       <parameter name="CMAKE_BUILD_TYPE" type="string" separator="," duplicate="none" mode="text">RelWithDebInfo</parameter>
       <parameter name="MPI_C_COMPILER" type="string" separator="," duplicate="none" mode="text">mpicc</parameter>
@@ -262,29 +288,6 @@ ${perftool_job_config}</parameter>
       <parameter name="must_git_branch" type="string" separator="," duplicate="none" mode="text">feature/onesided</parameter>
       <parameter name="__must_commit" type="string" separator="," duplicate="none" mode="shell">if [[ $(echo &quot;${must_commit}&quot; | tr '[:upper:]' '[:lower:]') != &quot;head&quot; ]]; then echo ${must_commit}| awk '{printf $1}'; else git ls-remote ${must_git_clone_ssh} ${must_git_branch} | awk '{printf $1}'; fi</parameter>
     </parameterset>
-    <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_compile_pset" duplicate="replace">
-      <parameter name="must_compile_opt" type="string" separator=";" duplicate="none" mode="python">{&quot;tsan-opt&quot;: &quot;AL6;AL10;AL1000;ALX6;ALX10;ALX1000;CLUSTER;ALX6,CLUSTER;ALX10,CLUSTER;ALX1000,CLUSTER&quot;}.get(&quot;${compile_mode}&quot;, &quot;&quot;)</parameter>
-      <parameter name="__tsan_opt_hash" type="string" separator=";" duplicate="none" mode="shell">echo -n &quot;$must_compile_opt $__must_hash&quot; | md5sum | cut -f 1 -d &quot; &quot; | tr -d '\n'</parameter>
-    </parameterset>
-    <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_config_pset" duplicate="replace">
-      <parameter name="must_commit" type="string" separator="," duplicate="none" mode="text">9090b10422f3bbd7fc994f4ffb917fa0137b663c</parameter>
-      <parameter name="build_must" type="string" separator="," duplicate="none" mode="shell">if ${force_must_build} || [ ! -f &quot;${mustbin_path}/mustrun&quot; ]; then echo &quot;1&quot;; else echo &quot;0&quot;; fi</parameter>
-      <parameter name="must_prerequisite_modules" type="string" separator=";" duplicate="none" mode="python">&quot; &quot;.join(${prerequisite_modules_dict}.get(&quot;${cmake_module}&quot;, []) + [&quot;${cmake_module}&quot;])</parameter>
-      <parameter name="must_root" type="string" separator="," duplicate="none" mode="text">${jube_benchmark_home}/../../dep/MUST/${__must_hash}</parameter>
-      <parameter name="must_build_folder" type="string" separator="," duplicate="none" mode="text">${must_root}/build</parameter>
-      <parameter name="must_install_folder" type="string" separator="," duplicate="none" mode="text">${must_root}/install</parameter>
-      <parameter name="must_repo_folder" type="string" separator="," duplicate="none" mode="text">${jube_benchmark_home}/../../dep/MUST/repo</parameter>
-      <parameter name="mustbin_path" type="string" separator="," duplicate="none" mode="text">${must_install_folder}/bin</parameter>
-      <parameter name="must_stats_compile_flags" type="string" separator="," duplicate="none" mode="text">--print-opt-stats</parameter>
-      <parameter name="must_isl_compile_flags" type="string" separator="," duplicate="none" mode="text"/>
-      <parameter name="MUSTCC" type="string" separator="," duplicate="none" mode="text">${mustbin_path}/must-cc</parameter>
-      <parameter name="MUSTCXX" type="string" separator="," duplicate="none" mode="text">${mustbin_path}/must-cxx</parameter>
-      <parameter name="MUSTFC" type="string" separator="," duplicate="none" mode="text">${mustbin_path}/must-fort</parameter>
-      <parameter name="must_export" type="string" separator="," duplicate="none" mode="text">PATH=/${mustbin_path}:$PATH</parameter>
-      <parameter name="must_available" type="int" separator="," duplicate="none" mode="shell">if [[ -f &quot;${mustbin_path}/mustrun&quot; ]]; then echo &quot;1&quot;; else echo &quot;0&quot;; fi</parameter>
-      <parameter name="force_must_build" type="string" separator="," duplicate="none" mode="text">false</parameter>
-      <parameter name="__must_hash" type="string" separator="," duplicate="none" mode="shell">echo -n &quot;${__must_commit} ${must_git_branch} ${__toolchain_module} ${__compiler_module} ${__mpi_module}&quot; | md5sum | cut -f 1 -d &quot; &quot; | tr -d '\n'</parameter>
-    </parameterset>
     <parameterset name="jube_70f0eb8b044700a5bbf5ab5c62fc67a3_must_execute_pset" duplicate="replace">
       <parameter name="must_threads_per_task" type="int" separator="," duplicate="none" mode="text">1</parameter>
       <parameter name="must_tool_processes" type="int" separator="," duplicate="none" mode="text">${level2_size}</parameter>
@@ -304,14 +307,14 @@ ${perftool_job_config}</parameter>
          &quot;isl&quot;: &quot;isl&quot;}.get(&quot;${compile_mode}&quot;, &quot;shadow&quot;)</parameter>
       <parameter name="must_arguments" type="string" separator="," duplicate="none" mode="text">${must_verbose} --must:output stdout --must:mpiexec ${mpirun} ${must_layout} --must:rma-mode ${must_rma_mode}</parameter>
     </parameterset>
+    <parameterset name="jube_6735070c71f31aac0f70d8501cd4b1e2_ignorelist_pset" duplicate="replace">
+      <parameter name="ignorelist" type="string" separator="," duplicate="none" mode="python">(&quot;${measurement_mode}&quot; == &quot;base&quot; and &quot;${compile_mode}&quot; == &quot;tsan-opt&quot;) or (&quot;${measurement_mode}&quot; == &quot;base&quot; and &quot;${compile_mode}&quot; == &quot;tsan&quot;)</parameter>
+    </parameterset>
     <parameterset name="jube_6735070c71f31aac0f70d8501cd4b1e2_compile_mode_pset" duplicate="concat">
       <parameter name="compile_mode" type="string" separator="," duplicate="none" mode="text">base,tsan,tsan-opt</parameter>
     </parameterset>
     <parameterset name="jube_6735070c71f31aac0f70d8501cd4b1e2_measurement_mode_pset" duplicate="concat">
       <parameter name="measurement_mode" type="string" separator="," duplicate="none" mode="text">base,must</parameter>
-    </parameterset>
-    <parameterset name="jube_6735070c71f31aac0f70d8501cd4b1e2_ignorelist_pset" duplicate="replace">
-      <parameter name="ignorelist" type="string" separator="," duplicate="none" mode="python">(&quot;${measurement_mode}&quot; == &quot;base&quot; and &quot;${compile_mode}&quot; == &quot;tsan-opt&quot;) or (&quot;${measurement_mode}&quot; == &quot;base&quot; and &quot;${compile_mode}&quot; == &quot;tsan&quot;)</parameter>
     </parameterset>
     <substituteset name="job_sub">
       <iofile in="${submit_script}.in" out="$submit_script" out_mode="w"/>

@@ -8,16 +8,17 @@
 #SBATCH --time=00:40:00
 #SBATCH --output=job.out
 #SBATCH --error=job.err
-#SBATCH --partition=c23test
+#SBATCH --partition=c23ms
 #SBATCH --gres=NONE
 #SBATCH --account=rwth1269
 #SBATCH --exclusive
 #SBATCH --exclude="i23m[0001-0030]"
+#SBATCH --hwctr=likwid
 #SBATCH --ntasks-per-node=48
 ${perftool_job_config}
 
 export OMP_NUM_THREADS="1"
-export time_output_file="/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-RMA/BT-RMA.benchmarks/000042/000006_compile_tsan-opt/work/time.out"
+export time_output_file="/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-RMA/BT-RMA.benchmarks/000135/000007_compile_tsan-opt/work/time.out"
 export TSAN_OPTIONS="$TSAN_OPTIONS ignore_noninstrumented_modules=1 exitcode=0 log_path=stdout"
 
 
@@ -25,8 +26,8 @@ echo "nodelist=$SLURM_JOB_NODELIST"
           SOURCE_DIR=compile/copy_source;
           LAYOUT_DIR=$PWD;
           COMPILE_DIR=compile;
-          module use /home/rwth1269/modules/; module purge; for modulename in  intel/2023a  Classic-Flang/16.0.4-c23 CMake/3.26.3 CMake/3.26.3; do module load $modulename; done;
-          for item in  MPICH_CC=clang MPICH_CXX=clang++ ${openmp_export} PATH=//rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-RMA/../../dep/MUST/47a317bbbed9c779be827373644ebbed/install/bin:$PATH; do export "$item"; done;
+          module use /home/rwth1269/modules/; module purge; for modulename in  intel/2023a  Classic-Flang/16.0.4-c23-impi CMake/3.26.3 CMake/3.26.3; do module load $modulename; done;
+          for item in  MPICH_CC=clang MPICH_CXX=clang++ ${openmp_export} PATH=//rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-RMA/../../dep/MUST/03a904395d5e72851ce8749967ec7ed3/install/bin:$PATH; do export "$item"; done;
 
 JUBE_ERR_CODE=$?
 if [ $JUBE_ERR_CODE -ne 0 ]; then
@@ -34,7 +35,7 @@ if [ $JUBE_ERR_CODE -ne 0 ]; then
     exit $JUBE_ERR_CODE
 fi
 
- mustrun  --must:output stdout --must:mpiexec srun --must:rma-only -n 36 --must:rma-mode shadow -- compile/bt-rma.B.x.tsan-opt.807c8d38a11a327068510c671a6e1a74 
+ mustrun  --must:output stdout --must:mpiexec srun --must:rma-only -n 36 --must:rma-mode shadow -- compile/bt-rma.C.x.tsan-opt.44794da818ea2a8ce2b0a341abee4a91 
 
 JUBE_ERR_CODE=$?
 if [ $JUBE_ERR_CODE -ne 0 ]; then

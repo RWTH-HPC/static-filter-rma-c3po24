@@ -1,9 +1,9 @@
-nodelist=n23m0059
+nodelist=n23m0177
 [MUST] MUST configuration ... centralized checks with fall-back application crash handling (very slow)
-[MUST] Using prebuilt infrastructure at /home/ss540294/.cache/must/prebuilds/f9e5b4c1455b311dccdf8210b5fd2e3b
+[MUST] Using prebuilt infrastructure at /home/ss540294/.cache/must/prebuilds/b5a3896256b6fac2d1d63dee2501888e
 [MUST] Weaver ... success
 [MUST] Generating P^nMPI configuration ... success
-[MUST] Infrastructure in "/home/ss540294/.cache/must/prebuilds/f9e5b4c1455b311dccdf8210b5fd2e3b" is present and used.
+[MUST] Infrastructure in "/home/ss540294/.cache/must/prebuilds/b5a3896256b6fac2d1d63dee2501888e" is present and used.
 [MUST] Search for linked P^nMPI ... not found ... using LD_PRELOAD to load P^nMPI ... success
 [MUST] Note: MPI RMA support requires the application to be built with Clang >= 15.Executing application:
 
@@ -14,8 +14,8 @@ nodelist=n23m0059
  Exchange: FENCE
 
  No input file inputbt.data. Using compiled defaults
- Size:  102x 102x 102  (class B)
- Iterations:  200    dt:   0.0003000
+ Size:  162x 162x 162  (class C)
+ Iterations:  200    dt:   0.0001000
  Total number of processes:     36
  
  Time step    1
@@ -29,36 +29,36 @@ nodelist=n23m0059
  Time step  160
  Time step  180
  Time step  200
- Verification being performed for class B
+ Verification being performed for class C
  accuracy setting for epsilon =  0.1000000000000E-07
  Comparison of RMS-norms of residual
-           1 0.1423359722929E+04 0.1423359722929E+04 0.9904149773519E-14
-           2 0.9933052259015E+02 0.9933052259015E+02 0.3290525912144E-14
-           3 0.3564602564454E+03 0.3564602564454E+03 0.9727447836926E-14
-           4 0.3248544795908E+03 0.3248544795908E+03 0.8574077622964E-14
-           5 0.3270754125466E+04 0.3270754125466E+04 0.7785926631221E-14
+           1 0.6239811655176E+04 0.6239811655176E+04 0.2915135109947E-15
+           2 0.5079323919042E+03 0.5079323919042E+03 0.1342936652991E-14
+           3 0.1542353009301E+04 0.1542353009301E+04 0.0000000000000E+00
+           4 0.1330238792929E+04 0.1330238792929E+04 0.0000000000000E+00
+           5 0.1160408742844E+05 0.1160408742844E+05 0.1567541967228E-15
  Comparison of RMS-norms of solution error
-           1 0.5296984714094E+02 0.5296984714094E+02 0.4694934400213E-14
-           2 0.4463289611567E+01 0.4463289611567E+01 0.1313376025349E-13
-           3 0.1312257334221E+02 0.1312257334221E+02 0.7851257066616E-14
-           4 0.1200692532356E+02 0.1200692532356E+02 0.9616383166343E-14
-           5 0.1245957615104E+03 0.1245957615104E+03 0.1277423652947E-13
+           1 0.1646200836909E+03 0.1646200836909E+03 0.3453006315289E-15
+           2 0.1149710790382E+02 0.1149710790382E+02 0.1545046679791E-15
+           3 0.4120744620746E+02 0.4120744620746E+02 0.1724306651237E-14
+           4 0.3708765105969E+02 0.3708765105969E+02 0.1915847230703E-15
+           5 0.3621105305184E+03 0.3621105305184E+03 0.7848904418691E-15
  Verification Successful
 
 
  BT Benchmark Completed.
- Class           =                        B
- Size            =            102x 102x 102
+ Class           =                        C
+ Size            =            162x 162x 162
  Iterations      =                      200
- Time in seconds =                   169.10
+ Time in seconds =                   185.47
  Total processes =                       36
  Active processes=                       36
- Mop/s total     =                  4152.42
- Mop/s/process   =                   115.35
+ Mop/s total     =                 15453.79
+ Mop/s/process   =                   429.27
  Operation type  =           floating point
  Verification    =               SUCCESSFUL
  Version         =                    3.4.2
- Compile date    =              03 Mar 2024
+ Compile date    =              22 Apr 2024
 
  Compile options:
     MPIFC        = mpiifort

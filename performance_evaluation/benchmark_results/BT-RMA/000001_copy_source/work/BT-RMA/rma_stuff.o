@@ -1,10 +1,9 @@
-; ModuleID = '/tmp/ss540294/n23m0025_223103/rma_stuff-a2acd6.ll'
-source_filename = "/tmp/ss540294/n23m0025_223103/rma_stuff-a2acd6.ll"
+; ModuleID = '/tmp/ss540294/login23-2_223088/rma_stuff-7666ff.ll'
+source_filename = "/tmp/ss540294/login23-2_223088/rma_stuff-7666ff.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct_bt_data_0_ = type <{ [7484 x i8] }>
-%struct_bt_data_2_ = type <{ [4112 x i8] }>
 %structmpifcmb5_ = type <{ [4 x i8] }>
 %structmpifcmb9_ = type <{ [4 x i8] }>
 %structmpipriv1_ = type <{ [28 x i8] }>
@@ -13,16 +12,15 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct_mpinpb_0_ = type <{ [112 x i8] }>
 
 @.C713_setup_rma_ = internal constant i32 469762048
-@_bt_data_0_ = external global %struct_bt_data_0_, align 64, !dbg !0, !dbg !466, !dbg !468, !dbg !473, !dbg !479, !dbg !481, !dbg !483, !dbg !489, !dbg !491, !dbg !493, !dbg !499, !dbg !501, !dbg !503, !dbg !509, !dbg !511, !dbg !513, !dbg !519, !dbg !521, !dbg !523, !dbg !529, !dbg !531, !dbg !533, !dbg !541, !dbg !543, !dbg !548, !dbg !556, !dbg !558, !dbg !560, !dbg !568, !dbg !570, !dbg !572, !dbg !580, !dbg !582, !dbg !584, !dbg !592, !dbg !594, !dbg !596, !dbg !604, !dbg !606, !dbg !608, !dbg !617, !dbg !619, !dbg !624, !dbg !633, !dbg !635, !dbg !637, !dbg !646, !dbg !648, !dbg !650, !dbg !660, !dbg !662, !dbg !667, !dbg !675, !dbg !677, !dbg !679, !dbg !684, !dbg !686, !dbg !691, !dbg !696, !dbg !698, !dbg !700, !dbg !705, !dbg !707, !dbg !709, !dbg !714, !dbg !716, !dbg !718, !dbg !723, !dbg !725, !dbg !727, !dbg !732, !dbg !734, !dbg !736, !dbg !741, !dbg !743, !dbg !745, !dbg !750, !dbg !752, !dbg !754, !dbg !760, !dbg !762, !dbg !764, !dbg !770, !dbg !772, !dbg !774, !dbg !781, !dbg !783, !dbg !788, !dbg !795, !dbg !797, !dbg !799, !dbg !806, !dbg !808, !dbg !810, !dbg !817, !dbg !819, !dbg !821, !dbg !823, !dbg !825, !dbg !827, !dbg !829, !dbg !831, !dbg !833, !dbg !835, !dbg !837, !dbg !839, !dbg !841, !dbg !843, !dbg !845, !dbg !847, !dbg !849, !dbg !851, !dbg !853, !dbg !855, !dbg !857, !dbg !859, !dbg !861, !dbg !863, !dbg !865, !dbg !867, !dbg !869, !dbg !871, !dbg !873, !dbg !875, !dbg !877, !dbg !879, !dbg !881, !dbg !883, !dbg !885, !dbg !887, !dbg !889, !dbg !891, !dbg !893, !dbg !895, !dbg !897, !dbg !899, !dbg !901, !dbg !903, !dbg !905
-@_bt_data_2_ = external global %struct_bt_data_2_, align 64, !dbg !75, !dbg !78, !dbg !80, !dbg !82, !dbg !84, !dbg !86, !dbg !88, !dbg !90, !dbg !92, !dbg !94, !dbg !96, !dbg !98, !dbg !100, !dbg !102, !dbg !104, !dbg !106, !dbg !108, !dbg !110, !dbg !112, !dbg !114, !dbg !116, !dbg !118, !dbg !120, !dbg !122, !dbg !124, !dbg !126, !dbg !128, !dbg !130, !dbg !135, !dbg !137, !dbg !139, !dbg !141, !dbg !143, !dbg !145, !dbg !147, !dbg !149, !dbg !151, !dbg !153, !dbg !155, !dbg !157, !dbg !159, !dbg !161, !dbg !163, !dbg !165, !dbg !167, !dbg !169, !dbg !171, !dbg !173, !dbg !175, !dbg !177, !dbg !179, !dbg !181, !dbg !183, !dbg !185, !dbg !187, !dbg !189, !dbg !191, !dbg !193, !dbg !195, !dbg !197, !dbg !199, !dbg !201, !dbg !203, !dbg !205, !dbg !207, !dbg !209, !dbg !211, !dbg !213, !dbg !215, !dbg !217, !dbg !219, !dbg !221, !dbg !223, !dbg !225, !dbg !227, !dbg !229, !dbg !231, !dbg !233, !dbg !235, !dbg !237, !dbg !239, !dbg !241, !dbg !243, !dbg !245, !dbg !247, !dbg !249, !dbg !251, !dbg !253, !dbg !255, !dbg !257, !dbg !259, !dbg !261, !dbg !263, !dbg !265, !dbg !267, !dbg !269, !dbg !271, !dbg !273, !dbg !276, !dbg !278, !dbg !280, !dbg !282, !dbg !284, !dbg !286, !dbg !288, !dbg !290, !dbg !292, !dbg !294, !dbg !296, !dbg !298, !dbg !300, !dbg !302, !dbg !304, !dbg !306, !dbg !308, !dbg !310, !dbg !312, !dbg !314, !dbg !316, !dbg !318, !dbg !320, !dbg !322, !dbg !324, !dbg !326, !dbg !328, !dbg !330, !dbg !332, !dbg !334, !dbg !336, !dbg !338, !dbg !340, !dbg !342, !dbg !344, !dbg !346, !dbg !348, !dbg !350, !dbg !352, !dbg !354, !dbg !356, !dbg !358, !dbg !360, !dbg !362, !dbg !364, !dbg !366, !dbg !368, !dbg !370, !dbg !372, !dbg !374, !dbg !376, !dbg !378, !dbg !380, !dbg !382, !dbg !384, !dbg !386, !dbg !388, !dbg !390, !dbg !392, !dbg !394, !dbg !396, !dbg !398, !dbg !400, !dbg !402, !dbg !404, !dbg !406, !dbg !408, !dbg !410, !dbg !412, !dbg !414, !dbg !416, !dbg !418, !dbg !420, !dbg !422, !dbg !424, !dbg !426, !dbg !428, !dbg !430, !dbg !432, !dbg !434, !dbg !436, !dbg !438, !dbg !440, !dbg !442, !dbg !444, !dbg !446, !dbg !448, !dbg !452, !dbg !454, !dbg !457, !dbg !462, !dbg !464
-@mpifcmb5_ = common global %structmpifcmb5_ zeroinitializer, align 64, !dbg !73
-@mpifcmb9_ = common global %structmpifcmb9_ zeroinitializer, align 64, !dbg !71
-@mpipriv1_ = common global %structmpipriv1_ zeroinitializer, align 64, !dbg !63, !dbg !65, !dbg !67
-@mpipriv2_ = common global %structmpipriv2_ zeroinitializer, align 64, !dbg !55, !dbg !60
-@mpiprivc_ = common global %structmpiprivc_ zeroinitializer, align 64, !dbg !45, !dbg !51
+@_bt_data_0_ = external local_unnamed_addr global %struct_bt_data_0_, align 64, !dbg !0, !dbg !466, !dbg !468, !dbg !473, !dbg !479, !dbg !481, !dbg !483, !dbg !489, !dbg !491, !dbg !493, !dbg !499, !dbg !501, !dbg !503, !dbg !509, !dbg !511, !dbg !513, !dbg !519, !dbg !521, !dbg !523, !dbg !529, !dbg !531, !dbg !533, !dbg !541, !dbg !543, !dbg !548, !dbg !556, !dbg !558, !dbg !560, !dbg !568, !dbg !570, !dbg !572, !dbg !580, !dbg !582, !dbg !584, !dbg !592, !dbg !594, !dbg !596, !dbg !604, !dbg !606, !dbg !608, !dbg !617, !dbg !619, !dbg !624, !dbg !633, !dbg !635, !dbg !637, !dbg !646, !dbg !648, !dbg !650, !dbg !660, !dbg !662, !dbg !667, !dbg !675, !dbg !677, !dbg !679, !dbg !684, !dbg !686, !dbg !691, !dbg !696, !dbg !698, !dbg !700, !dbg !705, !dbg !707, !dbg !709, !dbg !714, !dbg !716, !dbg !718, !dbg !723, !dbg !725, !dbg !727, !dbg !732, !dbg !734, !dbg !736, !dbg !741, !dbg !743, !dbg !745, !dbg !750, !dbg !752, !dbg !754, !dbg !760, !dbg !762, !dbg !764, !dbg !770, !dbg !772, !dbg !774, !dbg !781, !dbg !783, !dbg !788, !dbg !795, !dbg !797, !dbg !799, !dbg !806, !dbg !808, !dbg !810, !dbg !817, !dbg !819, !dbg !821, !dbg !823, !dbg !825, !dbg !827, !dbg !829, !dbg !831, !dbg !833, !dbg !835, !dbg !837, !dbg !839, !dbg !841, !dbg !843, !dbg !845, !dbg !847, !dbg !849, !dbg !851, !dbg !853, !dbg !855, !dbg !857, !dbg !859, !dbg !861, !dbg !863, !dbg !865, !dbg !867, !dbg !869, !dbg !871, !dbg !873, !dbg !875, !dbg !877, !dbg !879, !dbg !881, !dbg !883, !dbg !885, !dbg !887, !dbg !889, !dbg !891, !dbg !893, !dbg !895, !dbg !897, !dbg !899, !dbg !901, !dbg !903, !dbg !905
+@mpifcmb5_ = common local_unnamed_addr global %structmpifcmb5_ zeroinitializer, align 64, !dbg !73
+@mpifcmb9_ = common local_unnamed_addr global %structmpifcmb9_ zeroinitializer, align 64, !dbg !71
+@mpipriv1_ = common local_unnamed_addr global %structmpipriv1_ zeroinitializer, align 64, !dbg !63, !dbg !65, !dbg !67
+@mpipriv2_ = common local_unnamed_addr global %structmpipriv2_ zeroinitializer, align 64, !dbg !55, !dbg !60
+@mpiprivc_ = common local_unnamed_addr global %structmpiprivc_ zeroinitializer, align 64, !dbg !45, !dbg !51
 @_mpinpb_0_ = external global %struct_mpinpb_0_, align 64, !dbg !7, !dbg !11, !dbg !13, !dbg !15, !dbg !17, !dbg !19, !dbg !21, !dbg !23, !dbg !25, !dbg !28, !dbg !30, !dbg !32, !dbg !37, !dbg !39, !dbg !41, !dbg !43
 
-define void @setup_rma_() #0 !dbg !909 {
+define void @setup_rma_() local_unnamed_addr #0 !dbg !909 {
 L.entry:
   %type_size_779 = alloca i32, align 4
   %error_778 = alloca i32, align 4
@@ -46,83 +44,60 @@ L.entry:
   call void @llvm.dbg.value(metadata i32 0, metadata !938, metadata !DIExpression()), !dbg !922
   call void @llvm.dbg.value(metadata i32 1, metadata !939, metadata !DIExpression()), !dbg !922
   call void @llvm.dbg.value(metadata i32 1, metadata !940, metadata !DIExpression()), !dbg !922
-  br label %L.LB1_787
-
-L.LB1_787:                                        ; preds = %L.entry
-  %0 = getelementptr i8, ptr @_mpinpb_0_, i64 28, !dbg !941
-  call void @llvm.dbg.declare(metadata ptr %type_size_779, metadata !942, metadata !DIExpression()), !dbg !922
-  call void @llvm.dbg.declare(metadata ptr %error_778, metadata !943, metadata !DIExpression()), !dbg !922
-  call void (ptr, ptr, ptr, ...) @mpi_type_size_(ptr %0, ptr %type_size_779, ptr %error_778), !dbg !941
-  %1 = getelementptr i8, ptr @_bt_data_0_, i64 7296, !dbg !944
-  %2 = load i32, ptr %1, align 4, !dbg !944
-  %3 = load i32, ptr %type_size_779, align 4, !dbg !944
-  call void @llvm.dbg.value(metadata i32 %3, metadata !942, metadata !DIExpression()), !dbg !922
-  %4 = mul nsw i32 %2, %3, !dbg !944
-  %5 = sext i32 %4 to i64, !dbg !944
-  call void @llvm.dbg.declare(metadata ptr %win_size_782, metadata !945, metadata !DIExpression()), !dbg !922
-  store i64 %5, ptr %win_size_782, align 8, !dbg !944
-  %6 = getelementptr i8, ptr @_bt_data_0_, i64 4896, !dbg !946
-  %7 = load ptr, ptr %6, align 8, !dbg !946
-  %8 = getelementptr i8, ptr @_mpinpb_0_, i64 20, !dbg !946
-  %9 = getelementptr i8, ptr @_mpinpb_0_, i64 36, !dbg !946
-  call void (ptr, ptr, ptr, ptr, ptr, ptr, ptr, ...) @mpi_win_create_(ptr %7, ptr %win_size_782, ptr %type_size_779, ptr @.C713_setup_rma_, ptr %8, ptr %9, ptr %error_778), !dbg !946
-  %10 = getelementptr i8, ptr @_bt_data_0_, i64 4752, !dbg !947
-  %11 = load ptr, ptr %10, align 8, !dbg !947
-  %12 = getelementptr i8, ptr @_mpinpb_0_, i64 24, !dbg !947
-  %13 = getelementptr i8, ptr @_mpinpb_0_, i64 40, !dbg !947
-  call void (ptr, ptr, ptr, ptr, ptr, ptr, ptr, ...) @mpi_win_create_(ptr %11, ptr %win_size_782, ptr %type_size_779, ptr @.C713_setup_rma_, ptr %12, ptr %13, ptr %error_778), !dbg !947
-  br label %L.LB1_785, !dbg !948
-
-L.LB1_785:                                        ; preds = %L.LB1_787
-  ret void, !dbg !949
+  call void @llvm.dbg.value(metadata ptr %type_size_779, metadata !941, metadata !DIExpression(DW_OP_deref)), !dbg !922
+  call void @llvm.dbg.value(metadata ptr %error_778, metadata !942, metadata !DIExpression(DW_OP_deref)), !dbg !922
+  call void (ptr, ptr, ptr, ...) @mpi_type_size_(ptr nonnull getelementptr inbounds (%struct_mpinpb_0_, ptr @_mpinpb_0_, i64 0, i32 0, i64 28), ptr nonnull %type_size_779, ptr nonnull %error_778), !dbg !943
+  %0 = load i32, ptr getelementptr inbounds (%struct_bt_data_0_, ptr @_bt_data_0_, i64 0, i32 0, i64 7296), align 64, !dbg !944, !tbaa !945
+  %1 = load i32, ptr %type_size_779, align 4, !dbg !944, !tbaa !949
+  call void @llvm.dbg.value(metadata i32 %1, metadata !941, metadata !DIExpression()), !dbg !922
+  %2 = mul nsw i32 %1, %0, !dbg !944
+  %3 = sext i32 %2 to i64, !dbg !944
+  call void @llvm.dbg.value(metadata i64 %3, metadata !951, metadata !DIExpression()), !dbg !922
+  store i64 %3, ptr %win_size_782, align 8, !dbg !944, !tbaa !952
+  %4 = load ptr, ptr getelementptr inbounds (%struct_bt_data_0_, ptr @_bt_data_0_, i64 0, i32 0, i64 4896), align 32, !dbg !954, !tbaa !955
+  call void @llvm.dbg.value(metadata ptr %type_size_779, metadata !941, metadata !DIExpression(DW_OP_deref)), !dbg !922
+  call void @llvm.dbg.value(metadata ptr %win_size_782, metadata !951, metadata !DIExpression(DW_OP_deref)), !dbg !922
+  call void (ptr, ptr, ptr, ptr, ptr, ptr, ptr, ...) @mpi_win_create_(ptr %4, ptr nonnull %win_size_782, ptr nonnull %type_size_779, ptr nonnull @.C713_setup_rma_, ptr nonnull getelementptr inbounds (%struct_mpinpb_0_, ptr @_mpinpb_0_, i64 0, i32 0, i64 20), ptr nonnull getelementptr inbounds (%struct_mpinpb_0_, ptr @_mpinpb_0_, i64 0, i32 0, i64 36), ptr nonnull %error_778), !dbg !954
+  %5 = load ptr, ptr getelementptr inbounds (%struct_bt_data_0_, ptr @_bt_data_0_, i64 0, i32 0, i64 4752), align 16, !dbg !957, !tbaa !958
+  call void (ptr, ptr, ptr, ptr, ptr, ptr, ptr, ...) @mpi_win_create_(ptr %5, ptr nonnull %win_size_782, ptr nonnull %type_size_779, ptr nonnull @.C713_setup_rma_, ptr nonnull getelementptr inbounds (%struct_mpinpb_0_, ptr @_mpinpb_0_, i64 0, i32 0, i64 24), ptr nonnull getelementptr inbounds (%struct_mpinpb_0_, ptr @_mpinpb_0_, i64 0, i32 0, i64 40), ptr nonnull %error_778), !dbg !957
+  ret void, !dbg !960
 }
 
-define void @cleanup_rma_() #0 !dbg !914 {
+define void @cleanup_rma_() local_unnamed_addr #0 !dbg !914 {
 L.entry:
   %error_399 = alloca i32, align 4
-  call void @llvm.dbg.value(metadata i32 0, metadata !950, metadata !DIExpression()), !dbg !951
-  call void @llvm.dbg.value(metadata i32 1, metadata !952, metadata !DIExpression()), !dbg !951
-  call void @llvm.dbg.value(metadata i32 0, metadata !953, metadata !DIExpression()), !dbg !951
-  call void @llvm.dbg.value(metadata i32 1, metadata !954, metadata !DIExpression()), !dbg !951
-  call void @llvm.dbg.value(metadata i32 1, metadata !955, metadata !DIExpression()), !dbg !951
-  call void @llvm.dbg.value(metadata i32 1, metadata !956, metadata !DIExpression()), !dbg !951
-  call void @llvm.dbg.value(metadata i32 0, metadata !957, metadata !DIExpression()), !dbg !951
-  call void @llvm.dbg.value(metadata i32 1, metadata !958, metadata !DIExpression()), !dbg !951
-  call void @llvm.dbg.value(metadata i32 1, metadata !959, metadata !DIExpression()), !dbg !951
-  call void @llvm.dbg.value(metadata i32 1, metadata !960, metadata !DIExpression()), !dbg !951
-  call void @llvm.dbg.value(metadata i32 1, metadata !961, metadata !DIExpression()), !dbg !951
-  call void @llvm.dbg.value(metadata i32 1, metadata !962, metadata !DIExpression()), !dbg !951
-  call void @llvm.dbg.value(metadata i32 0, metadata !963, metadata !DIExpression()), !dbg !951
-  call void @llvm.dbg.value(metadata i32 1, metadata !964, metadata !DIExpression()), !dbg !951
-  call void @llvm.dbg.value(metadata i32 1, metadata !965, metadata !DIExpression()), !dbg !951
-  br label %L.LB2_404
-
-L.LB2_404:                                        ; preds = %L.entry
-  %0 = getelementptr i8, ptr @_mpinpb_0_, i64 36, !dbg !966
-  call void @llvm.dbg.declare(metadata ptr %error_399, metadata !967, metadata !DIExpression()), !dbg !951
-  call void (ptr, ptr, ...) @mpi_win_free_(ptr %0, ptr %error_399), !dbg !966
-  %1 = getelementptr i8, ptr @_mpinpb_0_, i64 40, !dbg !968
-  call void (ptr, ptr, ...) @mpi_win_free_(ptr %1, ptr %error_399), !dbg !968
-  br label %L.LB2_402, !dbg !969
-
-L.LB2_402:                                        ; preds = %L.LB2_404
-  ret void, !dbg !970
+  call void @llvm.dbg.value(metadata i32 0, metadata !961, metadata !DIExpression()), !dbg !962
+  call void @llvm.dbg.value(metadata i32 1, metadata !963, metadata !DIExpression()), !dbg !962
+  call void @llvm.dbg.value(metadata i32 0, metadata !964, metadata !DIExpression()), !dbg !962
+  call void @llvm.dbg.value(metadata i32 1, metadata !965, metadata !DIExpression()), !dbg !962
+  call void @llvm.dbg.value(metadata i32 1, metadata !966, metadata !DIExpression()), !dbg !962
+  call void @llvm.dbg.value(metadata i32 1, metadata !967, metadata !DIExpression()), !dbg !962
+  call void @llvm.dbg.value(metadata i32 0, metadata !968, metadata !DIExpression()), !dbg !962
+  call void @llvm.dbg.value(metadata i32 1, metadata !969, metadata !DIExpression()), !dbg !962
+  call void @llvm.dbg.value(metadata i32 1, metadata !970, metadata !DIExpression()), !dbg !962
+  call void @llvm.dbg.value(metadata i32 1, metadata !971, metadata !DIExpression()), !dbg !962
+  call void @llvm.dbg.value(metadata i32 1, metadata !972, metadata !DIExpression()), !dbg !962
+  call void @llvm.dbg.value(metadata i32 1, metadata !973, metadata !DIExpression()), !dbg !962
+  call void @llvm.dbg.value(metadata i32 0, metadata !974, metadata !DIExpression()), !dbg !962
+  call void @llvm.dbg.value(metadata i32 1, metadata !975, metadata !DIExpression()), !dbg !962
+  call void @llvm.dbg.value(metadata i32 1, metadata !976, metadata !DIExpression()), !dbg !962
+  call void @llvm.dbg.value(metadata ptr %error_399, metadata !977, metadata !DIExpression(DW_OP_deref)), !dbg !962
+  call void (ptr, ptr, ...) @mpi_win_free_(ptr nonnull getelementptr inbounds (%struct_mpinpb_0_, ptr @_mpinpb_0_, i64 0, i32 0, i64 36), ptr nonnull %error_399), !dbg !978
+  call void (ptr, ptr, ...) @mpi_win_free_(ptr nonnull getelementptr inbounds (%struct_mpinpb_0_, ptr @_mpinpb_0_, i64 0, i32 0, i64 40), ptr nonnull %error_399), !dbg !979
+  ret void, !dbg !980
 }
 
-declare void @mpi_win_free_(...) #0
+declare void @mpi_win_free_(...) local_unnamed_addr #0
 
-declare void @mpi_win_create_(...) #0
+declare void @mpi_win_create_(...) local_unnamed_addr #0
 
-declare void @mpi_type_size_(...) #0
+declare void @mpi_type_size_(...) local_unnamed_addr #0
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare void @llvm.dbg.declare(metadata, metadata, metadata) #1
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare void @llvm.dbg.value(metadata, metadata, metadata) #1
 
-attributes #0 = { "no-frame-pointer-elim-non-leaf" }
-attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #0 = { "fp-contract"="fast" "no-frame-pointer-elim-non-leaf" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!919, !920}
 !llvm.dbg.cu = !{!4}
@@ -130,8 +105,8 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !0 = !DIGlobalVariableExpression(var: !1, expr: !DIExpression())
 !1 = distinct !DIGlobalVariable(name: "cell_coord", scope: !2, file: !3, type: !915, isLocal: false, isDefinition: true)
 !2 = !DIModule(scope: !4, name: "bt_data", file: !3)
-!3 = !DIFile(filename: "rma_stuff.f90", directory: "/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-RMA/BT-RMA.benchmarks/000042/000001_copy_source/work/BT-RMA")
-!4 = distinct !DICompileUnit(language: DW_LANG_Fortran90, file: !3, producer: " F90 Flang - 1.5 2017-05-01", isOptimized: false, flags: "'+flang -S -emit-llvm -Xclang -disable-O0-optnone -c -g -DSOLVER_FENCE -DEXCHG_FENCE -cpp rma_stuff.f90 -I/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/impi/2021.9.0-intel-compilers-2023.1.0/mpi/2021.9.0/include/f90-flang -I/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/impi/2021.9.0-intel-compilers-2023.1.0/mpi/2021.9.0/include'", runtimeVersion: 0, emissionKind: FullDebug, enums: !5, retainedTypes: !5, globals: !6, imports: !907, nameTableKind: None)
+!3 = !DIFile(filename: "rma_stuff.f90", directory: "/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-RMA/BT-RMA.benchmarks/000135/000001_copy_source/work/BT-RMA")
+!4 = distinct !DICompileUnit(language: DW_LANG_Fortran90, file: !3, producer: " F90 Flang - 1.5 2017-05-01", isOptimized: true, flags: "'+flang -S -emit-llvm -Xclang -disable-O0-optnone -c -O3 -g -DSOLVER_FENCE -DEXCHG_FENCE -cpp rma_stuff.f90 -I/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/impi/2021.9.0-intel-compilers-2023.1.0/mpi/2021.9.0/include/f90-flang -I/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/impi/2021.9.0-intel-compilers-2023.1.0/mpi/2021.9.0/include'", runtimeVersion: 0, emissionKind: FullDebug, enums: !5, retainedTypes: !5, globals: !6, imports: !907, nameTableKind: None)
 !5 = !{}
 !6 = !{!7, !11, !13, !15, !17, !19, !21, !23, !25, !28, !30, !32, !37, !39, !41, !43, !45, !51, !55, !60, !63, !65, !67, !71, !73, !75, !78, !80, !82, !84, !86, !88, !90, !92, !94, !96, !98, !100, !102, !104, !106, !108, !110, !112, !114, !116, !118, !120, !122, !124, !126, !128, !130, !135, !137, !139, !141, !143, !145, !147, !149, !151, !153, !155, !157, !159, !161, !163, !165, !167, !169, !171, !173, !175, !177, !179, !181, !183, !185, !187, !189, !191, !193, !195, !197, !199, !201, !203, !205, !207, !209, !211, !213, !215, !217, !219, !221, !223, !225, !227, !229, !231, !233, !235, !237, !239, !241, !243, !245, !247, !249, !251, !253, !255, !257, !259, !261, !263, !265, !267, !269, !271, !273, !276, !278, !280, !282, !284, !286, !288, !290, !292, !294, !296, !298, !300, !302, !304, !306, !308, !310, !312, !314, !316, !318, !320, !322, !324, !326, !328, !330, !332, !334, !336, !338, !340, !342, !344, !346, !348, !350, !352, !354, !356, !358, !360, !362, !364, !366, !368, !370, !372, !374, !376, !378, !380, !382, !384, !386, !388, !390, !392, !394, !396, !398, !400, !402, !404, !406, !408, !410, !412, !414, !416, !418, !420, !422, !424, !426, !428, !430, !432, !434, !436, !438, !440, !442, !444, !446, !448, !452, !454, !457, !462, !464, !0, !466, !468, !473, !479, !481, !483, !489, !491, !493, !499, !501, !503, !509, !511, !513, !519, !521, !523, !529, !531, !533, !541, !543, !548, !556, !558, !560, !568, !570, !572, !580, !582, !584, !592, !594, !596, !604, !606, !608, !617, !619, !624, !633, !635, !637, !646, !648, !650, !660, !662, !667, !675, !677, !679, !684, !686, !691, !696, !698, !700, !705, !707, !709, !714, !716, !718, !723, !725, !727, !732, !734, !736, !741, !743, !745, !750, !752, !754, !760, !762, !764, !770, !772, !774, !781, !783, !788, !795, !797, !799, !806, !808, !810, !817, !819, !821, !823, !825, !827, !829, !831, !833, !835, !837, !839, !841, !843, !845, !847, !849, !851, !853, !855, !857, !859, !861, !863, !865, !867, !869, !871, !873, !875, !877, !879, !881, !883, !885, !887, !889, !891, !893, !895, !897, !899, !901, !903, !905}
 !7 = !DIGlobalVariableExpression(var: !8, expr: !DIExpression())
@@ -1036,12 +1011,12 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !906 = distinct !DIGlobalVariable(name: "timeron", scope: !2, file: !3, type: !27, isLocal: false, isDefinition: true)
 !907 = !{!908, !912, !913}
 !908 = !DIImportedEntity(tag: DW_TAG_imported_module, scope: !909, entity: !2, file: !3, line: 4)
-!909 = distinct !DISubprogram(name: "setup_rma", scope: !4, file: !3, line: 4, type: !910, scopeLine: 4, spFlags: DISPFlagDefinition, unit: !4, retainedNodes: !5)
+!909 = distinct !DISubprogram(name: "setup_rma", scope: !4, file: !3, line: 4, type: !910, scopeLine: 4, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !4, retainedNodes: !5)
 !910 = !DISubroutineType(types: !911)
 !911 = !{null}
 !912 = !DIImportedEntity(tag: DW_TAG_imported_module, scope: !909, entity: !9, file: !3, line: 4)
 !913 = !DIImportedEntity(tag: DW_TAG_imported_module, scope: !914, entity: !9, file: !3, line: 104)
-!914 = distinct !DISubprogram(name: "cleanup_rma", scope: !4, file: !3, line: 104, type: !910, scopeLine: 104, spFlags: DISPFlagDefinition, unit: !4, retainedNodes: !5)
+!914 = distinct !DISubprogram(name: "cleanup_rma", scope: !4, file: !3, line: 104, type: !910, scopeLine: 104, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !4, retainedNodes: !5)
 !915 = !DICompositeType(tag: DW_TAG_array_type, baseType: !10, size: 32, align: 32, elements: !916, dataLocation: !DIExpression(DW_OP_push_object_address, DW_OP_deref), allocated: !DIExpression(DW_OP_push_object_address, DW_OP_deref))
 !916 = !{!917, !918}
 !917 = !DISubrange(lowerBound: !DIExpression(DW_OP_push_object_address, DW_OP_plus_uconst, 96, DW_OP_deref), upperBound: !DIExpression(DW_OP_push_object_address, DW_OP_plus_uconst, 136, DW_OP_deref), stride: !DIExpression(DW_OP_push_object_address, DW_OP_plus_uconst, 128, DW_OP_deref, DW_OP_push_object_address, DW_OP_plus_uconst, 40, DW_OP_deref, DW_OP_mul))
@@ -1068,33 +1043,43 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !938 = !DILocalVariable(name: "mpi_thread_single", scope: !909, file: !3, type: !10)
 !939 = !DILocalVariable(name: "mpi_thread_funneled", scope: !909, file: !3, type: !10)
 !940 = !DILocalVariable(name: "mpi_mode_create", scope: !909, file: !3, type: !10)
-!941 = !DILocation(line: 23, column: 1, scope: !909)
-!942 = !DILocalVariable(name: "type_size", scope: !909, file: !3, type: !10)
-!943 = !DILocalVariable(name: "error", scope: !909, file: !3, type: !10)
+!941 = !DILocalVariable(name: "type_size", scope: !909, file: !3, type: !10)
+!942 = !DILocalVariable(name: "error", scope: !909, file: !3, type: !10)
+!943 = !DILocation(line: 23, column: 1, scope: !909)
 !944 = !DILocation(line: 29, column: 1, scope: !909)
-!945 = !DILocalVariable(name: "win_size", scope: !909, file: !3, type: !275)
-!946 = !DILocation(line: 30, column: 1, scope: !909)
-!947 = !DILocation(line: 37, column: 1, scope: !909)
-!948 = !DILocation(line: 96, column: 1, scope: !909)
-!949 = !DILocation(line: 97, column: 1, scope: !909)
-!950 = !DILocalVariable(name: "mpi_success", scope: !914, file: !3, type: !10)
-!951 = !DILocation(line: 0, scope: !914)
-!952 = !DILocalVariable(name: "mpi_err_buffer", scope: !914, file: !3, type: !10)
-!953 = !DILocalVariable(name: "mpi_ident", scope: !914, file: !3, type: !10)
-!954 = !DILocalVariable(name: "mpi_congruent", scope: !914, file: !3, type: !10)
-!955 = !DILocalVariable(name: "mpi_win_flavor_create", scope: !914, file: !3, type: !10)
-!956 = !DILocalVariable(name: "mpi_win_separate", scope: !914, file: !3, type: !10)
-!957 = !DILocalVariable(name: "mpi_file_null", scope: !914, file: !3, type: !10)
-!958 = !DILocalVariable(name: "mpi_graph", scope: !914, file: !3, type: !10)
-!959 = !DILocalVariable(name: "mpi_subversion", scope: !914, file: !3, type: !10)
-!960 = !DILocalVariable(name: "mpi_combiner_named", scope: !914, file: !3, type: !10)
-!961 = !DILocalVariable(name: "mpi_typeclass_real", scope: !914, file: !3, type: !10)
-!962 = !DILocalVariable(name: "mpi_comm_type_shared", scope: !914, file: !3, type: !10)
-!963 = !DILocalVariable(name: "mpi_thread_single", scope: !914, file: !3, type: !10)
-!964 = !DILocalVariable(name: "mpi_thread_funneled", scope: !914, file: !3, type: !10)
-!965 = !DILocalVariable(name: "mpi_mode_create", scope: !914, file: !3, type: !10)
-!966 = !DILocation(line: 121, column: 1, scope: !914)
-!967 = !DILocalVariable(name: "error", scope: !914, file: !3, type: !10)
-!968 = !DILocation(line: 124, column: 1, scope: !914)
-!969 = !DILocation(line: 147, column: 1, scope: !914)
-!970 = !DILocation(line: 148, column: 1, scope: !914)
+!945 = !{!946, !946, i64 0}
+!946 = !{!"t1.5", !947, i64 0}
+!947 = !{!"unlimited ptr", !948, i64 0}
+!948 = !{!"Flang FAA 1"}
+!949 = !{!950, !950, i64 0}
+!950 = !{!"t1.3", !947, i64 0}
+!951 = !DILocalVariable(name: "win_size", scope: !909, file: !3, type: !275)
+!952 = !{!953, !953, i64 0}
+!953 = !{!"t1.6", !947, i64 0}
+!954 = !DILocation(line: 30, column: 1, scope: !909)
+!955 = !{!956, !956, i64 0}
+!956 = !{!"t1.7", !947, i64 0}
+!957 = !DILocation(line: 37, column: 1, scope: !909)
+!958 = !{!959, !959, i64 0}
+!959 = !{!"t1.b", !947, i64 0}
+!960 = !DILocation(line: 97, column: 1, scope: !909)
+!961 = !DILocalVariable(name: "mpi_success", scope: !914, file: !3, type: !10)
+!962 = !DILocation(line: 0, scope: !914)
+!963 = !DILocalVariable(name: "mpi_err_buffer", scope: !914, file: !3, type: !10)
+!964 = !DILocalVariable(name: "mpi_ident", scope: !914, file: !3, type: !10)
+!965 = !DILocalVariable(name: "mpi_congruent", scope: !914, file: !3, type: !10)
+!966 = !DILocalVariable(name: "mpi_win_flavor_create", scope: !914, file: !3, type: !10)
+!967 = !DILocalVariable(name: "mpi_win_separate", scope: !914, file: !3, type: !10)
+!968 = !DILocalVariable(name: "mpi_file_null", scope: !914, file: !3, type: !10)
+!969 = !DILocalVariable(name: "mpi_graph", scope: !914, file: !3, type: !10)
+!970 = !DILocalVariable(name: "mpi_subversion", scope: !914, file: !3, type: !10)
+!971 = !DILocalVariable(name: "mpi_combiner_named", scope: !914, file: !3, type: !10)
+!972 = !DILocalVariable(name: "mpi_typeclass_real", scope: !914, file: !3, type: !10)
+!973 = !DILocalVariable(name: "mpi_comm_type_shared", scope: !914, file: !3, type: !10)
+!974 = !DILocalVariable(name: "mpi_thread_single", scope: !914, file: !3, type: !10)
+!975 = !DILocalVariable(name: "mpi_thread_funneled", scope: !914, file: !3, type: !10)
+!976 = !DILocalVariable(name: "mpi_mode_create", scope: !914, file: !3, type: !10)
+!977 = !DILocalVariable(name: "error", scope: !914, file: !3, type: !10)
+!978 = !DILocation(line: 121, column: 1, scope: !914)
+!979 = !DILocation(line: 124, column: 1, scope: !914)
+!980 = !DILocation(line: 148, column: 1, scope: !914)

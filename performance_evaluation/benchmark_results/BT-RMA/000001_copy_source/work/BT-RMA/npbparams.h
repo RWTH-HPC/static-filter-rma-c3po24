@@ -1,4 +1,4 @@
-! CLASS = B
+! CLASS = C
 !  
 !  
 !  This file is generated automatically by the setparams utility.
@@ -6,9 +6,9 @@
 !  in this directory. Do not modify it by hand.
 !  
         integer problem_size, niter_default
-        parameter (problem_size=102, niter_default=200)
+        parameter (problem_size=162, niter_default=200)
         double precision dt_default
-        parameter (dt_default = 0.0003d0)
+        parameter (dt_default = 0.0001d0)
         integer wr_default
         parameter (wr_default = 5)
         integer iotype
@@ -16,7 +16,7 @@
         logical  convertdouble
         parameter (convertdouble = .false.)
         character*11 compiletime
-        parameter (compiletime='03 Mar 2024')
+        parameter (compiletime='22 Apr 2024')
         character*5 npbversion
         parameter (npbversion='3.4.2')
         character*8 cs1

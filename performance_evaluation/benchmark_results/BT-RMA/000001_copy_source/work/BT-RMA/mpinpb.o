@@ -1,5 +1,5 @@
-; ModuleID = '/tmp/ss540294/n23m0025_223103/mpinpb-e3925e.ll'
-source_filename = "/tmp/ss540294/n23m0025_223103/mpinpb-e3925e.ll"
+; ModuleID = '/tmp/ss540294/login23-2_223088/mpinpb-382688.ll'
+source_filename = "/tmp/ss540294/login23-2_223088/mpinpb-382688.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
@@ -10,20 +10,20 @@ target triple = "x86_64-unknown-linux-gnu"
 %structmpiprivc_ = type <{ [2 x i8] }>
 %struct_mpinpb_0_ = type <{ [112 x i8] }>
 
-@mpifcmb5_ = common global %structmpifcmb5_ zeroinitializer, align 64, !dbg !0
-@mpifcmb9_ = common global %structmpifcmb9_ zeroinitializer, align 64, !dbg !70
-@mpipriv1_ = common global %structmpipriv1_ zeroinitializer, align 64, !dbg !62, !dbg !64, !dbg !66
-@mpipriv2_ = common global %structmpipriv2_ zeroinitializer, align 64, !dbg !54, !dbg !59
-@mpiprivc_ = common global %structmpiprivc_ zeroinitializer, align 64, !dbg !44, !dbg !50
-@_mpinpb_0_ = common global %struct_mpinpb_0_ zeroinitializer, align 64, !dbg !7, !dbg !10, !dbg !12, !dbg !14, !dbg !16, !dbg !18, !dbg !20, !dbg !22, !dbg !24, !dbg !27, !dbg !29, !dbg !31, !dbg !36, !dbg !38, !dbg !40, !dbg !42
+@mpifcmb5_ = common local_unnamed_addr global %structmpifcmb5_ zeroinitializer, align 64, !dbg !0
+@mpifcmb9_ = common local_unnamed_addr global %structmpifcmb9_ zeroinitializer, align 64, !dbg !70
+@mpipriv1_ = common local_unnamed_addr global %structmpipriv1_ zeroinitializer, align 64, !dbg !62, !dbg !64, !dbg !66
+@mpipriv2_ = common local_unnamed_addr global %structmpipriv2_ zeroinitializer, align 64, !dbg !54, !dbg !59
+@mpiprivc_ = common local_unnamed_addr global %structmpiprivc_ zeroinitializer, align 64, !dbg !44, !dbg !50
+@_mpinpb_0_ = common local_unnamed_addr global %struct_mpinpb_0_ zeroinitializer, align 64, !dbg !7, !dbg !10, !dbg !12, !dbg !14, !dbg !16, !dbg !18, !dbg !20, !dbg !22, !dbg !24, !dbg !27, !dbg !29, !dbg !31, !dbg !36, !dbg !38, !dbg !40, !dbg !42
 
-; Function Attrs: noinline
-define i32 @mpinpb_() #0 {
+; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(none)
+define i32 @mpinpb_() local_unnamed_addr #0 {
 .L.entry:
   ret i32 undef
 }
 
-attributes #0 = { noinline }
+attributes #0 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!72, !73}
 !llvm.dbg.cu = !{!4}
@@ -31,8 +31,8 @@ attributes #0 = { noinline }
 !0 = !DIGlobalVariableExpression(var: !1, expr: !DIExpression())
 !1 = distinct !DIGlobalVariable(name: "mpi_unweighted", scope: !2, file: !3, type: !9, isLocal: false, isDefinition: true)
 !2 = !DIModule(scope: !4, name: "mpinpb", file: !3, line: 9)
-!3 = !DIFile(filename: "mpinpb.f90", directory: "/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-RMA/BT-RMA.benchmarks/000042/000001_copy_source/work/BT-RMA")
-!4 = distinct !DICompileUnit(language: DW_LANG_Fortran90, file: !3, producer: " F90 Flang - 1.5 2017-05-01", isOptimized: false, flags: "'+flang -S -emit-llvm -Xclang -disable-O0-optnone -c -g -DSOLVER_FENCE -DEXCHG_FENCE -cpp mpinpb.f90 -I/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/impi/2021.9.0-intel-compilers-2023.1.0/mpi/2021.9.0/include/f90-flang -I/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/impi/2021.9.0-intel-compilers-2023.1.0/mpi/2021.9.0/include'", runtimeVersion: 0, emissionKind: FullDebug, enums: !5, retainedTypes: !5, globals: !6, imports: !5, nameTableKind: None)
+!3 = !DIFile(filename: "mpinpb.f90", directory: "/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-RMA/BT-RMA.benchmarks/000135/000001_copy_source/work/BT-RMA")
+!4 = distinct !DICompileUnit(language: DW_LANG_Fortran90, file: !3, producer: " F90 Flang - 1.5 2017-05-01", isOptimized: true, flags: "'+flang -S -emit-llvm -Xclang -disable-O0-optnone -c -O3 -g -DSOLVER_FENCE -DEXCHG_FENCE -cpp mpinpb.f90 -I/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/impi/2021.9.0-intel-compilers-2023.1.0/mpi/2021.9.0/include/f90-flang -I/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/impi/2021.9.0-intel-compilers-2023.1.0/mpi/2021.9.0/include'", runtimeVersion: 0, emissionKind: FullDebug, enums: !5, retainedTypes: !5, globals: !6, imports: !5, nameTableKind: None)
 !5 = !{}
 !6 = !{!7, !10, !12, !14, !16, !18, !20, !22, !24, !27, !29, !31, !36, !38, !40, !42, !44, !50, !54, !59, !62, !64, !66, !70, !0}
 !7 = !DIGlobalVariableExpression(var: !8, expr: !DIExpression())

@@ -1,5 +1,5 @@
-; ModuleID = '/tmp/ss540294/n23m0025_223103/get_active_nprocs-021dc4.ll'
-source_filename = "/tmp/ss540294/n23m0025_223103/get_active_nprocs-021dc4.ll"
+; ModuleID = '/tmp/ss540294/login23-2_223088/get_active_nprocs-cb1a47.ll'
+source_filename = "/tmp/ss540294/login23-2_223088/get_active_nprocs-cb1a47.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
@@ -19,7 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.C682_get_active_nprocs_ = internal constant [6 x i8] c"square"
 @.C365_get_active_nprocs_ = internal constant i32 14
 @.C680_get_active_nprocs_ = internal constant i32 93
-@.C369_get_active_nprocs_ = internal constant i32 25
 @.C339_get_active_nprocs_ = internal constant i32 6
 @.C669_get_active_nprocs_ = internal constant [21 x i8] c"get_active_nprocs.f90"
 @.C671_get_active_nprocs_ = internal constant i32 89
@@ -31,37 +30,24 @@ target triple = "x86_64-unknown-linux-gnu"
 @.C663_get_active_nprocs_ = internal constant [3 x i8] c"OFF"
 @.C662_get_active_nprocs_ = internal constant [3 x i8] c"off"
 @.C660_get_active_nprocs_ = internal constant [1 x i8] c"-"
-@.C314_get_active_nprocs_ = internal constant i64 1
 @.C659_get_active_nprocs_ = internal constant [1 x i8] c"0"
 @.C344_get_active_nprocs_ = internal constant i32 4
-@.C312_get_active_nprocs_ = internal constant i64 0
 @.C658_get_active_nprocs_ = internal constant [17 x i8] c"NPB_NPROCS_STRICT"
 @.C311_get_active_nprocs_ = internal constant i32 0
-@.C708_get_active_nprocs_ = internal constant i32 -1
-@.C343_get_active_nprocs_ = internal constant i32 3
-@.C358_get_active_nprocs_ = internal constant i32 2
-@.C321_get_active_nprocs_ = internal constant double 2.000000e+00
-@.C656_get_active_nprocs_ = internal constant double 1.000000e-03
 @.C313_get_active_nprocs_ = internal constant i32 1
-@.C444_get_active_nprocs_ = internal constant i32 1140850688
-@mpifcmb5_ = common global %structmpifcmb5_ zeroinitializer, align 64
-@mpifcmb9_ = common global %structmpifcmb9_ zeroinitializer, align 64
-@mpipriv1_ = common global %structmpipriv1_ zeroinitializer, align 64
-@mpipriv2_ = common global %structmpipriv2_ zeroinitializer, align 64
-@mpiprivc_ = common global %structmpiprivc_ zeroinitializer, align 64
+@mpifcmb5_ = common local_unnamed_addr global %structmpifcmb5_ zeroinitializer, align 64
+@mpifcmb9_ = common local_unnamed_addr global %structmpifcmb9_ zeroinitializer, align 64
+@mpipriv1_ = common local_unnamed_addr global %structmpipriv1_ zeroinitializer, align 64
+@mpipriv2_ = common local_unnamed_addr global %structmpipriv2_ zeroinitializer, align 64
+@mpiprivc_ = common local_unnamed_addr global %structmpiprivc_ zeroinitializer, align 64
+@llvm.compiler.used = appending global [3 x ptr] [ptr @__pd_log_2, ptr @__pd_log_4, ptr @__pd_log_8], section "llvm.metadata"
 
-define void @get_active_nprocs_(ptr %pkind, ptr %np1, ptr %np2, ptr %npa, ptr %nprocs, ptr %rank, ptr %comm_out, ptr %active) #0 !dbg !5 {
+define void @get_active_nprocs_(ptr nocapture readonly %pkind, ptr nocapture %np1, ptr nocapture %np2, ptr nocapture %npa, ptr %nprocs, ptr %rank, ptr %comm_out, ptr %active) local_unnamed_addr #0 !dbg !5 {
 L.entry:
   %comm_in_646 = alloca i32, align 4
   %ios_652 = alloca i32, align 4
-  %np1w_648 = alloca i32, align 4
-  %np2w_649 = alloca i32, align 4
-  %.dY0001_703 = alloca i32, align 4
-  %n_647 = alloca i32, align 4
-  %npaw_650 = alloca i32, align 4
   %val_653 = alloca [40 x i8], align 16
   %ic_651 = alloca i32, align 4
-  %z__io_674 = alloca i32, align 4
   call void @llvm.dbg.declare(metadata ptr %pkind, metadata !11, metadata !DIExpression()), !dbg !19
   call void @llvm.dbg.declare(metadata ptr %np1, metadata !12, metadata !DIExpression()), !dbg !19
   call void @llvm.dbg.declare(metadata ptr %np2, metadata !13, metadata !DIExpression()), !dbg !19
@@ -332,462 +318,363 @@ L.entry:
   call void @llvm.dbg.value(metadata i64 -54278278, metadata !279, metadata !DIExpression()), !dbg !19
   call void @llvm.dbg.value(metadata i32 0, metadata !281, metadata !DIExpression()), !dbg !19
   call void @llvm.dbg.value(metadata i32 0, metadata !282, metadata !DIExpression()), !dbg !19
-  br label %L.LB1_731
+  call void @llvm.dbg.value(metadata i32 1140850688, metadata !283, metadata !DIExpression()), !dbg !19
+  store i32 1140850688, ptr %comm_in_646, align 4, !dbg !284, !tbaa !285
+  call void @llvm.dbg.value(metadata ptr %comm_in_646, metadata !283, metadata !DIExpression(DW_OP_deref)), !dbg !19
+  call void @llvm.dbg.value(metadata ptr %ios_652, metadata !289, metadata !DIExpression(DW_OP_deref)), !dbg !19
+  call void (ptr, ptr, ptr, ...) @mpi_comm_size_(ptr nonnull %comm_in_646, ptr %nprocs, ptr nonnull %ios_652), !dbg !290
+  call void (ptr, ptr, ptr, ...) @mpi_comm_rank_(ptr nonnull %comm_in_646, ptr %rank, ptr nonnull %ios_652), !dbg !291
+  %0 = load i32, ptr %pkind, align 4, !dbg !292, !tbaa !293
+  %1 = icmp sgt i32 %0, 1, !dbg !292
+  %2 = load i32, ptr %nprocs, align 4, !dbg !19, !tbaa !295
+  %.fr = freeze i32 %2, !dbg !297
+  %3 = sitofp i32 %.fr to double, !dbg !19
+  %4 = fadd double %3, 1.000000e-03, !dbg !19
+  br i1 %1, label %L.LB1_699, label %L.LB1_699.thread, !dbg !292
 
-L.LB1_731:                                        ; preds = %L.entry
-  call void @llvm.dbg.declare(metadata ptr %comm_in_646, metadata !283, metadata !DIExpression()), !dbg !19
-  store i32 1140850688, ptr %comm_in_646, align 4, !dbg !284
-  call void @llvm.dbg.declare(metadata ptr %ios_652, metadata !285, metadata !DIExpression()), !dbg !19
-  call void (ptr, ptr, ptr, ...) @mpi_comm_size_(ptr %comm_in_646, ptr %nprocs, ptr %ios_652), !dbg !286
-  call void (ptr, ptr, ptr, ...) @mpi_comm_rank_(ptr %comm_in_646, ptr %rank, ptr %ios_652), !dbg !287
-  %0 = load i32, ptr %pkind, align 4, !dbg !288
-  %1 = icmp sgt i32 %0, 1, !dbg !288
-  br i1 %1, label %L.LB1_698, label %L.LB1_798, !dbg !288
+L.LB1_699.thread:                                 ; preds = %L.entry
+  %5 = call double @llvm.sqrt.f64(double %4), !dbg !298
+  %6 = fptosi double %5 to i32, !dbg !298
+  store i32 %6, ptr %np2, align 4, !dbg !298, !tbaa !299
+  store i32 %6, ptr %np1, align 4, !dbg !301, !tbaa !302
+  %7 = mul nsw i32 %6, %6, !dbg !304
+  store i32 %7, ptr %npa, align 4, !dbg !304, !tbaa !305
+  br label %L.LB1_700, !dbg !307
 
-L.LB1_798:                                        ; preds = %L.LB1_731
-  %2 = load i32, ptr %nprocs, align 4, !dbg !289
-  %3 = sitofp i32 %2 to double, !dbg !289
-  %4 = fadd double %3, 1.000000e-03, !dbg !289
-  %5 = call double @llvm.sqrt.f64(double %4), !dbg !289
-  %6 = fptosi double %5 to i32, !dbg !289
-  store i32 %6, ptr %np2, align 4, !dbg !289
-  %7 = load i32, ptr %np2, align 4, !dbg !290
-  store i32 %7, ptr %np1, align 4, !dbg !290
-  br label %L.LB1_699, !dbg !291
+L.LB1_699:                                        ; preds = %L.entry
+  %8 = call double @__pd_log_1(double %4) #4, !dbg !308
+  %9 = call double @__pd_log_1(double 2.000000e+00) #4, !dbg !308
+  %10 = fdiv double %8, %9, !dbg !308
+  %11 = fptosi double %10 to i32, !dbg !308
+  %12 = lshr i32 %11, 31, !dbg !309
+  %13 = add nsw i32 %12, %11, !dbg !309
+  %14 = ashr i32 %13, 1, !dbg !309
+  %15 = sub nsw i32 %11, %14, !dbg !310
+  %16 = shl nuw nsw i32 1, %15, !dbg !311
+  %isnotneg.inv = icmp slt i32 %15, 0, !dbg !311
+  %17 = select i1 %isnotneg.inv, i32 0, i32 %16, !dbg !311
+  store i32 %17, ptr %np1, align 4, !dbg !311, !tbaa !302
+  %18 = shl nuw nsw i32 1, %14, !dbg !312
+  %isnotneg.inv27 = icmp slt i32 %13, 0, !dbg !312
+  %19 = select i1 %isnotneg.inv27, i32 0, i32 %18, !dbg !312
+  store i32 %19, ptr %np2, align 4, !dbg !312, !tbaa !299
+  %20 = mul nsw i32 %17, %19, !dbg !304
+  store i32 %20, ptr %npa, align 4, !dbg !304, !tbaa !305
+  %.not = icmp eq i32 %0, 2, !dbg !307
+  %.not16 = icmp slt i32 %20, %.fr, !dbg !307
+  %or.cond33 = select i1 %.not, i1 %.not16, i1 false, !dbg !307
+  br i1 %or.cond33, label %L.LB1_800, label %L.LB1_700, !dbg !307
 
-L.LB1_698:                                        ; preds = %L.LB1_731
-  %8 = load i32, ptr %nprocs, align 4, !dbg !292
-  %9 = sitofp i32 %8 to double, !dbg !292
-  %10 = fadd double %9, 1.000000e-03, !dbg !292
-  %11 = call double @__pd_log_1(double %10), !dbg !292
-  %12 = call double @__pd_log_1(double 2.000000e+00), !dbg !292
-  %13 = fdiv double %11, %12, !dbg !292
-  %14 = fptosi double %13 to i32, !dbg !292
-  store i32 %14, ptr %np1, align 4, !dbg !292
-  %15 = load i32, ptr %np1, align 4, !dbg !293
-  %16 = load i32, ptr %np1, align 4, !dbg !293
-  %17 = lshr i32 %16, 31, !dbg !293
-  %18 = add nsw i32 %15, %17, !dbg !293
-  %19 = ashr i32 %18, 1, !dbg !293
-  store i32 %19, ptr %np2, align 4, !dbg !293
-  %20 = load i32, ptr %np1, align 4, !dbg !294
-  %21 = load i32, ptr %np2, align 4, !dbg !294
-  %22 = sub nsw i32 %20, %21, !dbg !294
-  store i32 %22, ptr %np1, align 4, !dbg !294
-  %23 = load i32, ptr %np1, align 4, !dbg !295
-  %24 = shl nsw i32 1, %23, !dbg !295
-  %25 = load i32, ptr %np1, align 4, !dbg !295
-  %26 = ashr i32 %25, 31, !dbg !295
-  %27 = xor i32 -1, %26, !dbg !295
-  %28 = and i32 %24, %27, !dbg !295
-  store i32 %28, ptr %np1, align 4, !dbg !295
-  %29 = load i32, ptr %np2, align 4, !dbg !296
-  %30 = shl nsw i32 1, %29, !dbg !296
-  %31 = load i32, ptr %np2, align 4, !dbg !296
-  %32 = ashr i32 %31, 31, !dbg !296
-  %33 = xor i32 -1, %32, !dbg !296
-  %34 = and i32 %30, %33, !dbg !296
-  store i32 %34, ptr %np2, align 4, !dbg !296
-  br label %L.LB1_699
+L.LB1_800:                                        ; preds = %L.LB1_699
+  call void @llvm.dbg.value(metadata i32 undef, metadata !313, metadata !DIExpression()), !dbg !19
+  %21 = shl nsw i32 %.fr, 1, !dbg !314
+  %22 = insertelement <2 x i32> poison, i32 %21, i64 0, !dbg !315
+  %23 = insertelement <2 x i32> %22, i32 %.fr, i64 1, !dbg !315
+  %24 = sitofp <2 x i32> %23 to <2 x double>, !dbg !314
+  %25 = fadd <2 x double> %24, <double 1.000000e-03, double 1.000000e-03>, !dbg !314
+  %26 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %25), !dbg !314
+  %27 = fptosi <2 x double> %26 to <2 x i32>, !dbg !314
+  call void @llvm.dbg.value(metadata i32 undef, metadata !316, metadata !DIExpression()), !dbg !19
+  %28 = extractelement <2 x i32> %27, i64 0, !dbg !317
+  %29 = extractelement <2 x i32> %27, i64 1, !dbg !317
+  %30 = sub nsw i32 %28, %29, !dbg !317
+  call void @llvm.dbg.value(metadata i32 undef, metadata !318, metadata !DIExpression()), !dbg !19
+  %31 = icmp slt i32 %30, 0, !dbg !317
+  br i1 %31, label %L.LB1_700, label %L.LB1_701.preheader, !dbg !317
 
-L.LB1_699:                                        ; preds = %L.LB1_698, %L.LB1_798
-  %35 = load i32, ptr %np2, align 4, !dbg !297
-  %36 = load i32, ptr %np1, align 4, !dbg !297
-  %37 = mul nsw i32 %35, %36, !dbg !297
-  store i32 %37, ptr %npa, align 4, !dbg !297
-  %38 = load i32, ptr %pkind, align 4, !dbg !298
-  %39 = icmp ne i32 %38, 2, !dbg !298
-  br i1 %39, label %L.LB1_700, label %L.LB1_799, !dbg !298
+L.LB1_701.preheader:                              ; preds = %L.LB1_800
+  %32 = add nuw nsw i32 %30, 1, !dbg !317
+  %.not18 = icmp eq i32 %.fr, 3
+  br label %L.LB1_701, !dbg !317
 
-L.LB1_799:                                        ; preds = %L.LB1_699
-  %40 = load i32, ptr %npa, align 4, !dbg !298
-  %41 = load i32, ptr %nprocs, align 4, !dbg !298
-  %42 = icmp sge i32 %40, %41, !dbg !298
-  br i1 %42, label %L.LB1_700, label %L.LB1_800, !dbg !298
+L.LB1_701:                                        ; preds = %L.LB1_701.preheader, %L.LB1_705
+  %npaw_650.032 = phi i32 [ %npaw_650.031, %L.LB1_705 ], [ %20, %L.LB1_701.preheader ]
+  %.dY0001_703.0 = phi i32 [ %37, %L.LB1_705 ], [ %32, %L.LB1_701.preheader ], !dbg !19
+  %n_647.0 = phi i32 [ %36, %L.LB1_705 ], [ %29, %L.LB1_701.preheader ], !dbg !19
+  call void @llvm.dbg.value(metadata i32 %n_647.0, metadata !318, metadata !DIExpression()), !dbg !19
+  %33 = srem i32 %.fr, %n_647.0, !dbg !297
+  %34 = sub nsw i32 %.fr, %33, !dbg !297
+  call void @llvm.dbg.value(metadata i32 %34, metadata !319, metadata !DIExpression()), !dbg !19
+  %.not17 = icmp eq i32 %n_647.0, 1, !dbg !320
+  %or.cond28 = and i1 %.not18, %.not17, !dbg !320
+  %npaw_650.0 = select i1 %or.cond28, i32 2, i32 %34, !dbg !320
+  call void @llvm.dbg.value(metadata i32 %npaw_650.0, metadata !319, metadata !DIExpression()), !dbg !19
+  %.not19 = icmp sgt i32 %npaw_650.0, %npaw_650.032, !dbg !321
+  br i1 %.not19, label %L.LB1_803, label %L.LB1_705, !dbg !321
 
-L.LB1_800:                                        ; preds = %L.LB1_799
-  %43 = load i32, ptr %nprocs, align 4, !dbg !299
-  %44 = sitofp i32 %43 to double, !dbg !299
-  %45 = fadd double %44, 1.000000e-03, !dbg !299
-  %46 = call double @llvm.sqrt.f64(double %45), !dbg !299
-  %47 = fptosi double %46 to i32, !dbg !299
-  call void @llvm.dbg.declare(metadata ptr %np1w_648, metadata !300, metadata !DIExpression()), !dbg !19
-  store i32 %47, ptr %np1w_648, align 4, !dbg !299
-  %48 = load i32, ptr %nprocs, align 4, !dbg !301
-  %49 = mul nsw i32 %48, 2, !dbg !301
-  %50 = sitofp i32 %49 to double, !dbg !301
-  %51 = fadd double %50, 1.000000e-03, !dbg !301
-  %52 = call double @llvm.sqrt.f64(double %51), !dbg !301
-  %53 = fptosi double %52 to i32, !dbg !301
-  call void @llvm.dbg.declare(metadata ptr %np2w_649, metadata !302, metadata !DIExpression()), !dbg !19
-  store i32 %53, ptr %np2w_649, align 4, !dbg !301
-  %54 = load i32, ptr %np2w_649, align 4, !dbg !303
-  call void @llvm.dbg.value(metadata i32 %54, metadata !302, metadata !DIExpression()), !dbg !19
-  %55 = load i32, ptr %np1w_648, align 4, !dbg !303
-  call void @llvm.dbg.value(metadata i32 %55, metadata !300, metadata !DIExpression()), !dbg !19
-  %56 = sub nsw i32 %54, %55, !dbg !303
-  %57 = add nsw i32 %56, 1, !dbg !303
-  store i32 %57, ptr %.dY0001_703, align 4, !dbg !303
-  %58 = load i32, ptr %np1w_648, align 4, !dbg !303
-  call void @llvm.dbg.value(metadata i32 %58, metadata !300, metadata !DIExpression()), !dbg !19
-  call void @llvm.dbg.declare(metadata ptr %n_647, metadata !304, metadata !DIExpression()), !dbg !19
-  store i32 %58, ptr %n_647, align 4, !dbg !303
-  %59 = load i32, ptr %.dY0001_703, align 4, !dbg !303
-  %60 = icmp sle i32 %59, 0, !dbg !303
-  br i1 %60, label %L.LB1_702, label %L.LB1_701, !dbg !303
-
-L.LB1_701:                                        ; preds = %L.LB1_705, %L.LB1_800
-  %61 = load i32, ptr %n_647, align 4, !dbg !305
-  call void @llvm.dbg.value(metadata i32 %61, metadata !304, metadata !DIExpression()), !dbg !19
-  %62 = load i32, ptr %nprocs, align 4, !dbg !305
-  %63 = load i32, ptr %n_647, align 4, !dbg !305
-  call void @llvm.dbg.value(metadata i32 %63, metadata !304, metadata !DIExpression()), !dbg !19
-  %64 = sdiv i32 %62, %63, !dbg !305
-  %65 = mul nsw i32 %61, %64, !dbg !305
-  call void @llvm.dbg.declare(metadata ptr %npaw_650, metadata !306, metadata !DIExpression()), !dbg !19
-  store i32 %65, ptr %npaw_650, align 4, !dbg !305
-  %66 = load i32, ptr %n_647, align 4, !dbg !307
-  call void @llvm.dbg.value(metadata i32 %66, metadata !304, metadata !DIExpression()), !dbg !19
-  %67 = icmp ne i32 %66, 1, !dbg !307
-  br i1 %67, label %L.LB1_704, label %L.LB1_801, !dbg !307
-
-L.LB1_801:                                        ; preds = %L.LB1_701
-  %68 = load i32, ptr %nprocs, align 4, !dbg !307
-  %69 = icmp ne i32 %68, 3, !dbg !307
-  br i1 %69, label %L.LB1_704, label %L.LB1_802, !dbg !307
-
-L.LB1_802:                                        ; preds = %L.LB1_801
-  store i32 2, ptr %npaw_650, align 4, !dbg !307
-  br label %L.LB1_704
-
-L.LB1_704:                                        ; preds = %L.LB1_802, %L.LB1_801, %L.LB1_701
-  %70 = load i32, ptr %npaw_650, align 4, !dbg !308
-  call void @llvm.dbg.value(metadata i32 %70, metadata !306, metadata !DIExpression()), !dbg !19
-  %71 = load i32, ptr %npa, align 4, !dbg !308
-  %72 = icmp sle i32 %70, %71, !dbg !308
-  br i1 %72, label %L.LB1_705, label %L.LB1_803, !dbg !308
-
-L.LB1_803:                                        ; preds = %L.LB1_704
-  %73 = load i32, ptr %npaw_650, align 4, !dbg !309
-  call void @llvm.dbg.value(metadata i32 %73, metadata !306, metadata !DIExpression()), !dbg !19
-  store i32 %73, ptr %npa, align 4, !dbg !309
-  %74 = load i32, ptr %npa, align 4, !dbg !310
-  %75 = load i32, ptr %n_647, align 4, !dbg !310
-  call void @llvm.dbg.value(metadata i32 %75, metadata !304, metadata !DIExpression()), !dbg !19
-  %76 = sdiv i32 %74, %75, !dbg !310
-  store i32 %76, ptr %np1, align 4, !dbg !310
-  %77 = load i32, ptr %np1, align 4, !dbg !311
-  %78 = load i32, ptr %n_647, align 4, !dbg !311
-  call void @llvm.dbg.value(metadata i32 %78, metadata !304, metadata !DIExpression()), !dbg !19
-  %79 = icmp sge i32 %77, %78, !dbg !311
-  br i1 %79, label %L.LB1_706, label %L.LB1_804, !dbg !311
+L.LB1_803:                                        ; preds = %L.LB1_701
+  call void @llvm.dbg.value(metadata i32 %npaw_650.0, metadata !319, metadata !DIExpression()), !dbg !19
+  store i32 %npaw_650.0, ptr %npa, align 4, !dbg !322, !tbaa !305
+  call void @llvm.dbg.value(metadata i32 %n_647.0, metadata !318, metadata !DIExpression()), !dbg !19
+  %35 = sdiv i32 %npaw_650.0, %n_647.0, !dbg !323
+  store i32 %35, ptr %np1, align 4, !dbg !323, !tbaa !302
+  %.not20 = icmp slt i32 %35, %n_647.0, !dbg !324
+  br i1 %.not20, label %L.LB1_804, label %L.LB1_705.sink.split, !dbg !324
 
 L.LB1_804:                                        ; preds = %L.LB1_803
-  %80 = load i32, ptr %np1, align 4, !dbg !312
-  store i32 %80, ptr %np2, align 4, !dbg !312
-  %81 = load i32, ptr %n_647, align 4, !dbg !313
-  call void @llvm.dbg.value(metadata i32 %81, metadata !304, metadata !DIExpression()), !dbg !19
-  store i32 %81, ptr %np1, align 4, !dbg !313
-  br label %L.LB1_707, !dbg !314
+  store i32 %35, ptr %np2, align 4, !dbg !325, !tbaa !299
+  call void @llvm.dbg.value(metadata i32 %n_647.0, metadata !318, metadata !DIExpression()), !dbg !19
+  br label %L.LB1_705.sink.split, !dbg !326
 
-L.LB1_706:                                        ; preds = %L.LB1_803
-  %82 = load i32, ptr %n_647, align 4, !dbg !315
-  call void @llvm.dbg.value(metadata i32 %82, metadata !304, metadata !DIExpression()), !dbg !19
-  store i32 %82, ptr %np2, align 4, !dbg !315
-  br label %L.LB1_707
+L.LB1_705.sink.split:                             ; preds = %L.LB1_803, %L.LB1_804
+  %np1.sink = phi ptr [ %np1, %L.LB1_804 ], [ %np2, %L.LB1_803 ]
+  store i32 %n_647.0, ptr %np1.sink, align 4, !dbg !19, !tbaa !327
+  br label %L.LB1_705, !dbg !328
 
-L.LB1_707:                                        ; preds = %L.LB1_706, %L.LB1_804
-  br label %L.LB1_705
+L.LB1_705:                                        ; preds = %L.LB1_705.sink.split, %L.LB1_701
+  %npaw_650.031 = phi i32 [ %npaw_650.032, %L.LB1_701 ], [ %npaw_650.0, %L.LB1_705.sink.split ]
+  call void @llvm.dbg.value(metadata i32 %n_647.0, metadata !318, metadata !DIExpression()), !dbg !19
+  %36 = add nsw i32 %n_647.0, 1, !dbg !328
+  call void @llvm.dbg.value(metadata i32 %36, metadata !318, metadata !DIExpression()), !dbg !19
+  %37 = add nsw i32 %.dY0001_703.0, -1, !dbg !328
+  %38 = icmp sgt i32 %.dY0001_703.0, 1, !dbg !328
+  br i1 %38, label %L.LB1_701, label %L.LB1_700, !dbg !328, !llvm.loop !329
 
-L.LB1_705:                                        ; preds = %L.LB1_707, %L.LB1_704
-  %83 = load i32, ptr %n_647, align 4, !dbg !316
-  call void @llvm.dbg.value(metadata i32 %83, metadata !304, metadata !DIExpression()), !dbg !19
-  %84 = add nsw i32 %83, 1, !dbg !316
-  store i32 %84, ptr %n_647, align 4, !dbg !316
-  %85 = load i32, ptr %.dY0001_703, align 4, !dbg !316
-  %86 = sub nsw i32 %85, 1, !dbg !316
-  store i32 %86, ptr %.dY0001_703, align 4, !dbg !316
-  %87 = load i32, ptr %.dY0001_703, align 4, !dbg !316
-  %88 = icmp sgt i32 %87, 0, !dbg !316
-  br i1 %88, label %L.LB1_701, label %L.LB1_702, !dbg !316, !llvm.loop !317
-
-L.LB1_702:                                        ; preds = %L.LB1_705, %L.LB1_800
-  br label %L.LB1_700
-
-L.LB1_700:                                        ; preds = %L.LB1_702, %L.LB1_799, %L.LB1_699
-  %89 = load i32, ptr %comm_in_646, align 4, !dbg !318
-  call void @llvm.dbg.value(metadata i32 %89, metadata !283, metadata !DIExpression()), !dbg !19
-  store i32 %89, ptr %comm_out, align 4, !dbg !318
-  store i32 -1, ptr %active, align 4, !dbg !319
-  %90 = load i32, ptr %nprocs, align 4, !dbg !320
-  %91 = load i32, ptr %npa, align 4, !dbg !320
-  %92 = icmp ne i32 %90, %91, !dbg !320
-  br i1 %92, label %L.LB1_709, label %L.LB1_805, !dbg !320
+L.LB1_700:                                        ; preds = %L.LB1_705, %L.LB1_699.thread, %L.LB1_800, %L.LB1_699
+  %39 = phi i32 [ %7, %L.LB1_699.thread ], [ %20, %L.LB1_800 ], [ %20, %L.LB1_699 ], [ %npaw_650.031, %L.LB1_705 ], !dbg !330
+  %40 = load i32, ptr %comm_in_646, align 4, !dbg !331, !tbaa !285
+  call void @llvm.dbg.value(metadata i32 %40, metadata !283, metadata !DIExpression()), !dbg !19
+  store i32 %40, ptr %comm_out, align 4, !dbg !331, !tbaa !332
+  store i32 -1, ptr %active, align 4, !dbg !334, !tbaa !335
+  %41 = icmp eq i32 %.fr, %39, !dbg !330
+  br i1 %41, label %L.LB1_695, label %L.LB1_805, !dbg !330
 
 L.LB1_805:                                        ; preds = %L.LB1_700
-  br label %L.LB1_695, !dbg !320
+  %42 = load i32, ptr %rank, align 4, !dbg !337, !tbaa !338
+  %.not21 = icmp eq i32 %42, 0, !dbg !337
+  br i1 %.not21, label %L.LB1_806, label %L.LB1_710, !dbg !337
 
-L.LB1_709:                                        ; preds = %L.LB1_700
-  %93 = load i32, ptr %rank, align 4, !dbg !321
-  %94 = icmp ne i32 %93, 0, !dbg !321
-  br i1 %94, label %L.LB1_710, label %L.LB1_806, !dbg !321
+L.LB1_806:                                        ; preds = %L.LB1_805
+  call void @llvm.dbg.declare(metadata ptr %val_653, metadata !340, metadata !DIExpression()), !dbg !19
+  call void @llvm.dbg.value(metadata ptr %ios_652, metadata !289, metadata !DIExpression(DW_OP_deref)), !dbg !19
+  call void @llvm.dbg.value(metadata ptr %ic_651, metadata !342, metadata !DIExpression(DW_OP_deref)), !dbg !19
+  call void (ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, ...) @f90_get_env_vara(ptr nonnull @.C658_get_active_nprocs_, ptr nonnull %val_653, ptr nonnull %ic_651, ptr nonnull %ios_652, ptr null, ptr nonnull @.C344_get_active_nprocs_, i64 17, i64 40), !dbg !343
+  %43 = load i32, ptr %ios_652, align 4, !dbg !344, !tbaa !345
+  call void @llvm.dbg.value(metadata i32 %43, metadata !289, metadata !DIExpression()), !dbg !19
+  %44 = icmp ne i32 %43, 0, !dbg !344
+  %45 = load i32, ptr %ic_651, align 4, !dbg !344
+  call void @llvm.dbg.value(metadata i32 %45, metadata !342, metadata !DIExpression()), !dbg !19
+  %46 = icmp slt i32 %45, 1, !dbg !344
+  %or.cond = select i1 %44, i1 true, i1 %46, !dbg !344
+  br i1 %or.cond, label %L.LB1_710, label %L.LB1_808, !dbg !344
 
-L.LB1_806:                                        ; preds = %L.LB1_709
-  call void @llvm.dbg.declare(metadata ptr %val_653, metadata !322, metadata !DIExpression()), !dbg !19
-  call void @llvm.dbg.declare(metadata ptr %ic_651, metadata !324, metadata !DIExpression()), !dbg !19
-  call void (ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, ...) @f90_get_env_vara(ptr @.C658_get_active_nprocs_, ptr %val_653, ptr %ic_651, ptr %ios_652, ptr null, ptr @.C344_get_active_nprocs_, i64 17, i64 40), !dbg !325
-  %95 = load i32, ptr %ios_652, align 4, !dbg !326
-  call void @llvm.dbg.value(metadata i32 %95, metadata !285, metadata !DIExpression()), !dbg !19
-  %96 = icmp ne i32 %95, 0, !dbg !326
-  br i1 %96, label %L.LB1_711, label %L.LB1_807, !dbg !326
-
-L.LB1_807:                                        ; preds = %L.LB1_806
-  %97 = load i32, ptr %ic_651, align 4, !dbg !326
-  call void @llvm.dbg.value(metadata i32 %97, metadata !324, metadata !DIExpression()), !dbg !19
-  %98 = icmp sle i32 %97, 0, !dbg !326
-  br i1 %98, label %L.LB1_711, label %L.LB1_808, !dbg !326
-
-L.LB1_808:                                        ; preds = %L.LB1_807
-  %99 = call i32 (ptr, ptr, i64, i64, ...) @f90_strcmp_klen(ptr %val_653, ptr @.C659_get_active_nprocs_, i64 40, i64 1), !dbg !327
-  %100 = icmp eq i32 %99, 0, !dbg !327
-  br i1 %100, label %L.LB1_713, label %L.LB1_809, !dbg !327
+L.LB1_808:                                        ; preds = %L.LB1_806
+  %47 = call i32 (ptr, ptr, i64, i64, ...) @f90_strcmp_klen(ptr nonnull %val_653, ptr nonnull @.C659_get_active_nprocs_, i64 40, i64 1), !dbg !347
+  %48 = icmp eq i32 %47, 0, !dbg !347
+  br i1 %48, label %L.LB1_710.sink.split, label %L.LB1_809, !dbg !347
 
 L.LB1_809:                                        ; preds = %L.LB1_808
-  %101 = load volatile i8, ptr %val_653, align 1, !dbg !327
-  call void @llvm.dbg.value(metadata i8 %101, metadata !322, metadata !DIExpression()), !dbg !19
-  %102 = zext i8 %101 to i32, !dbg !327
-  %103 = load volatile i8, ptr @.C660_get_active_nprocs_, align 1, !dbg !327
-  call void @llvm.dbg.value(metadata i8 %103, metadata !328, metadata !DIExpression()), !dbg !19
-  %104 = zext i8 %103 to i32, !dbg !327
-  %105 = icmp ne i32 %102, %104, !dbg !327
-  br i1 %105, label %L.LB1_712, label %L.LB1_713, !dbg !327
-
-L.LB1_713:                                        ; preds = %L.LB1_809, %L.LB1_808
-  store i32 0, ptr %active, align 4, !dbg !330
-  br label %L.LB1_661, !dbg !331
+  %49 = load volatile i8, ptr %val_653, align 16, !dbg !347, !tbaa !348
+  call void @llvm.dbg.value(metadata i8 %49, metadata !340, metadata !DIExpression()), !dbg !19
+  %50 = load volatile i8, ptr @.C660_get_active_nprocs_, align 1, !dbg !347, !tbaa !348
+  call void @llvm.dbg.value(metadata i8 %50, metadata !350, metadata !DIExpression()), !dbg !19
+  %.not22 = icmp eq i8 %49, %50, !dbg !347
+  br i1 %.not22, label %L.LB1_710.sink.split, label %L.LB1_712, !dbg !347
 
 L.LB1_712:                                        ; preds = %L.LB1_809
-  %106 = call i32 (ptr, ptr, i64, i64, ...) @f90_strcmp_klen(ptr %val_653, ptr @.C662_get_active_nprocs_, i64 40, i64 3), !dbg !331
-  %107 = icmp eq i32 %106, 0, !dbg !331
-  br i1 %107, label %L.LB1_715, label %L.LB1_810, !dbg !331
+  %51 = call i32 (ptr, ptr, i64, i64, ...) @f90_strcmp_klen(ptr nonnull %val_653, ptr nonnull @.C662_get_active_nprocs_, i64 40, i64 3), !dbg !352
+  %52 = icmp eq i32 %51, 0, !dbg !352
+  br i1 %52, label %L.LB1_710.sink.split, label %L.LB1_810, !dbg !352
 
 L.LB1_810:                                        ; preds = %L.LB1_712
-  %108 = call i32 (ptr, ptr, i64, i64, ...) @f90_strcmp_klen(ptr %val_653, ptr @.C663_get_active_nprocs_, i64 40, i64 3), !dbg !331
-  %109 = icmp eq i32 %108, 0, !dbg !331
-  br i1 %109, label %L.LB1_715, label %L.LB1_811, !dbg !331
+  %53 = call i32 (ptr, ptr, i64, i64, ...) @f90_strcmp_klen(ptr nonnull %val_653, ptr nonnull @.C663_get_active_nprocs_, i64 40, i64 3), !dbg !352
+  %54 = icmp eq i32 %53, 0, !dbg !352
+  br i1 %54, label %L.LB1_710.sink.split, label %L.LB1_811, !dbg !352
 
 L.LB1_811:                                        ; preds = %L.LB1_810
-  %110 = load volatile i8, ptr %val_653, align 1, !dbg !331
-  call void @llvm.dbg.value(metadata i8 %110, metadata !322, metadata !DIExpression()), !dbg !19
-  %111 = zext i8 %110 to i32, !dbg !331
-  %112 = load volatile i8, ptr @.C664_get_active_nprocs_, align 1, !dbg !331
-  call void @llvm.dbg.value(metadata i8 %112, metadata !328, metadata !DIExpression()), !dbg !19
-  %113 = zext i8 %112 to i32, !dbg !331
-  %114 = icmp eq i32 %111, %113, !dbg !331
-  br i1 %114, label %L.LB1_715, label %L.LB1_812, !dbg !331
+  %55 = load volatile i8, ptr %val_653, align 16, !dbg !352, !tbaa !348
+  call void @llvm.dbg.value(metadata i8 %55, metadata !340, metadata !DIExpression()), !dbg !19
+  %56 = load volatile i8, ptr @.C664_get_active_nprocs_, align 1, !dbg !352, !tbaa !348
+  call void @llvm.dbg.value(metadata i8 %56, metadata !350, metadata !DIExpression()), !dbg !19
+  %57 = icmp eq i8 %55, %56, !dbg !352
+  br i1 %57, label %L.LB1_710.sink.split, label %L.LB1_812, !dbg !352
 
 L.LB1_812:                                        ; preds = %L.LB1_811
-  %115 = load volatile i8, ptr %val_653, align 1, !dbg !331
-  call void @llvm.dbg.value(metadata i8 %115, metadata !322, metadata !DIExpression()), !dbg !19
-  %116 = zext i8 %115 to i32, !dbg !331
-  %117 = load volatile i8, ptr @.C665_get_active_nprocs_, align 1, !dbg !331
-  call void @llvm.dbg.value(metadata i8 %117, metadata !328, metadata !DIExpression()), !dbg !19
-  %118 = zext i8 %117 to i32, !dbg !331
-  %119 = icmp eq i32 %116, %118, !dbg !331
-  br i1 %119, label %L.LB1_715, label %L.LB1_813, !dbg !331
+  %58 = load volatile i8, ptr %val_653, align 16, !dbg !352, !tbaa !348
+  call void @llvm.dbg.value(metadata i8 %58, metadata !340, metadata !DIExpression()), !dbg !19
+  %59 = load volatile i8, ptr @.C665_get_active_nprocs_, align 1, !dbg !352, !tbaa !348
+  call void @llvm.dbg.value(metadata i8 %59, metadata !350, metadata !DIExpression()), !dbg !19
+  %60 = icmp eq i8 %58, %59, !dbg !352
+  br i1 %60, label %L.LB1_710.sink.split, label %L.LB1_813, !dbg !352
 
 L.LB1_813:                                        ; preds = %L.LB1_812
-  %120 = load volatile i8, ptr %val_653, align 1, !dbg !331
-  call void @llvm.dbg.value(metadata i8 %120, metadata !322, metadata !DIExpression()), !dbg !19
-  %121 = zext i8 %120 to i32, !dbg !331
-  %122 = load volatile i8, ptr @.C666_get_active_nprocs_, align 1, !dbg !331
-  call void @llvm.dbg.value(metadata i8 %122, metadata !328, metadata !DIExpression()), !dbg !19
-  %123 = zext i8 %122 to i32, !dbg !331
-  %124 = icmp eq i32 %121, %123, !dbg !331
-  br i1 %124, label %L.LB1_715, label %L.LB1_814, !dbg !331
+  %61 = load volatile i8, ptr %val_653, align 16, !dbg !352, !tbaa !348
+  call void @llvm.dbg.value(metadata i8 %61, metadata !340, metadata !DIExpression()), !dbg !19
+  %62 = load volatile i8, ptr @.C666_get_active_nprocs_, align 1, !dbg !352, !tbaa !348
+  call void @llvm.dbg.value(metadata i8 %62, metadata !350, metadata !DIExpression()), !dbg !19
+  %63 = icmp eq i8 %61, %62, !dbg !352
+  br i1 %63, label %L.LB1_710.sink.split, label %L.LB1_814, !dbg !352
 
 L.LB1_814:                                        ; preds = %L.LB1_813
-  %125 = load volatile i8, ptr %val_653, align 1, !dbg !331
-  call void @llvm.dbg.value(metadata i8 %125, metadata !322, metadata !DIExpression()), !dbg !19
-  %126 = zext i8 %125 to i32, !dbg !331
-  %127 = load volatile i8, ptr @.C667_get_active_nprocs_, align 1, !dbg !331
-  call void @llvm.dbg.value(metadata i8 %127, metadata !328, metadata !DIExpression()), !dbg !19
-  %128 = zext i8 %127 to i32, !dbg !331
-  %129 = icmp ne i32 %126, %128, !dbg !331
-  br i1 %129, label %L.LB1_714, label %L.LB1_715, !dbg !331
+  %64 = load volatile i8, ptr %val_653, align 16, !dbg !352, !tbaa !348
+  call void @llvm.dbg.value(metadata i8 %64, metadata !340, metadata !DIExpression()), !dbg !19
+  %65 = load volatile i8, ptr @.C667_get_active_nprocs_, align 1, !dbg !352, !tbaa !348
+  call void @llvm.dbg.value(metadata i8 %65, metadata !350, metadata !DIExpression()), !dbg !19
+  %.not26 = icmp eq i8 %64, %65, !dbg !352
+  br i1 %.not26, label %L.LB1_710.sink.split, label %L.LB1_710, !dbg !352
 
-L.LB1_715:                                        ; preds = %L.LB1_814, %L.LB1_813, %L.LB1_812, %L.LB1_811, %L.LB1_810, %L.LB1_712
-  store i32 0, ptr %active, align 4, !dbg !332
-  br label %L.LB1_714
+L.LB1_710.sink.split:                             ; preds = %L.LB1_712, %L.LB1_810, %L.LB1_811, %L.LB1_812, %L.LB1_813, %L.LB1_814, %L.LB1_808, %L.LB1_809
+  store i32 0, ptr %active, align 4, !dbg !19, !tbaa !335
+  br label %L.LB1_710, !dbg !353
 
-L.LB1_714:                                        ; preds = %L.LB1_715, %L.LB1_814
-  br label %L.LB1_661
-
-L.LB1_661:                                        ; preds = %L.LB1_714, %L.LB1_713
-  br label %L.LB1_711
-
-L.LB1_711:                                        ; preds = %L.LB1_661, %L.LB1_807, %L.LB1_806
-  br label %L.LB1_710
-
-L.LB1_710:                                        ; preds = %L.LB1_711, %L.LB1_709
-  call void (ptr, ptr, ptr, ptr, ptr, ptr, ...) @mpi_bcast_(ptr %active, ptr @.C313_get_active_nprocs_, ptr @.C494_get_active_nprocs_, ptr @.C311_get_active_nprocs_, ptr %comm_in_646, ptr %ios_652), !dbg !333
-  %130 = load i32, ptr %active, align 4, !dbg !334
-  %131 = and i32 %130, 1, !dbg !334
-  %132 = icmp eq i32 %131, 0, !dbg !334
-  br i1 %132, label %L.LB1_716, label %L.LB1_815, !dbg !334
+L.LB1_710:                                        ; preds = %L.LB1_710.sink.split, %L.LB1_806, %L.LB1_814, %L.LB1_805
+  call void @llvm.dbg.value(metadata ptr %comm_in_646, metadata !283, metadata !DIExpression(DW_OP_deref)), !dbg !19
+  call void @llvm.dbg.value(metadata ptr %ios_652, metadata !289, metadata !DIExpression(DW_OP_deref)), !dbg !19
+  call void (ptr, ptr, ptr, ptr, ptr, ptr, ...) @mpi_bcast_(ptr nonnull %active, ptr nonnull @.C313_get_active_nprocs_, ptr nonnull @.C494_get_active_nprocs_, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull %comm_in_646, ptr nonnull %ios_652), !dbg !353
+  %66 = load i32, ptr %active, align 4, !dbg !354, !tbaa !335
+  %67 = and i32 %66, 1, !dbg !354
+  %68 = icmp eq i32 %67, 0, !dbg !354
+  br i1 %68, label %L.LB1_716, label %L.LB1_815, !dbg !354
 
 L.LB1_815:                                        ; preds = %L.LB1_710
-  %133 = load i32, ptr %rank, align 4, !dbg !335
-  %134 = icmp ne i32 %133, 0, !dbg !335
-  br i1 %134, label %L.LB1_717, label %L.LB1_816, !dbg !335
+  %69 = load i32, ptr %rank, align 4, !dbg !355, !tbaa !338
+  %.not23 = icmp eq i32 %69, 0, !dbg !355
+  br i1 %.not23, label %L.LB1_816, label %L.LB1_717, !dbg !355
 
 L.LB1_816:                                        ; preds = %L.LB1_815
-  call void (ptr, ptr, i64, ...) @f90io_src_info03a(ptr @.C671_get_active_nprocs_, ptr @.C669_get_active_nprocs_, i64 21), !dbg !336
-  %135 = call i32 (ptr, ptr, ptr, ptr, ptr, ptr, i64, ...) @f90io_fmtw_inita(ptr @.C339_get_active_nprocs_, ptr null, ptr @.C311_get_active_nprocs_, ptr @.C311_get_active_nprocs_, ptr @.STATICS1, ptr null, i64 0), !dbg !336
-  call void @llvm.dbg.declare(metadata ptr %z__io_674, metadata !337, metadata !DIExpression()), !dbg !19
-  store i32 %135, ptr %z__io_674, align 4, !dbg !336
-  %136 = load i32, ptr %nprocs, align 4, !dbg !336
-  %137 = call i32 (i32, i32, ...) @f90io_sc_i_fmt_write(i32 %136, i32 25), !dbg !336
-  store i32 %137, ptr %z__io_674, align 4, !dbg !336
-  %138 = call i32 (...) @f90io_fmtw_end(), !dbg !336
-  store i32 %138, ptr %z__io_674, align 4, !dbg !336
-  %139 = load i32, ptr %pkind, align 4, !dbg !338
-  %140 = icmp sgt i32 %139, 1, !dbg !338
-  br i1 %140, label %L.LB1_718, label %L.LB1_817, !dbg !338
+  call void (ptr, ptr, i64, ...) @f90io_src_info03a(ptr nonnull @.C671_get_active_nprocs_, ptr nonnull @.C669_get_active_nprocs_, i64 21), !dbg !356
+  %70 = call i32 (ptr, ptr, ptr, ptr, ptr, ptr, i64, ...) @f90io_fmtw_inita(ptr nonnull @.C339_get_active_nprocs_, ptr null, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull @.STATICS1, ptr null, i64 0), !dbg !356
+  call void @llvm.dbg.value(metadata i32 %70, metadata !357, metadata !DIExpression()), !dbg !19
+  %71 = load i32, ptr %nprocs, align 4, !dbg !356, !tbaa !295
+  %72 = call i32 (i32, i32, ...) @f90io_sc_i_fmt_write(i32 %71, i32 25), !dbg !356
+  call void @llvm.dbg.value(metadata i32 %72, metadata !357, metadata !DIExpression()), !dbg !19
+  %73 = call i32 (...) @f90io_fmtw_end(), !dbg !356
+  call void @llvm.dbg.value(metadata i32 %73, metadata !357, metadata !DIExpression()), !dbg !19
+  %74 = load i32, ptr %pkind, align 4, !dbg !358, !tbaa !293
+  %75 = icmp sgt i32 %74, 1, !dbg !358
+  br i1 %75, label %L.LB1_718, label %L.LB1_817, !dbg !358
 
 L.LB1_817:                                        ; preds = %L.LB1_816
-  call void (ptr, ptr, i64, ...) @f90io_src_info03a(ptr @.C680_get_active_nprocs_, ptr @.C669_get_active_nprocs_, i64 21), !dbg !339
-  %141 = getelementptr i8, ptr @.STATICS1, i64 96, !dbg !339
-  %142 = call i32 (ptr, ptr, ptr, ptr, ptr, ptr, i64, ...) @f90io_fmtw_inita(ptr @.C339_get_active_nprocs_, ptr null, ptr @.C311_get_active_nprocs_, ptr @.C311_get_active_nprocs_, ptr %141, ptr null, i64 0), !dbg !339
-  store i32 %142, ptr %z__io_674, align 4, !dbg !339
-  %143 = call i32 (ptr, ptr, ptr, ptr, i64, ...) @f90io_fmt_writea(ptr @.C365_get_active_nprocs_, ptr @.C313_get_active_nprocs_, ptr @.C311_get_active_nprocs_, ptr @.C682_get_active_nprocs_, i64 6), !dbg !339
-  store i32 %143, ptr %z__io_674, align 4, !dbg !339
-  %144 = load i32, ptr %npa, align 4, !dbg !339
-  %145 = call i32 (i32, i32, ...) @f90io_sc_i_fmt_write(i32 %144, i32 25), !dbg !339
-  store i32 %145, ptr %z__io_674, align 4, !dbg !339
-  %146 = call i32 (...) @f90io_fmtw_end(), !dbg !339
-  store i32 %146, ptr %z__io_674, align 4, !dbg !339
-  br label %L.LB1_683, !dbg !340
+  call void (ptr, ptr, i64, ...) @f90io_src_info03a(ptr nonnull @.C680_get_active_nprocs_, ptr nonnull @.C669_get_active_nprocs_, i64 21), !dbg !359
+  %76 = call i32 (ptr, ptr, ptr, ptr, ptr, ptr, i64, ...) @f90io_fmtw_inita(ptr nonnull @.C339_get_active_nprocs_, ptr null, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull getelementptr inbounds (%struct.STATICS1, ptr @.STATICS1, i64 0, i32 0, i64 96), ptr null, i64 0), !dbg !359
+  call void @llvm.dbg.value(metadata i32 %76, metadata !357, metadata !DIExpression()), !dbg !19
+  %77 = call i32 (ptr, ptr, ptr, ptr, i64, ...) @f90io_fmt_writea(ptr nonnull @.C365_get_active_nprocs_, ptr nonnull @.C313_get_active_nprocs_, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull @.C682_get_active_nprocs_, i64 6), !dbg !359
+  call void @llvm.dbg.value(metadata i32 %77, metadata !357, metadata !DIExpression()), !dbg !19
+  call void @llvm.dbg.value(metadata i32 %83, metadata !357, metadata !DIExpression()), !dbg !19
+  call void @llvm.dbg.value(metadata i32 %84, metadata !357, metadata !DIExpression()), !dbg !19
+  br label %L.LB1_717.sink.split, !dbg !360
 
 L.LB1_718:                                        ; preds = %L.LB1_816
-  %147 = load i32, ptr %pkind, align 4, !dbg !340
-  %148 = icmp ne i32 %147, 2, !dbg !340
-  br i1 %148, label %L.LB1_719, label %L.LB1_818, !dbg !340
+  %.not25 = icmp eq i32 %74, 2, !dbg !360
+  br i1 %.not25, label %L.LB1_818, label %L.LB1_719, !dbg !360
 
 L.LB1_818:                                        ; preds = %L.LB1_718
-  call void (ptr, ptr, i64, ...) @f90io_src_info03a(ptr @.C684_get_active_nprocs_, ptr @.C669_get_active_nprocs_, i64 21), !dbg !341
-  %149 = getelementptr i8, ptr @.STATICS1, i64 96, !dbg !341
-  %150 = call i32 (ptr, ptr, ptr, ptr, ptr, ptr, i64, ...) @f90io_fmtw_inita(ptr @.C339_get_active_nprocs_, ptr null, ptr @.C311_get_active_nprocs_, ptr @.C311_get_active_nprocs_, ptr %149, ptr null, i64 0), !dbg !341
-  store i32 %150, ptr %z__io_674, align 4, !dbg !341
-  %151 = call i32 (ptr, ptr, ptr, ptr, i64, ...) @f90io_fmt_writea(ptr @.C365_get_active_nprocs_, ptr @.C313_get_active_nprocs_, ptr @.C311_get_active_nprocs_, ptr @.C685_get_active_nprocs_, i64 26), !dbg !341
-  store i32 %151, ptr %z__io_674, align 4, !dbg !341
-  %152 = load i32, ptr %npa, align 4, !dbg !341
-  %153 = call i32 (i32, i32, ...) @f90io_sc_i_fmt_write(i32 %152, i32 25), !dbg !341
-  store i32 %153, ptr %z__io_674, align 4, !dbg !341
-  %154 = call i32 (...) @f90io_fmtw_end(), !dbg !341
-  store i32 %154, ptr %z__io_674, align 4, !dbg !341
-  br label %L.LB1_720, !dbg !342
+  call void (ptr, ptr, i64, ...) @f90io_src_info03a(ptr nonnull @.C684_get_active_nprocs_, ptr nonnull @.C669_get_active_nprocs_, i64 21), !dbg !361
+  %78 = call i32 (ptr, ptr, ptr, ptr, ptr, ptr, i64, ...) @f90io_fmtw_inita(ptr nonnull @.C339_get_active_nprocs_, ptr null, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull getelementptr inbounds (%struct.STATICS1, ptr @.STATICS1, i64 0, i32 0, i64 96), ptr null, i64 0), !dbg !361
+  call void @llvm.dbg.value(metadata i32 %78, metadata !357, metadata !DIExpression()), !dbg !19
+  %79 = call i32 (ptr, ptr, ptr, ptr, i64, ...) @f90io_fmt_writea(ptr nonnull @.C365_get_active_nprocs_, ptr nonnull @.C313_get_active_nprocs_, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull @.C685_get_active_nprocs_, i64 26), !dbg !361
+  call void @llvm.dbg.value(metadata i32 %79, metadata !357, metadata !DIExpression()), !dbg !19
+  call void @llvm.dbg.value(metadata i32 %83, metadata !357, metadata !DIExpression()), !dbg !19
+  call void @llvm.dbg.value(metadata i32 %84, metadata !357, metadata !DIExpression()), !dbg !19
+  br label %L.LB1_717.sink.split, !dbg !362
 
 L.LB1_719:                                        ; preds = %L.LB1_718
-  call void (ptr, ptr, i64, ...) @f90io_src_info03a(ptr @.C686_get_active_nprocs_, ptr @.C669_get_active_nprocs_, i64 21), !dbg !343
-  %155 = getelementptr i8, ptr @.STATICS1, i64 96, !dbg !343
-  %156 = call i32 (ptr, ptr, ptr, ptr, ptr, ptr, i64, ...) @f90io_fmtw_inita(ptr @.C339_get_active_nprocs_, ptr null, ptr @.C311_get_active_nprocs_, ptr @.C311_get_active_nprocs_, ptr %155, ptr null, i64 0), !dbg !343
-  store i32 %156, ptr %z__io_674, align 4, !dbg !343
-  %157 = call i32 (ptr, ptr, ptr, ptr, i64, ...) @f90io_fmt_writea(ptr @.C365_get_active_nprocs_, ptr @.C313_get_active_nprocs_, ptr @.C311_get_active_nprocs_, ptr @.C687_get_active_nprocs_, i64 12), !dbg !343
-  store i32 %157, ptr %z__io_674, align 4, !dbg !343
-  %158 = load i32, ptr %npa, align 4, !dbg !343
-  %159 = call i32 (i32, i32, ...) @f90io_sc_i_fmt_write(i32 %158, i32 25), !dbg !343
-  store i32 %159, ptr %z__io_674, align 4, !dbg !343
-  %160 = call i32 (...) @f90io_fmtw_end(), !dbg !343
-  store i32 %160, ptr %z__io_674, align 4, !dbg !343
-  br label %L.LB1_720
+  call void (ptr, ptr, i64, ...) @f90io_src_info03a(ptr nonnull @.C686_get_active_nprocs_, ptr nonnull @.C669_get_active_nprocs_, i64 21), !dbg !363
+  %80 = call i32 (ptr, ptr, ptr, ptr, ptr, ptr, i64, ...) @f90io_fmtw_inita(ptr nonnull @.C339_get_active_nprocs_, ptr null, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull getelementptr inbounds (%struct.STATICS1, ptr @.STATICS1, i64 0, i32 0, i64 96), ptr null, i64 0), !dbg !363
+  call void @llvm.dbg.value(metadata i32 %80, metadata !357, metadata !DIExpression()), !dbg !19
+  %81 = call i32 (ptr, ptr, ptr, ptr, i64, ...) @f90io_fmt_writea(ptr nonnull @.C365_get_active_nprocs_, ptr nonnull @.C313_get_active_nprocs_, ptr nonnull @.C311_get_active_nprocs_, ptr nonnull @.C687_get_active_nprocs_, i64 12), !dbg !363
+  call void @llvm.dbg.value(metadata i32 %81, metadata !357, metadata !DIExpression()), !dbg !19
+  call void @llvm.dbg.value(metadata i32 %83, metadata !357, metadata !DIExpression()), !dbg !19
+  call void @llvm.dbg.value(metadata i32 %84, metadata !357, metadata !DIExpression()), !dbg !19
+  br label %L.LB1_717.sink.split
 
-L.LB1_720:                                        ; preds = %L.LB1_719, %L.LB1_818
-  br label %L.LB1_683
+L.LB1_717.sink.split:                             ; preds = %L.LB1_818, %L.LB1_719, %L.LB1_817
+  %82 = load i32, ptr %npa, align 4, !dbg !19, !tbaa !305
+  %83 = call i32 (i32, i32, ...) @f90io_sc_i_fmt_write(i32 %82, i32 25), !dbg !19
+  %84 = call i32 (...) @f90io_fmtw_end(), !dbg !19
+  br label %L.LB1_717, !dbg !364
 
-L.LB1_683:                                        ; preds = %L.LB1_720, %L.LB1_817
-  br label %L.LB1_717
-
-L.LB1_717:                                        ; preds = %L.LB1_683, %L.LB1_815
-  call void (ptr, ptr, ptr, ...) @mpi_abort_(ptr %comm_in_646, ptr @.C356_get_active_nprocs_, ptr %ios_652), !dbg !344
-  call void (ptr, ptr, i64, ...) @f90_stop08a(ptr @.C311_get_active_nprocs_, ptr null, i64 0), !dbg !345
+L.LB1_717:                                        ; preds = %L.LB1_717.sink.split, %L.LB1_815
+  call void @llvm.dbg.value(metadata ptr %comm_in_646, metadata !283, metadata !DIExpression(DW_OP_deref)), !dbg !19
+  call void @llvm.dbg.value(metadata ptr %ios_652, metadata !289, metadata !DIExpression(DW_OP_deref)), !dbg !19
+  call void (ptr, ptr, ptr, ...) @mpi_abort_(ptr nonnull %comm_in_646, ptr nonnull @.C356_get_active_nprocs_, ptr nonnull %ios_652), !dbg !364
+  call void (ptr, ptr, i64, ...) @f90_stop08a(ptr nonnull @.C311_get_active_nprocs_, ptr null, i64 0), !dbg !365
   br label %L.LB1_716
 
 L.LB1_716:                                        ; preds = %L.LB1_717, %L.LB1_710
-  %161 = load i32, ptr %rank, align 4, !dbg !346
-  %162 = load i32, ptr %npa, align 4, !dbg !346
-  %163 = icmp slt i32 %161, %162, !dbg !346
-  br i1 %163, label %L.LB1_721, label %L.LB1_819, !dbg !346
-
-L.LB1_819:                                        ; preds = %L.LB1_716
-  store i32 0, ptr %active, align 4, !dbg !347
-  store i32 1, ptr %ic_651, align 4, !dbg !348
-  br label %L.LB1_722, !dbg !349
-
-L.LB1_721:                                        ; preds = %L.LB1_716
-  store i32 -1, ptr %active, align 4, !dbg !350
-  store i32 0, ptr %ic_651, align 4, !dbg !351
-  br label %L.LB1_722
-
-L.LB1_722:                                        ; preds = %L.LB1_721, %L.LB1_819
-  call void (ptr, ptr, ptr, ptr, ptr, ...) @mpi_comm_split_(ptr %comm_in_646, ptr %ic_651, ptr %rank, ptr %comm_out, ptr %ios_652), !dbg !352
+  %85 = load i32, ptr %rank, align 4, !dbg !366, !tbaa !338
+  %86 = load i32, ptr %npa, align 4, !dbg !366, !tbaa !305
+  %87 = icmp slt i32 %85, %86, !dbg !366
+  %. = sext i1 %87 to i32
+  %not. = xor i1 %87, true
+  %.29 = zext i1 %not. to i32
+  store i32 %., ptr %active, align 4, !dbg !19, !tbaa !335
+  store i32 %.29, ptr %ic_651, align 4, !dbg !19, !tbaa !367
+  call void @llvm.dbg.value(metadata ptr %comm_in_646, metadata !283, metadata !DIExpression(DW_OP_deref)), !dbg !19
+  call void @llvm.dbg.value(metadata ptr %ios_652, metadata !289, metadata !DIExpression(DW_OP_deref)), !dbg !19
+  call void @llvm.dbg.value(metadata ptr %ic_651, metadata !342, metadata !DIExpression(DW_OP_deref)), !dbg !19
+  call void (ptr, ptr, ptr, ptr, ptr, ...) @mpi_comm_split_(ptr nonnull %comm_in_646, ptr nonnull %ic_651, ptr nonnull %rank, ptr nonnull %comm_out, ptr nonnull %ios_652), !dbg !369
   br label %L.LB1_695
 
-L.LB1_695:                                        ; preds = %L.LB1_722, %L.LB1_805
-  ret void, !dbg !353
+L.LB1_695:                                        ; preds = %L.LB1_716, %L.LB1_700
+  ret void, !dbg !370
 }
 
-declare void @mpi_comm_split_(...) #0
+declare void @mpi_comm_split_(...) local_unnamed_addr #0
 
-declare void @f90_stop08a(...) #0
+declare void @f90_stop08a(...) local_unnamed_addr #0
 
-declare void @mpi_abort_(...) #0
+declare void @mpi_abort_(...) local_unnamed_addr #0
 
-declare signext i32 @f90io_fmt_writea(...) #0
+declare signext i32 @f90io_fmt_writea(...) local_unnamed_addr #0
 
-declare signext i32 @f90io_fmtw_end(...) #0
+declare signext i32 @f90io_fmtw_end(...) local_unnamed_addr #0
 
-declare signext i32 @f90io_sc_i_fmt_write(...) #0
+declare signext i32 @f90io_sc_i_fmt_write(...) local_unnamed_addr #0
 
-declare signext i32 @f90io_fmtw_inita(...) #0
+declare signext i32 @f90io_fmtw_inita(...) local_unnamed_addr #0
 
-declare void @f90io_src_info03a(...) #0
+declare void @f90io_src_info03a(...) local_unnamed_addr #0
 
-declare void @mpi_bcast_(...) #0
+declare void @mpi_bcast_(...) local_unnamed_addr #0
 
-declare signext i32 @f90_strcmp_klen(...) #0
+declare signext i32 @f90_strcmp_klen(...) local_unnamed_addr #0
 
-declare void @f90_get_env_vara(...) #0
+declare void @f90_get_env_vara(...) local_unnamed_addr #0
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #1
 
-declare void @mpi_comm_rank_(...) #0
+declare void @mpi_comm_rank_(...) local_unnamed_addr #0
 
-declare void @mpi_comm_size_(...) #0
+declare void @mpi_comm_size_(...) local_unnamed_addr #0
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare void @llvm.dbg.declare(metadata, metadata, metadata) #1
 
-; Function Attrs: nounwind willreturn memory(none)
-declare double @__pd_log_1(double) #2
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare double @__pd_log_1(double) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare void @llvm.dbg.value(metadata, metadata, metadata) #1
 
-attributes #0 = { "no-frame-pointer-elim-non-leaf" }
-attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #2 = { nounwind willreturn memory(none) "no-frame-pointer-elim-non-leaf" }
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare <2 x double> @__pd_log_2(<2 x double>) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare <4 x double> @__pd_log_4(<4 x double>) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare <8 x double> @__pd_log_8(<8 x double>) local_unnamed_addr #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #3
+
+attributes #0 = { "fp-contract"="fast" "no-frame-pointer-elim-non-leaf" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "fp-contract"="fast" "no-frame-pointer-elim-non-leaf" }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { "vector-function-abi-variant"="_ZGV_LLVM_N2v___pd_log_1(__pd_log_2),_ZGV_LLVM_N4v___pd_log_1(__pd_log_4),_ZGV_LLVM_N8v___pd_log_1(__pd_log_8)" }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.dbg.cu = !{!2}
 
 !0 = !{i32 2, !"Dwarf Version", i32 4}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
-!2 = distinct !DICompileUnit(language: DW_LANG_Fortran90, file: !3, producer: " F90 Flang - 1.5 2017-05-01", isOptimized: false, flags: "'+flang -S -emit-llvm -Xclang -disable-O0-optnone -c -g get_active_nprocs.f90 -I/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/impi/2021.9.0-intel-compilers-2023.1.0/mpi/2021.9.0/include/f90-flang -I/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/impi/2021.9.0-intel-compilers-2023.1.0/mpi/2021.9.0/include'", runtimeVersion: 0, emissionKind: FullDebug, enums: !4, retainedTypes: !4, globals: !4, imports: !4, nameTableKind: None)
-!3 = !DIFile(filename: "get_active_nprocs.f90", directory: "/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-RMA/BT-RMA.benchmarks/000042/000001_copy_source/work/common")
+!2 = distinct !DICompileUnit(language: DW_LANG_Fortran90, file: !3, producer: " F90 Flang - 1.5 2017-05-01", isOptimized: true, flags: "'+flang -S -emit-llvm -Xclang -disable-O0-optnone -c -O3 -g get_active_nprocs.f90 -I/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/impi/2021.9.0-intel-compilers-2023.1.0/mpi/2021.9.0/include/f90-flang -I/cvmfs/software.hpc.rwth.de/Linux/RH8/x86_64/intel/sapphirerapids/software/impi/2021.9.0-intel-compilers-2023.1.0/mpi/2021.9.0/include'", runtimeVersion: 0, emissionKind: FullDebug, enums: !4, retainedTypes: !4, globals: !4, imports: !4, nameTableKind: None)
+!3 = !DIFile(filename: "get_active_nprocs.f90", directory: "/rwthfs/rz/cluster/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-RMA/BT-RMA.benchmarks/000135/000001_copy_source/work/common")
 !4 = !{}
-!5 = distinct !DISubprogram(name: "get_active_nprocs", scope: !2, file: !3, line: 13, type: !6, scopeLine: 13, spFlags: DISPFlagDefinition, unit: !2, retainedNodes: !10)
+!5 = distinct !DISubprogram(name: "get_active_nprocs", scope: !2, file: !3, line: 13, type: !6, scopeLine: 13, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !2, retainedNodes: !10)
 !6 = !DISubroutineType(types: !7)
 !7 = !{null, !8, !8, !8, !8, !8, !8, !8, !9}
 !8 = !DIBasicType(name: "integer", size: 32, align: 32, encoding: DW_ATE_signed)
@@ -1067,72 +954,89 @@ attributes #2 = { nounwind willreturn memory(none) "no-frame-pointer-elim-non-le
 !282 = !DILocalVariable(name: "mpi_async_protects_nonblocking", scope: !5, file: !3, type: !9)
 !283 = !DILocalVariable(name: "comm_in", scope: !5, file: !3, type: !8)
 !284 = !DILocation(line: 27, column: 1, scope: !5)
-!285 = !DILocalVariable(name: "ios", scope: !5, file: !3, type: !8)
-!286 = !DILocation(line: 28, column: 1, scope: !5)
-!287 = !DILocation(line: 29, column: 1, scope: !5)
-!288 = !DILocation(line: 31, column: 1, scope: !5)
-!289 = !DILocation(line: 33, column: 1, scope: !5)
-!290 = !DILocation(line: 34, column: 1, scope: !5)
-!291 = !DILocation(line: 35, column: 1, scope: !5)
-!292 = !DILocation(line: 37, column: 1, scope: !5)
-!293 = !DILocation(line: 38, column: 1, scope: !5)
-!294 = !DILocation(line: 39, column: 1, scope: !5)
-!295 = !DILocation(line: 40, column: 1, scope: !5)
-!296 = !DILocation(line: 41, column: 1, scope: !5)
-!297 = !DILocation(line: 43, column: 1, scope: !5)
-!298 = !DILocation(line: 46, column: 1, scope: !5)
-!299 = !DILocation(line: 47, column: 1, scope: !5)
-!300 = !DILocalVariable(name: "np1w", scope: !5, file: !3, type: !8)
-!301 = !DILocation(line: 48, column: 1, scope: !5)
-!302 = !DILocalVariable(name: "np2w", scope: !5, file: !3, type: !8)
-!303 = !DILocation(line: 49, column: 1, scope: !5)
-!304 = !DILocalVariable(name: "n", scope: !5, file: !3, type: !8)
-!305 = !DILocation(line: 50, column: 1, scope: !5)
-!306 = !DILocalVariable(name: "npaw", scope: !5, file: !3, type: !8)
-!307 = !DILocation(line: 51, column: 1, scope: !5)
-!308 = !DILocation(line: 52, column: 1, scope: !5)
-!309 = !DILocation(line: 53, column: 1, scope: !5)
-!310 = !DILocation(line: 54, column: 1, scope: !5)
-!311 = !DILocation(line: 55, column: 1, scope: !5)
-!312 = !DILocation(line: 56, column: 1, scope: !5)
-!313 = !DILocation(line: 57, column: 1, scope: !5)
-!314 = !DILocation(line: 58, column: 1, scope: !5)
-!315 = !DILocation(line: 59, column: 1, scope: !5)
-!316 = !DILocation(line: 62, column: 1, scope: !5)
-!317 = distinct !{!317, !303, !316}
-!318 = !DILocation(line: 66, column: 1, scope: !5)
-!319 = !DILocation(line: 67, column: 1, scope: !5)
-!320 = !DILocation(line: 68, column: 1, scope: !5)
-!321 = !DILocation(line: 71, column: 1, scope: !5)
-!322 = !DILocalVariable(name: "val", scope: !5, file: !3, type: !323)
-!323 = !DIBasicType(name: "character", size: 320, align: 8, encoding: DW_ATE_signed)
-!324 = !DILocalVariable(name: "ic", scope: !5, file: !3, type: !8)
-!325 = !DILocation(line: 72, column: 1, scope: !5)
-!326 = !DILocation(line: 74, column: 1, scope: !5)
-!327 = !DILocation(line: 75, column: 1, scope: !5)
-!328 = !DILocalVariable(scope: !5, file: !3, type: !329)
-!329 = !DIBasicType(name: "character", size: 8, align: 8, encoding: DW_ATE_signed)
-!330 = !DILocation(line: 76, column: 1, scope: !5)
-!331 = !DILocation(line: 77, column: 1, scope: !5)
-!332 = !DILocation(line: 80, column: 1, scope: !5)
-!333 = !DILocation(line: 84, column: 1, scope: !5)
-!334 = !DILocation(line: 87, column: 1, scope: !5)
-!335 = !DILocation(line: 88, column: 1, scope: !5)
-!336 = !DILocation(line: 89, column: 1, scope: !5)
-!337 = distinct !DILocalVariable(scope: !5, file: !3, type: !8, flags: DIFlagArtificial)
-!338 = !DILocation(line: 92, column: 1, scope: !5)
-!339 = !DILocation(line: 93, column: 1, scope: !5)
-!340 = !DILocation(line: 94, column: 1, scope: !5)
-!341 = !DILocation(line: 95, column: 1, scope: !5)
-!342 = !DILocation(line: 96, column: 1, scope: !5)
-!343 = !DILocation(line: 97, column: 1, scope: !5)
-!344 = !DILocation(line: 102, column: 1, scope: !5)
-!345 = !DILocation(line: 103, column: 1, scope: !5)
-!346 = !DILocation(line: 108, column: 1, scope: !5)
-!347 = !DILocation(line: 109, column: 1, scope: !5)
-!348 = !DILocation(line: 110, column: 1, scope: !5)
-!349 = !DILocation(line: 111, column: 1, scope: !5)
-!350 = !DILocation(line: 112, column: 1, scope: !5)
-!351 = !DILocation(line: 113, column: 1, scope: !5)
-!352 = !DILocation(line: 115, column: 1, scope: !5)
-!353 = !DILocation(line: 117, column: 1, scope: !5)
+!285 = !{!286, !286, i64 0}
+!286 = !{!"t1.2", !287, i64 0}
+!287 = !{!"unlimited ptr", !288, i64 0}
+!288 = !{!"Flang FAA 1"}
+!289 = !DILocalVariable(name: "ios", scope: !5, file: !3, type: !8)
+!290 = !DILocation(line: 28, column: 1, scope: !5)
+!291 = !DILocation(line: 29, column: 1, scope: !5)
+!292 = !DILocation(line: 31, column: 1, scope: !5)
+!293 = !{!294, !294, i64 0}
+!294 = !{!"t1.8", !287, i64 0}
+!295 = !{!296, !296, i64 0}
+!296 = !{!"t1.3", !287, i64 0}
+!297 = !DILocation(line: 50, column: 1, scope: !5)
+!298 = !DILocation(line: 33, column: 1, scope: !5)
+!299 = !{!300, !300, i64 0}
+!300 = !{!"t1.a", !287, i64 0}
+!301 = !DILocation(line: 34, column: 1, scope: !5)
+!302 = !{!303, !303, i64 0}
+!303 = !{!"t1.c", !287, i64 0}
+!304 = !DILocation(line: 43, column: 1, scope: !5)
+!305 = !{!306, !306, i64 0}
+!306 = !{!"t1.e", !287, i64 0}
+!307 = !DILocation(line: 46, column: 1, scope: !5)
+!308 = !DILocation(line: 37, column: 1, scope: !5)
+!309 = !DILocation(line: 38, column: 1, scope: !5)
+!310 = !DILocation(line: 39, column: 1, scope: !5)
+!311 = !DILocation(line: 40, column: 1, scope: !5)
+!312 = !DILocation(line: 41, column: 1, scope: !5)
+!313 = !DILocalVariable(name: "np1w", scope: !5, file: !3, type: !8)
+!314 = !DILocation(line: 48, column: 1, scope: !5)
+!315 = !DILocation(line: 47, column: 1, scope: !5)
+!316 = !DILocalVariable(name: "np2w", scope: !5, file: !3, type: !8)
+!317 = !DILocation(line: 49, column: 1, scope: !5)
+!318 = !DILocalVariable(name: "n", scope: !5, file: !3, type: !8)
+!319 = !DILocalVariable(name: "npaw", scope: !5, file: !3, type: !8)
+!320 = !DILocation(line: 51, column: 1, scope: !5)
+!321 = !DILocation(line: 52, column: 1, scope: !5)
+!322 = !DILocation(line: 53, column: 1, scope: !5)
+!323 = !DILocation(line: 54, column: 1, scope: !5)
+!324 = !DILocation(line: 55, column: 1, scope: !5)
+!325 = !DILocation(line: 56, column: 1, scope: !5)
+!326 = !DILocation(line: 58, column: 1, scope: !5)
+!327 = !{!287, !287, i64 0}
+!328 = !DILocation(line: 62, column: 1, scope: !5)
+!329 = distinct !{!329, !317, !328}
+!330 = !DILocation(line: 68, column: 1, scope: !5)
+!331 = !DILocation(line: 66, column: 1, scope: !5)
+!332 = !{!333, !333, i64 0}
+!333 = !{!"t1.15", !287, i64 0}
+!334 = !DILocation(line: 67, column: 1, scope: !5)
+!335 = !{!336, !336, i64 0}
+!336 = !{!"t1.17", !287, i64 0}
+!337 = !DILocation(line: 71, column: 1, scope: !5)
+!338 = !{!339, !339, i64 0}
+!339 = !{!"t1.6", !287, i64 0}
+!340 = !DILocalVariable(name: "val", scope: !5, file: !3, type: !341)
+!341 = !DIBasicType(name: "character", size: 320, align: 8, encoding: DW_ATE_signed)
+!342 = !DILocalVariable(name: "ic", scope: !5, file: !3, type: !8)
+!343 = !DILocation(line: 72, column: 1, scope: !5)
+!344 = !DILocation(line: 74, column: 1, scope: !5)
+!345 = !{!346, !346, i64 0}
+!346 = !{!"t1.5", !287, i64 0}
+!347 = !DILocation(line: 75, column: 1, scope: !5)
+!348 = !{!349, !349, i64 0, i64 0}
+!349 = !{!"unlimited ptr", !288}
+!350 = !DILocalVariable(scope: !5, file: !3, type: !351)
+!351 = !DIBasicType(name: "character", size: 8, align: 8, encoding: DW_ATE_signed)
+!352 = !DILocation(line: 77, column: 1, scope: !5)
+!353 = !DILocation(line: 84, column: 1, scope: !5)
+!354 = !DILocation(line: 87, column: 1, scope: !5)
+!355 = !DILocation(line: 88, column: 1, scope: !5)
+!356 = !DILocation(line: 89, column: 1, scope: !5)
+!357 = distinct !DILocalVariable(scope: !5, file: !3, type: !8, flags: DIFlagArtificial)
+!358 = !DILocation(line: 92, column: 1, scope: !5)
+!359 = !DILocation(line: 93, column: 1, scope: !5)
+!360 = !DILocation(line: 94, column: 1, scope: !5)
+!361 = !DILocation(line: 95, column: 1, scope: !5)
+!362 = !DILocation(line: 96, column: 1, scope: !5)
+!363 = !DILocation(line: 97, column: 1, scope: !5)
+!364 = !DILocation(line: 102, column: 1, scope: !5)
+!365 = !DILocation(line: 103, column: 1, scope: !5)
+!366 = !DILocation(line: 108, column: 1, scope: !5)
+!367 = !{!368, !368, i64 0}
+!368 = !{!"t1.1b", !287, i64 0}
+!369 = !DILocation(line: 115, column: 1, scope: !5)
+!370 = !DILocation(line: 117, column: 1, scope: !5)

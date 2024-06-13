@@ -1,16 +1,13 @@
 result:
 | jube_benchmark_id | jube_wp_id |  compile | measurement | rma-mode | tasks | must_compile_opt | CLASS | SOLVER | EXCHG | time_avg | time_std | verification |
 |-------------------|------------|----------|-------------|----------|-------|------------------|-------|--------|-------|----------|----------|--------------|
-|                42 |         14 |     base |        base |   shadow |    36 |                  |     B |  FENCE | FENCE |   26.152 |    0.019 |   SUCCESSFUL |
-|                42 |         19 |     base |        must |   shadow |    36 |                  |     B |  FENCE | FENCE |   37.020 |    1.383 |   SUCCESSFUL |
-|                42 |         24 |     tsan |        must |   shadow |    36 |                  |     B |  FENCE | FENCE |  267.562 |    0.845 |   SUCCESSFUL |
-|                42 |         29 | tsan-opt |        must |   shadow |    36 |              AL6 |     B |  FENCE | FENCE |  136.526 |    0.499 |   SUCCESSFUL |
-|                42 |         34 | tsan-opt |        must |   shadow |    36 |             AL10 |     B |  FENCE | FENCE |  167.944 |    1.261 |   SUCCESSFUL |
-|                42 |         39 | tsan-opt |        must |   shadow |    36 |           AL1000 |     B |  FENCE | FENCE |  168.106 |    1.278 |   SUCCESSFUL |
-|                42 |         44 | tsan-opt |        must |   shadow |    36 |             ALX6 |     B |  FENCE | FENCE |  136.838 |    0.786 |   SUCCESSFUL |
-|                42 |         49 | tsan-opt |        must |   shadow |    36 |            ALX10 |     B |  FENCE | FENCE |  165.330 |    0.705 |   SUCCESSFUL |
-|                42 |         54 | tsan-opt |        must |   shadow |    36 |          ALX1000 |     B |  FENCE | FENCE |  164.494 |    1.029 |   SUCCESSFUL |
-|                42 |         59 | tsan-opt |        must |   shadow |    36 |          CLUSTER |     B |  FENCE | FENCE |  226.222 |    1.355 |   SUCCESSFUL |
-|                42 |         64 | tsan-opt |        must |   shadow |    36 |     ALX6,CLUSTER |     B |  FENCE | FENCE |  136.584 |    0.931 |   SUCCESSFUL |
-|                42 |         73 | tsan-opt |        must |   shadow |    36 |    ALX10,CLUSTER |     B |  FENCE | FENCE |  165.952 |    1.734 |   SUCCESSFUL |
-|                42 |         78 | tsan-opt |        must |   shadow |    36 |  ALX1000,CLUSTER |     B |  FENCE | FENCE |  167.242 |    0.647 |   SUCCESSFUL |
+|               135 |         11 |     base |        base |   shadow |    36 |                  |     C |  FENCE | FENCE |   18.770 |    0.076 |   SUCCESSFUL |
+|               135 |         17 |     base |        must |   shadow |    36 |                  |     C |  FENCE | FENCE |   26.440 |    1.004 |   SUCCESSFUL |
+|               135 |         21 |     tsan |        must |   shadow |    36 |                  |     C |  FENCE | FENCE |  214.720 |    5.671 |   SUCCESSFUL |
+|               135 |         26 | tsan-opt |        must |   shadow |    36 |             AL10 |     C |  FENCE | FENCE |  183.698 |    2.317 |   SUCCESSFUL |
+|               135 |         31 | tsan-opt |        must |   shadow |    36 |           AL1000 |     C |  FENCE | FENCE |  185.362 |    2.086 |   SUCCESSFUL |
+|               135 |         36 | tsan-opt |        must |   shadow |    36 |            ALX10 |     C |  FENCE | FENCE |  185.860 |    1.096 |   SUCCESSFUL |
+|               135 |         41 | tsan-opt |        must |   shadow |    36 |          ALX1000 |     C |  FENCE | FENCE |  184.192 |    3.429 |   SUCCESSFUL |
+|               135 |         46 | tsan-opt |        must |   shadow |    36 |          CLUSTER |     C |  FENCE | FENCE |  199.314 |    2.932 |   SUCCESSFUL |
+|               135 |         51 | tsan-opt |        must |   shadow |    36 |    ALX10,CLUSTER |     C |  FENCE | FENCE |  174.094 |    1.683 |   SUCCESSFUL |
+|               135 |         56 | tsan-opt |        must |   shadow |    36 |  ALX1000,CLUSTER |     C |  FENCE | FENCE |  172.792 |    2.052 |   SUCCESSFUL |
