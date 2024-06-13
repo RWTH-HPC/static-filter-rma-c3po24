@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE jube [
-  <!ENTITY iterations "5"> <!-- - - - - - - - - - - number of times the exectuion step should be repeated -->
+  <!ENTITY iterations "1"> <!-- - - - - - - - - - - number of times the exectuion step should be repeated -->
 ]>
 <jube>  
   <include-path>

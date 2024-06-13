@@ -115,7 +115,7 @@
       </do>
     </step>
     <!-- Execute step -->
-    <step name="execute" depend="compile" suffix="${compile_mode}_${measurement_mode}" active="not ${ignorelist}" iterations="5">
+    <step name="execute" depend="compile" suffix="${compile_mode}_${measurement_mode}" active="not ${ignorelist}" iterations="1">
       <include from="defaults.xml" path="execute_psets/use" />
       <do done_file="${done_file}" error_file="${error_file}">
         $submit $submit_script

@@ -4,7 +4,7 @@
 -->
 <jube>
     <parameterset name="must_config_pset">
-      <parameter name="must_commit">9090b10422f3bbd7fc994f4ffb917fa0137b663c</parameter> <!-- commit hash or "HEAD" -->
+      <parameter name="must_commit">1334dd0ff92f2efa5ad112c93961af7541dc57fb</parameter> <!-- commit hash or "HEAD" -->
       <parameter name="build_must" mode="shell">if ${force_must_build} || [ ! -f "${mustbin_path}/mustrun" ]; then echo "1"; else echo "0"; fi</parameter>
       <parameter name="must_prerequisite_modules"  separator=";" mode="python">
         " ".join(${prerequisite_modules_dict}.get("${cmake_module}", []) + ["${cmake_module}"])

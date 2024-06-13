@@ -19,8 +19,8 @@
       
       <!-- Preset inputs -->
       <parameter name="CLASS" tag="S">A</parameter> 
-      <parameter name="CLASS" tag="M">B</parameter> 
-      <parameter name="CLASS" tag="L">C</parameter>    
+      <parameter name="CLASS" tag="M">C</parameter>
+      <parameter name="CLASS" tag="L">D</parameter>
     </parameterset>    
     <!-- 
       source directory 
@@ -60,9 +60,9 @@
       <!-- RMA is used by default -->
       <parameter name="RMA_target" type="string"></parameter>
       <parameter name="export_flags" separator="!NONE!" mode="python"> <!-- Environment variables for compilation with tsan -->
-        {"base": 'MPIFC="mpif90-flang" FFLAGS="-g"',
-        "tsan": 'MPIFC="${MUSTFC}" FFLAGS="--wrap-target mpif90-flang -g ${must_stats_compile_flags}" FLINKFLAGS="-g --wrap-target mpif90-flang ${must_stats_compile_flags}"',
-        "tsan-opt": 'MPIFC="${MUSTFC}" FFLAGS="--wrap-target mpif90-flang --optimizations ${must_compile_opt} -g ${must_stats_compile_flags}" FLINKFLAGS="-g --wrap-target mpif90-flang --optimizations ${must_compile_opt} ${must_stats_compile_flags}"'}.get("${compile_mode}", 0)
+        {"base": 'MPIFC="mpif90-flang" FFLAGS="-g -O3"',
+        "tsan": 'MPIFC="${MUSTFC}" FFLAGS="-O3 --wrap-target mpif90-flang -g ${must_stats_compile_flags}" FLINKFLAGS="-O3 -g --wrap-target mpif90-flang ${must_stats_compile_flags}"',
+        "tsan-opt": 'MPIFC="${MUSTFC}" FFLAGS="-O3 --wrap-target mpif90-flang --optimizations ${must_compile_opt} -g ${must_stats_compile_flags}" FLINKFLAGS="-O3 -g --wrap-target mpif90-flang --optimizations ${must_compile_opt} ${must_stats_compile_flags}"'}.get("${compile_mode}", 0)
       </parameter> 
     </parameterset>
     <parameterset name="module_env_pset" init_with="system_settings.xml"></parameterset>
@@ -108,7 +108,7 @@
       </do>
     </step>
     <!-- Execute step -->
-    <step name="execute" depend="compile" suffix="${compile_mode}_${measurement_mode}" active="not ${ignorelist}" iterations="5">
+    <step name="execute" depend="compile" suffix="${compile_mode}_${measurement_mode}" active="not ${ignorelist}" iterations="1">
       <include from="defaults.xml" path="execute_psets/use" />
       <do done_file="${done_file}" error_file="${error_file}">
         if [[ "$ERROR_tasks" == "ERR" ]]; then &gt;&amp;2 echo "$ERROR_tasks_msg"; exit 1; fi
