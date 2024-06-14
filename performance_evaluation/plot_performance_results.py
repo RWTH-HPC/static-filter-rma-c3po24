@@ -2,6 +2,8 @@ from datetime import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import itertools
+import numpy as np
 
 benchmark_name_map = {
     "PRK_stencil": "PRK Stencil",
@@ -11,22 +13,13 @@ benchmark_name_map = {
     "lulesh": "LULESH (RMA Port)"
 }
 
-# benchmark_paths = {
-#     "PRK Stencil\n{\small 48 procs, 400 iters}\n{\small Matrix: $20000^2$}": "/home/ss540294/research/RMA_Codes/jube/benchmarks/PRK_stencil/PRK_stencil.benchmarks/000006/result/result_csv.dat",
-#     "PRK Transpose\n{\small 48 procs, 400 iters}\n{\small Matrix: $16320^2$}": "/home/ss540294/research/RMA_Codes/jube/benchmarks/PRK_transpose/PRK_transpose.benchmarks/000003/result/result_csv.dat",
-#     "miniMD-RMA\n{\small 48 procs, 200 iters}\n{\small LJ, $4 \cdot 10^6$ atoms}": "/home/ss540294/research/RMA_Codes/jube/benchmarks/miniMD/miniMD.benchmarks/000007/result/result_csv.dat",
-#     "LULESH-RMA\n{\small 27 procs}\n{\small Mesh Size: $20^3$}": "/home/ss540294/research/RMA_Codes/jube/benchmarks/lulesh/lulesh.benchmarks/000008/result/result_csv.dat",
-#     "NPB BT-RMA\n{\small 36 procs}\n{\small Class B}": "/home/ss540294/research/RMA_Codes/jube/benchmarks/BT-RMA/BT-RMA.benchmarks/000042/result/result_csv.dat",
-#     "miniVite\n{\small 32 procs}\n{\small nlpkkt240}": "/home/ss540294/research/RMA_Codes/jube/benchmarks/miniVite/miniVite.benchmarks/000025/result/result_csv.dat"
-# }
-
-benchmark_paths = {
-    "PRK Stencil\n{\small 48 procs, 400 iters}\n{\small Matrix: $20000^2$}": "benchmark_results/PRK_stencil/result/result_csv.dat",
-    "PRK Transpose\n{\small 48 procs, 400 iters}\n{\small Matrix: $16320^2$}": "benchmark_results/PRK_transpose/result/result_csv.dat",
-    "miniMD-RMA\n{\small 48 procs, 200 iters}\n{\small LJ, $4 \cdot 10^6$ atoms}": "benchmark_results/miniMD//result/result_csv.dat",
-    "LULESH-RMA\n{\small 27 procs}\n{\small Mesh Size: $20^3$}": "benchmark_results/lulesh/result/result_csv.dat",
-    "NPB BT-RMA\n{\small 36 procs}\n{\small Class C}": "benchmark_results/BT-RMA/result/result_csv.dat",
-    "miniVite\n{\small 32 procs}\n{\small nlpkkt240}": "benchmark_results/miniVite/result/result_csv.dat"
+benchmark_details = {
+    "PRK Stencil": ["PRK Stencil\n{48 procs}\n{400 iters, Matrix: $20000^2$}", "benchmark_results/PRK_stencil/result/result_csv.dat"],
+    "PRK Transpose": ["PRK Transpose\n{48 procs\n{400 iters, Matrix: $16320^2$}", "benchmark_results/PRK_transpose/result/result_csv.dat"],
+    "miniMD-RMA": ["miniMD-RMA\n{48 procs\n{200 iters, LJ, $4 \\cdot 10^6$ atoms}", "benchmark_results/miniMD//result/result_csv.dat"],
+    "LULESH-RMA": ["LULESH-RMA\n{27 procs\n{Mesh Size: $20^3$}", "benchmark_results/lulesh/result/result_csv.dat"],
+    "NPB BT-RMA": ["NPB BT-RMA\n{36 procs\n{Class C}", "benchmark_results/BT-RMA/result/result_csv.dat"],
+    "miniVite": ["miniVite\n{32 procs\n{nlpkkt240}", "benchmark_results/miniVite/result/result_csv.dat"]
 }
 
 plt.rc('pdf', fonttype=42)
@@ -40,7 +33,7 @@ plt.rcParams.update({
 })
 
 
-def read_csv(benchmark_name, csv_file) -> None:
+def read_csv(benchmark_name, full_description, csv_file) -> None:
     # Read csv
     df = pd.read_csv(csv_file, sep=";")
     # Drop columns which have no values
@@ -56,6 +49,7 @@ def read_csv(benchmark_name, csv_file) -> None:
              'time_avg', 'time_std', 'must_compile_opt']]
 
     df['benchmark'] = benchmark_name
+    df['full_description'] = full_description
 
     # Calculate tool slowdown
     target_column = "time_avg"
@@ -95,20 +89,18 @@ def read_csv(benchmark_name, csv_file) -> None:
     return df
 
 
-def create_plots(dfs) -> None:
-    palette = ["#383838", "#FFFFFF", "#7c7c7c",
-               "#7c7c7c", "#d5d5d5", "#d5d5d5"]
-
-    sns.set_style("whitegrid")
-    fig = plt.figure(figsize=(9, 2.2), dpi=300)
-    #fig.subplots_adjust(bottom=0.9)
-
-    num_benchmarks = dfs['benchmark'].nunique()
+def create_subplots(dfs, ax_sp, num_benchmarks):
+    palette = ["#383838", "#ffffff", "#7c7c7c", "#7c7c7c",
+               "#d5d5d5", "#d5d5d5"]
     ax = sns.barplot(
-        x="benchmark", y="tool slowdown", data=dfs, hue="must_compile_opt", palette=palette, edgecolor="black")
+        x="full_description", y="tool slowdown", data=dfs, hue="must_compile_opt", palette=palette, edgecolor="black", ax=ax_sp)
     ax.set_xlabel("", fontsize=10)
     ax.set_ylabel("Tool Slowdown", fontsize=11)
     ax.set_ymargin(0.35)
+    plt.xticks(fontsize=11)
+    plt.yticks(np.arange(0, 20 + 5, 5), fontsize=11)
+    plt.ylim([0,20])
+    ax.set_ymargin(0.20)
 
     # define hatches for the different bars
     hatches = ['', '//', '', '//', '', '//']
@@ -117,25 +109,51 @@ def create_plots(dfs) -> None:
     for i, thisbar in enumerate(ax.patches):
         # Set a different hatch for each bar
         thisbar.set_hatch(hatches[i])
+
     # disable axes legend
     ax.legend([],[], frameon=False)
-    # enable figure legend
-    leg = fig.legend(title="Applied Filter Optimizations", loc="lower center",
-                     bbox_to_anchor=(0.5, -0.2), ncol=6)
+
 
     # Show values
     for i in ax.containers:
-        texts = ax.bar_label(i, fmt='%.1f', rotation=90, fontsize=8)
+        texts = ax.bar_label(i, fmt='%.1f', rotation=90, fontsize=10)
         for text in texts:
-            text.set(y=5, zorder=2000)
+            text.set(y=4, zorder=2000)
     plt.tight_layout()
 
-    plt.savefig(f"plots/static_filter_performance_results.png", bbox_inches='tight')
-    plt.savefig(f"plots/static_filter_performance_results.pdf", bbox_inches='tight')
+
+    return ax
+
+def create_plots(dfs) -> None:
+    palette = ["#383838", "#FFFFFF", "#7c7c7c",
+               "#7c7c7c", "#d5d5d5", "#d5d5d5"]
+
+    sns.set_style("whitegrid")
+    fig = plt.figure(figsize=(7.5, 5), dpi=300)
+    plt.subplots_adjust(bottom=0.2, top=0.4)
+
+    plt.clf()
+    sp = fig.add_subplot(211)
+    ax = create_subplots(dfs[(dfs['benchmark'] == "PRK Stencil") | (dfs['benchmark'] == "PRK Transpose") | (dfs['benchmark'] == "miniMD-RMA")], sp, 3)
+    sp = fig.add_subplot(212)
+    ax = create_subplots(dfs[(dfs['benchmark'] == "LULESH-RMA") | (dfs['benchmark'] == "NPB BT-RMA") | (dfs['benchmark'] == "miniVite")], sp, 3)
+
+    def flip(items, ncol):
+        return list(itertools.chain(*[items[i::ncol] for i in range(ncol)]))
+    
+    # legend with unique items
+    handles, labels = ax.get_legend_handles_labels()
+    unique = [(h, l) for i, (h, l) in enumerate(zip(handles, labels)) if l not in labels[:i]]
+    ax.legend(*zip(*unique), title="Applied Filter Optimizations", loc="lower center",
+                    bbox_to_anchor=(0.5, -1.2), ncol=6, columnspacing=1)
+    plt.tight_layout()
+
+    plt.savefig(f"plots/performance_results.png", bbox_inches='tight')
+    plt.savefig(f"plots/performance_results.pdf", bbox_inches='tight')
 
 if __name__ == "__main__":
     dfs = []
-    for (benchmark, path) in benchmark_paths.items():
-        dfs.append(read_csv(benchmark, path))
+    for (benchmark, [full_description, path]) in benchmark_details.items():
+        dfs.append(read_csv(benchmark, full_description, path))
     dfs = pd.concat(dfs, axis=0)
     create_plots(dfs)
