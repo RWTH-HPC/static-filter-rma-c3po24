@@ -59,3 +59,7 @@ The sources of different codes are available at
 - LULESH (RMA port): [performance_evaluation/rma_codes/benchmarks/lulesh/lulesh](performance_evaluation/rma_codes/benchmarks/lulesh/lulesh)
 - BT-RMA (RMA port): [performance_evaluation/rma_codes/benchmarks/BT-RMA/npb](performance_evaluation/rma_codes/benchmarks/BT-RMA/npb)
 - miniVite: [performance_evaluation/rma_codes/benchmarks/miniVite](performance_evaluation/rma_codes/benchmarks/miniVite)
+
+## Input Data
+
+The input graph for miniVite was taken from <https://www.cise.ufl.edu/research/sparse/matrices/Schenk/nlpkkt240.html>.

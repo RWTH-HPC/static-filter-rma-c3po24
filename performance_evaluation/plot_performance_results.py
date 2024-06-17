@@ -19,7 +19,7 @@ benchmark_details = {
     "miniMD-RMA": ["miniMD-RMA\n{48 procs\n{200 iters, LJ, $4 \\cdot 10^6$ atoms}", "benchmark_results/miniMD//result/result_csv.dat"],
     "LULESH-RMA": ["LULESH-RMA\n{27 procs\n{Mesh Size: $20^3$}", "benchmark_results/lulesh/result/result_csv.dat"],
     "NPB BT-RMA": ["NPB BT-RMA\n{36 procs\n{Class C}", "benchmark_results/BT-RMA/result/result_csv.dat"],
-    "miniVite": ["miniVite\n{32 procs\n{nlpkkt240}", "benchmark_results/miniVite/result/result_csv.dat"]
+    "miniVite": ["miniVite\n{32 procs\n{Graph: nlpkkt240}", "benchmark_results/miniVite/result/result_csv.dat"]
 }
 
 plt.rc('pdf', fonttype=42)
